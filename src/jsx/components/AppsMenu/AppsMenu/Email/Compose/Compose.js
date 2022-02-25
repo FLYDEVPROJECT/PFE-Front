@@ -17,7 +17,7 @@ const Compose = () => {
                      <div className="email-left-box px-0 mb-3">
                         <div className="p-0">
                            <Link
-                              to="/accee"
+                              to="/accés"
                               className="btn btn-primary btn-block"
                            >
                               Compose
@@ -35,14 +35,14 @@ const Compose = () => {
                               </span>
                            </Link>
                            <Link
-                              to="/accee"
+                              to="/accés"
                               className="list-group-item"
                            >
                               <i className="fa fa-paper-plane font-18 align-middle mr-2"></i>
                               Sent
                            </Link>
                            <Link
-                              to="/accee"
+                              to="/accés"
                               className="list-group-item"
                            >
                               <i className="fa fa-star-o font-18 align-middle mr-2"></i>
@@ -52,14 +52,14 @@ const Compose = () => {
                               </span>
                            </Link>
                            <Link
-                              to="/accee"
+                              to="/accés"
                               className="list-group-item"
                            >
                               <i className="mdi mdi-file-document-box font-18 align-middle mr-2"></i>
                               Draft
                            </Link>
                            <Link
-                              to="/accee"
+                              to="/accés"
                               className="list-group-item"
                            >
                               <i className="fa fa-trash font-18 align-middle mr-2"></i>

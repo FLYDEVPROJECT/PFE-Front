@@ -18,7 +18,7 @@ const Inbox = () => {
               <div className='email-left-box px-0 mb-3'>
                 <div className='p-0'>
                   <Link
-                    to='/accee'
+                    to='/accés'
                     className='btn btn-primary btn-block'
                   >
                     Compose

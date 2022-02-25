@@ -59,7 +59,7 @@ class SideBar extends Component {
       app = [
         "app-profile",
         "med-dentaire",
-        "accee",
+        "accés",
         "email-inbox",
         "email-read",
         "ecom-product-grid",
@@ -72,7 +72,7 @@ class SideBar extends Component {
         "post-details",
         "ecom-product-detail",
       ],
-      email = ["accee", "email-inbox", "email-read"],
+      email = ["accés", "email-inbox", "email-read"],
     
       charts = [
         "chart-rechart",
@@ -165,7 +165,7 @@ class SideBar extends Component {
                 </li>
 
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/accee">Accée</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/accés">Accés</Link>
                 </li>
               
 

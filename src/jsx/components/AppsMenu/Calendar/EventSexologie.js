@@ -11,7 +11,7 @@ const Compose = () => {
                         <div class="card">
                            <div class=" d-block card-header">
                          
-                              <div class="card-title h5">ecrivez  Nom votre médecin et votre ville </div>
+                              <div class="card-title h5">ecrivez le nom de votre médecin et votre ville</div>
                            <p class="mb-0 subtitle card-text">et recevez votre sms/mail de confirmation. C’est aussi simple que ça !</p>
                            </div>
                            

@@ -139,7 +139,7 @@ const Markup = () => {
     
     { url: 'app-profile', component: AppProfile },
     { url: 'Med-gyneco', component: gynecologie },
-    { url: 'accee', component: Compose },
+    { url: 'accés', component: Compose },
     { url: 'Med-interne', component: interne },
     { url: 'Med-dermato', component: Dermatologie },
     { url: 'Med-dentaire', component: Calendar },

@@ -43,22 +43,16 @@ const AppProfile = () => {
       const defaultAccordion = [
         {
           title: 'Changer le mot de passe ',
-          text:
-            'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.',
-          bg: 'primary',
+                   bg: 'primary',
         },
         {
           title: 'Accordion Header Two',
-          text:
-            'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.',
-    
+         
           bg: 'info',
         },
         {
           title: 'Accordion Header Three',
-          text:
-            'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.',
-    
+         
           bg: 'success',
         },
       ]
