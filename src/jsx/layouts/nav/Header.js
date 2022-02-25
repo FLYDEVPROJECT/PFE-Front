@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 /// Image
-import profile from "../../../images/profile/12.png";
 import avatar from "../../../images/avatar/1.jpg";
 import LogoutLink from './Logout'; 
 

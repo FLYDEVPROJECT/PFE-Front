@@ -35,8 +35,6 @@ function App (props) {
     
     let routes = (  
         <Switch>
-
-     
            <Route exact path="/" component={Login}/>
           
            <Route exact path="/patient" component={patient}/>

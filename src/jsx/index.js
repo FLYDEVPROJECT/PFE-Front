@@ -21,10 +21,8 @@ import Task from './components/Dashboard/Task';
 
 /// App
 import AppProfile from './components/AppsMenu/AppProfile/AppProfile'
-import PostDetails from './components/AppsMenu/AppProfile/PostDetails'
 import Compose from './components/AppsMenu/Email/Compose/Compose'
-import Inbox from './components/AppsMenu/Email/Inbox/Inbox'
-import Read from './components/AppsMenu/Email/Read/Read'
+
 import Calendar from './components/AppsMenu/Calendar/Calendar'
 
 /// Product List
@@ -104,6 +102,19 @@ import Todo from './pages/Todo';
 
 //Scroll To Top
 import ScrollToTop from './layouts/ScrollToTop';
+import Dermatologie from './components/AppsMenu/Calendar/dermatologie'
+import interne from './components/AppsMenu/Calendar/Interne'
+import Cardiologie from './components/AppsMenu/Calendar/cardiologie'
+import gynecologie from './components/AppsMenu/Calendar/gynecologie'
+import Ophtalmologie from './components/AppsMenu/Calendar/ophtalmologie'
+import Orthopedie from './components/AppsMenu/Calendar/Orthopedie'
+import Pediatrie from './components/AppsMenu/Calendar/Pediatrie'
+import Sexologie from './components/AppsMenu/Calendar/Sexologie'
+import Gastro from './components/AppsMenu/Calendar/Gastro'
+import Urologie from './components/AppsMenu/Calendar/Urologie'
+import Pneumologie from './components/AppsMenu/Calendar/Pneumologie'
+import OtoRhinoLaryngologie from './components/AppsMenu/Calendar/OtoRhinoLaryngologie'
+
 
 
 const Markup = () => {
@@ -125,12 +136,30 @@ const Markup = () => {
 	{ url: 'task', component: Task },
 
     /// Apps
+    
     { url: 'app-profile', component: AppProfile },
-    { url: 'post-details', component: PostDetails },
-    { url: 'email-compose', component: Compose },
-    { url: 'email-inbox', component: Inbox },
-    { url: 'email-read', component: Read },
-    { url: 'app-calender', component: Calendar },
+    { url: 'Med-gyneco', component: gynecologie },
+    { url: 'accee', component: Compose },
+    { url: 'Med-interne', component: interne },
+    { url: 'Med-dermato', component: Dermatologie },
+    { url: 'Med-dentaire', component: Calendar },
+    { url: 'Med-cardio', component: Cardiologie },
+    { url: 'Med-ophtalmo', component: Ophtalmologie },
+    { url: 'Med-orthopedie', component: Orthopedie },
+    { url: 'Med-Pediatrie', component: Pediatrie },
+    { url: 'Med-Sexologie', component: Sexologie },
+    { url: 'Med-Gastro', component: Gastro },
+    { url: 'Med-Urologie', component: Urologie },
+    { url: 'Med-Pneumologie', component: Pneumologie },
+    { url: 'Med-ORL', component: OtoRhinoLaryngologie },
+
+
+
+
+
+
+
+
     
 
     /// Chart

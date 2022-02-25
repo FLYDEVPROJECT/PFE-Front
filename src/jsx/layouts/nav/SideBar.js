@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 /// Link
 import { Link } from "react-router-dom";
+import LogoutLink from './Logout'; 
 
 
 class MM extends Component {
@@ -57,8 +58,8 @@ class SideBar extends Component {
       ],
       app = [
         "app-profile",
-        "app-calender",
-        "email-compose",
+        "med-dentaire",
+        "accee",
         "email-inbox",
         "email-read",
         "ecom-product-grid",
@@ -71,17 +72,8 @@ class SideBar extends Component {
         "post-details",
         "ecom-product-detail",
       ],
-      email = ["email-compose", "email-inbox", "email-read"],
-      shop = [
-        "ecom-product-grid",
-        "ecom-product-list",
-        "ecom-product-list",
-        "ecom-product-order",
-        "ecom-checkout",
-        "ecom-invoice",
-        "ecom-customers",
-        "ecom-product-detail",
-      ],
+      email = ["accee", "email-inbox", "email-read"],
+    
       charts = [
         "chart-rechart",
         "chart-flot",
@@ -163,89 +155,29 @@ class SideBar extends Component {
             <li className={`${dashBoard.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-networking"></i>
-                <span className="nav-text">Tableau de bord</span>
+                <span className="nav-text">Mon Profile</span>
               </Link>
-				<ul >
-					<li>
-						<Link className={`${path === "" ? "mm-active" : ""}`} to="/" onClick={() => this.props.onClick3()}>Dashboard</Link>
-					</li>
-					<li>
-						<Link className={`${path === "patient-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/patient-list">
-							Patient
-						</Link>
-					</li>
-				
-					<li>
-						<Link className={`${path === "doctor-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/doctor-list">
-							Doctor
-						</Link>
-					</li>
-				
-					
-							
-				</ul>
-            </li>
-            <li className={`${app.includes(path) ? "mm-active" : ""}`}>
-              <Link className="has-arrow ai-icon" to="#" >
-                <i className="flaticon-381-television"></i>
-                <span className="nav-text">Mon Profile </span>
-              </Link>
+			
+
               <ul >
                 <li>
 					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/app-profile">Profile</Link>
                 </li>
-		
-                <li className={`${email.includes(path) ? "mm-active" : ""}`}>
-                    <Link className="has-arrow" to="#" >Email</Link>
-                  <ul
-                    
-                    className={`${email.includes(path) ? "mm-show" : ""}`}
-                  >
-                    <li>
-                      <Link
-                        className={`${
-                          path === "email-compose" ? "mm-active" : ""
-                        }`}
-                        to="/email-compose"
-                        onClick={() => this.props.onClick()}
-                      >
-                        Compose
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={`${
-                          path === "email-inbox" ? "mm-active" : ""
-                        }`}
-                        to="/email-inbox"
-                        onClick={() => this.props.onClick()}
-                      >
-                        Inbox
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={`${
-                          path === "email-read" ? "mm-active" : ""
-                        }`}
-                        to="/email-read"
-                        onClick={() => this.props.onClick()}
-                      >
-                        Read
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
+
                 <li>
-                  <Link
-                    className={`${path === "app-calender" ? "mm-active" : ""}`}
-                    onClick={() => this.props.onClick()}
-                    to="/app-calender"
-                  >
-                    Calendar
-                  </Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/accee">Accée</Link>
                 </li>
-              </ul></li>
+              
+
+
+
+		
+               </ul></li>
+
+
+      
+        
+          
             <li className={`${charts.includes(path) ? "mm-active" : ""}`}>
          
               <ul >
@@ -274,6 +206,18 @@ class SideBar extends Component {
                     }`}
                     onClick={() => this.props.onClick()}
                     to="/chart-chartist"
+                  >
+                    Chartist
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`${
+                      path === "chart-chartist" ? "mm-active" : ""
+                    }`}
+                    onClick={() => this.props.onClick()}
+                    to="/med-dentaire
+                    "
                   >
                     Chartist
                   </Link>
@@ -581,20 +525,14 @@ class SideBar extends Component {
               <ul >
                
                 <li>
-                    <Link className={`${ path === "page-lock-screen" ? "mm-active" : "" }`} to="/page-lock-screen" onClick={() => this.props.onClick3()}>
-                        Lock Screen
-                    </Link>
+                 
+                    <LogoutLink />
+
                 </li>
               </ul>
             </li>
           </MM>
-			<div className="plus-box">
-                  <p className="fs-16 font-w500 mb-1">
-                </p>
-                  <Link to={"#"} className="text-white fs-26" >
-                     <i className="las la-long-arrow-alt-right" />
-                  </Link>
-               </div>
+		
 			<div className="copyright">
 				<p>
 				  <strong></strong> 

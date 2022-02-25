@@ -16,21 +16,22 @@ const UiModal = () => {
                            <div class=" d-block card-header">
 
                            <div class="row">
-  <div class="col-8">    <div class="card-title h5">ecrivez  Nom votre médecin et votre ville </div>
+  <div class="col-8">    <div class="card-title h5">ecrivez le Nom de votre médecin et votre ville </div>
                            <p class="mb-0 subtitle card-text">et recevez votre sms/mail de confirmation. C’est aussi simple que ça !</p>
                            </div>
   <div class="col-2">
+     <div  className="pull-right">
   <Button
                            variant="primary"
-                           className="mb-2 mr-2"
+                           className="mb-2 mr-2" 
                            onClick={() => setContentModal(true)}
                         >
                            A propos
-                        </Button>
+                        </Button></div>
                         {/* <!-- Modal --> */}
                         <Modal className="fade" show={contentModal}>
                            <Modal.Header>
-                              <Modal.Title>Medecine dentaire </Modal.Title>
+                              <Modal.Title>Cardiologie</Modal.Title>
                               <Button
                                  variant=""
                                  className="close"
@@ -41,29 +42,28 @@ const UiModal = () => {
                            </Modal.Header>
                            <Modal.Body>
                            <div class="row text-center justify-content-center mt-5">
-
                            <img
-                        src="https://svgsilh.com/svg/1501321.svg"
+                        src="https://svgsilh.com/svg/497674.svg"
                         className="img-fluid mb-3 height60"
                         alt=""
                       /></div>
                               <p><strong>
-                              Qu’est-ce que l'odontologie ? </strong>
+                              Qu’est-ce que la Cardiologie ? </strong>
                               </p>
                               <p>
           
-                            *  Science de la médecine dédiée à l'étude et au traitement des organes buccaux, les dents, et des tissus qui les soutiennent, les parodontes.
 
+                         *      La cardiologie est une branche de la médecine qui traite des troubles du cœur ainsi que de certaines parties du système circulatoire. 
                               </p>
-                              <p><strong>Quand consulter l'odontologiste ?</strong>
+                              <p><strong>Quand consulter un cardiologue ?</strong>
                                  
                               </p>
                               <p>
-                                - Des parodontopathies (maladies touchant les tissus de soutien des dents) ;<br></br>
-                                - La perte de dents <br></br>
-                                - Des infections d’origine bactérienne, fongique ou virale et qui touchent la sphère bucco-dentaire <br></br>
-                                - des traumatismes bucco-dentaires<br></br>
-                                - un mauvais alignement des dents<br></br>
+                                - Insuffisance cardiaque<br></br>
+                                - Insuffisance coronaire<br></br>
+                                - Essoufflement <br></br>
+                                - Douleurs thoraciques,<br></br>
+                                - souffle au coeur<br></br>
                               </p>
                             
                             
@@ -80,8 +80,7 @@ const UiModal = () => {
                            <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-               <div class="input-group search-area ml-auto d-inline-flex">
-                  <input type="text" class="form-control" placeholder="Nom du professionel de santé "/><div class="input-group-append"><button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button></div></div>
+               <div class="input-group search-area ml-auto d-inline-flex"><input type="text" class="form-control" placeholder="Nom du professionel de santé "/><div class="input-group-append"><button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button></div></div>
                </div>
             </div>
             

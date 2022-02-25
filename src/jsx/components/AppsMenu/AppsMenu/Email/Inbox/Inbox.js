@@ -201,15 +201,7 @@ const Inbox = () => {
                               </span>
                               Private
                            </Link>
-                           <Link to="/email-inbox" className="list-group-item">
-                              <span className="icon-success">
-                                 <i
-                                    className="fa fa-circle"
-                                    aria-hidden="true"
-                                 ></i>
-                              </span>
-                              Support
-                           </Link>
+                         
                            <Link to="/email-inbox" className="list-group-item">
                               <span className="icon-dpink">
                                  <i

@@ -42,10 +42,10 @@ function Login (props) {
                 <div className="row">
                     <div className="col-lg-6 col-md-7 box-skew d-flex">
                         <div className="authincation-content">
-                            <Link to="/dashboard" className="login-logo">
+                            <div className="login-logo">
                             <img src={logo} alt="" className="logo-icon mr-2"/>
                                
-                            </Link>
+                            </div>
                             <div className="mb-4">
                                 <h3 className="mb-1 font-w600">Welcome to HC
                                      </h3>
@@ -68,7 +68,7 @@ function Login (props) {
                             <form onSubmit={onLogin}>
                             <div className="form-group">
                                     <label className="mb-2 ">
-                                        <strong className="">Identifiant RPPS</strong>
+                                        <strong className="">Code Sécurité Sociale ( CSS)*</strong>
                                     </label>
                                     <input type="RPPS" className="form-control" placeholder='********' />
                                 </div>

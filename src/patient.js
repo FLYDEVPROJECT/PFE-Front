@@ -181,7 +181,7 @@ class Patient extends Component {
           <div className="col-lg-8 mb-2">
               
                 <div className="form-group"></div>
-            <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+            </div><br></br>    <div className="col-lg-8 mb-2">
             <div className="form-group"> </div>
           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
             </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
@@ -207,14 +207,14 @@ class Patient extends Component {
             </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
             </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
             </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-            <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> 
+            </div><br></br>    <div className="col-lg-8 mb-2"> 
                 <div className="form-group"></div>
                 <div className="form-group"></div>
-            <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2">
                 <div className="form-group"></div>
-            <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+            </div><br></br>   <div className="col-lg-8 mb-2">
                 <div className="form-group"></div>
-            <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+            </div><br></br>   <div className="col-lg-8 mb-2">
                 <div className="form-group"></div>
             </div>
             
@@ -263,11 +263,7 @@ class Patient extends Component {
     
     </div>
   </div>
-  </div>
-
-
-
-           
+  </div>          
                             <div className="auth-form">
                                
                             
@@ -305,7 +301,11 @@ class Patient extends Component {
             </div></div>
   
              <div className="col-lg-12 mb-3">
+
+
                 <div className="form-group">
+
+                   
                 <label className="text-label"><strong>Joindrez votre photo</strong></label></div>
     <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" href="/app-profile"><i class="fa fa-camera m-0"></i> </a>
   
@@ -474,18 +474,18 @@ class Patient extends Component {
 
             
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2">
              
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+         </div><br></br>    <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1>   <div className="col-lg-8 mb-2">
+           <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br></h1></div><br></br>
+          </div><br></br></div><br></br>
            <br></br>
            
       <div className="authincation h-100 p-meddle">
@@ -634,54 +634,54 @@ class Patient extends Component {
          <div className="form-group">
          <div className="col-lg-12 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+          </div><br></br>    <div className="col-lg-8 mb-2">
            <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+          </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+          </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+         </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2">
            <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> 
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> 
+           </div><br></br>    <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
            <h1>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br></h1></div><br></br>
+          </div><br></br></h1></div><br></br>
            <br></br>
            
       <div className="authincation h-100 p-meddle">
@@ -743,7 +743,6 @@ class Patient extends Component {
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez"
                      cols="20" rows="2"
@@ -773,7 +772,6 @@ Veuillez indiquer quel produit</strong></label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez"
                      cols="20" rows="2"
@@ -801,7 +799,6 @@ Veuillez indiquer quel produit</strong></label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez"
                      cols="20" rows="2"
@@ -830,7 +827,6 @@ Veuillez indiquer quel produit</strong></label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez"
                      cols="20" rows="2"
@@ -861,7 +857,7 @@ Veuillez indiquer quel produit</strong></label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
+                
                      className="form-control"
                      placeholder="présisez"
                      cols="20" rows="2"
@@ -894,7 +890,6 @@ après avoir reçu une anesthésie générale </strong> </label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez"
                      cols="20" rows="2"
@@ -925,7 +920,6 @@ après avoir reçu une anesthésie générale </strong> </label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez ( Quand? Où? Pourquoi?)"                     cols="20" rows="2"
                      required
@@ -957,7 +951,6 @@ après avoir reçu une anesthésie générale </strong> </label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez ( Quand? Où? Pourquoi?)"                     cols="20" rows="2"
                      required
@@ -986,7 +979,6 @@ après avoir reçu une anesthésie générale </strong> </label>
                <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      placeholder="présisez ( Quand? Où? Pourquoi?)"                     cols="20" rows="2"
                      required
@@ -1171,43 +1163,43 @@ après avoir reçu une anesthésie générale </strong> </label>
          <div className="form-group">
          <div className="col-lg-12 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2">
            <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2">
              
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1>   <div className="col-lg-8 mb-2">
+  <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br></h1></div><br></br>
+           </div><br></br></div><br></br>
            <br></br>
            
       <div className="authincation h-100 p-meddle">
@@ -1271,7 +1263,6 @@ après avoir reçu une anesthésie générale </strong> </label>
                   <strong> Numéro carte d'identité *</strong></label>
                   <input
                      type="Password"
-                     name="place"
                      className="form-control"
                      placeholder="*********"
                      required
@@ -1338,7 +1329,6 @@ après avoir reçu une anesthésie générale </strong> </label>
  
             <input
                      type="email"
-                     name="place"
                      className="form-control"
                      placeholder="example@gmail.com"
                      required
@@ -1375,7 +1365,6 @@ Expérience                   </label>
                   <textarea
                      name="paragraph_text"
                      type="text"
-                     name="place"
                      className="form-control"
                      cols="50" rows="10"
                      required
@@ -1416,37 +1405,37 @@ Expérience                   </label>
          <div className="form-group">
          <div className="col-lg-12 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2">
            <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"> <div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2"><div className="form-group"></div>
+           </div><br></br>    <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>    <div className="col-lg-8 mb-2">
+           </div><br></br>    <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br>   <div className="col-lg-8 mb-2">
+           </div><br></br>   <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1>   <div className="col-lg-8 mb-2">
+             <div className="col-lg-8 mb-2">
                <div className="form-group"></div>
-           <h1></h1></div><br></br></h1></div><br></br>
+           </div><br></br></div><br></br>
            <br></br>
            
       <div className="authincation h-100 p-meddle">
@@ -1496,7 +1485,6 @@ Expérience                   </label>
                <label className="text-label"> <strong>Nom de l'établissement *</strong></label>
                   <input
                      type="Password"
-                     name="place"
                      className="form-control"
                      placeholder=""
                      required
@@ -1510,7 +1498,6 @@ Expérience                   </label>
                <label className="text-label"><strong> Numéro de l'établissement *</strong></label>
                   <input
                      type="Password"
-                     name="place"
                      className="form-control"
                      placeholder=""
                      required
@@ -1524,7 +1511,6 @@ Expérience                   </label>
                <label className="text-label"><strong>Adresse de l'établissement *</strong></label>
                <input
                      type="Password"
-                     name="place"
                      className="form-control"
                      placeholder=""
                      required
@@ -1579,7 +1565,6 @@ Expérience                   </label>
  
             <input
                      type="email"
-                     name="place"
                      className="form-control"
                      placeholder="example@gmail.com"
                      required
@@ -1592,7 +1577,6 @@ Expérience                   </label>
  
             <input
                      type="email"
-                     name="place"
                      className="form-control"
                      placeholder="example@gmail.com"
                      required
@@ -1604,7 +1588,6 @@ Expérience                   </label>
                <label className="text-label"><strong>Heure début de journée  *</strong></label>
                   <input
                      type="number"
-                     name="place"
                      className="form-control"
                      placeholder="9H"
                      required
@@ -1616,7 +1599,6 @@ Expérience                   </label>
                <label className="text-label"><strong>Heure fin de journée *</strong></label>
                   <input
                      type="number"
-                     name="place"
                      className="form-control"
                      placeholder="18H"
                      required

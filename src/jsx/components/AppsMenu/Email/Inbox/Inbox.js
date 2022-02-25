@@ -5,128 +5,8 @@ import { Dropdown } from 'react-bootstrap'
 import PageTitle from '../../../../layouts/PageTitle'
 
 const Inbox = () => {
-  const Messages = [
-    {
-      text:
-        'Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-    {
-      text:
-        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of',
-      time: '11.49 am',
-      icon: 'fa fa-star',
-    },
-  ]
+  
+
   return (
     <Fragment>
       <PageTitle activeMenu='Inbox' motherMenu='Email' />
@@ -138,7 +18,7 @@ const Inbox = () => {
               <div className='email-left-box px-0 mb-3'>
                 <div className='p-0'>
                   <Link
-                    to='/email-compose'
+                    to='/accee'
                     className='btn btn-primary btn-block'
                   >
                     Compose
@@ -172,36 +52,8 @@ const Inbox = () => {
                     Trash
                   </Link>
                 </div>
-                <div className='intro-title d-flex justify-content-between'>
-                  <h5>Categories</h5>
-                  <i className='icon-arrow-down' aria-hidden='true'></i>
-                </div>
-                <div className='mail-list mt-4'>
-                  <Link to='/email-inbox' className='list-group-item'>
-                    <span className='icon-warning'>
-                      <i className='fa fa-circle' aria-hidden='true'></i>
-                    </span>
-                    Work
-                  </Link>
-                  <Link to='/email-inbox' className='list-group-item'>
-                    <span className='icon-primary'>
-                      <i className='fa fa-circle' aria-hidden='true'></i>
-                    </span>
-                    Private
-                  </Link>
-                  <Link to='/email-inbox' className='list-group-item'>
-                    <span className='icon-success'>
-                      <i className='fa fa-circle' aria-hidden='true'></i>
-                    </span>
-                    Support
-                  </Link>
-                  <Link to='/email-inbox' className='list-group-item'>
-                    <span className='icon-dpink'>
-                      <i className='fa fa-circle' aria-hidden='true'></i>
-                    </span>
-                    Social
-                  </Link>
-                </div>
+              
+               
               </div>
               <div className='email-right-box ml-0 ml-sm-4 ml-sm-0'>
                 <div role='toolbar' className='toolbar ml-1 ml-sm-0'>
@@ -226,53 +78,9 @@ const Inbox = () => {
                       <i className='ti-reload'></i>
                     </button>
                   </div>
-                  <Dropdown className='btn-group mb-1'>
-                    <Dropdown.Toggle
-                      aria-expanded='false'
-                      data-toggle='dropdown'
-                      className='btn btn-primary px-3 light dropdown-toggle ml-1'
-                      type='button'
-                    >
-                      More <span className='caret'></span>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className='dropdown-menu'>
-                      <Dropdown.Item
-                        to='/email-inbox'
-                        className='dropdown-item'
-                      >
-                        Mark as Unread
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        to='/email-inbox'
-                        className='dropdown-item'
-                      >
-                        Add to Tasks
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        to='/email-inbox'
-                        className='dropdown-item'
-                      >
-                        Add Star
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        to='/email-inbox'
-                        className='dropdown-item'
-                      >
-                        Mute
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                
                 </div>
-                <div className='email-list mt-3'>
-                  {/** Single Message */}
-                  {Messages.map((message, index) => (
-                    <InboxMessage
-                      key={index}
-                      id={index}
-                      message={message}
-                    ></InboxMessage>
-                  ))}
-                </div>
+             
                 <div className='row mt-4'>
                   <div className='col-12 pl-3'>
                     <nav>
@@ -317,7 +125,6 @@ const Inbox = () => {
         </div>
       </div>
     </Fragment>
-  )
+  );
 }
-
 export default Inbox

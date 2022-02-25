@@ -13,6 +13,7 @@
     "@lls/react-light-calendar": "^2.2.0",
     "@loadable/component": "^5.14.1",
     "@material-ui/core": "^4.12.1",
+    "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/pickers": "^3.2.10",
     "@svg-maps/usa": "^1.1.1",

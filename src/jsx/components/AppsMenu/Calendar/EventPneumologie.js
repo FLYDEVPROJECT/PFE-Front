@@ -30,7 +30,7 @@ const UiModal = () => {
                         {/* <!-- Modal --> */}
                         <Modal className="fade" show={contentModal}>
                            <Modal.Header>
-                              <Modal.Title>Medecine dentaire </Modal.Title>
+                              <Modal.Title>La pneumologie</Modal.Title>
                               <Button
                                  variant=""
                                  className="close"
@@ -43,27 +43,34 @@ const UiModal = () => {
                            <div class="row text-center justify-content-center mt-5">
 
                            <img
-                        src="https://svgsilh.com/svg/1501321.svg"
+                        src="https://svgsilh.com/svg/297492.svg"
                         className="img-fluid mb-3 height60"
                         alt=""
                       /></div>
                               <p><strong>
-                              Qu’est-ce que l'odontologie ? </strong>
+                              Qu’est-ce que la pneumologie ? </strong>
                               </p>
                               <p>
           
-                            *  Science de la médecine dédiée à l'étude et au traitement des organes buccaux, les dents, et des tissus qui les soutiennent, les parodontes.
+                              La pneumologie désigne la spécialité s’intéressant au fonctionnement de l’appareil respiratoire - poumons, bronches, plèvre et trachée – ainsi qu’à ses maladies :
 
+- L’apnée du sommeil,<br></br>
+- broncho-pneumopathie chronique obstructive ou BPCO,<br></br>
+- L’asthme, et les allergies respiratoires<br></br>
+- Les infections respiratoires (pleurésie, broncho-pneumonie, tuberculose, légionellose…),<br></br>
+- Les altérations dues à l’inhalation prolongée d’un même type de poussières (pneumoconiose),<br></br>
+- Les tumeurs broncho-pulmonaires,<br></br>
+- L’insuffisance respiratoire,<br></br>
                               </p>
-                              <p><strong>Quand consulter l'odontologiste ?</strong>
+                              <p><strong>Quand consulter un pneumologue ?</strong>
                                  
                               </p>
                               <p>
-                                - Des parodontopathies (maladies touchant les tissus de soutien des dents) ;<br></br>
-                                - La perte de dents <br></br>
-                                - Des infections d’origine bactérienne, fongique ou virale et qui touchent la sphère bucco-dentaire <br></br>
-                                - des traumatismes bucco-dentaires<br></br>
-                                - un mauvais alignement des dents<br></br>
+                                - Une toux persistante<br></br>
+                                - Une sécrétion anormale de mucus bronchique <br></br>
+                                - Des essoufflements accentués par l’effort (dyspnée) <br></br>
+                                - Une douleur thoracique<br></br>
+                                - Des troubles du sommeil ou encore des traces de sang<br></br>
                               </p>
                             
                             
@@ -80,8 +87,7 @@ const UiModal = () => {
                            <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-               <div class="input-group search-area ml-auto d-inline-flex">
-                  <input type="text" class="form-control" placeholder="Nom du professionel de santé "/><div class="input-group-append"><button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button></div></div>
+               <div class="input-group search-area ml-auto d-inline-flex"><input type="text" class="form-control" placeholder="Nom du professionel de santé "/><div class="input-group-append"><button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button></div></div>
                </div>
             </div>
             

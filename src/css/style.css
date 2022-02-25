@@ -24744,13 +24744,18 @@ button {
   border-bottom-right-radius: 30px; }
 
 .btn-facebook {
+  
   background: #3b5998;
   border-color: #3b5998;
-  color: #fff; }
+  color: #fff;
+  width: 50%;
+
+}
   .btn-facebook:active, .btn-facebook:focus, .btn-facebook:hover {
     background: #2d4373;
     color: #fff;
-    border-color: #2d4373; }
+    border-color: #2d4373; 
+  }
 
 .btn-twitter {
   background: #1da1f2;
@@ -28592,7 +28597,7 @@ span#counter {
     background-color: #fbfbfb; }
     .login-form-bx .box-skew1:after {
       content: "";
-      background-image: url(../images/covid.jpg);
+      background-image: url(../images/patient2.jpg);
       background-size: cover;
       background-position: center bottom;
       height: 100%;

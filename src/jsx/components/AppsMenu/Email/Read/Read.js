@@ -17,7 +17,7 @@ const Read = () => {
               <div className='email-left-box generic-width px-0 mb-5'>
                 <div className='p-0'>
                   <Link
-                    to='/email-compose'
+                    to='/accee'
                     className='btn btn-primary btn-block'
                   >
                     Compose
