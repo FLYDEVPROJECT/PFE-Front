@@ -4,7 +4,6 @@ import Index from './jsx/index';
 import { connect, useDispatch } from 'react-redux';
 import {  Route, Switch, withRouter } from 'react-router-dom';
 // action
-import { checkAutoLogin } from './services/AuthService';
 import { isAuthenticated } from './store/selectors/AuthSelectors';
 /// Style
 import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
@@ -13,13 +12,6 @@ import "./css/style.css";
 //import Test from './test'
 
 import patient from './patient'
-import professionenel from './professionnel'
-import WizardFormFirstPage from './jsx/components/Forms/ReduxWizard/WizardFormFirstPage';
-import WizardForm from './jsx/components/Forms/ReduxWizard/WizardForm';
-import { FaHatWizard } from 'react-icons/fa';
-import Wizard from './jsx/components/Forms/Wizard/Wizard';
-import Wizardpt from './jsx/components/Forms/Wizardpt/Wizard'; 
-
 const SignUp = lazy(() => import('./jsx/pages/Registration'));
 const ForgotPassword = lazy(() => import('./jsx/pages/ForgotPassword'));
 const Login = lazy(() => {

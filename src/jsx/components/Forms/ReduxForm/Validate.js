@@ -5,7 +5,6 @@ export default function foo(values) {
     'lastName',
     'email',
     'favoriteColor',
-    'notes',
   ];
   requiredFields.forEach(field => {
     if (!values[field]) {

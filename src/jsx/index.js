@@ -12,7 +12,6 @@ import Footer from './layouts/Footer'
 
 /// Dashboard
 import Home from "./components/Dashboard/Home";
-import PatientList from "./components/Dashboard/PatientList";
 import PatientDetails from "./components/Dashboard/PatientDetails";
 import DoctorList from "./components/Dashboard/DoctorList";
 import Doctordetail from "./components/Dashboard/Doctordetail";
@@ -114,6 +113,7 @@ import Gastro from './components/AppsMenu/Calendar/Gastro'
 import Urologie from './components/AppsMenu/Calendar/Urologie'
 import Pneumologie from './components/AppsMenu/Calendar/Pneumologie'
 import OtoRhinoLaryngologie from './components/AppsMenu/Calendar/OtoRhinoLaryngologie'
+import Reponse from './components/Dashboard/PatientList'
 
 
 
@@ -127,11 +127,10 @@ const Markup = () => {
   const routes = [
     /// Dashboard
     { url: "", component: Home },
-    { url: "dashboard", component: Home },
-	{ url: "patient-list", component: PatientList },
+	{ url: "Reponse", component: Reponse },
     { url: "patient-details", component: PatientDetails },
     { url: "doctor-list", component: DoctorList },
-    { url: "doctor-details", component: Doctordetail },
+    { url: "appoiform", component: Doctordetail },
     { url: "reviews", component: PageReview },
 	{ url: 'task', component: Task },
 
@@ -139,7 +138,7 @@ const Markup = () => {
     
     { url: 'app-profile', component: AppProfile },
     { url: 'Med-gyneco', component: gynecologie },
-    { url: 'accés', component: Compose },
+    { url: 'acces', component: Compose },
     { url: 'Med-interne', component: interne },
     { url: 'Med-dermato', component: Dermatologie },
     { url: 'Med-dentaire', component: Calendar },
@@ -152,6 +151,7 @@ const Markup = () => {
     { url: 'Med-Urologie', component: Urologie },
     { url: 'Med-Pneumologie', component: Pneumologie },
     { url: 'Med-ORL', component: OtoRhinoLaryngologie },
+
 
 
 
@@ -220,12 +220,12 @@ const Markup = () => {
     { url: 'form-wizard', component: Wizard },
     { url: 'form-editor-summernote', component: SummerNote },
     { url: 'form-pickers', component: Pickers },
-    { url: 'form-validation-jquery', component: jQueryValidation },
+    { url: 'mail-Medecin', component: jQueryValidation },
 
     /// table
     { url: 'table-datatable-basic', component: DataTable },
     { url: 'table-bootstrap-basic', component: BootstrapTable },
-    { url: 'table-filtering', component: FilteringTable },
+    { url: 'table-Medecin', component: FilteringTable },
     { url: 'table-sorting', component: SortingTable },
 
     /// pages
@@ -237,7 +237,7 @@ const Markup = () => {
     { url: 'page-error-404', component: Error404 },
     { url: 'page-error-500', component: Error500 },
     { url: 'page-error-503', component: Error503 },
-    { url: 'todo', component: Todo },
+    { url: 'appointment', component: Todo },
   ]
 
   return (

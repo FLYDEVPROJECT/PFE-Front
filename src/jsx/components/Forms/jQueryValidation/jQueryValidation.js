@@ -1,472 +1,183 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import PageTitle from "../../../layouts/PageTitle";
-import { Formik } from "formik";
-import * as Yup from "yup";
+import DropFile from "./DropFile";
 
-const loginSchema = Yup.object().shape({
-   username: Yup.string()
-      .min(3, "Your username must consist of at least 3 characters ")
-      .max(50, "Your username must consist of at least 3 characters ")
-      .required("Please enter a username"),
-   password: Yup.string()
-      .min(5, "Your password must be at least 5 characters long")
-      .max(50, "Your password must be at least 5 characters long")
-      .required("Please provide a password"),
-});
+import { Dropdown } from "react-bootstrap";
 
-const JQueryValidation = () => {
-   const [showPassword, setShowPassword] = useState(false);
+const Compose = () => {
    return (
       <Fragment>
-         <PageTitle activeMenu="Validation" motherMenu="Form" />
 
          <div className="row">
             <div className="col-lg-12">
                <div className="card">
-                  <div className="card-header">
-                     <h4 className="card-title">Form Validation</h4>
-                  </div>
                   <div className="card-body">
-                     <div className="form-validation">
-                        <form
-                           className="form-valide"
-                           action="#"
-                           method="post"
-                           onSubmit={(e) => e.preventDefault()}
-                        >
-                           <div className="row">
-                              <div className="col-xl-6">
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-username"
-                                    >
-                                       Username
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-username"
-                                          name="val-username"
-                                          placeholder="Enter a username.."
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-email"
-                                    >
-                                       Email{" "}
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-email"
-                                          name="val-email"
-                                          placeholder="Your valid email.."
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-password"
-                                    >
-                                       Password
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="password"
-                                          className="form-control"
-                                          id="val-password"
-                                          name="val-password"
-                                          placeholder="Choose a safe one.."
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-confirm-password"
-                                    >
-                                       Confirm Password{" "}
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="password"
-                                          className="form-control"
-                                          id="val-confirm-password"
-                                          name="val-confirm-password"
-                                          placeholder="..and confirm it!"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-suggestions"
-                                    >
-                                       Suggestions{" "}
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <textarea
-                                          className="form-control"
-                                          id="val-suggestions"
-                                          name="val-suggestions"
-                                          rows="5"
-                                          placeholder="What would you like to see?"
-                                       ></textarea>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div className="col-xl-6">
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-skill"
-                                    >
-                                       Best Skill
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <select
-                                          className="form-control"
-                                          id="val-skill"
-                                          name="val-skill"
-                                       >
-                                          <option value="">
-                                             Please select
-                                          </option>
-                                          <option value="html">HTML</option>
-                                          <option value="css">CSS</option>
-                                          <option value="javascript">
-                                             JavaScript
-                                          </option>
-                                          <option value="angular">
-                                             Angular
-                                          </option>
-                                          <option value="angular">React</option>
-                                          <option value="vuejs">Vue.js</option>
-                                          <option value="ruby">Ruby</option>
-                                          <option value="php">PHP</option>
-                                          <option value="asp">ASP.NET</option>
-                                          <option value="python">Python</option>
-                                          <option value="mysql">MySQL</option>
-                                       </select>
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-currency"
-                                    >
-                                       Currency
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-currency"
-                                          name="val-currency"
-                                          placeholder="$21.60"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-website"
-                                    >
-                                       Website
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-website"
-                                          name="val-website"
-                                          placeholder="http://example.com"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-phoneus"
-                                    >
-                                       Phone (US)
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-phoneus"
-                                          name="val-phoneus"
-                                          placeholder="212-999-0000"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-digits"
-                                    >
-                                       Digits{" "}
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-digits"
-                                          name="val-digits"
-                                          placeholder="5"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-number"
-                                    >
-                                       Number{" "}
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-number"
-                                          name="val-number"
-                                          placeholder="5.0"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label
-                                       className="col-lg-4 col-form-label"
-                                       htmlFor="val-range"
-                                    >
-                                       Range [1, 5]
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-6">
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-range"
-                                          name="val-range"
-                                          placeholder="4"
-                                       />
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <label className="col-lg-4 col-form-label">
-                                       <Link to="/orm-validation-jquery">
-                                          Terms &amp; Conditions
-                                       </Link>{" "}
-                                       <span className="text-danger">*</span>
-                                    </label>
-                                    <div className="col-lg-8">
-                                       <label
-                                          className="css-control css-control-primary css-checkbox"
-                                          htmlFor="val-terms"
-                                       >
-                                          <input
-                                             type="checkbox"
-                                             className="css-control-input mr-2"
-                                             id="val-terms"
-                                             name="val-terms"
-                                             value="1"
-                                          />
-                                          <span className="css-control-indicator"></span>{" "}
-                                          I agree to the terms
-                                       </label>
-                                    </div>
-                                 </div>
-                                 <div className="form-group row">
-                                    <div className="col-lg-8 ml-auto">
-                                       <button
-                                          type="submit"
-                                          className="btn btn-primary"
-                                       >
-                                          Submit
-                                       </button>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </form>
+                     <div className="email-left-box px-0 mb-3">
+                      
+                        <div className="mail-list mt-4">
+                           <Link
+                              to="/email-inbox"
+                              className="list-group-item active"
+                           >
+                              <i className="fa fa-inbox font-18 align-middle mr-2"></i>
+                              Nouveau message
+                            
+                           </Link>
+                           <Link
+                              to="/Reponse"
+                              className="list-group-item"
+                           >
+                              <i className="fa fa-paper-plane font-18 align-middle mr-2"></i>
+                              Trouver une réponse
+                           </Link>
+                         
+                          
+                          
+                        </div>
+                      
+                        <div className="mail-list mt-4">
+                           <Link to="/email-inbox" className="list-group-item">
+                              <span className="icon-warning">
+                                 <i
+                                    className="fa fa-circle"
+                                    aria-hidden="true"
+                                 ></i>
+                              </span>
+                              Question
+                           </Link>
+                           <Link to="/email-inbox" className="list-group-item">
+                              <span className="icon-primary">
+                                 <i
+                                    className="fa fa-circle"
+                                    aria-hidden="true"
+                                 ></i>
+                              </span>
+                              Rapidité et efficacité 
+                           </Link>
+                           <Link to="/email-inbox" className="list-group-item">
+                              <span className="icon-success">
+                                 <i
+                                    className="fa fa-circle"
+                                    aria-hidden="true"
+                                 ></i>
+                              </span>
+                              Support
+                           </Link>
+                           <Link to="/email-inbox" className="list-group-item">
+                              <span className="icon-dpink">
+                                 <i
+                                    className="fa fa-circle"
+                                    aria-hidden="true"
+                                 ></i>
+                              </span>
+                              communication médecin-patient
+                           </Link>
+                        </div>
                      </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-12">
-               <div className="card">
-                  <div className="card-header">
-                     <h4 className="card-title">Vertical Forms with icon</h4>
-                  </div>
-                  <div className="card-body">
-                     <div className="basic-form">
-                        <Formik
-                           initialValues={{ username: "", password: "" }}
-                           validationSchema={loginSchema}
-                           onSubmit={(values, { setSubmitting }) => {
-                              setTimeout(() => {
-                                 alert(JSON.stringify(values, null, 2));
-                                 setSubmitting(false);
-                              }, 400);
-                           }}
-                        >
-                           {({
-                              values,
-                              errors,
-                              handleChange,
-                              handleBlur,
-                              handleSubmit,
-                              isSubmitting,
-                           }) => (
-                              <form onSubmit={handleSubmit}>
-                                 <div
-                                    className={`form-group ${
-                                       values.username
-                                          ? errors.username
-                                             ? "is-invalid"
-                                             : "is-valid"
-                                          : ""
-                                    }`}
+                     <div className="email-right-box ml-0 ml-sm-4 ml-sm-0">
+                        <div className="toolbar mb-4" role="toolbar">
+                           <div className="btn-group mb-1">
+                            
+                                
+                              <button
+                                 type="button"
+                                 className="btn btn-primary light px-3"
+                              >
+                                 <i className="fa fa-exclamation-circle"></i>
+                              </button>
+                            
+                           </div>
+                          
+                           
+                           <Dropdown className="btn-group mb-1">
+                              <Dropdown.Toggle
+                                 type="button"
+                                 className="btn btn-primary light dropdown-toggle v ml-1"
+                                 data-toggle="dropdown"
+                              >
+                                 More <span className="caret m-l-5"></span>
+                              </Dropdown.Toggle>
+                              <Dropdown.Menu className="dropdown-menu">
+                                 <Dropdown.Item
+                                    className="dropdown-item"
+                                    to="/email-compose"
                                  >
-                                    <label className="text-label">
-                                       Username
-                                    </label>
-                                    <div className="input-group">
-                                       <div className="input-group-prepend">
-                                          <span className="input-group-text">
-                                             <i className="fa fa-user" />{" "}
-                                          </span>
-                                       </div>
-                                       <input
-                                          type="text"
-                                          className="form-control"
-                                          id="val-username1"
-                                          placeholder="Enter a username.."
-                                          name="username"
-                                          onChange={handleChange}
-                                          onBlur={handleBlur}
-                                          value={values.username}
-                                       />
-                                       <div
-                                          id="val-username1-error"
-                                          className="invalid-feedback animated fadeInUp"
-                                          style={{ display: "block" }}
-                                       >
-                                          {errors.username && errors.username}
-                                       </div>
-
-                                       <div
-                                          id="val-username1-error"
-                                          className="invalid-feedback animated fadeInUp"
-                                          style={{ display: "block" }}
-                                       />
-                                    </div>
-                                 </div>
-                                 <div
-                                    className={`form-group ${
-                                       values.password
-                                          ? errors.password
-                                             ? "is-invalid"
-                                             : "is-valid"
-                                          : ""
-                                    }`}
+                                    Mark as Unread
+                                 </Dropdown.Item>
+                                 <Dropdown.Item
+                                    className="dropdown-item"
+                                    to="/email-compose"
                                  >
-                                    <label className="text-label">
-                                       Password *
-                                    </label>
-                                    <div className="input-group transparent-append">
-                                       <div className="input-group-prepend">
-                                          <span className="input-group-text">
-                                             {" "}
-                                             <i className="fa fa-lock" />{" "}
-                                          </span>
-                                       </div>
-                                       <input
-                                          type={`${
-                                             showPassword ? "text" : "password"
-                                          }`}
-                                          className="form-control"
-                                          id="val-password1"
-                                          name="password"
-                                          onChange={handleChange}
-                                          onBlur={handleBlur}
-                                          value={values.password}
-                                          placeholder="Choose a safe one.."
-                                       />
-
-                                       <div
-                                          className="input-group-append show-pass"
-                                          onClick={() =>
-                                             setShowPassword(!showPassword)
-                                          }
-                                       >
-                                          <span className="input-group-text">
-                                             {" "}
-                                             <i className="fa fa-eye-slash" />
-                                          </span>
-                                       </div>
-                                       <div
-                                          id="val-username1-error"
-                                          className="invalid-feedback animated fadeInUp"
-                                          style={{ display: "block" }}
-                                       >
-                                          {errors.password && errors.password}
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div className="form-group">
-                                    <div className="form-check">
-                                       <input
-                                          id="checkbox1"
-                                          className="form-check-input"
-                                          type="checkbox"
-                                       />
-                                       <label
-                                          htmlFor="checkbox1"
-                                          className="form-check-label"
-                                       >
-                                          Check me out
-                                       </label>
-                                    </div>
-                                 </div>
-
-                                 <button
-                                    type="submit"
-                                    className="btn mr-2 btn-primary"
-                                    disabled={isSubmitting}
+                                    Add to Tasks
+                                 </Dropdown.Item>
+                                 <Dropdown.Item
+                                    className="dropdown-item"
+                                    to="/email-compose"
                                  >
-                                    Submit
-                                 </button>
-                                 <button
-                                    type="submit"
-                                    className="btn btn-light"
+                                    Add Star
+                                 </Dropdown.Item>
+                                 <Dropdown.Item
+                                    className="dropdown-item"
+                                    to="/email-compose"
                                  >
-                                    cencel
-                                 </button>
-                              </form>
-                           )}
-                        </Formik>
+                                    Mute
+                                 </Dropdown.Item>
+                              </Dropdown.Menu>
+                           </Dropdown>
+                        </div>
+                        <div className="compose-content">
+                           <form action="#">
+                              <div className="form-group">
+                                 <input
+                                    type="text"
+                                    className="form-control bg-transparent"
+                                    placeholder=" To:"
+                                 />
+                              </div>
+                              <div className="form-group">
+                                 <input
+                                    type="text"
+                                    className="form-control bg-transparent"
+                                    placeholder=" Subject:"
+                                 />
+                              </div>
+                              <div className="form-group">
+                                 <textarea
+                                    id="email-compose-editor"
+                                    className="textarea_editor form-control bg-transparent"
+                                    rows="15"
+                                    placeholder="Enter text ..."
+                                 ></textarea>
+                              </div>
+                           </form>
+                           <h5 className="mb-4">
+                              <i className="fa fa-paperclip"></i> Ajouter une photo
+                           </h5>
+                           <DropFile />
+                        </div>
+                        <div className="text-left mt-4 mb-5">
+                           <button
+                              className="btn btn-primary btn-sl-sm mr-2"
+                              type="button"
+                           >
+                              <span className="mr-2">
+                                 <i className="fa fa-paper-plane"></i>
+                              </span>
+                              envoyer
+                           </button>
+                           <button
+                              className="btn btn-danger light btn-sl-sm"
+                              type="button"
+                           >
+                              <span className="mr-2">
+                                 <i
+                                    className="fa fa-times"
+                                    aria-hidden="true"
+                                 ></i>
+                              </span>
+                              Annuler
+                           </button>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -476,4 +187,4 @@ const JQueryValidation = () => {
    );
 };
 
-export default JQueryValidation;
+export default Compose;

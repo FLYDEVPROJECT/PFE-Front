@@ -44,12 +44,7 @@ const SimpleForm = props => {
 					<label className="custom-control-label" htmlFor="employed"> I agree all statements in terms of service</label>
 				</div>
 			</div>
-			<div>
-				<label>Notes</label>
-				<div className="form-group">
-					<Field name="notes" component="textarea" className="form-control" />
-				</div>
-			</div>
+			
 			<div>
 				<button className="btn btn-primary mr-2" type="submit" disabled={pristine || submitting}>Submit</button>
 				<button className="btn btn-light" type="button" disabled={pristine || submitting} onClick={reset}>

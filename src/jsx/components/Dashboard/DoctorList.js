@@ -80,7 +80,7 @@ const DoctorList = () => {
          <div className="form-head d-flex mb-3 mb-md-4 align-items-start">
             <div className="mr-auto d-lg-block">
                <Link
-                  to="/doctor-details"
+                  to="/appoiform"
                   className="btn btn-primary btn-rounded"
                >
                   + Add New

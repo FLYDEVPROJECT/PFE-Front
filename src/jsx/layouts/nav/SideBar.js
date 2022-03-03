@@ -52,14 +52,14 @@ class SideBar extends Component {
         "patient-list",
 		"patient-details",
 		"doctor-list",
-		"doctor-details",
+		"appoiform",
 		"reviews",
 		"task",
       ],
       app = [
         "app-profile",
         "med-dentaire",
-        "accés",
+        "acces",
         "email-inbox",
         "email-read",
         "ecom-product-grid",
@@ -72,7 +72,7 @@ class SideBar extends Component {
         "post-details",
         "ecom-product-detail",
       ],
-      email = ["accés", "email-inbox", "email-read"],
+      email = ["acces", "email-inbox", "email-read"],
     
       charts = [
         "chart-rechart",
@@ -112,7 +112,7 @@ class SideBar extends Component {
         
       ],
         redux = [
-            "todo",
+            "Appointment",
             "form-redux",
             "form-redux-wizard", 
         ],
@@ -122,13 +122,13 @@ class SideBar extends Component {
         "form-wizard",
         "form-editor-summernote",
         "form-pickers",
-        "form-validation-jquery",
+        "mail-Medecin",
       ],
       table = [
         "table-bootstrap-basic", 
         "table-datatable-basic",
         "table-sorting",
-        "table-filtering",
+        "table-Medecin",
       ],
       pages = [
         "page-register",
@@ -165,8 +165,12 @@ class SideBar extends Component {
                 </li>
 
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/accés">Accés</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/acces">Accés</Link>
                 </li>
+
+            		<li>
+						<Link className={`${path === "task" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/task">Note</Link>
+					</li>	
               
 
 
@@ -416,23 +420,8 @@ class SideBar extends Component {
                 <span className="nav-text">Dossier Patient</span>
               </Link>
               <ul >
-                <li>
-					<Link className={`${path === "uc-select2" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/uc-select2">Select 2</Link>
-                </li>
-                <li>
-					<Link className={`${path === "uc-nestable" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/uc-nestable">Nestedable</Link>
-                </li>
-                <li>
-                  <Link
-                    className={`${
-                      path === "uc-noui-slider" ? "mm-active" : ""
-                    }`}
-                    onClick={() => this.props.onClick()}
-                    to="/uc-noui-slider"
-                  >
-                    Noui Slider
-                  </Link>
-                </li>
+              
+               
                 <li>
                   <Link
                     className={`${path === "uc-sweetalert" ? "mm-active" : ""}`}
@@ -455,17 +444,11 @@ class SideBar extends Component {
                     <i className="flaticon-381-book"></i><span className="nav-text">Rendez Vous</span>
                 </Link>
                 <ul>
-                    <li><Link className={`${path === "todo" ? "mm-active" : ""}`} to="/todo">Todo</Link></li> 
-                    <li><Link className={`${path === "form-redux" ? "mm-active" : ""}`} to="/form-redux">Redux Form</Link></li>
-                    <li><Link className={`${path === "form-redux-wizard" ? "mm-active" : ""}`} to="/form-redux-wizard">Wizard Form</Link></li>
+                    <li><Link className={`${path === "appointment" ? "mm-active" : ""}`} to="/appointment">appointment</Link></li> 
+                  
                 </ul>
             </li>    
-            <li className={`${widget.includes(path) ? "mm-active" : ""}`}>
-              <Link to="widget-basic" className="ai-icon" >
-                <i className="flaticon-381-settings-2"></i>
-                <span className="nav-text">Paramétre </span>
-              </Link>
-            </li>
+           
             <li className={`${forms.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-notepad"></i>
@@ -473,48 +456,28 @@ class SideBar extends Component {
               </Link>
               <ul >
                 <li>
-                    <Link className={`${path === "form-element" ? "mm-active" : ""}`}onClick={() => this.props.onClick()} to="/form-element">Form Elements</Link>
+                    <Link className={`${path === "form-element" ? "mm-active" : ""}`}onClick={() => this.props.onClick()} to="/form-element">Q & R</Link>
                 </li>
+
                 <li>
-                    <Link className={`${path === "form-wizard" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/form-wizard">Wizard</Link>
-                </li>
-              
-                <li>
-                    <Link className={`${path === "form-pickers" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/form-pickers">Pickers</Link>
-                </li>
-                <li>
-                  <Link className={`${ path === "form-validation-jquery" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/form-validation-jquery">Jquery Validate</Link>
+                  <Link className={`${ path === "mail-Medecin" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/mail-Medecin">Medecin</Link>
                 </li>
               </ul>
             </li>
             <li className={`${table.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-network"></i>
-                <span className="nav-text">Liste Patient</span>
+                <span className="nav-text">Liste des médecins</span>
               </Link>
               <ul >
+             
+              
                 <li>
-                    <Link className={`${  path === "table-bootstrap-basic" ? "mm-active" : "" }`}
-                        onClick={() => this.props.onClick()} to="/table-bootstrap-basic"
-                    >
-                        Bootstrap
+                    <Link className={`${ path === "table-Medecin" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/table-Medecin">
+                        Tous les médecins
                     </Link>
                 </li>
-                <li>
-                    <Link className={`${ path === "table-datatable-basic" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/table-datatable-basic">
-                        Datatable
-                    </Link>
-                </li>
-                <li>
-                    <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/table-filtering">
-                        Table Filtering
-                    </Link>
-                </li>
-                <li>
-                    <Link className={`${ path === "table-sorting" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/table-sorting">
-                        Table Sorting
-                    </Link>
-                </li>
+               
               </ul>
             </li>
             <li className={`${pages.includes(path) ? "mm-active" : ""}`}>

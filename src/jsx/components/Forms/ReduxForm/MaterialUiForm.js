@@ -81,13 +81,7 @@ const MaterialUiForm = props => {
 				<div className="col-sm-12 mt-2 mb-2" >
 					<Field name="employed" className="input-field-redux" component={renderCheckbox} label="I agree all statements in terms of service" />
 				</div>
-				<div className="col-sm-12 mb-2">
-					<Field
-						className="input-field-redux"
-						name="notes" component={renderTextField}
-						label="Notes" multiLine={true} rows={2}
-					/>
-				</div>
+				
 				<div className="col-sm-12 text-center">
 					<button className="btn btn-primary mr-1" type="submit" disabled={pristine || submitting}>Submit</button>
 					<button className="btn btn-light ml-1" type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>

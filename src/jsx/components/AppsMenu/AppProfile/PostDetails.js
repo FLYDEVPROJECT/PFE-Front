@@ -99,24 +99,7 @@ const PostDetails = () => {
                           </g>
                         </svg>
                       </Dropdown.Toggle>
-                      <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
-                        <Dropdown.Item className="dropdown-item">
-                          <i className="fa fa-user-circle text-primary mr-2" />
-                          View profile
-                        </Dropdown.Item>
-                        <Dropdown.Item className="dropdown-item">
-                          <i className="fa fa-users text-primary mr-2" />
-                          Add to close friends
-                        </Dropdown.Item>
-                        <Dropdown.Item className="dropdown-item">
-                          <i className="fa fa-plus text-primary mr-2" />
-                          Add to group
-                        </Dropdown.Item>
-                        <Dropdown.Item className="dropdown-item">
-                          <i className="fa fa-ban text-primary mr-2" />
-                          Block
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
+                     
                     </Dropdown>
                   </div>
                 </div>
@@ -213,9 +196,7 @@ const PostDetails = () => {
 					</div>
 					<div className="col-lg-12">
 						<div className="card">
-							<div className="card-header border-0 pb-0">
-								<h5 className="text-black ">Interest</h5>
-							</div>
+						
 							<div className="card-body pt-3">
 								<div className="profile-interest ">
 									 <SRLWrapper options={options}>

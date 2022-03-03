@@ -189,14 +189,14 @@ const PostPage = () => {
     return(
         <>
 			<div className="mb-sm-5 mb-3 d-flex flex-wrap align-items-center text-head">
-				<Link className="btn btn-primary font-w600 mb-2 mr-auto" onClick={()=> setPostModal(true)}>+ New Task</Link>
+				<Link className="btn btn-primary font-w600 mb-2 mr-auto" onClick={()=> setPostModal(true)}>+ Nouveau note</Link>
 				 {/* <!-- Modal --> */}
 				<Modal className="modal fade"  show={postModal} onHide={setPostModal} >
 					<div className="" >
 						<div className="">
 							<form >
 								<div className="modal-header">
-									<h4 className="modal-title fs-20">Add Task</h4>
+									<h4 className="modal-title fs-20">Ajouter une note</h4>
 									<button type="button" className="btn close" onClick={()=> setPostModal(false)}>
 										<span>×</span>
 									</button>
@@ -221,18 +221,18 @@ const PostPage = () => {
 												</div>
 											</div> 
 											 <div className="form-group mb-3">
-												<label className="text-black font-w500">Customer Id</label>
+												<label className="text-black font-w500">num note</label>
 												<div className="contact-name">
 													<input type="text"  className="form-control"  autocomplete="off"
 														name="Cust_Id" required="required"
                                                         onChange={handleAddFormChange}
-														placeholder="write Id"
+														placeholder="123"
 													/>
 													<span className="validation-text"></span>
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Deadline Date</label>
+												<label className="text-black font-w500">Date</label>
 												<div className="contact-name">
 													<input type="text"  className="form-control"  autocomplete="off"
 														name="Date_Join" required="required"
@@ -243,22 +243,22 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Client</label>
+												<label className="text-black font-w500">Nom du professionel de santé</label>
 												<div className="contact-occupation">
 													<input type="text"   autocomplete="off"
                                                         onChange={handleAddFormChange}
 														name="Cust_Name" required="required"
-														className="form-control" placeholder="name" 
+														className="form-control" placeholder="Nom medecin" 
 													/>
 												</div>
 											</div>
 											<div className="form-group mb-3">
-												<label className="text-black font-w500">Location</label>
+												<label className="text-black font-w500">Description</label>
 												<div className="contact-occupation">
 													<input type="text"  autocomplete="off"
                                                         name="Location" required="required"
 														onChange={handleAddFormChange}
-														className="form-control" placeholder="Location" 
+														className="form-control" placeholder="Description" 
 													/>
 												</div>
 											</div> 
@@ -289,7 +289,7 @@ const PostPage = () => {
 									<div className="add-contact-box">
 										<div className="add-contact-content">
 											<div className="form-group mb-3">
-												<label className="text-black font-w500">Customer Id</label>
+												<label className="text-black font-w500">Num note</label>
 												<div className="contact-name">
 													<input type="text"  className="form-control"  autocomplete="off"
 														name="Cust_Id" required="required"
@@ -300,7 +300,7 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Deadline Date</label>
+												<label className="text-black font-w500">Date</label>
 												<div className="contact-name">
 													<input type="text"  className="form-control"  autocomplete="off"
 														name="Date_Join" required="required"
@@ -311,24 +311,24 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Client</label>
+												<label className="text-black font-w500">Nom du professionel de santé</label>
 												<div className="contact-occupation">
 													<input type="text"   autocomplete="off"
                                                         value={editFormData.Cust_Name}
                                                         onChange={handleEditFormChange}
 														name="Cust_Name" required="required"
-														className="form-control" placeholder="name" 
+														className="form-control" placeholder="Nom medecin" 
 													/>
 												</div>
 											</div>
 											<div className="form-group mb-3">
-												<label className="text-black font-w500">Location</label>
+												<label className="text-black font-w500">Description</label>
 												<div className="contact-occupation">
 													<input type="text"  autocomplete="off"
                                                         name="Location" required="required"
 														value={editFormData.Location}
                                                         onChange={handleEditFormChange}
-														className="form-control" placeholder="Location" 
+														className="form-control" placeholder="Description" 
 													/>
 												</div>
 											</div> 
@@ -359,8 +359,7 @@ const PostPage = () => {
                             <div className="card-header align-items-start">
                                 <div>
                                     <p className="fs-14 mb-2 text-primary">#{contact.Cust_Id}</p>
-                                    <h6 className="fs-18 font-w500 mb-3"><Link to={"#"}className="text-black user-name">Build Branding Persona for Etza</Link></h6>
-                                    <div className="text-dark fs-14 text-nowrap"><i className="fa fa-calendar-o mr-3" aria-hidden="true"></i>Created on Sep 8th, 2020</div>
+                                    <h6 className="fs-18 font-w500 mb-3"><Link to={"#"}className="text-black user-name">Note</Link></h6>
                                 </div>
                                 <Dropdown className="">
                                     <Dropdown.Toggle variant="" as="div" className="btn-link i-false" >	
@@ -385,15 +384,15 @@ const PostPage = () => {
                             <div className="card-body p-0 pb-3">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item">
-                                        <span className="mb-0 title">Deadline Date</span> :
+                                        <span className="mb-0 title"> Date</span> :
                                         <span className="text-black ml-2">{contact.Date_Join}</span>
                                     </li>
                                     <li className="list-group-item">
-                                        <span className="mb-0 title">Client Name</span> :
+                                        <span className="mb-0 title">Nom du professionel de santé :</span> 
                                          <span className="text-black ml-2">{contact.Cust_Name}</span> 
                                     </li>
                                     <li className="list-group-item">
-                                        <span className="mb-0 title">Location</span> :
+                                        <span className="mb-0 title">Description</span> :
                                         <span className="text-black desc-text ml-2">{contact.Location}</span>
                                     </li>
                                 </ul>

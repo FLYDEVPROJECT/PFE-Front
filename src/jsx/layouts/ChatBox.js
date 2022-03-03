@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
 /// Components
-import Notes from "../components/chatBox/Notes";
-import Alerts from "../components/chatBox/Alerts";
 import Chat from "../components/chatBox/Chat";
 import { Link } from "react-router-dom";
 
@@ -15,8 +13,6 @@ const ChatBox = ({ onClick, toggle }) => {
    );
 
    const dataToggle = [
-      { href: "#notes", name: "Notes" },
-      { href: "#alerts", name: "Alerts" },
       { href: "#chat", name: "Chat" },
    ];
 
@@ -51,16 +47,8 @@ const ChatBox = ({ onClick, toggle }) => {
                   toggle={toggle}
                   toggleTab={toggleTab}
                />
-               <Notes
-                  PerfectScrollbar={PerfectScrollbar}
-                  toggle={toggle}
-                  toggleTab={toggleTab}
-               />
-               <Alerts
-                  PerfectScrollbar={PerfectScrollbar}
-                  toggle={toggle}
-                  toggleTab={toggleTab}
-               />
+            
+             
             </div>
          </div>
       </div>

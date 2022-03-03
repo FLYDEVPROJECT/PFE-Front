@@ -1,311 +1,182 @@
-import React, { Fragment } from "react";
-import swal from "sweetalert";
-import swalMessage from "@sweetalert/with-react";
+import React, { Fragment, useState } from "react";
+import { Button,Dropdown, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { SRLWrapper } from "simple-react-lightbox";
+
+
+// import { Link } from 'react-router-dom';
+import { Row, Col, Card, Accordion } from 'react-bootstrap'
+//** Import Image */
+import profile02 from "../../../../images/profile/2.jpg";
+import profile03 from "../../../../images/profile/3.jpg";
+import profile04 from "../../../../images/profile/4.jpg";
+import profile05 from "../../../../images/profile/5.jpg";
+import profile06 from "../../../../images/profile/6.jpg";
+import profile07 from "../../../../images/profile/7.jpg";
+import profile from "../../../../images/profile/profile.png";
 import PageTitle from "../../../layouts/PageTitle";
 
-const MainSweetAlert = () => {
-   return (
-      <Fragment>
-         <PageTitle activeMenu="Sweet Alert" motherMenu="Components" />
+const AppProfile = () => {
+  const [activeToggle, setActiveToggle] = useState("posts");
+  const [sendMessage, setSendMessage] = useState(false);
+  const [postModal, setPostModal] = useState(false);
+  const [cameraModal, setCameraModal] = useState(false);
+  const [linkModal, setLinkModal] = useState(false);
+  const [replayModal, setReplayModal] = useState(false);
 
-         <div className="row">
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Wrong</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal("Oops", "Something went wrong!", "error")
-                              }
-                              className="btn btn-danger btn sweet-wrong"
-                           >
-                              Sweet Wrong
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Message</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swalMessage(
-                                    <div>
-                                       <h2>Hey, Here's a message !!</h2>
-                                    </div>
-                                 )
-                              }
-                              className="btn btn-info btn sweet-message"
-                           >
-                              Sweet Message
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Text</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swalMessage(
-                                    <div>
-                                       <h2>Hey, Here's a message !!</h2>
-                                       <p>It's pretty, isn't it?</p>
-                                    </div>
-                                 )
-                              }
-                              className="btn btn-primary btn sweet-text"
-                           >
-                              Sweet Text
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Success</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal(
-                                    "Good job!",
-                                    "You clicked the button!",
-                                    "success"
-                                 )
-                              }
-                              className="btn btn-success btn sweet-success"
-                           >
-                              Sweet Success
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div className="row">
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Confirm</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal({
-                                    title: "Are you sure?",
-                                    text:
-                                       "Once deleted, you will not be able to recover this imaginary file!",
-                                    icon: "warning",
-                                    buttons: true,
-                                    dangerMode: true,
-                                 }).then((willDelete) => {
-                                    if (willDelete) {
-                                       swal(
-                                          "Poof! Your imaginary file has been deleted!",
-                                          {
-                                             icon: "success",
-                                          }
-                                       );
-                                    } else {
-                                       swal("Your imaginary file is safe!");
-                                    }
-                                 })
-                              }
-                              className="btn btn-warning btn sweet-confirm"
-                           >
-                              Sweet Confirm
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Confirm Or Cancel</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal({
-                                    title: "Are you sure?",
-                                    text:
-                                       "Once deleted, you will not be able to recover this imaginary file!",
-                                    icon: "warning",
-                                    buttons: true,
-                                    dangerMode: true,
-                                 }).then((willDelete) => {
-                                    if (willDelete) {
-                                       swal(
-                                          "Poof! Your imaginary file has been deleted!",
-                                          {
-                                             icon: "success",
-                                          }
-                                       );
-                                    } else {
-                                       swal("Your imaginary file is safe!");
-                                    }
-                                 })
-                              }
-                              className="btn btn-warning btn sweet-success-cancel"
-                           >
-                              Sweet Confirm Or Cancel
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Image Message</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swalMessage(
-                                    <div>
-                                       <h2>Hey, Here's a message !!</h2>
-                                    </div>
-                                 )
-                              }
-                              className="btn btn-info btn sweet-image-message"
-                           >
-                              Sweet Image Message
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet HTML</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swalMessage(
-                                    <div>
-                                       <h2>Sweet !!</h2>
-                                       <p>true</p>
-                                    </div>
-                                 )
-                              }
-                              className="btn btn-primary btn sweet-html"
-                           >
-                              Sweet HTML
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div className="row">
-            <div className="col-lg-4">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Auto Close</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal(
-                                    "Click on either the button or outside the modal."
-                                 ).then((value) => {
-                                    swal(`The returned value is: ${value}`);
-                                 })
-                              }
-                              className="btn btn-danger btn sweet-auto"
-                           >
-                              Sweet Auto Close
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-4">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Prompt</h4>
-                     <div className="card-content">
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal("Are you sure you want to do this?", {
-                                    buttons: ["Oh noez!", true],
-                                 })
-                              }
-                              className="btn btn-success btn sweet-prompt"
-                           >
-                              Sweet Prompt
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-lg-4">
-               <div className="card">
-                  <div className="card-body">
-                     <h4 className="card-title">Sweet Ajax</h4>
-                     <div className="card-content"></div>
-                     <div className="sweetalert mt-4">
-                        <button
-                           onClick={() =>
-                              swal({
-                                 title: "Are you sure?",
-                                 text:
-                                    "Once deleted, you will not be able to recover this imaginary file!",
-                                 icon: "warning",
-                                 buttons: true,
-                                 dangerMode: true,
-                              }).then((willDelete) => {
-                                 if (willDelete) {
-                                    swal(
-                                       "Poof! Your imaginary file has been deleted!",
-                                       {
-                                          icon: "success",
-                                       }
-                                    );
-                                 } else {
-                                    swal("Your imaginary file is safe!");
-                                 }
-                              })
-                           }
-                           className="btn btn-info btn sweet-ajax"
-                        >
-                           Sweet Ajax
-                        </button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </Fragment>
-   );
+  const [activeDefault, setActiveDefault] = useState(0)
+  const [activeBordered, setActiveBordered] = useState(0)
+  const [activeWithoutSpace, setActiveWithoutSpace] = useState(0)
+  
+    
+     
+    
+      const defaultAccordion = [
+        {
+          title: 'Changer le mot de passe ',
+          text:'okkkk',
+                   bg: 'primary',
+        },
+        {
+          title: 'Accordion Header Two',
+         
+          bg: 'info',
+        },
+        {
+          title: 'Accordion Header Three',
+         
+          bg: 'success',
+        },
+      ]
+ 
+  const options = {
+    settings: {
+      overlayColor: "#000000",
+    },
+  };
+  return (
+    <Fragment>
+
+     
+      <div className="row">
+        <div className="col-xl-4">
+			<div className="row">
+				<div className="col-lg-12">
+					<div className="card">
+						<div className="card-body">
+							<div className="profile-statistics">
+								<div className="text-center">
+							
+								
+								</div>
+							  {/* send Modal */}
+								<Modal className="modal fade" show={sendMessage}>
+									<div className="modal-content">
+										<div className="modal-header">
+											<h5 className="modal-title">Send Message</h5>
+											<Button variant="" type="button" className="close" data-dismiss="modal" onClick={() => setSendMessage(false)}>
+												<span>×</span>
+											</Button>
+										</div>
+										<div className="modal-body">
+											<form className="comment-form" onSubmit={(e) => { e.preventDefault(); setSendMessage(false); }}>
+												<div className="row">
+													<div className="col-lg-6">
+														<div className="form-group">
+															<label htmlFor="author" className="text-black font-w600">  Name <span className="required">*</span> </label>
+															<input type="text" className="form-control" defaultValue="Author" name="Author" placeholder="Author" />
+														</div>
+													</div>
+													<div className="col-lg-6">
+														<div className="form-group">
+															<label htmlFor="email" className="text-black font-w600"> Email <span className="required">*</span></label>
+															<input type="text" className="form-control" defaultValue="Email" placeholder="Email" name="Email"/>
+														</div>
+													</div>
+													<div className="col-lg-12">
+														<div className="form-group">
+															<label htmlFor="comment" className="text-black font-w600">Comment</label>
+															<textarea rows={8} className="form-control" name="comment" placeholder="Comment" defaultValue={""}/>
+														</div>
+													</div>
+													<div className="col-lg-12">
+														<div className="form-group">
+															<input type="submit" value="Post Comment" className="submit btn btn-primary" name="submit"/>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</Modal>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div className="col-lg-12">
+					<div className="card">
+						<div className="card-header border-0 pb-0">
+							<h5 className="text-black">Our Latest News</h5>
+						</div>	
+						<div className="card-body pt-3">
+							<div className="profile-news">
+							  <div className="media pt-3 pb-3">
+								<img src={profile05} alt="" className="mr-3 rounded" width={75}/>
+								<div className="media-body">
+									<h5 className="m-b-5">
+										<Link to="/post-details" className="text-black">
+											Collection of textile samples
+										</Link>
+									</h5>
+									<p className="mb-0">I shared this on my fb wall a few months back, and I thought. </p>
+								</div>
+							  </div>
+							  <div className="media pt-3 pb-3">
+								<img src={profile06} alt=""  className="mr-3 rounded" width={75}/>
+								<div className="media-body">
+									<h5 className="m-b-5">
+										<Link to="/post-details" className="text-black">
+										Collection of textile samples
+										</Link>
+									</h5>
+									<p className="mb-0">
+										I shared this on my fb wall a few months back, and I
+										thought.
+									</p>
+								</div>
+							  </div>
+							  <div className="media pt-3 ">
+								<img src={profile07} alt="" className="mr-3 rounded" width={75} />
+								<div className="media-body">
+									<h5 className="m-b-5">
+										<Link to="/post-details" className="text-black">
+											Collection of textile samples
+										</Link>
+									</h5>
+									<p className="mb-0">
+										I shared this on my fb wall a few months back, and I thought.
+									</p>
+								</div>
+							  </div>
+							</div>
+						</div>	
+					</div>
+				</div>	
+			</div>	
+		</div>	
+       <div> 
+       <div className="col-xl-8">
+          <div className="card">
+            <div className="card-body">
+              <div className="profile-tab">
+                 <p>gggggggggggggggggggjj</p>
+                 </div>
+                 </div></div></div>
+       </div>
+      </div>
+    </Fragment>
+  );
 };
 
-export default MainSweetAlert;
+export default AppProfile;

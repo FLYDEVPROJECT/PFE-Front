@@ -1,5 +1,4 @@
 import React,{ useMemo } from 'react';
-import PageTitle from "../../../layouts/PageTitle";
 import { useTable, useGlobalFilter, useFilters, usePagination } from 'react-table';
 import MOCK_DATA from './MOCK_DATA_2.json';
 import { COLUMNS } from './Columns';
@@ -39,10 +38,9 @@ export const FilteringTable = () => {
 	
 	return(
 		<>
-			<PageTitle activeMenu="Filtering" motherMenu="Table" />
 			<div className="card">
 				<div className="card-header">
-					<h4 className="card-title">Table Filtering</h4>
+					<h4 className="card-title">Liste des médecins</h4>
                 </div>
 				<div className="card-body">
 					<div className="table-responsive">

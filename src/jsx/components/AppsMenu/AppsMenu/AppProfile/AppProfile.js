@@ -99,24 +99,7 @@ const AppProfile = () => {
                                     </g>
                                  </svg>
                               </Dropdown.Toggle>
-                              <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
-                                 <Dropdown.Item className="dropdown-item">
-                                    <i className="fa fa-user-circle text-primary mr-2" />
-                                    View profile
-                                 </Dropdown.Item>
-                                 <Dropdown.Item className="dropdown-item">
-                                    <i className="fa fa-users text-primary mr-2" />
-                                    Add to close friends
-                                 </Dropdown.Item>
-                                 <Dropdown.Item className="dropdown-item">
-                                    <i className="fa fa-plus text-primary mr-2" />
-                                    Add to group
-                                 </Dropdown.Item>
-                                 <Dropdown.Item className="dropdown-item">
-                                    <i className="fa fa-ban text-primary mr-2" />
-                                    Block
-                                 </Dropdown.Item>
-                              </Dropdown.Menu>
+                             
                            </Dropdown>
                         </div>
                      </div>
@@ -326,7 +309,7 @@ const AppProfile = () => {
                         </p>
                      </div>
                      <div className="profile-interest mb-5">
-                        <h5 className="text-primary d-inline">Interest</h5>
+                     
                         <div className="row mt-4 sp4">
                            <Link
                               to="/app-profile"

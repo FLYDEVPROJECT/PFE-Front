@@ -2500,12 +2500,12 @@ fieldset:disabled a.btn {
       box-shadow: 0 0 0 0.2rem rgba(91, 100, 110, 0.5); }
 
 .btn-outline-primary {
-  color: #36C95F;
-  border-color: #36C95F; }
+  color: #4682B4;
+  border-color: #4682B4; }
   .btn-outline-primary:hover {
     color: #fff;
-    background-color: #36C95F;
-    border-color: #36C95F; }
+    background-color: #4682B4;
+    border-color: #4682B4; }
   .btn-outline-primary:focus, .btn-outline-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(54, 201, 95, 0.5); }
   .btn-outline-primary.disabled, .btn-outline-primary:disabled {
@@ -4399,9 +4399,9 @@ input[type="button"].btn-block {
     background-color: #fff; }
   .list-group-item.active {
     z-index: 2;
-    color: #fff;
-    background-color: #36C95F;
-    border-color: #36C95F; }
+    color: #4682b4;
+    background-color: #4682b4;
+    border-color: #4682b4; }
   .list-group-item + .list-group-item {
     border-top-width: 0; }
     .list-group-item + .list-group-item.active {
@@ -9424,8 +9424,8 @@ a {
     -ms-transform: translateY(0px) scale(1);
     transform: translateY(0px) scale(1); } }
 ::selection {
-  color: #fff;
-  background: #36C95F; }
+  color: #4682b4;
+  background: #4682B4; }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .col-xxl-1 {
@@ -10079,7 +10079,7 @@ svg.pulse-svg {
           display: none; } }
       .header-right .header-profile > a.nav-link .header-info span {
         font-size: 16x;
-        color: #36C95F;
+        color: #4682B4;
         display: block;
         font-weight: 400; }
         @media only screen and (max-width: 1199px) {
@@ -12203,7 +12203,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         .deznav .metismenu > li:hover > a g [fill], .deznav .metismenu > li:focus > a g [fill] {
           fill: #36C95F; }
       .deznav .metismenu > li.mm-active > a {
-        color: #36C95F; }
+        color: #4682b4; }
         .deznav .metismenu > li.mm-active > a g [fill] {
           fill: #36C95F; }
     .deznav .metismenu li {
@@ -12225,7 +12225,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
             font-size: 14px; } }
         .deznav .metismenu ul a:hover, .deznav .metismenu ul a:focus, .deznav .metismenu ul a.mm-active {
           text-decoration: none;
-          color: #36C95F; }
+          color: #4682B4; }
     .deznav .metismenu a {
       position: relative;
       display: block;
@@ -24311,8 +24311,8 @@ button {
       fill: #fff; }
 .light.btn-primary {
   background-color: #ebfaef;
-  border-color: #ebfaef;
-  color: #36C95F; }
+  border-color: #4682B4;
+  color: #4682B4; }
   .light.btn-primary g [fill] {
     fill: #36C95F; }
   [data-theme-version="dark"] .light.btn-primary {
@@ -28597,7 +28597,7 @@ span#counter {
     background-color: #fbfbfb; }
     .login-form-bx .box-skew1:after {
       content: "";
-      background-image: url(../images/patient2.jpg);
+      background-image: url(../images/patient4.jpg);
       background-size: cover;
       background-position: center bottom;
       height: 100%;

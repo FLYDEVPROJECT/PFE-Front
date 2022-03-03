@@ -1,13 +1,12 @@
 import React from "react";
-
+import BookData from './Data.json';
 import EventCardiologie from "./EventCardiologie";
+ 
 
-
-const Cardiologie = () => {
+function Cardiologie  () {
    return (
       <div className="h-80">
-
-         <EventCardiologie />
+         <EventCardiologie placeholder="le Nom du professionell de santé " data={BookData} />
       </div>
    );
 };

@@ -58,10 +58,7 @@ export function loginAction(email, password, history) {
 				//history.pushState('/index');
                 
             })
-            .catch((error) => {
-                const errorMessage = formatError(error.response.data);
-                dispatch(loginFailedAction(errorMessage));
-            });
+         
     };
 }
 

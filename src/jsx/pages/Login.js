@@ -5,7 +5,7 @@ import { loadingToggleAction,loginAction,
 } from '../../store/actions/AuthActions';
  
 //
-import logo from '../../images/logo.png'
+import logo from '../../images/logo3.png'
  
  
 function Login (props) {

@@ -14,8 +14,7 @@ const Compose = () => {
                     
                         <div class="card">
                            <div class=" d-block card-header"><div class="card-title h5">Sélectionnez la Spécialité de votre médecin</div>
-                           <p class="mb-0 subtitle card-text">Default button vertical variation style</p>
-                           
+                      
                            </div>
                            
                            <div class="card-body">
@@ -152,7 +151,14 @@ const Compose = () => {
                          </Link>
                </div>
             </div>
-            
+            <div className="col-lg-6 mb-2">
+               <div className="form-group">
+                  <Link to="/Med-test" className="col-mail col-mail-8">
+                         <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Test
+                         </button>
+                         </Link>
+               </div>
+            </div>
             
             
             </div>
