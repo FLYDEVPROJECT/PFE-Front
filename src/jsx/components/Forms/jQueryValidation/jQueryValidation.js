@@ -36,7 +36,7 @@ const Compose = () => {
                         </div>
                       
                         <div className="mail-list mt-4">
-                           <Link to="/email-inbox" className="list-group-item">
+                           <Link className="list-group-item">
                               <span className="icon-warning">
                                  <i
                                     className="fa fa-circle"
@@ -45,7 +45,7 @@ const Compose = () => {
                               </span>
                               Question
                            </Link>
-                           <Link to="/email-inbox" className="list-group-item">
+                           <Link  className="list-group-item">
                               <span className="icon-primary">
                                  <i
                                     className="fa fa-circle"
@@ -54,7 +54,7 @@ const Compose = () => {
                               </span>
                               Rapidité et efficacité 
                            </Link>
-                           <Link to="/email-inbox" className="list-group-item">
+                           <Link className="list-group-item">
                               <span className="icon-success">
                                  <i
                                     className="fa fa-circle"
@@ -63,7 +63,7 @@ const Compose = () => {
                               </span>
                               Support
                            </Link>
-                           <Link to="/email-inbox" className="list-group-item">
+                           <Link className="list-group-item">
                               <span className="icon-dpink">
                                  <i
                                     className="fa fa-circle"

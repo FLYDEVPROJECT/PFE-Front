@@ -114,6 +114,7 @@ import Urologie from './components/AppsMenu/Calendar/Urologie'
 import Pneumologie from './components/AppsMenu/Calendar/Pneumologie'
 import OtoRhinoLaryngologie from './components/AppsMenu/Calendar/OtoRhinoLaryngologie'
 import Reponse from './components/Dashboard/PatientList'
+import docDetails from './components/Dashboard/docDetails'
 
 
 
@@ -238,6 +239,8 @@ const Markup = () => {
     { url: 'page-error-500', component: Error500 },
     { url: 'page-error-503', component: Error503 },
     { url: 'appointment', component: Todo },
+    { url: 'doc-Details', component: docDetails },
+
   ]
 
   return (

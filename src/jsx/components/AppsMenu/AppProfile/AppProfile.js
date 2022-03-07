@@ -142,7 +142,7 @@ const AppProfile = () => {
 								<div className="text-center">
 							
 									<div className="mt-4">
-										<Link	to="/post-details"	className="btn btn-primary mb-1 mr-1">Follow</Link>
+										<Link	to="/doc-details"	className="btn btn-primary mb-1 mr-1">Follow</Link>
 										<Button as="a" href="#" className="btn btn-primary mb-1 ml-1" onClick={() => setSendMessage(true)}>Send Message</Button>
 									</div>
 								</div>
