@@ -1,96 +1,77 @@
-import React, { Fragment , useState} from "react";
-import {Button, Modal} from "react-bootstrap";
+import React, {Fragment, useState } from "react";
+import {Button} from "react-bootstrap";
+
+import SearchIcon from "@material-ui/icons/Search";
+import CloseIcon from "@material-ui/icons/Close";
+import "./EventCalender.css";
 
 
-const UiModal = () => {
-   const [contentModal, setContentModal] = useState(false);
-      return (
-      <Fragment>
+function EventCalendar({ placeholder, data }) {
+  const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
+  const [contentModal, setContentModal] = useState(false);
 
-         <div className="row">
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = data.filter((value) => {
+      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+  };
+
+  return (
+   <Fragment>
+ 
+
+        <div class="card">
+        <div className="row">
             <div className="col-lg-12">
-               <div className="card">
-                  <div className="card-body">
-                    
-                        <div class="card">
                            <div class=" d-block card-header">
 
                            <div class="row">
-  <div class="col-8">    <div class="card-title h5">ecrivez  Nom votre médecin et votre ville </div>
+  <div class="col-8">    <div class="card-title h5">ecrivez le Nom de votre médecin et votre ville </div>
                            <p class="mb-0 subtitle card-text">et recevez votre sms/mail de confirmation. C’est aussi simple que ça !</p>
-                           </div>
-  <div class="col-2">
-  <Button
-                           variant="primary"
-                           className="mb-2 mr-2"
-                           onClick={() => setContentModal(true)}
-                        >
-                           A propos
-                        </Button>
-                        {/* <!-- Modal --> */}
-                        <Modal className="fade" show={contentModal}>
-                           <Modal.Header>
-                              <Modal.Title>Medecine dentaire </Modal.Title>
-                              <Button
-                                 variant=""
-                                 className="close"
-                                 onClick={() => setContentModal(false)}
-                              >
-                                 <span>&times;</span>
-                              </Button>
-                           </Modal.Header>
-                           <Modal.Body>
-                           <div class="row text-center justify-content-center mt-1">
-                           <img
-                        src="https://svgsilh.com/svg/2029666-9e9e9e.svg"
-                        className="img-fluid mb-3 height60"
-                        alt=""
-                      /></div>
-                              <p><strong>
-                              Qu’est-ce que la dermatologie ? </strong>
-                              </p>
-                              <p>
-                              La dermatologie est une spécialité de médecine qui s'occupe de la peau, des muqueuses et des phanères. Elle est associée à la vénérologie, c’est-à-dire l'étude des maladies vénériennes ou infections sexuellement transmissibles. 
+                           </div></div></div></div></div>
+<div class="container">
+  <div class="row">
+    <div class="col">  
+    <input
+          type="text"
+          class="form-control"
 
-                              </p>
-                              <p><strong>Quand consulter le dermatologue ?</strong>
-                                 
-                              </p>
-                              <p>
-                                - l'eczéma, <br></br>
-                                - le psoriasis, <br></br>
-                                - la chute des cheveux, <br></br>
-                                - les grains de beauté,<br></br>
-                                - les cancers de la peau,<br></br>
-                                - les rides,<br></br>
-                              </p>
-                            
-                            
-                             
-                             
-                           </Modal.Body></Modal>
-                           </div>
-</div>
-                         
-                            
-                           </div>
-                           <div class="card-body">
-
-                           <div className="row">
-            <div className="col-lg-6 mb-2">
-               <div className="form-group">
-               <div class="input-group search-area ml-auto d-inline-flex">
-                  <input type="text" class="form-control" placeholder="Nom du professionel de santé "/><div class="input-group-append"><button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button></div></div>
-               </div>
-            </div>
-            
-            <div className="col-lg-6 mb-2">
-               <div className="form-group">
+          placeholder={placeholder}
+          value={wordEntered}
+          onChange={handleFilter}
+        />
+    
+      {filteredData.length != 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <a className="dataItem" href={value.link} target="_blank">
+                <p>{value.title} </p>
+              </a>
+            );
+          })}
+        </div>
+      )}</div>
+    <div class="col"> <div className="col-lg-10 mb-6">
                <div class="input-group search-area ml-auto d-inline-flex">
                <select
                                                    className="form-control"
                                                    id="inputState"
-                                                   defaultValue="option-1"
+                                                   defaultValue="option-2"
                                                  >
                                                    <option value="option-1">Ariana</option>
                                                    <option value="option-2">Beja </option>
@@ -116,32 +97,29 @@ const UiModal = () => {
                                        <option value="option-22">Tozeur</option>
                                        <option value="option-23">Tunis</option>
                                        <option value="option-24">zaghouan</option>
-                                                 </select>               <div class="input-group-append">
-                  </div></div>
+                                                 </select>           
                </div>
-            </div>
+            </div></div>
+            <div class="w-40"></div>
+
+
+    <div class="col">  <div class="row justify-content-md-center">
+    <Button className='mr-2' variant='primary'>
+Recherche                </Button>
+      </div>
+</div>
+    <div class="col"></div>
+  </div>
+</div>
+        <div className="col-lg-6 mb-2">
+
+     
+    
+    
+   </div></div>
             
-            </div>
-                        
+    </Fragment>
+  );
+}
 
-                        
-          
-
-
-
-                            </div></div>
-
-
-                      
-                          
-                       
-                     
-                     </div>
-               </div>
-            </div>
-         </div>
-      </Fragment>
-   );
-};
-
-export default UiModal;
+export default EventCalendar;

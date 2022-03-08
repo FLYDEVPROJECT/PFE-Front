@@ -16,7 +16,7 @@ const Compose = () => {
                       
                         <div className="mail-list mt-4">
                            <Link
-                              to="/email-inbox"
+                           
                               className="list-group-item active"
                            >
                               <i className="fa fa-inbox font-18 align-middle mr-2"></i>

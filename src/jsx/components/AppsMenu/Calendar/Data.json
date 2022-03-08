@@ -24,7 +24,7 @@
       "country": "Italy",
       "imageLink": "images/the-divine-comedy.jpg",
       "language": "Italian",
-      "link": "https://en.wikipedia.org/wiki/Divine_Comedy\n",
+      "link": "http://localhost:3000",
       "pages": 928,
       "title": "hadriche sami",
       "year": 1315
@@ -44,9 +44,9 @@
       "country": "Achaemenid Empire",
       "imageLink": "images/the-book-of-job.jpg",
       "language": "Hebrew",
-      "link": "https://en.wikipedia.org/wiki/Book_of_Job\n",
+      "link": "http://localhost:3000/doc-details",
       "pages": 176,
-      "title": "maissa ben abdallah ",
+      "title": "maroua ben salem ",
       "year": -600
     },
     {

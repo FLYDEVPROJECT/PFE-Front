@@ -1,5 +1,5 @@
 import React, {Fragment, useState } from "react";
-import {Button, Modal} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
@@ -37,23 +37,16 @@ function EventCalendar({ placeholder, data }) {
         <div class="card">
         <div className="row">
             <div className="col-lg-12">
-               <div className="card">
-                  <div className="card-body">
-                    
                            <div class=" d-block card-header">
 
                            <div class="row">
   <div class="col-8">    <div class="card-title h5">ecrivez le Nom de votre médecin et votre ville </div>
                            <p class="mb-0 subtitle card-text">et recevez votre sms/mail de confirmation. C’est aussi simple que ça !</p>
-                           </div> <div class="col-2">
-     <div  className="pull-right">
-        </div></div></div></div></div></div></div></div>
-        <div className="col-lg-6 mb-2">
-               <div className="form-group">
-               <div class="input-group search-area ml-auto d-inline-flex">
-    <div className="search">
-      <div className="searchInputs">
-        <input
+                           </div></div></div></div></div>
+<div class="container">
+  <div class="row">
+    <div class="col">  
+    <input
           type="text"
           class="form-control"
 
@@ -61,14 +54,7 @@ function EventCalendar({ placeholder, data }) {
           value={wordEntered}
           onChange={handleFilter}
         />
-        <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div>
-      </div></div></div></div>
+    
       {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
@@ -79,16 +65,13 @@ function EventCalendar({ placeholder, data }) {
             );
           })}
         </div>
-      )}
-    
-    
-    <div className="col-lg-6 mb-2">
-               <div className="form-group">
+      )}</div>
+    <div class="col"> <div className="col-lg-10 mb-6">
                <div class="input-group search-area ml-auto d-inline-flex">
                <select
                                                    className="form-control"
                                                    id="inputState"
-                                                   defaultValue="option-1"
+                                                   defaultValue="option-2"
                                                  >
                                                    <option value="option-1">Ariana</option>
                                                    <option value="option-2">Beja </option>
@@ -114,10 +97,26 @@ function EventCalendar({ placeholder, data }) {
                                        <option value="option-22">Tozeur</option>
                                        <option value="option-23">Tunis</option>
                                        <option value="option-24">zaghouan</option>
-                                                 </select>               <div class="input-group-append">
-                  </div></div>
+                                                 </select>           
                </div>
-            </div></div></div>
+            </div></div>
+            <div class="w-40"></div>
+
+
+    <div class="col">  <div class="row justify-content-md-center">
+    <Button className='mr-2' variant='primary'>
+Recherche                </Button>
+      </div>
+</div>
+    <div class="col"></div>
+  </div>
+</div>
+        <div className="col-lg-6 mb-2">
+
+     
+    
+    
+   </div></div>
             
     </Fragment>
   );

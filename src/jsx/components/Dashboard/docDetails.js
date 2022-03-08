@@ -90,6 +90,7 @@ const Reponse = () => {
                       
                      </div>
                   </div>
+                  <button type="button" class="mr-2 btn btn-primary"> valider l'Accés</button>
                   <button type="button" class="mr-10 btn btn-outline-light">Ecrire un message</button>
                </div>
                
