@@ -21,8 +21,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Dropdown } from "react-bootstrap";
-import DoughnutChart from "../charts/Chartjs/donught";
+
 
 const Reponse = () => {
    function SampleNextArrow(props) {

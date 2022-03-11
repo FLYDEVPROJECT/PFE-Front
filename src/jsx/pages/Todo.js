@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
 import {Link}  from "react-router-dom";
-import {Modal} from 'react-bootstrap';
 import {nanoid} from 'nanoid';
 import swal from "sweetalert";
-import Editable from './Editable';
+import Slider from "react-slick";
+
+
 
 const tableList = [
 	{
@@ -165,7 +166,47 @@ const Todo = () =>{
     const handleCancelClick = () => {
         setEditContentId(null);    
     };
+    function SampleNextArrow(props) {
+        const { onClick } = props;
+        return (
+           <div className="owl-next" onClick={onClick} style={{ zIndex: 99 }}>
+              <i className="fa fa-caret-right" />
+           </div>
+        );
+     }
+  
+     function SamplePrevArrow(props) {
+        const { onClick } = props;
+        return (
+           <div
+              className="owl-prev disabled"
+              onClick={onClick}
+              style={{ zIndex: 99 }}
+           >
+              <i className="fa fa-caret-left" />
+           </div>
+        );
+     }
+  
 	
+    const settings = {
+        focusOnSelect: true,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        speed: 500,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+           {
+              breakpoint: 990,
+              settings: {
+                 slidesToShow: 1,
+                 slidesToScroll: 1,
+              },
+           },
+        ],
+     };
 	return(
 		<>
 			<div className="col-12">
@@ -194,6 +235,116 @@ const Todo = () =>{
 					</div>
 				</div>
 			</div>
+            <div className="col-xl-12">
+               <div className="assigned-doctor2 owl-carousel">
+                  <Slider {...settings}>
+                     <div className="items">
+                        <div className="media bg-white p-4 rounded align-items-center">
+                           <img className="mr-3" alt="" />
+                           <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
+                              <div className="mr-2">
+                                 <h4 className="fs-20">
+                                    <Link className="text-black" to="/reviews">
+                                       Glee Smiley
+                                    </Link>
+                                 </h4>
+                                 <p className="fs-14 mb-0">
+                                    {" "}
+                                    I came with my mother, I was very nervous.
+                                    But after entering here I felt warmed with
+                                    smiling
+                                 </p>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
+                     <div className="items">
+                        <div className="media bg-white p-4 rounded align-items-center">
+                           <img className="mr-3"  alt="" />
+                           <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
+                              <div className="mr-2">
+                                 <h4 className="fs-20">
+                                    <Link className="text-black" to="/reviews">
+                                       Stevani Anderson
+                                    </Link>
+                                 </h4>
+                                 <p className="fs-14 mb-0">
+                                    {" "}
+                                    I came with my mother, I was very nervous.
+                                    But after entering here I felt warmed with
+                                    smiling
+                                 </p>
+                              </div>
+                            
+                           </div>
+                        </div>
+                     </div>
+                     <div className="items">
+                        <div className="media bg-white p-4 rounded align-items-center">
+                           <img className="mr-3" alt="" />
+                           <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
+                              <div className="mr-2">
+                                 <h4 className="fs-20">
+                                    <Link className="text-black" to="/reviews">
+                                       Cive Slauw
+                                    </Link>
+                                 </h4>
+                                 <p className="fs-14 mb-0">
+                                    {" "}
+                                    I came with my mother, I was very nervous.
+                                    But after entering here I felt warmed with
+                                    smiling
+                                 </p>
+                              </div>
+                           
+                           </div>
+                        </div>
+                     </div>
+                     <div className="items">
+                        <div className="media bg-white p-4 rounded align-items-center">
+                           <img className="mr-3"  alt="" />
+                           <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
+                              <div className="mr-2">
+                                 <h4 className="fs-20">
+                                    <Link className="text-black" to="/reviews">
+                                       Glee Smiley
+                                    </Link>
+                                 </h4>
+                                 <p className="fs-14 mb-0">
+                                    {" "}
+                                    I came with my mother, I was very nervous.
+                                    But after entering here I felt warmed with
+                                    smiling
+                                 </p>
+                              </div>
+                            
+                           </div>
+                        </div>
+                     </div>
+                     <div className="items">
+                        <div className="media bg-white p-4 rounded align-items-center">
+                           <img className="mr-3" alt="" />
+                           <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
+                              <div className="mr-2">
+                                 <h4 className="fs-20">
+                                    <Link className="text-black" to="/reviews">
+                                       Glee Smiley
+                                    </Link>
+                                 </h4>
+                                 <p className="fs-14 mb-0">
+                                    I came with my mother, I was very nervous.
+                                    But after entering here I felt warmed with
+                                    smiling
+                                 </p>
+                              </div>
+                           
+                           </div>
+                        </div>
+                     </div>
+                  </Slider>
+               </div>
+            </div>
 		</>
 	)
 }

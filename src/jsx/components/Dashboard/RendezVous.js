@@ -14,7 +14,7 @@ const loginSchema = Yup.object().shape({
       .required("Please provide a password"),
 });
 
-const JQueryValidation = () => {
+const RendezVous = () => {
    const [showPassword, setShowPassword] = useState(false);
    return (
       <Fragment>
@@ -55,11 +55,12 @@ const JQueryValidation = () => {
                                     />
                                  </div>
                                  <div className="text-center">
+                                    <Link to="/TimeRendezVous">
                                     <input
-                                       type="valider"
-                                       value="Unlock"
+                                       type="submit"
+                                       value="Confirmer"
                                        className="btn btn-primary btn-block"
-                                    />
+                                    /></Link>
                                  </div>
                               </form>
                            </div>
@@ -73,4 +74,4 @@ const JQueryValidation = () => {
    );
 };
 
-export default JQueryValidation;
+export default RendezVous;

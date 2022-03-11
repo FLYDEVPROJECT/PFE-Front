@@ -426,15 +426,15 @@ class SideBar extends Component {
                   <Link
                     className={`${path === "uc-sweetalert" ? "mm-active" : ""}`}
                     onClick={() => this.props.onClick()}
-                    to="/uc-sweetalert"
+                    to="/Doc-Report"
                   >
-                    Sweet Alert
+                    Dossier Patient Par Spécialité
                   </Link>
                 </li>
                
                
 				<li>
-					<Link className={`${path === "uc-lightgallery" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/uc-lightgallery">Light Gallery</Link>
+					<Link className={`${path === "uc-lightgallery" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/doc-MD">Light Gallery</Link>
                 </li>
                 {/* <li><Link className={`${path === "posts" ? "mm-active" : ""}`} to="/posts">Posts</Link></li> */}
               </ul>

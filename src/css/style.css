@@ -2405,12 +2405,12 @@ fieldset:disabled a.btn {
 
 .btn-warning {
   color: #212529;
-  background-color: #ffb800;
-  border-color: #ffb800; }
+  background-color: #4682B4 ;
+  border-color: #4682B4; }
   .btn-warning:hover {
     color: #212529;
-    background-color: #d99c00;
-    border-color: #cc9300; }
+    background-color: #837246;
+    border-color: #837246; }
   .btn-warning:focus, .btn-warning.focus {
     color: #212529;
     background-color: #d99c00;
@@ -4399,7 +4399,7 @@ input[type="button"].btn-block {
     background-color: #fff; }
   .list-group-item.active {
     z-index: 2;
-    color: #4682b4;
+    color: white;
     background-color: #4682b4;
     border-color: #4682b4; }
   .list-group-item + .list-group-item {

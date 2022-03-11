@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert" ;
 
 /// Scroll
 //Images
@@ -12,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import map from "../../../images/svg/map.svg";
 
 
-const Reponse = () => {
+const docDetailss = () => {
    function SampleNextArrow(props) {
       const { onClick } = props;
       return (
@@ -90,7 +91,32 @@ const Reponse = () => {
                       
                      </div>
                   </div>
-                  <button type="button" class="mr-2 btn btn-primary"> valider l'Accés</button>
+                  <button
+                              onClick={() =>
+                                 swal({
+                                    title: "Vous étes sur !",
+                                    text:
+                                       "que Dr X avoir l'accés de consulter votre dossier medical ?",
+                                    icon: "warning",
+                                    buttons: true,
+                                    dangerMode: true,
+                                 }).then((willDelete) => {
+                                    if (willDelete) {
+                                       swal(
+                                          "Félicitations Dr X est ajouté a votre liste avec succés",
+                                          {
+                                             icon: "success",
+                                          }
+                                       );
+                                    } else {
+                                       swal("Dr X ne peut pas consulter votre compte");
+                                    }
+                                 })
+                              }
+                              className="btn btn-warning btn sweet-confirm"
+                           >
+                              Sweet Confirm
+                           </button>
                   <button type="button" class="mr-10 btn btn-outline-light">Ecrire un message</button>
                </div>
                
@@ -242,7 +268,7 @@ Médecin Esthétique</button>  </div>
 
   </div>
   <div className="card-header border-0 pb-0" >
-                     <h6 style={{color: "#4682b2"}}>Qualification professionnelle</h6>
+                     <h6 style={{color: "black"}}>Qualification professionnelle</h6>
                      
                   </div>
                   <div class="container">
@@ -280,10 +306,51 @@ Médecin Esthétique</button>  </div>
                   </div>
                </div>
             </div>
+
+
+
+
+            <div className="row">
+            <div className="col-lg-3">
+           
+
+                        <div className="sweetalert mt-5">
+                           <button
+                              onClick={() =>
+                                 swal({
+                                    title: "Are you sure?",
+                                    text:
+                                       "Once deleted, you will not be able to recover this imaginary file!",
+                                    icon: "warning",
+                                    buttons: true,
+                                    dangerMode: true,
+                                 }).then((willDelete) => {
+                                    if (willDelete) {
+                                       swal(
+                                          "félicitations Dr X est ajouté avec succées",
+                                          {
+                                             icon: "success",
+                                          }
+                                       );
+                                    } else {
+                                       swal("Your imaginary file is safe!");
+                                    }
+                                 })
+                              }
+                              className="btn btn-warning btn sweet-confirm"
+                           >
+                              Sweet Confirm
+                           </button>
+                     </div>
+                  </div>
+          
+          </div>
+
+
            
            
       </>
    );
 };
 
-export default Reponse;
+export default docDetailss;

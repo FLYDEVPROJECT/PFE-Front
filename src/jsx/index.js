@@ -14,7 +14,7 @@ import Footer from './layouts/Footer'
 import Home from "./components/Dashboard/Home";
 import PatientDetails from "./components/Dashboard/PatientDetails";
 import DoctorList from "./components/Dashboard/DoctorList";
-import Doctordetail from "./components/Dashboard/Doctordetail";
+import Doctordetail from "./components/Dashboard/RendezVous";
 import PageReview from "./components/Dashboard/PageReview";
 import Task from './components/Dashboard/Task';
 
@@ -47,7 +47,10 @@ import UiBadge from './components/bootstrap/Badge'
 import UiButton from './components/bootstrap/Button'
 import UiModal from './components/bootstrap/Modal'
 import UiButtonGroup from './components/bootstrap/ButtonGroup'
-import UiListGroup from './components/bootstrap/ListGroup'
+import DocReport from './components/bootstrap/DocReport'
+import DocMD from './components/bootstrap/DocMD'
+import DocCardio from './components/bootstrap/DocCardio'
+
 import UiMediaObject from './components/bootstrap/MediaObject'
 import UiCards from './components/bootstrap/Cards'
 import UiCarousel from './components/bootstrap/Carousel'
@@ -63,7 +66,6 @@ import UiTypography from './components/bootstrap/Typography'
 import Select2 from './components/PluginsMenu/Select2/Select2'
 import Nestable from './components/PluginsMenu/Nestable/Nestable'
 import MainNouiSlider from './components/PluginsMenu/Noui Slider/MainNouiSlider'
-import MainSweetAlert from './components/PluginsMenu/Sweet Alert/SweetAlert'
 import Toastr from './components/PluginsMenu/Toastr/Toastr'
 import JqvMap from './components/PluginsMenu/Jqv Map/JqvMap'
 import Lightgallery from './components/PluginsMenu/Lightgallery/Lightgallery'
@@ -115,6 +117,9 @@ import Pneumologie from './components/AppsMenu/Calendar/Pneumologie'
 import OtoRhinoLaryngologie from './components/AppsMenu/Calendar/OtoRhinoLaryngologie'
 import Reponse from './components/Dashboard/PatientList'
 import docDetails from './components/Dashboard/docDetails'
+import DocGen from './components/bootstrap/DocGen'
+import TimeRendezVous  from './components/Dashboard/TimeRendezVous'
+
 
 
 
@@ -152,6 +157,7 @@ const Markup = () => {
     { url: 'Med-Urologie', component: Urologie },
     { url: 'Med-Pneumologie', component: Pneumologie },
     { url: 'Med-ORL', component: OtoRhinoLaryngologie },
+    { url: 'TimeRendezVous', component: TimeRendezVous },
 
 
 
@@ -177,7 +183,12 @@ const Markup = () => {
     { url: 'ui-modal', component: UiModal },
     { url: 'ui-button-group', component: UiButtonGroup },
     { url: 'ui-accordion', component: UiAccordion },
-    { url: 'ui-list-group', component: UiListGroup },
+    { url: 'Doc-Report', component: DocReport },
+    { url: 'Doc-MD', component: DocMD },
+    { url: 'Doc-Gen', component: DocGen },
+
+    { url: 'Doc-Cardio', component: DocCardio },
+
     { url: 'ui-media-object', component: UiMediaObject },
     { url: 'ui-card', component: UiCards },
     { url: 'ui-carousel', component: UiCarousel },
@@ -193,7 +204,6 @@ const Markup = () => {
     { url: 'uc-select2', component: Select2 },
     { url: 'uc-nestable', component: Nestable },
     { url: 'uc-noui-slider', component: MainNouiSlider },
-    { url: 'uc-sweetalert', component: MainSweetAlert },
     { url: 'uc-toastr', component: Toastr },
     { url: 'map-jqvmap', component: JqvMap },
     { url: 'uc-lightgallery', component: Lightgallery },

@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { Button,Dropdown, Modal } from "react-bootstrap";
+import { Button,Dropdown, Modal , Tab , ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { SRLWrapper } from "simple-react-lightbox";
 
 
 // import { Link } from 'react-router-dom';
@@ -25,8 +24,6 @@ const AppProfile = () => {
   const [replayModal, setReplayModal] = useState(false);
 
   const [activeDefault, setActiveDefault] = useState(0)
-  const [activeBordered, setActiveBordered] = useState(0)
-  const [activeWithoutSpace, setActiveWithoutSpace] = useState(0)
   
     
      
@@ -48,12 +45,8 @@ const AppProfile = () => {
           bg: 'success',
         },
       ]
- 
-  const options = {
-    settings: {
-      overlayColor: "#000000",
-    },
-  };
+    
+  
   return (
     <Fragment>
 
@@ -107,7 +100,7 @@ const AppProfile = () => {
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
                       <Dropdown.Item className="dropdown-item">
-                      <Link to="/table-Medecin" className="text-black">
+                      <Link to="/Reponse" className="text-black">
                       <i className="fa fa-users text-primary mr-2" />
                         Voir liste médecin
 										</Link>
@@ -133,116 +126,8 @@ const AppProfile = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-xl-4">
-			<div className="row">
-				<div className="col-lg-12">
-					<div className="card">
-						<div className="card-body">
-							<div className="profile-statistics">
-								<div className="text-center">
-							
-									<div className="mt-4">
-										<Link	to="/doc-details"	className="btn btn-primary mb-1 mr-1">Follow</Link>
-										<Button as="a" href="#" className="btn btn-primary mb-1 ml-1" onClick={() => setSendMessage(true)}>Send Message</Button>
-									</div>
-								</div>
-							  {/* send Modal */}
-								<Modal className="modal fade" show={sendMessage}>
-									<div className="modal-content">
-										<div className="modal-header">
-											<h5 className="modal-title">Send Message</h5>
-											<Button variant="" type="button" className="close" data-dismiss="modal" onClick={() => setSendMessage(false)}>
-												<span>×</span>
-											</Button>
-										</div>
-										<div className="modal-body">
-											<form className="comment-form" onSubmit={(e) => { e.preventDefault(); setSendMessage(false); }}>
-												<div className="row">
-													<div className="col-lg-6">
-														<div className="form-group">
-															<label htmlFor="author" className="text-black font-w600">  Name <span className="required">*</span> </label>
-															<input type="text" className="form-control" defaultValue="Author" name="Author" placeholder="Author" />
-														</div>
-													</div>
-													<div className="col-lg-6">
-														<div className="form-group">
-															<label htmlFor="email" className="text-black font-w600"> Email <span className="required">*</span></label>
-															<input type="text" className="form-control" defaultValue="Email" placeholder="Email" name="Email"/>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="form-group">
-															<label htmlFor="comment" className="text-black font-w600">Comment</label>
-															<textarea rows={8} className="form-control" name="comment" placeholder="Comment" defaultValue={""}/>
-														</div>
-													</div>
-													<div className="col-lg-12">
-														<div className="form-group">
-															<input type="submit" value="Post Comment" className="submit btn btn-primary" name="submit"/>
-														</div>
-													</div>
-												</div>
-											</form>
-										</div>
-									</div>
-								</Modal>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div className="col-lg-12">
-					<div className="card">
-						<div className="card-header border-0 pb-0">
-							<h5 className="text-black">Our Latest News</h5>
-						</div>	
-						<div className="card-body pt-3">
-							<div className="profile-news">
-							  <div className="media pt-3 pb-3">
-								<img src={profile05} alt="" className="mr-3 rounded" width={75}/>
-								<div className="media-body">
-									<h5 className="m-b-5">
-										<Link to="/post-details" className="text-black">
-											Collection of textile samples
-										</Link>
-									</h5>
-									<p className="mb-0">I shared this on my fb wall a few months back, and I thought. </p>
-								</div>
-							  </div>
-							  <div className="media pt-3 pb-3">
-								<img src={profile06} alt=""  className="mr-3 rounded" width={75}/>
-								<div className="media-body">
-									<h5 className="m-b-5">
-										<Link to="/post-details" className="text-black">
-										Collection of textile samples
-										</Link>
-									</h5>
-									<p className="mb-0">
-										I shared this on my fb wall a few months back, and I
-										thought.
-									</p>
-								</div>
-							  </div>
-							  <div className="media pt-3 ">
-								<img src={profile07} alt="" className="mr-3 rounded" width={75} />
-								<div className="media-body">
-									<h5 className="m-b-5">
-										<Link to="/post-details" className="text-black">
-											Collection of textile samples
-										</Link>
-									</h5>
-									<p className="mb-0">
-										I shared this on my fb wall a few months back, and I thought.
-									</p>
-								</div>
-							  </div>
-							</div>
-						</div>	
-					</div>
-				</div>	
-			</div>	
-		</div>	
-        <div className="col-xl-8">
+       
+        <div className="col-xl-12">
           <div className="card">
             <div className="card-body">
               <div className="profile-tab">
@@ -264,6 +149,10 @@ const AppProfile = () => {
                                     <h4 className="text-primary">Etat civil de monsieur</h4>
                                     <br></br>
                                     <br></br>
+ 
+
+
+
  
                                     <div className="row mb-2">
                                     <div className="col-3">
@@ -463,42 +352,208 @@ const AppProfile = () => {
             <div id="#about-me" className={`tab-pane fade ${ activeToggle === "aboutMe" ? "active show" : ""}`}>
                             <div className="pt-3">
                                 <div className="settings-form">
-                                    <h4 className="text-primary">Account Setting</h4>
+                                    <h4 className="text-primary">Sécurité et connexion </h4>
                                 </div>
+
                                 <Card>
                                     
             <Card.Header className='d-block card-header'>
-              <Card.Title>Default </Card.Title>
-             
+              <Card.Title>Recommandations</Card.Title>
             </Card.Header>
             <Card.Body className='card-body'>
-              {/* <!-- Default accordion --> */}
-              <Accordion
-                className='accordion accordion-primary'
-                defaultActiveKey='0'
-              > 
-             
-                {defaultAccordion.map((d, i) => (
-                  <div className='accordion__item' key={i}>
-                    <Accordion.Toggle
-                      as={Card.Text}
-                      eventKey={`${i}`}
-                      className={`accordion__header rounded-lg ${
-                        activeDefault === i ? '' : 'collapsed'
-                      }`}
-                      onClick={() =>
-                        setActiveDefault(activeDefault === i ? -1 : i)
-                      }
-                    >
-                      <span className='accordion__header--text'>{d.title}</span>
-                      <span className='accordion__header--indicator'></span>
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey={`${i}`}>
-                      <div className='accordion__body--text'>{d.text}</div>
-                    </Accordion.Collapse>
+            <div className="basic-list-group">
+                      
+            <Row>
+                           <Tab.Container defaultActiveKey="#home">
+                              <Col lg="6" xl="4">
+                                 <ListGroup className="mb-4" id="list-tab">
+                                    <ListGroup.Item action href="#home">
+                                    Gérer votre mot de passe
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action href="#profile">
+                                      Gérer informations
+                                    </ListGroup.Item>
+                                  
+                                 </ListGroup>
+                              </Col>
+                              <Col lg="10" xl="7">
+                                 <Tab.Content>
+                                    <Tab.Pane eventKey="#home">
+                                       <h4 className="mb-2" >
+
+                                       Changer votre mot de passe                                       </h4>
+                                       <p>Notre système a découvert que votre mot de passe correspond peut-être à un mot de passe volé sur 
+             un autre site. 
+             Protégez votre compte en changeant votre mot de passe.</p>
+             <form onSubmit={(e) => e.preventDefault()}>
+                  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Actuel	</label>
+  
+                    <div className='col-sm-9'>
+                    <input
+                        type='password'
+                        className='form-control'
+                      />
+                                    	
+Votre mot de passe actuel n’est peut-être pas assez fort
+                    </div>
                   </div>
-                ))}
-              </Accordion>
+                  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Nouveau</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>
+                  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Confirmer</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                      />
+                    </div>
+                  </div>
+                
+                  <a class="text-black" href="/react/demo/page-register">Mot de passe oublié ?</a>
+                  <div className="mt-4">
+									
+										<Button as="a" href="#" className="btn btn-primary mb-1 ml-1" >Enregistrer les modifications</Button>
+									</div>
+                </form>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="#profile">
+                                       <h4 className="mb-4">
+                                       Gérer les informations                                        </h4>
+                                       <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>phootttoo</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>
+                  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Adresse Email</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='Email'
+                        className='form-control'
+                        placeholder='maissaba@aiesec.net'
+                      />
+                    </div>
+                  </div>  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Numéro de telephone</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='Numberphone'
+                        className='form-control'
+                        placeholder='+216 125 478'
+                      />
+                    </div>
+                  </div>  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Nombre d'enfants</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Retreté</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Ville</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Adresse</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>  <div className='form-group row'>
+                    <label className='col-sm-3 col-form-label'>Code Postal</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='password'
+                        className='form-control'
+                        placeholder='Password'
+                      />
+                    </div>
+                 
+                  </div> 
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="#messages">
+                                       <h4 className="mb-4">
+                                          Messages Tab Content
+                                       </h4>
+                                       <p>
+                                          Ut ut do pariatur aliquip aliqua
+                                          aliquip exercitation do nostrud
+                                          commodo reprehenderit aute ipsum
+                                          voluptate. Irure Lorem et laboris
+                                          nostrud amet cupidatat cupidatat anim
+                                          do ut velit mollit consequat enim
+                                          tempor. Consectetur est minim nostrud
+                                          nostrud consectetur irure labore
+                                          voluptate irure. Ipsum id Lorem sit
+                                          sint voluptate est pariatur eu ad
+                                          cupidatat et deserunt culpa sit
+                                          eiusmod deserunt. Consectetur et
+                                          fugiat anim do eiusmod aliquip nulla
+                                          laborum elit adipisicing pariatur
+                                          cillum.
+                                       </p>
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="#settings">
+                                       <h4 className="mb-4">
+                                          Settings Tab Content
+                                       </h4>
+                                       <p>
+                                          Irure enim occaecat labore sit qui
+                                          aliquip reprehenderit amet velit.
+                                          Deserunt ullamco ex elit nostrud ut
+                                          dolore nisi officia magna sit occaecat
+                                          laboris sunt dolor. Nisi eu minim
+                                          cillum occaecat aute est cupidatat
+                                          aliqua labore aute occaecat ea aliquip
+                                          sunt amet. Aute mollit dolor ut
+                                          exercitation irure commodo non amet
+                                          consectetur quis amet culpa. Quis
+                                          ullamco nisi amet qui aute irure eu.
+                                          Magna labore dolor quis ex labore id
+                                          nostrud deserunt dolor eiusmod eu
+                                          pariatur culpa mollit in irure.
+                                       </p>
+                                    </Tab.Pane>
+                                 </Tab.Content>
+                              </Col>
+                           </Tab.Container>
+                        </Row>
+
+
+                     </div>
             </Card.Body>
           </Card>                            </div>
                         </div>
