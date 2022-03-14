@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import {Switch, Route } from 'react-router-dom'
 /// Css
 import './index.css'
-import './chart.css'
 import './step.css'
 
 /// Layout
@@ -12,67 +11,29 @@ import Footer from './layouts/Footer'
 
 /// Dashboard
 import Home from "./components/Dashboard/Home";
-import PatientDetails from "./components/Dashboard/PatientDetails";
 import DoctorList from "./components/Dashboard/DoctorList";
 import Doctordetail from "./components/Dashboard/RendezVous";
-import PageReview from "./components/Dashboard/PageReview";
-import Task from './components/Dashboard/Task';
 
 /// App
-import AppProfile from './components/AppsMenu/AppProfile/AppProfile'
+import ProfilePat from './components/ProfilePatient/ProfilePat'
 import Compose from './components/AppsMenu/Email/Compose/Compose'
 
 import Calendar from './components/AppsMenu/Calendar/Calendar'
 
 /// Product List
-import ProductGrid from './components/AppsMenu/Shop/ProductGrid/ProductGrid'
-import ProductList from './components/AppsMenu/Shop/ProductList/ProductList'
-import ProductDetail from './components/AppsMenu/Shop/ProductGrid/ProductDetail'
-import Checkout from './components/AppsMenu/Shop/Checkout/Checkout'
-import Invoice from './components/AppsMenu/Shop/Invoice/Invoice'
-import ProductOrder from './components/AppsMenu/Shop/ProductOrder'
-import EcomCustomers from './components/AppsMenu/Shop/Customers/Customers'
 
-/// Charts
-import RechartJs from './components/charts/rechart'
-import ChartJs from './components/charts/Chartjs'
-import Chartist from './components/charts/chartist'
-import SparklineChart from './components/charts/Sparkline'
-import ApexChart from './components/charts/apexcharts'
+
 
 /// Bootstrap
-import UiAlert from './components/bootstrap/Alert'
-import UiAccordion from './components/bootstrap/Accordion'
-import UiBadge from './components/bootstrap/Badge'
-import UiButton from './components/bootstrap/Button'
-import UiModal from './components/bootstrap/Modal'
-import UiButtonGroup from './components/bootstrap/ButtonGroup'
 import DocReport from './components/bootstrap/DocReport'
 import DocMD from './components/bootstrap/DocMD'
 import DocCardio from './components/bootstrap/DocCardio'
 
-import UiMediaObject from './components/bootstrap/MediaObject'
-import UiCards from './components/bootstrap/Cards'
-import UiCarousel from './components/bootstrap/Carousel'
-import UiDropDown from './components/bootstrap/DropDown'
-import UiPopOver from './components/bootstrap/PopOver'
-import UiProgressBar from './components/bootstrap/ProgressBar'
-import UiTab from './components/bootstrap/Tab'
-import UiPagination from './components/bootstrap/Pagination'
-import UiGrid from './components/bootstrap/Grid'
-import UiTypography from './components/bootstrap/Typography'
 
 /// Plugins
-import Select2 from './components/PluginsMenu/Select2/Select2'
-import Nestable from './components/PluginsMenu/Nestable/Nestable'
-import MainNouiSlider from './components/PluginsMenu/Noui Slider/MainNouiSlider'
-import Toastr from './components/PluginsMenu/Toastr/Toastr'
-import JqvMap from './components/PluginsMenu/Jqv Map/JqvMap'
-import Lightgallery from './components/PluginsMenu/Lightgallery/Lightgallery'
 
 
 /// Widget
-import Widget from './pages/Widget'
 
 /// Table
 import DataTable from './components/table/DataTable'
@@ -82,23 +43,13 @@ import FilteringTable from "./components/table/FilteringTable/FilteringTable";
 
 
 /// Form
-import ReduxForm from "./components/Forms/ReduxForm/ReduxForm";
-import WizardForm from "./components/Forms/ReduxWizard/Index";
-import Element from './components/Forms/Element/Element'
-import Wizard from './components/Forms/Wizard/Wizard'
-import SummerNote from './components/Forms/Summernote/SummerNote'
-import Pickers from './components/Forms/Pickers/Pickers'
-import jQueryValidation from './components/Forms/jQueryValidation/jQueryValidation'
+import jQueryValidation from './components/Forms/jQueryValidation/MedContact'
 
 /// Pages
 import Registration from './pages/Registration'
 import Login from './pages/Login'
 import LockScreen from './pages/LockScreen'
-import Error400 from './pages/Error400'
-import Error403 from './pages/Error403'
-import Error404 from './pages/Error404'
-import Error500 from './pages/Error500'
-import Error503 from './pages/Error503'
+
 import Todo from './pages/Todo';
 
 //Scroll To Top
@@ -119,6 +70,7 @@ import Reponse from './components/Dashboard/PatientList'
 import docDetails from './components/Dashboard/docDetails'
 import DocGen from './components/bootstrap/DocGen'
 import TimeRendezVous  from './components/Dashboard/TimeRendezVous'
+import ContactAll from './components/Forms/Element/ContactAll'
 
 
 
@@ -134,17 +86,16 @@ const Markup = () => {
     /// Dashboard
     { url: "", component: Home },
 	{ url: "Reponse", component: Reponse },
-    { url: "patient-details", component: PatientDetails },
     { url: "doctor-list", component: DoctorList },
     { url: "appoiform", component: Doctordetail },
-    { url: "reviews", component: PageReview },
-	{ url: 'task', component: Task },
+  { url: 'Contact', component: ContactAll },
+
 
     /// Apps
     
-    { url: 'app-profile', component: AppProfile },
+    { url: 'Profile-Patient', component: ProfilePat },
     { url: 'Med-gyneco', component: gynecologie },
-    { url: 'acces', component: Compose },
+    { url: 'compose', component: Compose },
     { url: 'Med-interne', component: interne },
     { url: 'Med-dermato', component: Dermatologie },
     { url: 'Med-dentaire', component: Calendar },
@@ -160,77 +111,21 @@ const Markup = () => {
     { url: 'TimeRendezVous', component: TimeRendezVous },
 
 
-
-
-
-
-
-
-
-    
-
-    /// Chart
-    { url: 'chart-sparkline', component: SparklineChart },
-    { url: 'chart-chartjs', component: ChartJs },
-    { url: 'chart-chartist', component: Chartist },
-    { url: 'chart-apexchart', component: ApexChart },
-    { url: 'chart-rechart', component: RechartJs },
+  
 
     /// Bootstrap
-    { url: 'ui-alert', component: UiAlert },
-    { url: 'ui-badge', component: UiBadge },
-    { url: 'ui-button', component: UiButton },
-    { url: 'ui-modal', component: UiModal },
-    { url: 'ui-button-group', component: UiButtonGroup },
-    { url: 'ui-accordion', component: UiAccordion },
     { url: 'Doc-Report', component: DocReport },
     { url: 'Doc-MD', component: DocMD },
     { url: 'Doc-Gen', component: DocGen },
 
     { url: 'Doc-Cardio', component: DocCardio },
 
-    { url: 'ui-media-object', component: UiMediaObject },
-    { url: 'ui-card', component: UiCards },
-    { url: 'ui-carousel', component: UiCarousel },
-    { url: 'ui-dropdown', component: UiDropDown },
-    { url: 'ui-popover', component: UiPopOver },
-    { url: 'ui-progressbar', component: UiProgressBar },
-    { url: 'ui-tab', component: UiTab },
-    { url: 'ui-pagination', component: UiPagination },
-    { url: 'ui-typography', component: UiTypography },
-    { url: 'ui-grid', component: UiGrid },
-
     /// Plugin
-    { url: 'uc-select2', component: Select2 },
-    { url: 'uc-nestable', component: Nestable },
-    { url: 'uc-noui-slider', component: MainNouiSlider },
-    { url: 'uc-toastr', component: Toastr },
-    { url: 'map-jqvmap', component: JqvMap },
-    { url: 'uc-lightgallery', component: Lightgallery },
 
 
-    /// Widget
-    { url: 'widget-basic', component: Widget },
-
-    /// Shop
-    { url: 'ecom-product-grid', component: ProductGrid },
-    { url: 'ecom-product-list', component: ProductList },
-    { url: 'ecom-product-detail', component: ProductDetail },
-    { url: 'ecom-product-order', component: ProductOrder },
-    { url: 'ecom-checkout', component: Checkout },
-    { url: 'ecom-invoice', component: Invoice },
-    { url: 'ecom-product-detail', component: ProductDetail },
-    { url: 'ecom-customers', component: EcomCustomers },
-
-    /// Form
     
-    { url: 'form-redux', component: ReduxForm },
-    { url: 'form-redux-wizard', component: WizardForm },
-    { url: 'form-element', component: Element },
-    { url: 'form-wizard', component: Wizard },
-    { url: 'form-wizard', component: Wizard },
-    { url: 'form-editor-summernote', component: SummerNote },
-    { url: 'form-pickers', component: Pickers },
+ 
+    
     { url: 'mail-Medecin', component: jQueryValidation },
 
     /// table
@@ -243,11 +138,7 @@ const Markup = () => {
     { url: 'page-register', component: Registration },
     { url: 'page-lock-screen', component: LockScreen },
     { url: 'page-login', component: Login },
-    { url: 'page-error-400', component: Error400 },
-    { url: 'page-error-403', component: Error403 },
-    { url: 'page-error-404', component: Error404 },
-    { url: 'page-error-500', component: Error500 },
-    { url: 'page-error-503', component: Error503 },
+
     { url: 'appointment', component: Todo },
     { url: 'doc-Details', component: docDetails },
 

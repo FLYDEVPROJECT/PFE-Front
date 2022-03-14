@@ -1,50 +1,21 @@
 import React, { Fragment, useState } from "react";
-import { Button,Dropdown, Modal , Tab , ListGroup } from "react-bootstrap";
+import { Button,Dropdown,  Tab , ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
 // import { Link } from 'react-router-dom';
-import { Row, Col, Card, Accordion } from 'react-bootstrap'
+import { Row, Col, Card} from 'react-bootstrap'
 //** Import Image */
-import profile02 from "../../../../images/profile/2.jpg";
-import profile03 from "../../../../images/profile/3.jpg";
-import profile04 from "../../../../images/profile/4.jpg";
-import profile05 from "../../../../images/profile/5.jpg";
-import profile06 from "../../../../images/profile/6.jpg";
-import profile07 from "../../../../images/profile/7.jpg";
-import profile from "../../../../images/profile/profile.png";
-import PageTitle from "../../../layouts/PageTitle";
 
-const AppProfile = () => {
+
+const ProfilePat = () => {
   const [activeToggle, setActiveToggle] = useState("posts");
-  const [sendMessage, setSendMessage] = useState(false);
-  const [postModal, setPostModal] = useState(false);
-  const [cameraModal, setCameraModal] = useState(false);
-  const [linkModal, setLinkModal] = useState(false);
-  const [replayModal, setReplayModal] = useState(false);
 
-  const [activeDefault, setActiveDefault] = useState(0)
   
     
      
     
-      const defaultAccordion = [
-        {
-          title: 'Changer le mot de passe ',
-          text:'okkkk',
-                   bg: 'primary',
-        },
-        {
-          title: 'Accordion Header Two',
-         
-          bg: 'info',
-        },
-        {
-          title: 'Accordion Header Three',
-         
-          bg: 'success',
-        },
-      ]
+    
     
   
   return (
@@ -59,11 +30,7 @@ const AppProfile = () => {
               </div>
               <div className="profile-info">
                 <div className="profile-photo">
-                  <img
-                    src={profile}
-                    className="img-fluid rounded-circle"
-                    alt="profile"
-                  />
+                 
                 </div>
                 <div className="profile-details">
                   <div className="profile-name px-3 pt-2">
@@ -566,4 +533,4 @@ Votre mot de passe actuel n’est peut-être pas assez fort
   );
 };
 
-export default AppProfile;
+export default ProfilePat;

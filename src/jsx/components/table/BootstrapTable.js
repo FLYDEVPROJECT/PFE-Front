@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import PageTitle from "../../layouts/PageTitle";
 import { useState, useEffect } from "react";
 import {
   Row,
@@ -65,7 +64,6 @@ const BootstrapTable = () => {
 
   return (
     <Fragment>
-      <PageTitle activeMenu="Table" motherMenu="Bootstrap" />
       <Row>
         <Col lg={12}>
           <Card>

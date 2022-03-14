@@ -56,23 +56,7 @@ class SideBar extends Component {
 		"reviews",
 		"task",
       ],
-      app = [
-        "app-profile",
-        "med-dentaire",
-        "acces",
-        "email-inbox",
-        "email-read",
-        "ecom-product-grid",
-        "ecom-product-list",
-        "ecom-product-list",
-        "ecom-product-order",
-        "ecom-checkout",
-        "ecom-invoice",
-        "ecom-customers",
-        "post-details",
-        "ecom-product-detail",
-      ],
-      email = ["acces", "email-inbox", "email-read"],
+     
     
       charts = [
         "chart-rechart",
@@ -116,7 +100,6 @@ class SideBar extends Component {
             "form-redux",
             "form-redux-wizard", 
         ],
-      widget = ["widget-basic"],
       forms = [
         "form-element",
         "form-wizard",
@@ -139,13 +122,6 @@ class SideBar extends Component {
         "page-error-404",
         "page-error-500",
         "page-error-503",
-      ],
-      error = [
-        "page-error-400",
-        "page-error-403",
-        "page-error-404",
-        "page-error-500",
-        "page-error-503",
       ];
 
     return (
@@ -161,16 +137,14 @@ class SideBar extends Component {
 
               <ul >
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/app-profile">Profile</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/Profile-Patient">Profile</Link>
                 </li>
 
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/acces">Accés</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/compose">Accés</Link>
                 </li>
 
-            		<li>
-						<Link className={`${path === "task" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/task">Note</Link>
-					</li>	
+            	
               
 
 
@@ -456,7 +430,7 @@ class SideBar extends Component {
               </Link>
               <ul >
                 <li>
-                    <Link className={`${path === "form-element" ? "mm-active" : ""}`}onClick={() => this.props.onClick()} to="/form-element">Q & R</Link>
+                    <Link className={`${path === "Contact" ? "mm-active" : ""}`}onClick={() => this.props.onClick()} to="/Contact">Q & R</Link>
                 </li>
 
                 <li>

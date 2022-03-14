@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Row, Card, Col, ListGroup, Badge, Tab } from "react-bootstrap";
+import { Row, Card} from "react-bootstrap";
 
 const DocGen = () => {
  

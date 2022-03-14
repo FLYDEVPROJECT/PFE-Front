@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
-import { Row, Card, Col, ListGroup, Badge, Tab } from "react-bootstrap";
-import { Link  } from "react-router-dom";
+import { Row, Card} from "react-bootstrap";
 
 const DocMD = () => {
  

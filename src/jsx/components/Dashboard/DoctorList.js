@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //Images
-
 import doctors1 from "../../../images/doctors/1.jpg";
 import doctors9 from "../../../images/doctors/9.jpg";
 import doctors10 from "../../../images/doctors/10.jpg";

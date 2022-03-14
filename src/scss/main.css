@@ -21416,8 +21416,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     border: 0;
     background: transparent;
     background: transparent;
-    border-bottom: 0.2px solid #36C95F;
-    color: #36C95F; }
+    border-bottom: 0.2px solid #2846b2;
+    color:#2846b2 ; }
   @media only screen and (max-width: 575px) {
     .profile-tab .nav-item .nav-link {
       margin-right: 0; } }

@@ -307,7 +307,7 @@ class Patient extends Component {
 
                    
                 <label className="text-label"><strong>Joindrez votre photo</strong></label></div>
-    <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" href="/app-profile"><i class="fa fa-camera m-0"></i> </a>
+    <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" href="/Profile-Patient"><i class="fa fa-camera m-0"></i> </a>
   
      <input type="file"
             id="avatar" name="avatar"

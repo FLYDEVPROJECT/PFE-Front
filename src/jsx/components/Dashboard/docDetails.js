@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert" ;
-
-/// Scroll
-//Images
 import avater02 from "../../../images/avatar/2.jpg";
 
 import "slick-carousel/slick/slick.css";
@@ -115,7 +112,7 @@ const docDetailss = () => {
                               }
                               className="btn btn-warning btn sweet-confirm"
                            >
-                              Sweet Confirm
+                              Demande Accés
                            </button>
                   <button type="button" class="mr-10 btn btn-outline-light">Ecrire un message</button>
                </div>
@@ -178,12 +175,10 @@ const docDetailss = () => {
                         <div className="col-lg-6">
                            <div className="map-bx mb-3">
                               <img src={map} alt="" />
-                              <Link to="/doctor-details" className="map-button">
-                                 voir
-                              </Link>
-                              <Link className="map-marker" to="#">
-                                 <i className="las la-map-marker-alt" />
-                              </Link>
+                              <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" href="https://www.google.tn/maps/dir/A%C3%A9roport+Tunis-Carthage,+Tunis/M%C3%A9hari+Hammamet,+Yasmine+Hammamet/@36.606756,10.0988658,10z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x12e2cad2e1d7f1bb:0x902488d100b5819b!2m2!1d10.2175601!2d36.8475562!1m5!1m1!1s0x12fd6392f2b26221:0xe9cf290510e9a7c3!2m2!1d10.5346542!2d36.3632716!3e0?hl=fr">voir<i class="bi bi-geo-alt-fill"></i>
+ </a>
+
+                            
                            </div>
                         </div>
                         <div className="col-lg-6 mb-lg-0 mb-3">
@@ -310,42 +305,7 @@ Médecin Esthétique</button>  </div>
 
 
 
-            <div className="row">
-            <div className="col-lg-3">
-           
-
-                        <div className="sweetalert mt-5">
-                           <button
-                              onClick={() =>
-                                 swal({
-                                    title: "Are you sure?",
-                                    text:
-                                       "Once deleted, you will not be able to recover this imaginary file!",
-                                    icon: "warning",
-                                    buttons: true,
-                                    dangerMode: true,
-                                 }).then((willDelete) => {
-                                    if (willDelete) {
-                                       swal(
-                                          "félicitations Dr X est ajouté avec succées",
-                                          {
-                                             icon: "success",
-                                          }
-                                       );
-                                    } else {
-                                       swal("Your imaginary file is safe!");
-                                    }
-                                 })
-                              }
-                              className="btn btn-warning btn sweet-confirm"
-                           >
-                              Sweet Confirm
-                           </button>
-                     </div>
-                  </div>
           
-          </div>
-
 
            
            

@@ -1,30 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import loadable from "@loadable/component";
-
-// Images
-import DrAlexandro from "../../../images/doctors/5.jpg";
-import DrSamantha from "../../../images/doctors/1.jpg";
-import DrAliandro from "../../../images/doctors/2.jpg";
-import DrSamuel from "../../../images/doctors/4.jpg";
-import DrMelinda from "../../../images/doctors/3.jpg";
-import widget01 from "../../../images/widget/1.jpg";
-import widget02 from "../../../images/widget/2.jpg";
-import widget03 from "../../../images/widget/3.jpg";
-import widget05 from "../../../images/widget/5.jpg";
-import { Dropdown, Tab, Nav } from "react-bootstrap";
-
-import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 /// Scroll
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-const ApexBar3 = loadable(() => import("../charts/apexcharts/Bar3"));
-const ApexLine5 = loadable(() => import("../charts/apexcharts/Line5"));
-
 const Home = () => {
    function SampleNextArrow(props) {
       const { onClick } = props;

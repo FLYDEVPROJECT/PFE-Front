@@ -222,14 +222,8 @@ const Todo = () =>{
 							<i class="lar la-calendar-plus mr-2 scale5 mr-2">
 								</i>+ New Appointment </Link>
 								</a>
-							<div class="dropdown ml-auto mr-1 d-inline-block dropdown">
-								<button aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" type="button" class="btn btn-primary btn-rounded dropdown-toggle light font-w600  mb-2 dropdown-toggle btn">
-									<i class="las la-check-circle scale5 mr-3">
-										</i>Available
-									</button>
-									</div>
-									<a class="btn btn-primary btn-rounded mb-2" href="/react/demo/appoiform">
-										<i class="las scale5 la-pencil-alt mr-2"></i> Edit</a>
+						
+								
 										</div>
 
 					</div>
@@ -244,9 +238,8 @@ const Todo = () =>{
                            <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
                               <div className="mr-2">
                                  <h4 className="fs-20">
-                                    <Link className="text-black" to="/reviews">
-                                       Glee Smiley
-                                    </Link>
+                                    <Link className="text-black" to="/Doc-Details">
+Maroua ben salem                                     </Link>
                                  </h4>
                                  <p className="fs-14 mb-0">
                                     {" "}

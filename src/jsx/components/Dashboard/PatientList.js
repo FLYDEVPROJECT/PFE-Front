@@ -1,24 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-//Image
-
-import widget1 from "../../../images/widget/1.jpg";
-import widget5 from "../../../images/widget/5.jpg";
-import widget6 from "../../../images/widget/6.jpg";
-import widget7 from "../../../images/widget/7.jpg";
-import widget8 from "../../../images/widget/8.jpg";
-import avater1 from "../../../images/avatar/1.jpg";
-import doctors6 from "../../../images/doctors/6.jpg";
-import doctors7 from "../../../images/doctors/7.jpg";
-import doctors8 from "../../../images/doctors/8.jpg";
-import map from "../../../images/svg/map.svg";
-
-/// Scroll
 import PerfectScrollbar from "react-perfect-scrollbar";
-
-import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

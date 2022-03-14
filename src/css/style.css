@@ -13612,7 +13612,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     padding-top: 10px; }
   .chatbox .nav {
     padding: 1rem 1rem 0 1rem;
-    background: #A336C9;
+    background: #2846b2;
     border: 0;
     justify-content: space-between; }
     .chatbox .nav .nav-link {
@@ -15937,7 +15937,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-headerbg="color_1"] .nav-header .hamburger.is-active .line,
 [data-headerbg="color_1"] .nav-header .hamburger .line {
-  background: #36C95F !important; }
+  background: #2846b2 !important; }
 
 @media (min-width: 992px) {
   [data-container="boxed"] #main-wrapper {
@@ -21417,8 +21417,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     border: 0;
     background: transparent;
     background: transparent;
-    border-bottom: 0.2px solid #36C95F;
-    color: #36C95F; }
+    border-bottom: 0.2px solid #2846b2 ;
+    color: #2846b2 ; }
   @media only screen and (max-width: 575px) {
     .profile-tab .nav-item .nav-link {
       margin-right: 0; } }
