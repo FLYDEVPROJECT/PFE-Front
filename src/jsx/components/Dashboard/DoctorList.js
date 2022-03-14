@@ -8,9 +8,6 @@ import doctors10 from "../../../images/doctors/10.jpg";
 import doctors11 from "../../../images/doctors/11.jpg";
 import doctors12 from "../../../images/doctors/12.jpg";
 import doctors13 from "../../../images/doctors/13.jpg";
-import doctors14 from "../../../images/doctors/14.jpg";
-import doctors15 from "../../../images/doctors/15.jpg";
-import doctors16 from "../../../images/doctors/16.jpg";
 
 import { Dropdown } from "react-bootstrap";
 
@@ -780,13 +777,7 @@ const DoctorList = () => {
                                           />
                                        </div>
                                     </div>
-                                    <img
-                                       alt=""
-                                       src={doctors14}
-                                       height={43}
-                                       width={43}
-                                       className="rounded-circle ml-4"
-                                    />
+                                   
                                  </div>
                               </td>
                               <td>#P-00017</td>
@@ -888,13 +879,7 @@ const DoctorList = () => {
                                           />
                                        </div>
                                     </div>
-                                    <img
-                                       alt=""
-                                       src={doctors15}
-                                       height={43}
-                                       width={43}
-                                       className="rounded-circle ml-4"
-                                    />
+                                   
                                  </div>
                               </td>
                               <td>#P-00018</td>
@@ -996,13 +981,7 @@ const DoctorList = () => {
                                           />
                                        </div>
                                     </div>
-                                    <img
-                                       alt=""
-                                       src={doctors16}
-                                       height={43}
-                                       width={43}
-                                       className="rounded-circle ml-4"
-                                    />
+                                 
                                  </div>
                               </td>
                               <td>#P-00019</td>

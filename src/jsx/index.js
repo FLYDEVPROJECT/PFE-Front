@@ -12,34 +12,24 @@ import Footer from './layouts/Footer'
 /// Dashboard
 import Home from "./components/Dashboard/Home";
 import DoctorList from "./components/Dashboard/DoctorList";
-import Doctordetail from "./components/Dashboard/RendezVous";
 
 /// App
-import ProfilePat from './components/ProfilePatient/ProfilePat'
-import Compose from './components/AppsMenu/Email/Compose/Compose'
-
-import Calendar from './components/AppsMenu/Calendar/Calendar'
-
-/// Product List
+import ProfilePat from './components/ProfilePatient/ProfilePat/ProfilePat'
+import Compose from './components/ProfilePatient/AccesPat/Compose'
 
 
 
-/// Bootstrap
-import DocReport from './components/bootstrap/DocReport'
-import DocMD from './components/bootstrap/DocMD'
-import DocCardio from './components/bootstrap/DocCardio'
+/// Dossier Patient 
+import DocReport from './components/DossierPatient/DocReport'
+import DocMD from './components/DossierPatient/DocMD'
+import DocCardio from './components/DossierPatient/DocCardio'
+import DocGen from './components/DossierPatient/DocGen'
+import DocORM from './components/DossierPatient/DocORM'
 
 
-/// Plugins
-
-
-/// Widget
 
 /// Table
-import DataTable from './components/table/DataTable'
-import BootstrapTable from './components/table/BootstrapTable'
-import SortingTable from "./components/table/SortingTable/SortingTable";
-import FilteringTable from "./components/table/FilteringTable/FilteringTable";
+import FilteringTable from "./components/ListeMedPatient/FilteringTable";
 
 
 /// Form
@@ -50,28 +40,41 @@ import Registration from './pages/Registration'
 import Login from './pages/Login'
 import LockScreen from './pages/LockScreen'
 
-import Todo from './pages/Todo';
 
 //Scroll To Top
 import ScrollToTop from './layouts/ScrollToTop';
-import Dermatologie from './components/AppsMenu/Calendar/dermatologie'
-import interne from './components/AppsMenu/Calendar/Interne'
-import Cardiologie from './components/AppsMenu/Calendar/cardiologie'
-import gynecologie from './components/AppsMenu/Calendar/gynecologie'
-import Ophtalmologie from './components/AppsMenu/Calendar/ophtalmologie'
-import Orthopedie from './components/AppsMenu/Calendar/Orthopedie'
-import Pediatrie from './components/AppsMenu/Calendar/Pediatrie'
-import Sexologie from './components/AppsMenu/Calendar/Sexologie'
-import Gastro from './components/AppsMenu/Calendar/Gastro'
-import Urologie from './components/AppsMenu/Calendar/Urologie'
-import Pneumologie from './components/AppsMenu/Calendar/Pneumologie'
-import OtoRhinoLaryngologie from './components/AppsMenu/Calendar/OtoRhinoLaryngologie'
+
+
+
+
+import Calendar from './components/ProfilePatient/AccesPat/Calendar/Calendar'
+import Dermatologie from './components/ProfilePatient/AccesPat/Calendar/dermatologie'
+import interne from './components/ProfilePatient/AccesPat/Calendar/Interne'
+import Cardiologie from './components/ProfilePatient/AccesPat/Calendar/cardiologie'
+import gynecologie from './components/ProfilePatient/AccesPat/Calendar/gynecologie'
+import Ophtalmologie from './components/ProfilePatient/AccesPat/Calendar/ophtalmologie'
+import Orthopedie from './components/ProfilePatient/AccesPat/Calendar/Orthopedie'
+import Pediatrie from './components/ProfilePatient/AccesPat/Calendar/Pediatrie'
+import Sexologie from './components/ProfilePatient/AccesPat/Calendar/Sexologie'
+import Gastro from './components/ProfilePatient/AccesPat/Calendar/Gastro'
+import Urologie from './components/ProfilePatient/AccesPat/Calendar/Urologie'
+import Pneumologie from './components/ProfilePatient/AccesPat/Calendar/Pneumologie'
+import OtoRhinoLaryngologie from './components/ProfilePatient/AccesPat/Calendar/OtoRhinoLaryngologie'
+
+
+
 import Reponse from './components/Dashboard/PatientList'
 import docDetails from './components/Dashboard/docDetails'
-import DocGen from './components/bootstrap/DocGen'
-import TimeRendezVous  from './components/Dashboard/TimeRendezVous'
 import ContactAll from './components/Forms/Element/ContactAll'
 
+
+
+//Rendez vous Patient
+import Todo from './components/RendezVousPatient/Booking';
+import Doctordetail from "./components/RendezVousPatient/RendezVous";
+import TimeRendezVous  from './components/RendezVousPatient/TimeRendezVous'
+import DocSexo from './components/DossierPatient/DocSexo'
+import DocPneumo from './components/DossierPatient/DocPneumo'
 
 
 
@@ -116,9 +119,13 @@ const Markup = () => {
     /// Bootstrap
     { url: 'Doc-Report', component: DocReport },
     { url: 'Doc-MD', component: DocMD },
-    { url: 'Doc-Gen', component: DocGen },
+    { url: 'Doc-Generaliste', component: DocGen },
+    { url: 'Doc-ORL', component: DocORM },
+    { url: 'Doc-Cardiologie', component: DocCardio },
+    { url: 'Doc-Sexologie', component: DocSexo },
+    { url: 'Doc-Pneumologie', component: DocPneumo },
 
-    { url: 'Doc-Cardio', component: DocCardio },
+
 
     /// Plugin
 
@@ -129,10 +136,7 @@ const Markup = () => {
     { url: 'mail-Medecin', component: jQueryValidation },
 
     /// table
-    { url: 'table-datatable-basic', component: DataTable },
-    { url: 'table-bootstrap-basic', component: BootstrapTable },
     { url: 'table-Medecin', component: FilteringTable },
-    { url: 'table-sorting', component: SortingTable },
 
     /// pages
     { url: 'page-register', component: Registration },
