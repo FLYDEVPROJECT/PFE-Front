@@ -12481,10 +12481,10 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li > a {
         font-size: 16px; } }
   [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li.mm-active > a {
-    background: #36C95F;
-    color: #fff; }
+    background: #2846b2;
+    color: white; }
     [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li.mm-active > a i {
-      color: #fff;
+      color: #2846b2;
       font-weight: normal; }
   [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li .has-arrow:after {
     right: 3.125rem; }
