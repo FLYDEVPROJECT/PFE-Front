@@ -1,0 +1,7 @@
+.Switch  {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(168, 47, 47);
+  }
