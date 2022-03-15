@@ -1,0 +1,62 @@
+@import '../../assets/styles/main/colors';
+
+.prontuario {
+    display: flex;
+    margin: 0 auto 1.5rem;
+
+    width: calc(100vw - 3rem);
+
+    font-family: Raleway;
+
+    .date {
+        width: 3rem;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.14rem;
+        padding: 0.7rem 0.7rem;
+        color: $blue-even-darker;
+    }
+
+    .card {
+        width: 100%;
+        .card-header {
+            .header {
+                display: flex;
+                align-items: center;
+                padding: 0 1rem;
+            }
+
+            .time {
+                height: 3rem;
+                color: $white;
+                background: $blue-darker;
+                font-weight: 600;
+            }
+
+            .title {
+                height: 2rem;
+                color: $black;
+                background: $blue;
+                font-weight: 500;
+            }
+        }
+
+        span {
+            color: $black;
+            font-weight: 500;
+        }
+
+        p {
+            margin: 0.5rem 0;
+        }
+
+        .chips {
+            margin: 0.5rem 0.4rem;
+            background: $blue;
+        }
+    }
+
+    @media (min-width: 768px) {
+        max-width: 690px;
+    }
+}

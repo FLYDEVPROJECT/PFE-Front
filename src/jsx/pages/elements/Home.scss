@@ -1,0 +1,15 @@
+@import '../assets/styles/main/colors';
+
+h1 {
+    margin-bottom: 1.3rem;
+
+    font-family: Raleway;
+    font-weight: 500;
+    color: $black;
+}
+
+.fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
