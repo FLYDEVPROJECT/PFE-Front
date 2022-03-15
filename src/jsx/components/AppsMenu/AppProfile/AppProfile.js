@@ -1,44 +1,45 @@
 import React, { Fragment, useState } from "react";
-import {Dropdown,  Tab , ListGroup } from "react-bootstrap";
+import { Button,Dropdown, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { useForm } from "react-hook-form";
+import { Card, Accordion } from 'react-bootstrap'
 
-// import { Link } from 'react-router-dom';
-import { Row, Col, Card} from 'react-bootstrap'
-//** Import Image */
+import profile05 from "../../../../images/profile/5.jpg";
+import profile06 from "../../../../images/profile/6.jpg";
+import profile07 from "../../../../images/profile/7.jpg";
+import profile from "../../../../images/profile/profile.png";
 
+const AppProfile = () => {
+  const [activeToggle, setActiveToggle] = useState("posts");
+  const [sendMessage, setSendMessage] = useState(false);
 
-const ProfilePat = () => {
-   const [activeToggle, setActiveToggle] = useState("posts");
-  // handle form events
-   const { register, handleSubmit, watch, formState: { errors },reset , trigger , } = useForm({
-    mode:'onTouched'
-});
-
-// handle submit 
-   const onSubmit = data => alert(JSON.stringify(data));
-
-
-// handle password eye
-    const [passwordEye, setPasswordEye] = useState(false);
-
-   const handlePasswordClick = () => {
-setPasswordEye(!passwordEye);
-};
-
-// handle confirm password eye
-    const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
-
-    const handleConfirmPasswordClick = () => {
- setConfirmPasswordEye(!confirmPasswordEye);
-};
-
-//    check password event 
-    const password = watch('password')
-
+  const [activeDefault, setActiveDefault] = useState(0)
   
-  
+    
+     
+    
+      const defaultAccordion = [
+        {
+          title: 'Changer le mot de passe ',
+          text:'okkkk',
+                   bg: 'primary',
+        },
+        {
+          title: 'Accordion Header Two',
+         
+          bg: 'info',
+        },
+        {
+          title: 'Accordion Header Three',
+         
+          bg: 'success',
+        },
+      ]
+ 
+  const options = {
+    settings: {
+      overlayColor: "#000000",
+    },
+  };
   return (
     <Fragment>
 
@@ -51,7 +52,11 @@ setPasswordEye(!passwordEye);
               </div>
               <div className="profile-info">
                 <div className="profile-photo">
-                 
+                  <img
+                    src={profile}
+                    className="img-fluid rounded-circle"
+                    alt="profile"
+                  />
                 </div>
                 <div className="profile-details">
                   <div className="profile-name px-3 pt-2">
@@ -88,7 +93,7 @@ setPasswordEye(!passwordEye);
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
                       <Dropdown.Item className="dropdown-item">
-                      <Link to="/Reponse" className="text-black">
+                      <Link to="/table-Medecin" className="text-black">
                       <i className="fa fa-users text-primary mr-2" />
                         Voir liste médecin
 										</Link>
@@ -114,8 +119,114 @@ setPasswordEye(!passwordEye);
         </div>
       </div>
       <div className="row">
-       
-        <div className="col-xl-12">
+        <div className="col-xl-4">
+			<div className="row">
+				<div className="col-lg-12">
+					<div className="card">
+						<div className="card-body">
+							<div className="profile-statistics">
+								<div className="text-center">
+							
+									<div className="mt-4">
+										<Link	to="/post-details"	className="btn btn-primary mb-1 mr-1">Follow</Link>
+										<Button as="a" href="#" className="btn btn-primary mb-1 ml-1" onClick={() => setSendMessage(true)}>Send Message</Button>
+									</div>
+								</div>
+							  {/* send Modal */}
+								<Modal className="modal fade" show={sendMessage}>
+									<div className="modal-content">
+										<div className="modal-header">
+											<h5 className="modal-title">Send Message</h5>
+											<Button variant="" type="button" className="close" data-dismiss="modal" onClick={() => setSendMessage(false)}>
+												<span>×</span>
+											</Button>
+										</div>
+										<div className="modal-body">
+											<form className="comment-form" onSubmit={(e) => { e.preventDefault(); setSendMessage(false); }}>
+												<div className="row">
+													<div className="col-lg-6">
+														<div className="form-group">
+															<label htmlFor="author" className="text-black font-w600">  Name <span className="required">*</span> </label>
+															<input type="text" className="form-control" defaultValue="Author" name="Author" placeholder="Author" />
+														</div>
+													</div>
+													<div className="col-lg-6">
+														<div className="form-group">
+															<label htmlFor="email" className="text-black font-w600"> Email <span className="required">*</span></label>
+															<input type="text" className="form-control" defaultValue="Email" placeholder="Email" name="Email"/>
+														</div>
+													</div>
+													<div className="col-lg-12">
+														<div className="form-group">
+															<label htmlFor="comment" className="text-black font-w600">Comment</label>
+															<textarea rows={8} className="form-control" name="comment" placeholder="Comment" defaultValue={""}/>
+														</div>
+													</div>
+													<div className="col-lg-12">
+														<div className="form-group">
+															<input type="submit" value="Post Comment" className="submit btn btn-primary" name="submit"/>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</Modal>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div className="col-lg-12">
+					<div className="card">
+						
+						<div className="card-body pt-3">
+							<div className="profile-news">
+							  <div className="media pt-3 pb-3">
+								<img src={profile05} alt="" className="mr-3 rounded" width={75}/>
+								<div className="media-body">
+									<h5 className="m-b-5">
+										<Link to="/post-details" className="text-black">
+											Collection of textile samples
+										</Link>
+									</h5>
+									<p className="mb-0">I shared this on my fb wall a few months back, and I thought. </p>
+								</div>
+							  </div>
+							  <div className="media pt-3 pb-3">
+								<img src={profile06} alt=""  className="mr-3 rounded" width={75}/>
+								<div className="media-body">
+									<h5 className="m-b-5">
+										<Link to="/post-details" className="text-black">
+										Collection of textile samples
+										</Link>
+									</h5>
+									<p className="mb-0">
+										I shared this on my fb wall a few months back, and I
+										thought.
+									</p>
+								</div>
+							  </div>
+							  <div className="media pt-3 ">
+								<img src={profile07} alt="" className="mr-3 rounded" width={75} />
+								<div className="media-body">
+									<h5 className="m-b-5">
+										<Link to="/post-details" className="text-black">
+											Collection of textile samples
+										</Link>
+									</h5>
+									<p className="mb-0">
+										I shared this on my fb wall a few months back, and I thought.
+									</p>
+								</div>
+							  </div>
+							</div>
+						</div>	
+					</div>
+				</div>	
+			</div>	
+		</div>	
+        <div className="col-xl-8">
           <div className="card">
             <div className="card-body">
               <div className="profile-tab">
@@ -137,10 +248,6 @@ setPasswordEye(!passwordEye);
                                     <h4 className="text-primary">Etat civil de monsieur</h4>
                                     <br></br>
                                     <br></br>
- 
-
-
-
  
                                     <div className="row mb-2">
                                     <div className="col-3">
@@ -339,245 +446,43 @@ setPasswordEye(!passwordEye);
 						</div>
             <div id="#about-me" className={`tab-pane fade ${ activeToggle === "aboutMe" ? "active show" : ""}`}>
                             <div className="pt-3">
-                               
-
+                                <div className="settings-form">
+                                    <h4 className="text-primary">Account Setting</h4>
+                                </div>
                                 <Card>
                                     
             <Card.Header className='d-block card-header'>
-              <Card.Title>Sécurité et connexion</Card.Title>
+              <Card.Title>Default </Card.Title>
+             
             </Card.Header>
             <Card.Body className='card-body'>
-            <div className="basic-list-group">
-                      
-            <Row>
-                           <Tab.Container defaultActiveKey="#home">
-                              <Col lg="6" xl="4">
-                                 <ListGroup className="mb-4" id="list-tab">
-                                    <ListGroup.Item action href="#home">
-                                    Gérer votre mot de passe
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action href="#profile">
-                                      Gérer informations
-                                    </ListGroup.Item>
-                                  
-                                 </ListGroup>
-                              </Col>
-                              <Col lg="10" xl="7">
-                                 <Tab.Content>
-                                    <Tab.Pane eventKey="#home">
-                                       <h4 className="mb-2" >
-
-                                       Changer votre mot de passe                                       </h4>
-                                       <React.Fragment>
-                                         <section>
-                                       <p>Notre système a découvert que votre mot de passe correspond peut-être à un mot de passe volé sur 
-             un autre site. 
-             Protégez votre compte en changeant votre mot de passe.</p>
-             <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="bg-white w-auto h-auto pb-20 mt-20 rounded-lg mx-5 sm:w-full md:w-4/5 md:mx-auto lg:w-2/5 lg:mx-auto">
-           
-
-            {/* body */}
-            <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Actuel	</label>
-  
-                    <div className='col-sm-9'>
-                    <input
-                        type='password'
-                        className='form-control'
-                      />
-                                    	
-Votre mot de passe actuel n’est peut-être pas assez fort
-                    </div>
+              {/* <!-- Default accordion --> */}
+              <Accordion
+                className='accordion accordion-primary'
+                defaultActiveKey='0'
+              > 
+             
+                {defaultAccordion.map((d, i) => (
+                  <div className='accordion__item' key={i}>
+                    <Accordion.Toggle
+                      as={Card.Text}
+                      eventKey={`${i}`}
+                      className={`accordion__header rounded-lg ${
+                        activeDefault === i ? '' : 'collapsed'
+                      }`}
+                      onClick={() =>
+                        setActiveDefault(activeDefault === i ? -1 : i)
+                      }
+                    >
+                      <span className='accordion__header--text'>{d.title}</span>
+                      <span className='accordion__header--indicator'></span>
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey={`${i}`}>
+                      <div className='accordion__body--text'>{d.text}</div>
+                    </Accordion.Collapse>
                   </div>
-
-
-            <div>
-              <div className="mx-8">
-                {/* password section */}
-                <div className='form-group row'>
-                <label className='col-sm-4 col-form-label'>Nouveau Mot de passe </label>
-                <div className="mt-10 relative">
-                  <input
-                    type={passwordEye === false ? "password" : "text"}
-                    placeholder="Mot de passe "
-                    
-                    className={`w-full h-14 rounded-lg ${ 
-                      errors.password &&
-                        "form-control"} `}
-                    {...register("password", { required: 'le mot de passe est obligatoire ',
-                    pattern:{
-                        value:/^(\S)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{10,16}$/,
-                        message:'Le mot de passe doit inclure au moins une majuscule, une valeur numérique et un caractère spécial'
-                    },
-                    minLength:{
-                        value:8,
-                        message:' la longueur minimale exigée est 8'
-                    },
-                    maxLength: {
-                        value: 20,
-                        message: "la longueur maximale  exigée est 20",
-                        
-                      },
-                 })}
-                  />
-                    {errors.password && 
-                    <span className="text-sm text-red-500">{errors.password.message}</span>}
-</div>
-                  {/* eye section */}
-                  <div className="text-3xl absolute top-4 right-5">
-                    {passwordEye === false ? (
-                      <AiFillEyeInvisible onClick={handlePasswordClick} />
-                    ) : (
-                      <AiFillEye onClick={handlePasswordClick} />
-                    )}
-                  </div>
-                </div>
-                <div>
-
-                {/* confirm password section */}
-                <div className="mx-8">
-
-                <div className='form-group row'>
-
-                <label className='col-sm-4 col-form-label'>confirmer le mot de passe 	</label>
-
-                <div className="mt-10 relative">
-                <div className='col-sm-9'>
-
-                  <input
-                    type={confirmPasswordEye === false ? "password" : "text"}
-                    placeholder="Confirmer le mot de passe "
-                    onPaste={(e)=>{
-                        e.preventDefault()
-                        return false;
-                      }}
-                    className={`w-full h-14 rounded-lg ${
-                       errors.confirmPassword &&
-                        "form-control"} `}
-                    {...register("confirmPassword", { required: 'Confirmer le mot de passe est obligatoire',
-                    validate: (value) =>
-                    value === password || "le mot de passe n'est pas identique ",
-                 })}
-                  />
-                  {errors.confirmPassword && <span className="text-sm text-red-500">{errors.confirmPassword.message}</span>}
-</div></div>
-                  {/* eye section */}
-                  <div className="text-2xl absolute top-4 right-5">
-                    {passwordEye === false ? (
-                      <AiFillEyeInvisible onClick={handleConfirmPasswordClick} />
-                    ) : (
-                      <AiFillEye onClick={handleConfirmPasswordClick} />
-                    )}
-                  </div>
-                </div></div></div>
-
-
-                {/* button section */}
-                <div className="flex items-center justify-center mt-12">
-                  <Link to="/login">
-                    <input
-                    type='Button'
-                    value='Submit'
-                    className="btn btn-primary mb-1 ml-1"
-                    />
-                    </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-                </section>
-                </React.Fragment>
-                                    </Tab.Pane>
-                                    <Tab.Pane eventKey="#profile">
-                                       <h4 className="mb-4">
-                                       Gérer les informations                                        </h4>
-                                       <div className='form-group row'>
-                  
-                  </div>
-                  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Adresse Email</label>
-                    <div className='col-sm-9'>
-                      <input
-                        type='Email'
-                        className='form-control'
-                        placeholder='maissaba@aiesec.net'
-                      />
-                    </div>
-                  </div>  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Numéro de telephone</label>
-                    <div className='col-sm-9'>
-                    <input
-                type="text"
-                className={`form-control ${errors.phone && "invalid"}`}
-                {...register("phone", { required: "Phone is Required",
-                pattern: {
-                  value: /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
-                  message: "Invalid phone no",
-                },
-               })}
-               onKeyUp={() => {
-                trigger("phone");
-              }}
-              />
-              {errors.phone && (
-                <small className="text-danger">{errors.phone.message}</small>
-              )}
-                    </div>
-                  </div>  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Nombre d'enfants</label>
-                    <div className='col-sm-9'>
-                      <input
-                        type='password'
-                        className='form-control'
-                        placeholder='2'
-                      />
-                    </div>
-                  </div>  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Retreté</label>
-                    <div className='col-sm-9'>
-                     
-                    </div>
-                  </div>  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Ville</label>
-                    <div className='col-sm-9'>
-                      <input
-                        type='password'
-                        className='form-control'
-                        placeholder='Sfax'
-                      />
-                    </div>
-                  </div>  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Adresse</label>
-                    <div className='col-sm-9'>
-                      <input
-                        type='password'
-                        className='form-control'
-                        placeholder='Route sidi mansour Km 4'
-                      />
-                    </div>
-                  </div>  <div className='form-group row'>
-                    <label className='col-sm-3 col-form-label'>Code Postal</label>
-                    <div className='col-sm-9'>
-                      <input
-                        type='password'
-                        className='form-control'
-                        placeholder='3000'
-                      />
-                    </div>
-                 
-                  </div> 
-                                    </Tab.Pane>
-                                   
-                                   
-                                 </Tab.Content>
-                              </Col>
-                           </Tab.Container>
-                        </Row>
-
-
-                     </div>
+                ))}
+              </Accordion>
             </Card.Body>
           </Card>                            </div>
                         </div>
@@ -592,4 +497,4 @@ Votre mot de passe actuel n’est peut-être pas assez fort
   );
 };
 
-export default ProfilePat;
+export default AppProfile;

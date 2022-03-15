@@ -66,4 +66,12 @@
   #clearBtn {
     cursor: pointer;
   }
+  body{
+      overflow-x: hidden;
+  }
+  .card-img-top{
+    width:300px ;
+    height: 40px;
+    object-fit: contain;
+  }
   
