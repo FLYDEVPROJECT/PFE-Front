@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense} from 'react';
 /// Components
 import Index from './jsx/index';
 import { connect, useDispatch } from 'react-redux';

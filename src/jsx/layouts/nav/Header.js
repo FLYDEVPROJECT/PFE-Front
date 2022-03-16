@@ -2,10 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 /// Scroll
-import PerfectScrollbar from "react-perfect-scrollbar";
 
 /// Image
-import avatar from "../../../images/avatar/1.jpg";
 import LogoutLink from './Logout'; 
 
 const Header = ({ onNote, toggle, onProfile, onNotification, onBox }) => {
