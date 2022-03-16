@@ -306,19 +306,18 @@ class Patient extends Component {
                 <div className="form-group">
 
                    
-                <label className="text-label"><strong>Joindrez votre photo</strong></label></div>
-    <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" href="/Profile-Patient"><i class="fa fa-camera m-0"></i> </a>
+                <label className="text-label"><strong>Joindrez votre photo</strong></label>
+    <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" 
+    href="/Profile-Patient">
+       <i class="fa fa-camera m-0"></i> </a>
   
      <input type="file"
             id="avatar" name="avatar"
             accept="image/png, image/jpeg"  className="form-control"/>
-             </div>
-  
-
-
+             </div>                </div>
 
   
-  
+
              <div className="col-lg-12 mb-3">
                 <div className="form-group">
                 <label className="text-label"><strong>Sexe *</strong></label>

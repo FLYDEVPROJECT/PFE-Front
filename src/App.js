@@ -11,7 +11,7 @@ import "./css/style.css";
 
 //import Test from './test'
 
-import patient from './patient'
+import Wizard from './Wizard';
 const SignUp = lazy(() => import('./jsx/pages/Registration'));
 const ForgotPassword = lazy(() => import('./jsx/pages/ForgotPassword'));
 const Login = lazy(() => {
@@ -29,10 +29,10 @@ function App (props) {
         <Switch>
            <Route exact path="/" component={Login}/>
           
-           <Route exact path="/patient" component={patient}/>
+           <Route exact path="/patient" component={Wizard}/>
           
             <Route path='/login' component={Login} />
-            <Route path='/Authentif' component={patient} />
+            <Route path='/Authentif' component={Wizard} />
             <Route path='/page-forgot-password' component={ForgotPassword} />
         </Switch>
     );

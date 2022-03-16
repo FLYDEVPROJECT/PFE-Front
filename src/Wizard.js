@@ -5,10 +5,39 @@ import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
-import Wizard from "./Wizard";
+import Multistep from "react-multistep";
+import StepOne from "./StepOne";
+import StepTwo from "./StepTwo";
+import StepThree from "./StepThree";
+import StepFour from "./StepFour";
 
-const patient = () => {
-   
+const Wizard = () => {
+   const steps = [
+      { name: "Personal Info", component: <StepOne /> },
+      { name: "Company Info", component: <StepTwo /> },
+      { name: "Business Hours", component: <StepThree /> },
+      { name: "Email Setup", component: <StepFour /> },
+   ];
+   const prevStyle = {
+      background: "#F7FAFC",
+      borderWidth: "0px",
+      color: "#333333",
+      borderRadius: "4px",
+      fontSize: "14px",
+      fontWeight: "600",
+      padding: "0.55em 2em",
+      border: "1px solid #EEEEEE",
+      marginRight: "1rem",
+   };
+   const nextStyle = {
+      background: "#36c95f",
+      borderWidth: "0px",
+      color: "#fff",
+      borderRadius: "4px",
+      fontSize: "14px",
+      fontWeight: "600",
+      padding: "0.55em 2em",
+   };
    
 const blue = {
    50: '#F0F7FF',
@@ -88,13 +117,31 @@ const blue = {
                 <div className="auth-form">
            <TabsUnstyled defaultValue={0}>
       <TabsList>
-        <Tab>One</Tab>
-        <Tab>Two</Tab>
+        <Tab>Patient</Tab>
+        <Tab>Professionnel de santé</Tab>
       </TabsList>
-
       <TabPanel value={0}> 
-<Wizard/>
-     </TabPanel>
+      <div className="row">
+            <div className="col-xl-12 col-xxl-12">
+               <div className="card">
+                
+                  <div className="card-body">
+                     <form
+                        onSubmit={(e) => e.preventDefault()}
+                        id="step-form-horizontal"
+                        className="step-form-horizontal"
+                     >
+                        <Multistep
+                           showNavigation={true}
+                           steps={steps}
+                           prevStyle={prevStyle}
+                           nextStyle={nextStyle}
+                        />
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div></TabPanel>
 
 
 
@@ -107,4 +154,4 @@ const blue = {
    );
 };
 
-export default patient;
+export default Wizard;

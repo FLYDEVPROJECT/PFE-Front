@@ -22832,11 +22832,11 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
         background-color: #fff;
         color: #3e4954; }
       .step-form-horizontal ol li.go767851704 span {
-        color: #fff;
-        background: #36C95F;
+        color: #2846b2;
+        background: #2846b2;
         border-color: transparent; }
         [data-theme-version="dark"] .step-form-horizontal ol li.go767851704 span {
-          border-color: #36C95F; }
+          border-color: #2846b2; }
     .step-form-horizontal ol li.active, .step-form-horizontal ol li.go2478912419, .step-form-horizontal ol li.disabled {
       background-color: transparent;
       text-align: center;
