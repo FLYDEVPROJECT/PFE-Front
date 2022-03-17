@@ -52,7 +52,7 @@ export function loginAction(email, password, history) {
                     history,
                 );
                 dispatch(loginConfirmedAction(response.data));
-				history.push('/dashboard');
+				history.push('/docteur/dashboard');
 				//window.location.reload();
                 
 				//history.pushState('/index');

@@ -71,7 +71,7 @@ const Compose = () => {
                               <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/dentiste" className="col-mail col-mail-8">
+                  <Link to="/docteur/dentiste" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Medecine dentaire
                          </button>
                          </Link>
@@ -80,7 +80,7 @@ const Compose = () => {
            
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/cardio" className="col-mail col-mail-8">
+                  <Link to="/docteur/cardio" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Cardiologie
                          </button>
                          </Link>
@@ -92,7 +92,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Dermato" className="col-mail col-mail-8">
+                  <Link to="/docteur/Dermato" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Dermatologie
                          </button>
                          </Link>
@@ -101,7 +101,7 @@ const Compose = () => {
            
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/gyneco" className="col-mail col-mail-8">
+                  <Link to="/docteur/gyneco" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Gynécologie
                          </button>
                          </Link>
@@ -112,7 +112,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/interne" className="col-mail col-mail-8">
+                  <Link to="/docteur/interne" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook" style={{'width': "100%"}}>Médecine interne
                          </button>
                          </Link>
@@ -121,7 +121,7 @@ const Compose = () => {
            
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/reviews" className="col-mail col-mail-8">
+                  <Link to="/docteur/opthalmo" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}>Ophtalmologie
                          </button>
                          </Link>
@@ -132,7 +132,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/orl" className="col-mail col-mail-8">
+                  <Link to="/docteur/orl" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> O.R.L
                          </button>
                          </Link>
@@ -141,7 +141,7 @@ const Compose = () => {
            
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/orthopedie" className="col-mail col-mail-8">
+                  <Link to="/docteur/orthopedie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Orthopédie - Traumatologie
                          </button>
                          </Link>
@@ -152,7 +152,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/pediatrie" className="col-mail col-mail-8">
+                  <Link to="/docteur/pediatrie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Pédiatrie
                          </button>
                          </Link>
@@ -161,7 +161,7 @@ const Compose = () => {
            
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/sexologie" className="col-mail col-mail-8">
+                  <Link to="/docteur/sexologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Sexologie
                          </button>
                          </Link>
@@ -172,7 +172,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/gastro" className="col-mail col-mail-8">
+                  <Link to="/docteur/gastro" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Gastro-entérologue
                          </button>
                          </Link>
@@ -181,7 +181,7 @@ const Compose = () => {
            
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/urologie" className="col-mail col-mail-8">
+                  <Link to="/docteur/urologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Urologie
                          </button>
                          </Link>
@@ -192,7 +192,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/pneumologue" className="col-mail col-mail-8">
+                  <Link to="/docteur/pneumologue" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}>Pneumologie
                          </button>
                          </Link>

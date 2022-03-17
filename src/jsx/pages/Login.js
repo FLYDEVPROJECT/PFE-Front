@@ -42,7 +42,7 @@ function Login (props) {
                 <div className="row">
                     <div className="col-lg-6 col-md-7 box-skew d-flex">
                         <div className="authincation-content">
-                            <Link to="/dashboard" className="login-logo">
+                            <Link to="/docteur/dashboard" className="login-logo">
                             <img src={logo} alt="" className="logo-icon mr-2"/>
                                
                             </Link>

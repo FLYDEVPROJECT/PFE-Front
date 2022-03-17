@@ -111,27 +111,27 @@ const Markup = () => {
   const routes = [
     /// Dashboard
     { url: "", component: Home },
-    { url: "dashboard", component: Home },
+    { url: "docteur/dashboard", component: Home },
    	{ url: "docteur/listedespatients", component: PatientList },
     { url: "patient-details", component: PatientDetails },
     { url: "docteur/liste", component: DoctorList },
     { url: "docteur/details", component: Doctordetail },
-    { url: "reviews", component: PageReview },
-    {url : "Dermato",component: Dermato },
-    {url : "dentiste",component: dentise },
-    {url : "orl",component: orl },
-    {url:"pediatrie", component:pediatrie},
-    {url : "cardio",component: cardio },
-    {url : "gyneco",component: gyneco },
-    {url : "orthopedie",component: orthopedie },
-    {url : "pneumologue",component: pneumologue },
-    {url : "interne",component: interne },
-    {url : "gastro",component: gastro },
+    { url: "docteur/opthalmo", component: PageReview },
+    {url : "docteur/Dermato",component: Dermato },
+    {url : "docteur/dentiste",component: dentise },
+    {url : "docteur/orl",component: orl },
+    {url:"docteur/pediatrie", component:pediatrie},
+    {url : "docteur/cardio",component: cardio },
+    {url : "docteur/gyneco",component: gyneco },
+    {url : "docteur/orthopedie",component: orthopedie },
+    {url : "docteur/pneumologue",component: pneumologue },
+    {url : "docteur/interne",component: interne },
+    {url : "docteur/gastro",component: gastro },
 {url:"docteur/ordonnancemedicale",component: Med } ,
 
 
-    {url : "sexologie",component: sexologie },
-    {url : "urologie",component: urologie },
+    {url : "docteur/sexologie",component: sexologie },
+    {url : "docteur/urologie",component: urologie },
 {url:"docteur/experience",component:Task},
 
 
@@ -192,7 +192,7 @@ const Markup = () => {
     /// table
     { url: 'table-datatable-basic', component: DataTable },
     { url: 'table-bootstrap-basic', component: BootstrapTable },
-    { url: 'docteuliste-professionnels', component: FilteringTable },
+    { url: 'docteur/liste-professionnels', component: FilteringTable },
     { url: 'table-sorting', component: SortingTable },
 
     /// pages

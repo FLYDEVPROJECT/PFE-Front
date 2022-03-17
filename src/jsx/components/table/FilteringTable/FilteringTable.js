@@ -42,7 +42,7 @@ export const FilteringTable = () => {
 			
 			<div className="card">
 				<div className="card-header">
-					<h4 className="card-title">Table Filtering</h4>
+					
                 </div>
 				<div className="card-body">
 					<div className="table-responsive">
