@@ -91,37 +91,43 @@ const Markup = () => {
 	{ url: "Reponse", component: Reponse },
     { url: "doctor-list", component: DoctorList },
     { url: "appoiform", component: Doctordetail },
-  { url: 'Contact', component: ContactAll },
+  { url: 'patient/contact', component: ContactAll },
 
 
-    /// Apps
-    
-    { url: 'Profile-Patient', component: ProfilePat },
-    { url: 'Med-gyneco', component: gynecologie },
-    { url: 'compose', component: Compose },
-    { url: 'Med-interne', component: interne },
-    { url: 'Med-dermato', component: Dermatologie },
-    { url: 'Med-dentaire', component: Calendar },
-    { url: 'Med-cardio', component: Cardiologie },
-    { url: 'Med-ophtalmo', component: Ophtalmologie },
-    { url: 'Med-orthopedie', component: Orthopedie },
+    /// Profile patient  et acces
+    { url: 'patient/profile', component: ProfilePat },
+    { url: 'patient/acces', component: Compose },
+
+
+
+    ///teb3inn l acces
+  
+    { url: 'patient/acces/medecine-interne', component: interne },
+    { url: 'patient/acces/dermatologie', component: Dermatologie },
+    { url: 'patient/acces/medecine-dentaire', component: Calendar },
+    { url: 'patient/acces/cardiologie', component: Cardiologie },
+    { url: 'patient/acces/gynecologie', component: gynecologie },
+    { url: 'patient/acces/ophtalmologie', component: Ophtalmologie },
+    { url: 'patient/acces/ORL', component: OtoRhinoLaryngologie },
+    { url: 'patient/acces/orthopedie', component: Orthopedie },
+
     { url: 'Med-Pediatrie', component: Pediatrie },
     { url: 'Med-Sexologie', component: Sexologie },
     { url: 'Med-Gastro', component: Gastro },
     { url: 'Med-Urologie', component: Urologie },
     { url: 'Med-Pneumologie', component: Pneumologie },
-    { url: 'Med-ORL', component: OtoRhinoLaryngologie },
     { url: 'TimeRendezVous', component: TimeRendezVous },
 
 
   
 
     /// Bootstrap
-    { url: 'Doc-Report', component: DocReport },
-    { url: 'Doc-MD', component: DocMD },
-    { url: 'Doc-Generaliste', component: DocGen },
+    { url: 'patient/dossier-medical', component: DocReport },
+    { url: 'patient/dossier-medical/medecine-dentaire', component: DocMD },
+    { url: 'patient/dossier-medical/géneraliste', component: DocGen },
+    { url: 'patient/dossier-medical/cardiologie', component: DocCardio },
+
     { url: 'Doc-ORL', component: DocORM },
-    { url: 'Doc-Cardiologie', component: DocCardio },
     { url: 'Doc-Sexologie', component: DocSexo },
     { url: 'Doc-Pneumologie', component: DocPneumo },
 
@@ -133,7 +139,7 @@ const Markup = () => {
     
  
     
-    { url: 'mail-Medecin', component: jQueryValidation },
+    { url: 'patient/mail-medecin', component: jQueryValidation },
 
     /// table
     { url: 'table-Medecin', component: FilteringTable },

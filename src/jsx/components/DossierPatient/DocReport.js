@@ -18,7 +18,7 @@ const DocReport = () => {
                    <p>salah </p>
                    <p>salah </p>
                    <div className="mt-6">
-										<Link to ="/doc-MD"className="btn btn-primary mb-1 mr-5">Dossier MD</Link>
+										<Link to ="/patient/dossier-medical/medecine-dentaire"className="btn btn-primary mb-1 mr-5">Dossier MD</Link>
 										
 									</div>
                   </Card.Body>
@@ -35,7 +35,7 @@ const DocReport = () => {
                    <p>salah </p>
                    <p>salah </p>
                    <div className="mt-6">
-										<Link	to="/Doc-gen"	className="btn btn-primary mb-1 mr-5">Dossier Géneraliste</Link>
+										<Link	to="/patient/dossier-medical/géneraliste"	className="btn btn-primary mb-1 mr-5">Dossier Géneraliste</Link>
 										
 									</div>
                   </Card.Body>
@@ -52,7 +52,7 @@ const DocReport = () => {
                    <p>salah </p>
                    <p>salah </p>
                    <div className="mt-6">
-										<Link to="/Doc-Cardio"	className="btn btn-primary mb-1 mr-5">Dossier cardiologie</Link>
+										<Link to="/patient/dossier-medical/cardiologie"	className="btn btn-primary mb-1 mr-5">Dossier cardiologie</Link>
 										
 									</div>
                   </Card.Body>

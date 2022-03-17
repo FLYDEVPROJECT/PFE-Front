@@ -1,15 +1,12 @@
 import React, {Fragment, useState } from "react";
 import {Button} from "react-bootstrap";
 
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
 import "./EventCalender.css";
 
 
 function EventCalendar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [contentModal, setContentModal] = useState(false);
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -25,10 +22,7 @@ function EventCalendar({ placeholder, data }) {
     }
   };
 
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
+  
 
   return (
    <Fragment>

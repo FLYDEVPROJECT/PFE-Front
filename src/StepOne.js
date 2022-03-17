@@ -48,9 +48,8 @@ accept="image/png, image/jpeg"  className="form-control"/>
 
             </div>
             <div className="col-lg-6 mb-2">
-
             <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
+            <label className="text-label"><strong>Sexe</strong></label>
       <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"

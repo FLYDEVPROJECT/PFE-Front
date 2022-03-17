@@ -12,7 +12,7 @@ import { Row, Col, Card} from 'react-bootstrap'
 const ProfilePat = () => {
    const [activeToggle, setActiveToggle] = useState("posts");
   // handle form events
-   const { register, handleSubmit, watch, formState: { errors },reset , trigger , } = useForm({
+   const { register, handleSubmit, watch, formState: { errors }, trigger , } = useForm({
     mode:'onTouched'
 });
 

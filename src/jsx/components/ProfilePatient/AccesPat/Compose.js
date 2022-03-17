@@ -24,7 +24,7 @@ const Compose = () => {
                               <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/med-dentaire" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/medecine-dentaire" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Medecine dentaire
                          </button>
                          </Link>
@@ -33,7 +33,7 @@ const Compose = () => {
             
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-cardio" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/cardiologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Cardiologie
                          </button>
                          </Link>
@@ -45,7 +45,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-dermato" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/dermatologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Dermatologie
                          </button>
                          </Link>
@@ -54,7 +54,7 @@ const Compose = () => {
             
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-gyneco" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/gynecologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Gynécologie
                          </button>
                          </Link>
@@ -65,7 +65,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-interne" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/medecine-interne" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook" style={{'width': "100%"}}>Médecine interne
                          </button>
                          </Link>
@@ -74,7 +74,7 @@ const Compose = () => {
             
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-ophtalmo" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/ophtalmologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}>Ophtalmologie
                          </button>
                          </Link>
@@ -85,7 +85,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-ORL" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/ORL" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> O.R.L
                          </button>
                          </Link>
@@ -94,7 +94,7 @@ const Compose = () => {
             
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-orthopedie" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/orthopedie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Orthopédie - Traumatologie
                          </button>
                          </Link>

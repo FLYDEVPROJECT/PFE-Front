@@ -10,6 +10,11 @@ import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
+import WizardPro from "./WizardPro";
+import StepOnePro from "./StepOnePro";
+import StepTwoPro from "./StepTwoPro";
+import StepThreePro from "./StepThreePro";
+import StepFourPro from "./StepFourPro";
 
 const Wizard = () => {
    const steps = [
@@ -124,7 +129,6 @@ const blue = {
       <div className="row">
             <div className="col-xl-12 col-xxl-12">
                <div className="card">
-                
                   <div className="card-body">
                      <form
                         onSubmit={(e) => e.preventDefault()}
@@ -142,11 +146,9 @@ const blue = {
                </div>
             </div>
          </div></TabPanel>
-
-
-
-
-      <TabPanel value={1}>Second content</TabPanel>
+      <TabPanel value={1}>
+         <WizardPro/>
+      </TabPanel>
 
     </TabsUnstyled>
         </div></div></div></div></div></div>

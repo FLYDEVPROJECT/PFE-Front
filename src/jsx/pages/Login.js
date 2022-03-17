@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
+import Box from '@mui/material/Box';
+
 import { loadingToggleAction,loginAction,
 } from '../../store/actions/AuthActions';
  
@@ -34,7 +36,8 @@ function Login (props) {
         dispatch(loadingToggleAction(true));    
         dispatch(loginAction(RPPS, password, props.history));
     }
- 
+    const preventDefault = (event) => event.preventDefault();
+
   return (
  
         <div className="login-form-bx">
@@ -100,6 +103,20 @@ function Login (props) {
                                 <p className="mb-0">Vous n'avez pas de compte ?{" "}
                                     <Link className="text-black" to="./Authentif">s'inscrire</Link>
                                 </p>
+                            </div>
+                            <div className="new-account mt-2">
+                            <Box
+      sx={{
+        typography: 'body1',
+        '& > :not(style) + :not(style)': {
+          ml: 2,
+        },
+      }}
+      onClick={preventDefault}
+    >
+      <Link href="#">Mot de passe oublier !</Link>
+     
+    </Box>                           
                             </div>
                         </div>
                     </div>

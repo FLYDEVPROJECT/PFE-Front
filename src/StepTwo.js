@@ -3,7 +3,7 @@ import React from "react";
 const StepTwo = () => {
    return (
       <section>
-         <div className="col-lg-12 mb-3">
+           <div className="col-lg-12 mb-3">
                <div className="form-group">
                <label className="text-label"><strong>Code Sécurité Sociale ( CSS)*</strong></label>
                   <input
@@ -73,8 +73,6 @@ const StepTwo = () => {
             </div>
             </div>
  
- 
-         
 
       </section>
    );

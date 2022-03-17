@@ -15,7 +15,7 @@ const Compose = () => {
 
                   <div className="card-body">
                   <div className="card-header">
-						<h4 className="card-title">E mail déstiné pour votre médecin</h4>
+						<h4 className="card-title">Poser ma question </h4>
 					</div>
                      <div className="email-left-box px-0 mb-3">
                       
@@ -29,7 +29,7 @@ const Compose = () => {
                             
                            </Link>
                            <Link
-                              to="/Reponse"
+                              to="/Contact"
                               className="list-group-item"
                            >
                               <i className="fa fa-paper-plane font-18 align-middle mr-2"></i>
@@ -132,13 +132,29 @@ const Compose = () => {
                         </div>
                         <div className="compose-content">
                            <form action="#">
-                              <div className="form-group">
-                                 <input
-                                    type="text"
-                                    className="form-control bg-transparent"
-                                    placeholder=" To:"
-                                 />
-                              </div>
+                           <select
+                                      className="form-control"
+                                      id="inputState"
+                                      defaultValue="option-1"
+                                    >
+                                      <option value="option-1">Dermatologie</option>
+                                      <option value="option-2">Pédiatrie  </option>
+                                      <option value="option-3">Psychiatrie</option>
+                                      <option value="option-3">Pédopsychiatrie</option>
+                                      <option value="option-3">Cardiologie</option>
+                                      <option value="option-3">Néphrologie</option>
+                                      <option value="option-3">Neurologie</option>
+                                      <option value="option-3">Pneumologie</option>
+                                      <option value="option-3">Rhumatologie</option>
+                                      <option value="option-3">Gastro-entérologie</option>
+                                      <option value="option-3"> généraliste</option>
+                                      <option value="option-3"> Ophtalmologie</option>
+                                      <option value="option-3"> généraliste</option>
+                                      <option value="option-3"> Gynécologie</option>
+                                      <option value="option-3"> O.R.L</option>
+                                      <option value="option-3"> Anesthésie</option>
+                                     
+                        </select>
                               <div className="form-group">
                                  <input
                                     type="text"

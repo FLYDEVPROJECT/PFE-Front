@@ -1,6 +1,10 @@
 import React from "react";
-
+import Avatar from '@mui/material/Avatar';
+import AvatarGroup from '@mui/material/AvatarGroup';
 import { Link } from "react-router-dom";
+import doctors11 from "../../../images/doctors/11.jpg";
+import doctors12 from "../../../images/doctors/12.jpg";
+import doctors13 from "../../../images/doctors/13.jpg";
 /// Scroll
 
 /// Image
@@ -81,7 +85,7 @@ const Header = ({ onNote, toggle, onProfile, onNotification, onBox }) => {
                         </Link>
                      </li>
                   
-
+                  
                        
                      <li
                         className="nav-item dropdown header-profile"
@@ -133,7 +137,17 @@ const Header = ({ onNote, toggle, onProfile, onNotification, onBox }) => {
                         </div>
                      </li>
                   </ul>
+                
                </div>
+               <AvatarGroup max={4}>
+      <Avatar  alt="rravis Howard" 
+                                             src={doctors11}
+                                             />
+      <Avatar alt="Travis Howard"   src={doctors12} />
+      <Avatar alt="Cindy Baker"   src={doctors13} />
+      <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+      <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+    </AvatarGroup>
             </nav>
          </div>
       </div>
