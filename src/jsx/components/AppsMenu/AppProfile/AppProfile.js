@@ -1,69 +1,47 @@
 import React, { Fragment, useState } from "react";
-import { Button, Dropdown, Modal } from "react-bootstrap";
+import {Dropdown,  Tab , ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { SRLWrapper } from "simple-react-lightbox";
-//** Import Image */
-import profile01 from "../../../../images/profile/1.jpg";
-import profile02 from "../../../../images/profile/2.jpg";
-import profile03 from "../../../../images/profile/3.jpg";
-import profile04 from "../../../../images/profile/4.jpg";
-import profile05 from "../../../../images/profile/5.jpg";
-import profile06 from "../../../../images/profile/6.jpg";
-import profile07 from "../../../../images/profile/7.jpg";
-import profile08 from "../../../../images/profile/8.jpg";
-import profile09 from "../../../../images/profile/9.jpg";
-import PageTitle from "../../../layouts/PageTitle";
-import {
-    Card,
-    Grid,
-    Container,
-    Box,
-    Typography,
-    CardMedia,
-  } from "@material-ui/core";
-  import { makeStyles } from "@material-ui/core/styles";
-  import clsx from "clsx";
-  
-const AppProfile = () => {
-  const [activeToggle, setActiveToggle] = useState("posts");
-  const [sendMessage, setSendMessage] = useState(false);
-  const [postModal, setPostModal] = useState(false);
-  const [cameraModal, setCameraModal] = useState(false);
-  const [linkModal, setLinkModal] = useState(false);
- 
-  const [replayModal, setReplayModal] = useState(false);
- 
-  const options = {
-    settings: {
-      overlayColor: "#000000",
-    },
-  };
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { useForm } from "react-hook-form";
 
-  const useStyles = makeStyles(({ palette, ...theme }) => ({
-    media: {
-      height: 300,
-      width: 370,
-      border: "6px solid #182731",
-      boxSizing: "border-box",
-    },
+// import { Link } from 'react-router-dom';
+import { Row, Col, Card} from 'react-bootstrap'
+//** Import Image */
+
+
+const ProfilePat = () => {
+   const [activeToggle, setActiveToggle] = useState("posts");
+  // handle form events
+   const { register, handleSubmit, watch, formState: { errors },reset , trigger , } = useForm({
+    mode:'onTouched'
+});
+
+// handle submit 
+   const onSubmit = data => alert(JSON.stringify(data));
+
+
+// handle password eye
+    const [passwordEye, setPasswordEye] = useState(false);
+
+   const handlePasswordClick = () => {
+setPasswordEye(!passwordEye);
+};
+
+// handle confirm password eye
+    const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
+
+    const handleConfirmPasswordClick = () => {
+ setConfirmPasswordEye(!confirmPasswordEye);
+};
+
+//    check password event 
+    const password = watch('password')
+
   
-    media2: {
-      width: 228,
-      height: 364,
-      border: "6px solid #182731",
-      boxSizing: "border-box",
-      marginLeft: "6em",
-      marginTop: "0",
-    },
-  }));
-  
- 
-    const classes = {}
   
   return (
     <Fragment>
-  
- 
+
       <div className="row">
         <div className="col-lg-12">
           <div className="profile card card-body px-3 pt-3 pb-0">
@@ -72,34 +50,12 @@ const AppProfile = () => {
                 <div className="cover-photo"></div>
               </div>
               <div className="profile-info">
-              <div className="profile-details">
-                  <div className="profile-name px-3 pt-2"></div>
-            {/* Modal */}
-            <Modal show={cameraModal} onHide={() => setCameraModal(false)} className="modal fade" id="cameraModal">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title">Upload images</h5>
-                                                <button type="button" className="close" data-dismiss="modal" onClick={() => setCameraModal(false)}>
-                                                    <span>×</span>
-                                                </button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <div className="input-group mb-3">
-                                                    <div className="input-group-prepend">
-                                                        <span className="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div className="custom-file">
-                                                        <input type="file" className="custom-file-input"/>
-                                                        <label className="custom-file-label">Choose file</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Modal>
+                <div className="profile-photo">
+                 
+                </div>
                 <div className="profile-details">
                   <div className="profile-name px-3 pt-2">
-                    <h4 className="text-primary mb-0">Dr</h4>
-                    <p>Specialiste en </p>
+                    <h4 className="text-primary mb-0">mr/mme </h4>
                   </div>
                  
                   <Dropdown className="dropdown ml-auto">
@@ -109,7 +65,14 @@ const AppProfile = () => {
                       data-toggle="dropdown"
                       aria-expanded="true"
                     >
-                   
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
                         <g
                           stroke="none"
                           strokeWidth="1"
@@ -117,24 +80,31 @@ const AppProfile = () => {
                           fillRule="evenodd"
                         >
                           <rect x="0" y="0" width="24" height="24"></rect>
-                          <circle fill="#008000" cx="5" cy="12" r="2"></circle>
-                          <circle fill="#008000" cx="12" cy="12" r="2"></circle>
-                          <circle fill="#008000" cx="19" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
                         </g>
+                      </svg>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
                       <Dropdown.Item className="dropdown-item">
-                        <i className="fa fa-user-circle text-primary mr-2" />
-                        Voir le profile 
-                      </Dropdown.Item>
-                      <Dropdown.Item className="dropdown-item">
-                      <Link to="/table-filtering" className="text-black">
+                      <Link to="/Reponse" className="text-black">
                       <i className="fa fa-users text-primary mr-2" />
-                       Tous les professionenels
+                        Voir liste médecin
                     </Link>
                       </Dropdown.Item>
-                  
-              
+                      <Dropdown.Item className="dropdown-item">
+                        <i className="fa fa-users text-primary mr-2" />
+                        Voir liste rendez vous 
+                      </Dropdown.Item>
+                      <Dropdown.Item className="dropdown-item">
+                        <i className="fa fa-plus text-primary mr-2" />
+                        Add to group
+                      </Dropdown.Item>
+                      <Dropdown.Item className="dropdown-item">
+                        <i className="fa fa-ban text-primary mr-2" />
+                        Block
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
@@ -144,383 +114,33 @@ const AppProfile = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-xl-4">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="profile-statistics">
-                                <div className="text-center">
-                                    <div className="row">
-                                        <div className="col">
-                                            <h3 className="m-b-0">+150</h3><span>Opérations</span>
-                                        </div>
-                                        <div className="col">
-                                            <h3 className="m-b-0">+8Ans</h3> <span>d'expériences</span>
-                                        </div>
-                                        <div className="col">
-                                            <h3 className="m-b-0">+1200</h3> <span>Patients</span>
-                                        </div>
-                                    </div>
-                                    <div className="mt-4">
-                                        
-                                        <Button as="a" href="#" className="btn btn-primary mb-1 ml-1" onClick={() => setSendMessage(true)}>posez votre question</Button>
-                                    </div>
-                                </div>
-                              {/* send Modal */}
-                                <Modal className="modal fade" show={sendMessage}>
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title"></h5>
-                                            <Button variant="" type="button" className="close" data-dismiss="modal" onClick={() => setSendMessage(false)}>
-                                                <span>×</span>
-                                            </Button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <form className="comment-form" onSubmit={(e) => { e.preventDefault(); setSendMessage(false); }}>
-                                                <div className="row">
-                                                    <div className="col-lg-6">
-                                                        <div className="form-group">
-                                                            <label htmlFor="author" className="text-black font-w600">  Nom et prénom <span className="required">*</span> </label>
-                                                            <input type="text" className="form-control"  />
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-lg-6">
-                                                        <div className="form-group">
-                                                            <label htmlFor="email" className="text-black font-w600"> Catégorie* <span className="required"></span></label>
-                                                            <input type="text" className="form-control" placeholder="" name="Email"/>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-lg-12">
-                                                        <div className="form-group">
-                                                            <label htmlFor="comment" className="text-black font-w600">Question*</label>
-                                                            <textarea rows={8} className="form-control" name="Saisissez votre question" placeholder="" defaultValue={""}/>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    <div className="col-lg-12">
-                                                        <div className="form-group">
-                                                            <input type="submit" value="Envoyer" className="submit btn btn-primary" name="submit"/>
-                                                        </div>
-                                                        * champs obligatoires
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </Modal>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-                <div className="col-lg-12">
-                    <div className="card">
-                        <div className="card-header border-0 pb-0">
-                          
-                            
-                        </div>  
-                        <div className="card-body pt-3" >  
-                            <div className="profile-blog ">
-                                <img  src={profile01}  alt="profile" className="img-fluid  mb-4 w-100" />
-                                <Link to="/post-details"> <h4></h4> </Link>
-                                <section className="section">
-      <Container maxWidth="lg">
-        <Box mb={8} textAlign="center">
-        
-        </Box>
-
-        <Box mb={8} textAlign="center">
-          <Grid
-            container
-            spacing={2}
-            justify="space-between"
-            alignItems="center"
-          >
-          
-
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media, "zoom")}
-                image="http://www.mon-diplome.fr/Diplome/700-487142-Diplome-secretaire-medical.jpg"
-                alt=""
-              />
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media, "zoom")}
-                image="https://vignette4.wikia.nocookie.net/desencyclopedie/images/b/bd/Dipl%C3%B4me_de_DOCTEUR_2.jpg/revision/latest?cb=20121010085858s"
-                alt=""
-              />
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Box mb={8} textAlign="center">
-          <Grid
-            container
-            spacing={2}
-            justify="space-between"
-            alignItems="center"
-          >
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media, "zoom")}
-                image="/assets/images/patrick/diplomes/anti-stress.png"
-                alt=""
-              />
-            </Grid>
-
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media2, "zoom")}
-                justify-items="center"
-                image="/assets/images/patrick/diplomes/psycho-travail.png"
-                alt=""
-              />
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media, "zoom")}
-                image="/assets/images/patrick/diplomes/reflexologie.png"
-                alt=""
-              />
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Box mb={8} textAlign="center">
-          <Grid
-            container
-            spacing={2}
-            justify="space-between"
-            alignItems="center"
-          >
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media, "zoom")}
-                image="/assets/images/patrick/diplomes/soins-corps.png"
-                alt=""
-              />
-            </Grid>
-
-            <Grid item xs={12} md={3}>
-              <CardMedia
-                className={clsx(classes.media, "zoom")}
-                image="/assets/images/patrick/diplomes/sono.png"
-                alt=""
-              />
-            </Grid>
-          </Grid>
-        </Box>
-      </Container>
-    </section>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
-                <div className="col-lg-12">
-                    <div className="card">
-                        <div className="card-header border-0 pb-0">
-                           
-                        </div>
-                        <div className="card-body pt-3">
-                            <div className="profile-interest ">
-                                 <SRLWrapper options={options}>
-                                    <div className="row sp4">
-                                        <div className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col mb-1">
-                                            <a href={profile02}> <img src={profile02} alt="profileImage" className="img-fluid" /> </a>
-                                        </div>
-                                        <div className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col mb-1">
-                                            <a href={profile03}> <img src={profile03} alt="profile" className="img-fluid"/></a>
-                                        </div>
-                                        <div className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col mb-1">
-                                            <a href={profile04}><img src={profile04} alt="profile" className="img-fluid" /> </a>
-                                        </div>
-                                        <div className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col mb-1">
-                                            {" "}
-                                            <a href={profile02}><img src={profile02} alt="profile" className="img-fluid" /> </a>
-                                        </div>
-                                        <div className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col mb-1">
-                                            <a href={profile03} className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col" >
-                                                <img src={profile03} alt="profile"  className="img-fluid"/>
-                                            </a>
-                                        </div>
-                                        <div className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col mb-1">
-                                            <a href={profile04} className="col-lg-4 col-xl-4 col-sm-4 col-6 int-col">
-                                                <img  src={profile04} alt="profile" className="img-fluid"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </SRLWrapper>
-                            </div>
-                        </div>  
-                    </div>
-                </div>  
-                <div className="col-lg-12">
-                    <div className="card">
-                      
-                        <div className="card-body pt-3">
-                            <div className="profile-news">
-               
-                              <div className="media pt-3 pb-3">
-                                
-                                <div className="media-body">
-                                    <h5 className="m-b-5">
-                                     
-                                    </h5>
-                               
-                                </div>
-                              </div>
-                              <div className="media pt-3 ">
-                         
-                                <div className="media-body">
-                                    <h5 className="m-b-5">
-                                    
-                                    </h5>
-                                   
-                                </div>
-                              </div>
-                            </div>
-                        </div>  
-                    </div>
-                </div>  
-            </div>  
-        </div>  
-        <div className="col-xl-8">
+       
+        <div className="col-xl-12">
           <div className="card">
             <div className="card-body">
               <div className="profile-tab">
                 <div className="custom-tab-1">
-                        <ul className="nav nav-tabs">
-                            <li className="nav-item" onClick={() => setActiveToggle("posts")}>
-                                <Link to="#my-posts" data-toggle="tab" className={`nav-link ${ activeToggle === "posts" ? "active show" : ""}`}>Posts</Link>
-                            </li>
-                            <li className="nav-item" onClick={() => setActiveToggle("aboutMe")}>
-                                <Link to="#about-me"  data-toggle="tab" className={`nav-link ${ activeToggle === "aboutMe" ? "active show" : ""}`}>A propos </Link>
-                            </li>
-                           
-                        </ul>
-                    <div className="tab-content">
-                        <div id="my-posts" className={`tab-pane fade ${ activeToggle === "posts" ? "active show" : "" }`} >
-                            <div className="my-post-content pt-3">
-                                <div className="post-input">
-                                        <textarea name="textarea" id="textarea" cols={30} rows={5} className="form-control bg-transparent" placeholder="Please type what you want...."defaultValue={""}/>
-                                        <Link to="/app-profile" className="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#linkModal" onClick={() => setLinkModal(true)}>
-                                            <i className="fa fa-link m-0" />{" "}
-                                        </Link>
-                                    {/* Modal */}
-                                    <Modal show={linkModal} onHide={() => setLinkModal(false)} className="modal fade post-input" id="linkModal" aria-hidden="true">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title">Social Links</h5>
-                                                <button type="button" className="close" data-dismiss="modal" onClick={() => setLinkModal(false)}>
-                                                    <span>×</span>
-                                                </button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <Link className="btn-social mr-1 facebook" to="/app-profile"><i className="fa fa-facebook" /></Link>
-                                                <Link className="btn-social mr-1 google-plus" to="/app-profile"> <i className="fa fa-google-plus" /></Link>
-                                                <Link className="btn-social mr-1 linkedin" to="/app-profile"><i className="fa fa-linkedin" /></Link>
-                                                <Link className="btn-social mr-1 instagram" to="/app-profile"> <i className="fa fa-instagram" /></Link>
-                                                <Link className="btn-social mr-1 twitter" to="/app-profile"><i className="fa fa-twitter" /></Link>
-                                                <Link className="btn-social mr-1 youtube" to="/app-profile"><i className="fa fa-youtube" /></Link>
-                                                <Link className="btn-social whatsapp" to="/app-profile"><i className="fa fa-whatsapp" /></Link>
-                                            </div>
-                                        </div>
-                                    </Modal>
-                                    <Link to="/app-profile" className="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" onClick={() => setCameraModal(true)}>
-                                        <i className="fa fa-camera m-0" />{" "}
-                                    </Link>
-                                    {/* Modal */}
-                                    <Modal show={cameraModal} onHide={() => setCameraModal(false)} className="modal fade" id="cameraModal">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title">Upload images</h5>
-                                                <button type="button" className="close" data-dismiss="modal" onClick={() => setCameraModal(false)}>
-                                                    <span>×</span>
-                                                </button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <div className="input-group mb-3">
-                                                    <div className="input-group-prepend">
-                                                        <span className="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div className="custom-file">
-                                                        <input type="file" className="custom-file-input"/>
-                                                        <label className="custom-file-label">Choose file</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Modal>
-                                    <Link to="/app-profile" className="btn btn-primary ml-1" data-toggle="modal" data-target="#postModal" onClick={() => setPostModal(true)}>Post</Link>
-                                    {/* Modal */}
-                                    <Modal show={postModal}onHide={() => setPostModal(false)} className="modal fade" id="postModal">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title">Post</h5>
-                                           
-                                            </div>
-                                            <div className="modal-body">
-                                                <textarea name="textarea" id="textarea" cols={30} rows={5} className="form-control bg-transparent" placeholder="Please type what you want...." defaultValue={""}/>
-                                                <Link className="btn btn-primary btn-rounded mt-1" to="/app-profile">Post</Link>
-                                            </div>
-                                        </div>
-                                    </Modal>
-                                </div>
- 
-                                <div className="profile-uoloaded-post border-bottom-1 pb-5">
-                               
-                                </div>
-                                
-                                <div className="profile-uoloaded-post border-bottom-1 pb-5">
-                                    <img src={profile09} alt="" className="img-fluid w-100" />
-                                    <Link className="post-title" to="/post-details">
-                                        
-                                    </Link>
-                            
-                              
-                                    <button className="btn btn-secondary" onClick={() => setReplayModal(true)}>
-                                        <span className="mr-2">  <i className="fa fa-reply" /></span>Répondre
-                                    </button>
-                                </div>
-                                <div className="profile-uoloaded-post pb-3">
-                                    <img src={profile08} alt="" className="img-fluid  w-100" />
-                                    <Link className="post-title" to="/post-details">
-                                      
-                                    </Link>
-                             
-                                    
-                                    <button className="btn btn-secondary" onClick={() => setReplayModal(true)}>
-                                        <span className="mr-2"> <i className="fa fa-reply" /></span>Répondre
-                                    </button>
-                                </div>
-                                {/* Modal */}
-                                <Modal   show={replayModal}onHide={() => setReplayModal(false)} className="modal fade" id="replyModal">                                    
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title">Post Reply</h5>
-                                            <button type="button" className="close"  onClick={() => setReplayModal(false)}><span>&times;</span></button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <form>
-                                                <textarea className="form-control" rows="4">Message</textarea>
-                                            </form>
-                                        </div>
-                                        <div className="modal-footer">
-                                            <button type="button" className="btn btn-danger light" onClick={() => setReplayModal(false)}>Close</button>
-                                            <button type="button" className="btn btn-primary">Repondre</button>
-                                        </div>
-                                    </div>
-                                </Modal>
-                            </div>
-                        </div>
-                        <div id="about-me" className={`tab-pane fade ${ activeToggle === "aboutMe" ? "active show" : ""}`}>
-                            <div className="profile-about-me">
+            <ul className="nav nav-tabs">
+              <li className="nav-item" onClick={() => setActiveToggle("posts")}>
+                <Link to="#my-posts" data-toggle="tab" className={`nav-link ${ activeToggle === "posts" ? "active show" : ""}`}>Mes Informations</Link>
+              </li>
+              <li className="nav-item" onClick={() => setActiveToggle("aboutMe")}>
+                <Link to="#about-me"  data-toggle="tab" className={`nav-link ${ activeToggle === "aboutMe" ? "active show" : ""}`}>Réglage</Link>
+              </li>
+              
+            </ul>
+          <div className="tab-content">
+            
+            <div id="my-posts" className={`tab-pane fade ${ activeToggle === "posts" ? "active show" : "" }`} >
+                        <div className="profile-about-me">
                                 <div className="pt-4 border-bottom-1 pb-3">
-                                    <h4 className="text-primary">Etat civil du professionel de santé    </h4>
+                                    <h4 className="text-primary">Etat civil de monsieur</h4>
                                     <br></br>
                                     <br></br>
+ 
+
+
+
  
                                     <div className="row mb-2">
                                     <div className="col-3">
@@ -587,10 +207,11 @@ const AppProfile = () => {
  
                                     <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Identifiant RPPS<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Code Sécurité Sociale ( CSS)*<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>145789625</span>
+                                        <span>********
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
@@ -712,117 +333,264 @@ const AppProfile = () => {
                            
                                     </div>
                                     </div>
-                          
+                                   
                                 </div>
-                            <div className="profile-skills mb-5">
-                                <h4 className="text-primary mb-2">Skills</h4>
-                                <Link to="/app-profile" className="btn btn-primary light btn-xs mb-1 mr-1"> Admin</Link>
-                                <Link to="/app-profile" className="btn btn-primary light btn-xs mb-1 mr-1" > Dashboard</Link>
-                                <Link to="/app-profile" className="btn btn-primary light btn-xs mb-1 mr-1">Photoshop</Link>
-                                <Link to="/app-profile" className="btn btn-primary light btn-xs mb-1 mr-1">Bootstrap</Link>
-                                <Link to="/app-profile" className="btn btn-primary light btn-xs mb-1 mr-1">Responsive</Link>
-                                <Link to="/app-profile" className="btn btn-primary light btn-xs mb-1 mr-1">Crypto</Link>
-                            </div>
-                            <div className="profile-lang  mb-5">
-                                <h4 className="text-primary mb-2">Language</h4>
-                                <Link to="/app-profile" className="text-muted pr-3 f-s-16">
-                                    <i className="flag-icon flag-icon-us" />English
-                                </Link>
-                                <Link to="/app-profile" className="text-muted pr-3 f-s-16">
-                                    <i className="flag-icon flag-icon-fr" />French
-                                </Link>
-                                <Link to="/app-profile" className="text-muted pr-3 f-s-16">
-                                    <i className="flag-icon flag-icon-bd" />Bangla
-                                </Link>
-                            </div>
-                            <div className="profile-personal-info">
-                                <h4 className="text-primary mb-4">
-                                    Personal Information
-                                </h4>
-                               
-                             
-                              
-                               
-                            </div>
-                        </div>
-                        <div id="profile-settings" className={`tab-pane fade ${ activeToggle === "setting" ? "active show" : ""}`}>
-                            <div className="pt-3">
-                                <div className="settings-form">
-                                    <h4 className="text-primary">Account Setting</h4>
-                                    <form onSubmit={(e) => e.preventDefault()}>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label>Email</label>
-                                                <input type="email" placeholder="Email" className="form-control"/>
-                                            </div>
-                                            <div className="form-group col-md-6">
-                                                <label>Password</label>
-                                                <input type="password" placeholder="Password" className="form-control"/>
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Address</label>
-                                            <input type="text" placeholder="1234 Main St" className="form-control"/>
-                                        </div>
-                                        <div className="form-group">
-                                            <label>Address 2</label>
-                                            <input type="text" placeholder="Apartment, studio, or floor" className="form-control"/>
-                                        </div>
-                                        <div className="form-row">
-                                            <div className="form-group col-md-6">
-                                                <label>City</label>
-                                                <input type="text" className="form-control" />
-                                            </div>
-                                            <div className="form-group col-md-4">
-                                                <label>State</label>
-                                                <select
-                                                  className="form-control"
-                                                  id="inputState"
-                                                  defaultValue="option-1"
-                                                >
-                                                  <option value="option-1">Choose...</option>
-                                                  <option value="option-2">Option 1</option>
-                                                  <option value="option-3">Option 2</option>
-                                                  <option value="option-4">Option 3</option>
-                                                </select>
-                                            </div>
-                                            <div className="form-group col-md-2">
-                                                <label>Zip</label>
-                                                <input type="text" className="form-control" />
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <div className="custom-control custom-checkbox">
-                                                <input
-                                                  type="checkbox"
-                                                  className="custom-control-input"
-                                                  id="gridCheck"
-                                                />
-                                                <label
-                                                  className="custom-control-label"
-                                                  htmlFor="gridCheck"
-                                                >
-                                                  Check me out
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <button className="btn btn-primary" type="submit">Sign in</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-                </div>
-              </div>
+            
             </div>
-          </div>
-        </div>
-      </div>
-    </Fragment>
-  );
+            <div id="#about-me" className={`tab-pane fade ${ activeToggle === "aboutMe" ? "active show" : ""}`}>
+                            <div className="pt-3">
+                               
+
+                                <Card>
+                                    
+            <Card.Header className='d-block card-header'>
+              <Card.Title>Sécurité et connexion</Card.Title>
+            </Card.Header>
+            <Card.Body className='card-body'>
+            <div className="basic-list-group">
+                      
+            <Row>
+                           <Tab.Container defaultActiveKey="#home">
+                              <Col lg="6" xl="4">
+                                 <ListGroup className="mb-4" id="list-tab">
+                                    <ListGroup.Item action href="#home">
+                                    Gérer votre mot de passe
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action href="#profile">
+                                      Gérer informations
+                                    </ListGroup.Item>
+                                  
+                                 </ListGroup>
+                              </Col>
+                              <Col lg="10" xl="7">
+                                 <Tab.Content>
+                                    <Tab.Pane eventKey="#home">
+                                       <h4 className="mb-2" >
+
+                                       Changer votre mot de passe                                       </h4>
+                                       <React.Fragment>
+                                         <section>
+                                       <p>Notre système a découvert que votre mot de passe correspond peut-être à un mot de passe volé sur 
+             un autre site. 
+             Protégez votre compte en changeant votre mot de passe.</p>
+             <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="bg-white w-auto h-auto pb-20 mt-20 rounded-lg mx-5 sm:w-full md:w-4/5 md:mx-auto lg:w-2/5 lg:mx-auto">
+    
+
+           {/* body */}
+           <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Actuel </label>
+ 
+                   <div className='col-sm-9'>
+                   <input
+                       type='password'
+                       className='form-control'
+                     />
+                                     
+Votre mot de passe actuel n’est peut-être pas assez fort
+                   </div>
+                 </div>
+
+
+           <div>
+             <div className="mx-8">
+               {/* password section */}
+               <div className='form-group row'>
+               <label className='col-sm-4 col-form-label'>Nouveau ot de passe </label>
+               <div className="mt-10 relative">
+                 <input
+                   type={passwordEye === false ? "password" : "text"}
+                   placeholder="Mot de passe "
+                   
+                   className={`w-full h-14 rounded-lg ${ 
+                     errors.password &&
+                       "form-control"} `}
+                   {...register("password", { required: 'le mot de passe est obligatoire ',
+                   pattern:{
+                       value:/^(\S)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{10,16}$/,
+                       message:'Le mot de passe doit inclure au moins une majuscule, une valeur numérique et un caractère spécial'
+                   },
+                   minLength:{
+                       value:8,
+                       message:' la longueur minimale exigée est 8'
+                   },
+                   maxLength: {
+                       value: 20,
+                       message: "la longueur maximale  exigée est 20",
+                       
+                     },
+                })}
+                 />
+                   {errors.password && 
+                   <span className="text-sm text-red-500">{errors.password.message}</span>}
+</div>
+                 {/* eye section */}
+                 <div className="text-3xl absolute top-4 right-5">
+                   {passwordEye === false ? (
+                     <AiFillEyeInvisible onClick={handlePasswordClick} />
+                   ) : (
+                     <AiFillEye onClick={handlePasswordClick} />
+                   )}
+                 </div>
+               </div>
+               <div>
+
+               {/* confirm password section */}
+               <div className="mx-8">
+
+               <div className='form-group row'>
+
+               <label className='col-sm-4 col-form-label'>confirmer le mot de passe  </label>
+
+               <div className="mt-10 relative">
+               <div className='col-sm-9'>
+
+                 <input
+                   type={confirmPasswordEye === false ? "password" : "text"}
+                   placeholder="Confirmer le mot de passe "
+                   onPaste={(e)=>{
+                       e.preventDefault()
+                       return false;
+                     }}
+                   className={`w-full h-14 rounded-lg ${
+                      errors.confirmPassword &&
+                       "form-control"} `}
+                   {...register("confirmPassword", { required: 'Confirmer le mot de passe est obligatoire',
+                   validate: (value) =>
+                   value === password || "le mot de passe n'est pas identique ",
+                })}
+                 />
+                 {errors.confirmPassword && <span className="text-sm text-red-500">{errors.confirmPassword.message}</span>}
+</div></div>
+                 {/* eye section */}
+                 <div className="text-2xl absolute top-4 right-5">
+                   {passwordEye === false ? (
+                     <AiFillEyeInvisible onClick={handleConfirmPasswordClick} />
+                   ) : (
+                     <AiFillEye onClick={handleConfirmPasswordClick} />
+                   )}
+                 </div>
+               </div></div></div>
+
+
+               {/* button section */}
+               <div className="flex items-center justify-center mt-12">
+                 <Link to="/login">
+                   <input
+                   type='Button'
+                   value='Submit'
+                   className="btn btn-primary mb-1 ml-1"
+                   />
+                   </Link>
+               </div>
+             </div>
+           </div>
+         </div>
+       </form>
+               </section>
+               </React.Fragment>
+                                   </Tab.Pane>
+                                   <Tab.Pane eventKey="#profile">
+                                      <h4 className="mb-4">
+                                      Gérer les informations                                        </h4>
+                                      <div className='form-group row'>
+                 
+                 </div>
+                 <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Adresse Email</label>
+                   <div className='col-sm-9'>
+                     <input
+                       type='Email'
+                       className='form-control'
+                       placeholder='maissaba@aiesec.net'
+                     />
+                   </div>
+                 </div>  <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Numéro de telephone</label>
+                   <div className='col-sm-9'>
+                   <input
+               type="text"
+               className={`form-control ${errors.phone && "invalid"}`}
+               {...register("phone", { required: "Phone is Required",
+               pattern: {
+                 value: /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+                 message: "Invalid phone no",
+               },
+              })}
+              onKeyUp={() => {
+               trigger("phone");
+             }}
+             />
+             {errors.phone && (
+               <small className="text-danger">{errors.phone.message}</small>
+             )}
+                   </div>
+                 </div>  <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Nombre d'enfants</label>
+                   <div className='col-sm-9'>
+                     <input
+                       type='password'
+                       className='form-control'
+                       placeholder='2'
+                     />
+                   </div>
+                 </div>  <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Retreté</label>
+                   <div className='col-sm-9'>
+                    
+                   </div>
+                 </div>  <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Ville</label>
+                   <div className='col-sm-9'>
+                     <input
+                       type='password'
+                       className='form-control'
+                       placeholder='Sfax'
+                     />
+                   </div>
+                 </div>  <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Adresse</label>
+                   <div className='col-sm-9'>
+                     <input
+                       type='password'
+                       className='form-control'
+                       placeholder='Route sidi mansour Km 4'
+                     />
+                   </div>
+                 </div>  <div className='form-group row'>
+                   <label className='col-sm-3 col-form-label'>Code Postal</label>
+                   <div className='col-sm-9'>
+                     <input
+                       type='password'
+                       className='form-control'
+                       placeholder='3000'
+                     />
+                   </div>
+                
+                 </div> 
+                                   </Tab.Pane>
+                                  
+                                  
+                                </Tab.Content>
+                             </Col>
+                          </Tab.Container>
+                       </Row>
+
+
+                    </div>
+           </Card.Body>
+         </Card>                            </div>
+                       </div>
+                    
+           
+           </div></div></div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </Fragment>
+ );
 };
- 
-export default AppProfile;
- 
+
+export default ProfilePat;
 

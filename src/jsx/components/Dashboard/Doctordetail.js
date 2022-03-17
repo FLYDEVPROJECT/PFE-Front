@@ -73,7 +73,7 @@ const docDetailss = () => {
                         />
                         <div className="media-body">
                            <h3 className="fs-22 text-black font-w600">
-                              Dr. Maroua BEN SALEM
+                              Dr. Maroua BEN SALEMm
                            </h3><br></br>
                            <p className="text-primary">Psychologue</p>
                            <div className="social-media mb-sm-0 mb-3 justify-content-sm-start justify-content-center">
@@ -91,8 +91,7 @@ const docDetailss = () => {
                       
                      </div>
                   </div>
-                  <button type="button" class="mr-2 btn btn-primary"> valider l'Accés</button>
-                  <button type="button" class="mr-10 btn btn-outline-light">Ecrire un message</button>
+                
                </div>
                
             </div>
@@ -229,73 +228,8 @@ const docDetailss = () => {
                      </div>
                   </div>
                </div></div></div>
-               <div className="col-xl-3 col-xxl-12">
-               <div className="card abilities-chart">
-                  <div className="card-header border-1 pb-0">
-                     <h4 className="fs-20 font-w600">Présentation</h4>
-                  </div>
-                  <div className="card-header border-0 pb-0">
-                     <h6 >Spécialités</h6>
-                  </div>
-                  <div class="container">
-    <div class="col">  <button type="button" class="btn btn-outline-primary btn-xs">
-Médecin Esthétique</button>  </div>
-
-  </div>
-  <div className="card-header border-0 pb-0" >
-                     <h6 style={{color: "black"}}>Qualification professionnelle</h6>
-                     
-                  </div>
-                  <div class="container">
-    <div class="col">Diplômée de l'Université de Versailles Saint-Quentin en Dermatologie et Laser Esthétique</div>
-
-  </div>
-  <div className="card-header border-0 pb-0">
-                     <h6 >Langues parlées</h6>
-                     
-                  </div>
-                  <div class="container">
-    <div class="col">  <button type="button" class="btn btn-outline-primary btn-xs">
-Médecin Esthétique</button>  </div>
-
-  </div>
-
-                  <div className="card-body">
-                     <div className="d-flex justify-content-center">
-                     
-                     </div>
-                     <div className="chart-point">
-                        <div>
-                           <span className="a" />
-                           <span className="text-ov px-1 fs-15">Operation</span>
-                        </div>
-                        <div>
-                           <span className="b" />
-                           <span className="text-ov px-1 fs-15">Theraphy</span>
-                        </div>
-                        <div>
-                           <span className="c" />
-                           <span className="text-ov px-1 fs-15">Mediation</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-
-
-
-            <div className="row">
-            <div className="col-lg-3">
-               <div className="card">
-                  
-               </div>
-            </div>
-            <div className="col-lg-3">
-               <div className="card">
                
-               </div>
-            </div></div>
+              
 
 
            

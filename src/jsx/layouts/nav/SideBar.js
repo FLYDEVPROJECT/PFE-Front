@@ -168,27 +168,22 @@ class SideBar extends Component {
 				<ul >
 				
 					<li>
-						<Link className={`${path === "patient-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/patient-list">
+						<Link className={`${path === "patient-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/listedespatients">
 							Patient
 						</Link>
 					</li>
 				
 					<li>
-						<Link className={`${path === "doctor-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/doctor-list">
-							Doctor
+						<Link className={`${path === "doctor-list" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/liste">
+							Docteur
 						</Link>
 					</li>
 					<li>
-						<Link className={`${path === "doctor-details" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/doctor-details">
-							Doctor Detail
+						<Link className={`${path === "doctor-details" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/details">
+            Docteur details
 						</Link>
 					</li>
-					<li>
-					  <Link className={`${ path === "reviews" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/List"
-					  >
-						Liste professionenels santé
-					  </Link>
-					</li>
+			
 							
 				</ul>
             </li>
@@ -199,14 +194,14 @@ class SideBar extends Component {
               </Link>
               <ul >
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/app-profile">Profile</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/profile">Profile</Link>
                 </li>
 				<li>
-					<Link className={`${path === "tous-les-professionnels" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/tous-les-professionnels">Professionelles de santé</Link>
+					<Link className={`${path === "tous-les-professionnels" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/tous-les-professionnels">Professionelles de santé</Link>
 
                 </li>
                 <li>
-						<Link className={`${path === "experience" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/experience">Expérience professionel</Link>
+						<Link className={`${path === "experience" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/experience">Expérience professionel</Link>
 					</li>	
                 <li className={`${email.includes(path) ? "mm-active" : ""}`}>
                 
@@ -252,24 +247,8 @@ class SideBar extends Component {
              
                 </li>
      
-                <li>
-                  <Link
-                    className={`${path === "ui-tab" ? "mm-active" : ""}`}
-                    onClick={() => this.props.onClick()}
-                    to="/ui-tab"
-                  >
-                    aaaaaaa
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={`${path === "ui-typography" ? "mm-active" : ""}`}
-                    onClick={() => this.props.onClick()}
-                    to="/ui-typography"
-                  >
-                    Typoggggggghy
-                  </Link>
-                </li>
+              
+               
            
               
             
@@ -322,24 +301,33 @@ class SideBar extends Component {
                         className={`${
                           path === "ecom-product-detail" ? "mm-active" : ""
                         }`}
-                        to="/creationcompte"
+                        to="/docteur/creationcompte"
                         onClick={() => this.props.onClick()}
                       >
                        Création d'un Compte
                       </Link>
                 </li>
+                <Link
+                        className={`${
+                          path === "ecom-product-detail" ? "mm-active" : ""
+                        }`}
+                        to="/docteur/ordonnancemedicale"
+                        onClick={() => this.props.onClick()}
+                      >
+                       ordonnance médicale
+                      </Link>
                 <li>
                 <Link
                         className={`${
                           path === "contact" ? "mm-active" : ""
                         }`}
-                        to="/contact"
+                        to="/docteur/contact"
                         onClick={() => this.props.onClick()}
                       >
                         Contact
                       </Link>
        
-                    <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/Liste-professionnels">
+                    <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/docteur/liste-professionnels">
                         Liste des professionenels de santé 
                     </Link>
                 </li>

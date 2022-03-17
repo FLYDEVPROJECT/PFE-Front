@@ -30,7 +30,8 @@ import sexologie from './components/Dashboard/sexologie';
 import urologie from './components/Dashboard/urologie';
 import interne from './components/Dashboard/interne';
 import gastro from './components/Dashboard/gastro';
-import Med from './components/Dashboard/Med'
+import Med from './components/Dashboard/Med';
+
 
 
 /// App
@@ -45,7 +46,7 @@ import Read from './components/AppsMenu/Email/Read/Read'
 import ProductGrid from './components/AppsMenu/Shop/ProductGrid/ProductGrid'
 import ProductList from './components/AppsMenu/Shop/ProductList/ProductList'
 import ProductDetail from './components/AppsMenu/Shop/ProductGrid/ProductDetail'
-import Checkout from './components/AppsMenu/Shop/Checkout/Checkout'
+import Checkout from './components/Dashboard/Checkout'
 
 import ProductOrder from './components/AppsMenu/Shop/ProductOrder'
 import EcomCustomers from './components/AppsMenu/Shop/Customers/Customers'
@@ -111,10 +112,10 @@ const Markup = () => {
     /// Dashboard
     { url: "", component: Home },
     { url: "dashboard", component: Home },
-   	{ url: "patient-list", component: PatientList },
+   	{ url: "docteur/listedespatients", component: PatientList },
     { url: "patient-details", component: PatientDetails },
-    { url: "doctor-list", component: DoctorList },
-    { url: "doctor-details", component: Doctordetail },
+    { url: "docteur/liste", component: DoctorList },
+    { url: "docteur/details", component: Doctordetail },
     { url: "reviews", component: PageReview },
     {url : "Dermato",component: Dermato },
     {url : "dentiste",component: dentise },
@@ -126,20 +127,20 @@ const Markup = () => {
     {url : "pneumologue",component: pneumologue },
     {url : "interne",component: interne },
     {url : "gastro",component: gastro },
-{url:"medicaments",component: Med } ,
+{url:"docteur/ordonnancemedicale",component: Med } ,
 
 
     {url : "sexologie",component: sexologie },
     {url : "urologie",component: urologie },
-{url:"experience",component:Task},
+{url:"docteur/experience",component:Task},
 
 
 
 
     /// Apps
-    { url: 'app-profile', component: AppProfile },
-    { url: 'tous-les-professionnels', component: PostDetails },
-    { url: 'contact', component: Compose },
+    { url: 'docteur/profile', component: AppProfile },
+    { url: 'docteur/tous-les-professionnels', component: PostDetails },
+    { url: 'docteur/contact', component: Compose },
     { url: 'email-inbox', component: Inbox },
     { url: 'email-read', component: Read },
  
@@ -170,7 +171,7 @@ const Markup = () => {
     /// Shop
     { url: 'ecom-product-grid', component: ProductGrid },
     { url: 'ecom-product-list', component: ProductList },
-    { url: 'creationcompte', component: ProductDetail },
+    { url: 'docteur/creationcompte', component: Checkout },
     { url: 'ecom-product-order', component: ProductOrder },
     { url: 'ecom-checkout', component: Checkout },
     
@@ -191,7 +192,7 @@ const Markup = () => {
     /// table
     { url: 'table-datatable-basic', component: DataTable },
     { url: 'table-bootstrap-basic', component: BootstrapTable },
-    { url: 'Liste-professionnels', component: FilteringTable },
+    { url: 'docteuliste-professionnels', component: FilteringTable },
     { url: 'table-sorting', component: SortingTable },
 
     /// pages

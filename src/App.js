@@ -12,6 +12,7 @@ import "./css/style.css";
 
 
 //import Test from './test'
+import Checkout from './jsx/components/Dashboard/Checkout'
 import CustomeSelete from './jsx/components/PluginsMenu/Select2/CustomeSelete'
 import dossier from './jsx/components/PluginsMenu/Toastr/dossier'
 import verification from './jsx/components/PluginsMenu/Toastr/verification'
@@ -48,7 +49,7 @@ function App (props) {
       
          <Route path ="/verification" component={CustomeSelete}/>
          <Route  path ="/contact" component={professionnel}/>
-           <Route exact path="/patient" component={patient}/>
+           <Route exact path="/patient" component={Checkout}/>
           <Route path="/Saisiedesdonnees" component={PatientDetails}/>
             <Route path='/login' component={Login} />
             <Route path='/Authentif' component={patient} />
