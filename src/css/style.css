@@ -8797,7 +8797,9 @@ a {
     .content-body .container-fluid, .content-body .container-sm, .content-body .container-md, .content-body .container-lg, .content-body .container-xl {
       padding-top: 30px;
       padding-right: 30px;
-      padding-left: 30px; } }
+      padding-left: 30px; 
+     } }
+      
   @media only screen and (max-width: 767px) {
     .content-body .container-fluid, .content-body .container-sm, .content-body .container-md, .content-body .container-lg, .content-body .container-xl {
       padding-top: 20px;

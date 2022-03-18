@@ -75,10 +75,10 @@ const Compose = () => {
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand"></a>
   <form class="form-inline">
-  <div style={{ marginLeft: '40%', marginTop: '60px' }}>
-      <h3>Greetings from GeeksforGeeks!</h3>
+  <div style={{ marginLeft: '0%', marginTop: '40px' }}>
+  
       <Autocomplete
-        style={{ width: 500 }}
+        style={{ width: 200 }}
         freeSolo
         autoComplete
         autoHighlight
@@ -87,12 +87,12 @@ const Compose = () => {
           <TextField {...params}
             onChange={getDataFromAPI}
             variant="outlined"
-            label="Search Box"
+            label="trouver un professionnel da santé"
           />
         )}
       />
     </div>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
+
   </form>
 </nav>
                            <p class="mb-0 subtitle card-text"></p>

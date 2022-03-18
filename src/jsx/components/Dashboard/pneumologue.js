@@ -48,7 +48,7 @@ const PageReview = () => {
                            data-toggle="tab"
                            aria-expanded="false"
                         >
-                          Tous les Médecins 
+                          Tous les médecins 
                         </Nav.Link>
                      </Nav.Item>
                      <Nav.Item as="li" className="nav-item">

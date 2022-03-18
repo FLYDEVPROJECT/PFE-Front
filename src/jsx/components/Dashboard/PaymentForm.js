@@ -11,7 +11,7 @@ export default function PaymentForm() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-       Ajout documents
+       Ajout de documents
       </Typography>
       <Grid container spacing={6}>
       
@@ -27,7 +27,7 @@ export default function PaymentForm() {
         <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-            label="documents ajoutés avec succés"
+            label="documents ajouté avec succés"
           />
         </Grid>
       </Grid>

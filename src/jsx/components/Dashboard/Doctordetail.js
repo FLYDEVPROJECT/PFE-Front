@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert" ;
-
+import Accordion from 'react-bootstrap/Accordion';
 /// Scroll
 //Images
 import avater02 from "../../../images/avatar/2.jpg";
@@ -61,10 +61,12 @@ const docDetailss = () => {
          <div className="row">
             <div className="col-xl-3 col-lg-4 col-xxl-4">
                <div className="card">
-                
+
                   <div className="card-body pt-4">
                   <div className="media d-sm-flex text-sm-left d-block text-center">
-
+                     <div>
+                 
+</div>
                         <img
                            alt=""
                            className="rounded mr-sm-2 mr-0 mb-5 mb-sm-5"

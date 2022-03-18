@@ -19,7 +19,7 @@ import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import './Home.css'; 
-
+import DrAliandro from "../../../images/doctors/2.jpg";
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -50,7 +50,7 @@ export default function Album() {
           }}
         >
           <Container maxWidth="md">
- 
+
             <Carousel>
                 <div>
                     <img src="https://storage.googleapis.com/lf-wp-upload-a9b40dab/sites/9/2017/11/medecin-conventionne.jpg" />
@@ -410,8 +410,43 @@ export default function Album() {
             </div>
            </div>
       </main>
-      
-   
+      <div className="col-xl-9 col-xxl-8 col-lg-7">
+               <div className="card">
+                  <div className="card-header border-0 pb-0">
+                    
+                     
+                  </div>
+                </div>
+      </div>
+      <div className="items">
+                              <div className="text-center">
+                               <h5>  <img src="https://medical-rh.com/wp-content/uploads/medecin-specialiste-medical-rh_.jpg"  width="300"
+     height="200"></img> </h5>
+                                 <div className="dr-star">
+                                    <i className="las la-star" /> 4.8
+                                 </div>
+                                 <h5 className="fs-16 mb-1 font-w600">
+                                       Dr Mondher CHEOUR
+                                 </h5>
+                                 <span className="text-primary mb-2 d-block">
+                                 pédiatre
+                                 </span>
+                                 <p className="fs-12">
+                                 Le médecin le plus recommandé
+                                 </p>
+                                 <div className="social-media">
+                                    <Link to="/">
+                                       <i className="lab la-instagram" />
+                                    </Link>
+                                    <Link to="/">
+                                       <i className="lab la-facebook-f" />
+                                    </Link>
+                                    <Link to="/">
+                                       <i className="lab la-twitter" />
+                                    </Link>
+                                 </div>
+                              </div>
+                           </div>
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Copyright />
       </Box>
