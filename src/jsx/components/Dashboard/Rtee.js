@@ -2,14 +2,13 @@ import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
 class App extends React.Component {
-  handleEditorChange = (content, editor) => {
+  handleEdiitorChange = (content, editor) => {
     console.log("Content was updated:", content);
   };
+ 
 
   render() {
     return (
-     
- 
       <Editor
         initialValue="<p>This is the initial content of the editor</p>"
         init={{

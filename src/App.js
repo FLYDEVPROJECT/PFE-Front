@@ -25,6 +25,7 @@ import { FaHatWizard } from 'react-icons/fa';
 import Wizard from './jsx/components/Forms/Wizard/Wizard';
 import Wizardpt from './jsx/components/Forms/Wizardpt/Wizard'; 
 import PatientDetails from './jsx/components/Dashboard/PatientDetails';
+import Search from './jsx/components/Dashboard/Search';
 
 
 
@@ -46,7 +47,8 @@ function App (props) {
 
        
            <Route exact path="/" component={Login}/>
-      
+           <Route  path="/search" component={Search}/>
+
          <Route path ="/verification" component={CustomeSelete}/>
          <Route  path ="/contact" component={professionnel}/>
            <Route exact path="/patient" component={Checkout}/>

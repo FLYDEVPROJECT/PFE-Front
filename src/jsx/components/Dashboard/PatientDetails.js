@@ -11,6 +11,12 @@ import { Link } from "react-router-dom";
 const handleClick = ()=> {
    console.log('hekooe')
 }
+function handle_form_submission()
+{
+  alert(' voulez vous ajouter cet patient ? ');
+  return false; //do not submit the form
+}
+
 
 const Root = styled('div')(
   ({ theme }) => `
@@ -66,6 +72,7 @@ const InputWrapper = styled('div')(
 
 function Tag(props) {
   const { label, onDelete, ...other } = props;
+  
   return (
     <div {...other}>
       <span>{label}</span>
@@ -352,7 +359,7 @@ export default function CustomizedHook() {
                                </div>
                                <div className="form-group row">
                                   <div className="col-lg-8 ml-auto">
-                                     <button onClick={handleClick}
+                                     <button onClick={handle_form_submission}
                                         type="submit"
                                        
                                         className="btn btn-primary"

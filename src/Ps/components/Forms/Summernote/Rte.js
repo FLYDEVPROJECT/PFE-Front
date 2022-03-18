@@ -5,6 +5,7 @@ class App extends React.Component {
   handleEditorChange = (content, editor) => {
     console.log("Content was updated:", content);
   };
+ 
 
   render() {
     return (

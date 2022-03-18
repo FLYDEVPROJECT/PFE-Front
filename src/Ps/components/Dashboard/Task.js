@@ -266,7 +266,7 @@ const PostPage = () => {
 									</div>
 								</div>
 								<div className="modal-footer">
-                                    <button type="submit" className="btn btn-primary" onClick={handleAddFormSubmit}>Ajouter</button>  
+                                    <button type="submit" className="btn btn-primary" onClick={handleAddFormSubmiAjoutert}></button>  
                                     <button type="button" onClick={()=> setPostModal(false)} className="btn btn-danger"> <i className="flaticon-delete-1"></i>Annuler</button>      
 								</div>
 							</form>

@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
-import Note from './Note';
+
 
 function Copyright() {
   return (
@@ -87,8 +87,8 @@ export default function Checkout() {
                 </Typography>
                 <Typography variant="subtitle1">
                 <div className="card-body">
-                <div className="summernote">
-                           <Note />
+                        <div className="summernote">
+                           
                         </div>
                      </div>
                 </Typography>

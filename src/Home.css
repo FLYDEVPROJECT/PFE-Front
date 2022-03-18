@@ -22,7 +22,7 @@
   }
   .slider-content{
       position: absolute;
-      color: white;
+      color: rgb(165, 98, 98);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

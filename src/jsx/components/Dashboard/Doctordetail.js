@@ -73,7 +73,7 @@ const docDetailss = () => {
                         />
                         <div className="media-body">
                            <h3 className="fs-22 text-black font-w600">
-                              Dr. Maroua BEN SALEMm
+                              Dr. Maroua BEN SALEM
                            </h3><br></br>
                            <p className="text-primary">Psychologue</p>
                            <div className="social-media mb-sm-0 mb-3 justify-content-sm-start justify-content-center">
@@ -230,7 +230,26 @@ const docDetailss = () => {
                </div></div></div>
                
               
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Plus d'informations </button>
 
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Diplome</h4>
+      </div>
+      <div class="modal-body">
+        <p>diploméé  le 5/07/1990 de l'université </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
            
            
