@@ -1,24 +1,28 @@
-import React, { Fragment} from "react";
+import React, { useState , Fragment } from "react";
 import { Link } from "react-router-dom";
+import CategoriesDoc from './CategoriesDoc'
 /// Bootstrap
 import {
    Row,
    Col,
    Card,
-   Button,
-   ButtonGroup,
-   Dropdown,
-   DropdownButton,
+  
+ 
 } from "react-bootstrap";
 
 const ContactAll = () => {
-   const listItem = [
-      "Radiologue ",
-      "Generaliste ",
-      "Pneumologue",
-      "Porta ac consectetur ac",
-      "Vestibulum at eros",
-   ];
+   
+   const [data,setData]=useState(CategoriesDoc)
+   const filterResult=(catItem)=>{
+       const result=CategoriesDoc.filter((curData)=> {
+           return curData.category===catItem ;
+
+       }
+       ) ;
+       setData(result)
+
+
+   }
    return (
       <Fragment>
 
@@ -38,23 +42,42 @@ const ContactAll = () => {
                                  <Row >
                              
         <Col xl='9'>
-          <Card className='bg-light'>
+        {data.map((values) => {
+                             const {id,title, Text,image}=values ;
+                             return (
+                              <>
+
+
+ <Card  style={{ height: '15rem' , minWidth: '275'}} >
+           
             <Card.Header>
-              <Card.Title>Apportez une réponse
-à vos inquiétudes
-<Link to="/patient/mail-medecin">
-   <Button variant="primary">Poser ma question </Button></Link>
-</Card.Title>
+              <Card.Title>{title} </Card.Title> 
             </Card.Header>
-            <Card.Body className=' mb-0'>
-            <Card>
-<Card.Body>vvv</Card.Body>
+            <Card.Body>
+            
+           {Text}
+            </Card.Body>
+            <Card.Footer>
+              <Card.Text className=' d-inline'>
+              <Link to='/patient/details' className='card-link float-left'>
+              Dr Sana BOUDALI EP BEN AYED    
+              </Link>          
+               </Card.Text>
+              <Link to='/ui-card' className='card-link float-right'>
+               Voir la Réponse 
+              </Link>
+            </Card.Footer>
 
             </Card>
+
+
+                                 </>
+                                  )
+                                 }
+                                 )}
+     
             
-            </Card.Body>
            
-          </Card>
         </Col>
         <Col xl='3'>
         <Card>
@@ -63,14 +86,14 @@ const ContactAll = () => {
                      
                   </Card.Header>
                   <Card.Body>
-                  <button class="btn btn-warning w-100 mb-3">Pneumologie</button>
-                  <button class="btn btn-warning w-100 mb-3">Gynécologie</button>
-                  <button class="btn btn-warning w-100 mb-3">Cardiologie</button>
-                  <button class="btn btn-warning w-100 mb-3">Géneraliste</button>
-                  <button class="btn btn-warning w-100 mb-3">radiologie</button>
+                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Pneumologie')}>Pneumologie</button>
+                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Gynécologie')}>Gynécologie</button>
+                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Cardiologie')}>Cardiologie</button>
+                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Géneraliste')}>Géneraliste</button>
+                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Radiologie')}>radiologie</button>
                   <button class="btn btn-warning w-100 mb-3">Pédiatrie</button>
                   <button class="btn btn-warning w-100 mb-3">Pharmacologie</button>
-                  <button class="btn btn-warning w-100 mb-3">gastrologie</button>
+                  <button class="btn btn-warning w-100 mb-3"onClick={()=>setData(CategoriesDoc)}>Tous </button>
 
                   </Card.Body>
                </Card>
@@ -79,7 +102,9 @@ const ContactAll = () => {
           
             
 </div></div></div></div>
-          
+<div className="col-md-9">
+                    
+                 </div>
          
             
           

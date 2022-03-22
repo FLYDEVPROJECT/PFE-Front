@@ -5,12 +5,9 @@ import { Link } from "react-router-dom";
 import doctors11 from "../../../images/doctors/11.jpg";
 import doctors12 from "../../../images/doctors/12.jpg";
 import doctors13 from "../../../images/doctors/13.jpg";
-/// Scroll
-
-/// Image
 import LogoutLink from './Logout'; 
 
-const Header = ({ onNote, toggle, onProfile, onNotification, onBox }) => {
+const Header = ({ onNote, toggle, onProfile }) => {
    var path = window.location.pathname.split("/");
    var name = path[path.length - 1].split("-");
    var filterName = name.length >= 3 ? name.filter((n, i) => i > 0) : name;

@@ -11,10 +11,7 @@ import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import WizardPro from "./WizardPro";
-import StepOnePro from "./StepOnePro";
-import StepTwoPro from "./StepTwoPro";
-import StepThreePro from "./StepThreePro";
-import StepFourPro from "./StepFourPro";
+
 
 const Wizard = () => {
    const steps = [

@@ -145,7 +145,7 @@ const Compose = () => {
             <div className="row">
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-Pneumologie" className="col-mail col-mail-8">
+                  <Link to="/patient/acces/pneumologie" className="col-mail col-mail-8">
                          <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}>Pneumologie
                          </button>
                          </Link>

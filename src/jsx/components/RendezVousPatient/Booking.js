@@ -218,9 +218,9 @@ const Todo = () =>{
 					<div className="card-body">
 					<div class="d-block d-sm-flex mb-3 mb-md-4">
 						<a class="btn btn-outline-primary btn-rounded mb-2 mr-1">
-						<Link to="/appoiform" >
+						<Link to="/patient/nv/rendez-vous/form" >
 							<i class="lar la-calendar-plus mr-2 scale5 mr-2">
-								</i>+ New Appointment </Link>
+								</i>+ Nouveau rendez vous </Link>
 								</a>
 						
 								
@@ -238,7 +238,7 @@ const Todo = () =>{
                            <div className="media-body d-block d-sm-flex  align-items-center justify-content-between">
                               <div className="mr-2">
                                  <h4 className="fs-20">
-                                    <Link className="text-black" to="/Doc-Details">
+                                    <Link className="text-black" to="/patient/details">
 Maroua ben salem                                     </Link>
                                  </h4>
                                  <p className="fs-14 mb-0">

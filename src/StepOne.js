@@ -13,6 +13,8 @@ const StepOne = () => {
                <div className="form-group">
                   <label className="text-label"><strong>Nom *</strong></label>
                   <input
+                              autoFocus
+
                      type="text"
                      name="firstName"
                      className="form-control"

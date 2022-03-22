@@ -12,7 +12,6 @@ import "./css/style.css";
 //import Test from './test'
 
 import Wizard from './Wizard';
-const SignUp = lazy(() => import('./jsx/pages/Registration'));
 const ForgotPassword = lazy(() => import('./jsx/pages/ForgotPassword'));
 const Login = lazy(() => {
     return new Promise(resolve => {
@@ -20,7 +19,7 @@ const Login = lazy(() => {
 	});
 });
 function App (props) {
-    const dispatch = useDispatch();
+  
    /* useEffect(() => {
         checkAutoLogin(dispatch, props.history);
     }, [dispatch, props.history]);*/
@@ -29,11 +28,10 @@ function App (props) {
         <Switch>
            <Route exact path="/" component={Login}/>
           
-           <Route exact path="/patient" component={Wizard}/>
+           <Route exact path="/patient-professionnel" component={Wizard}/>
           
             <Route path='/login' component={Login} />
-            <Route path='/Authentif' component={Wizard} />
-            <Route path='/page-forgot-password' component={ForgotPassword} />
+²            <Route path='/page-forgot-password' component={ForgotPassword} />
         </Switch>
     );
     if (props.isAuthenticated) {

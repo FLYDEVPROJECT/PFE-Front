@@ -97,14 +97,7 @@ setPasswordEye(!passwordEye);
                         <i className="fa fa-users text-primary mr-2" />
                         Voir liste rendez vous 
                       </Dropdown.Item>
-                      <Dropdown.Item className="dropdown-item">
-                        <i className="fa fa-plus text-primary mr-2" />
-                        Add to group
-                      </Dropdown.Item>
-                      <Dropdown.Item className="dropdown-item">
-                        <i className="fa fa-ban text-primary mr-2" />
-                        Block
-                      </Dropdown.Item>
+                    
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
@@ -367,7 +360,7 @@ setPasswordEye(!passwordEye);
                                     <Tab.Pane eventKey="#home">
                                        <h4 className="mb-2" >
 
-                                       Changer votre mot de passe                                       </h4>
+                                       Changer le  mot de passe                                       </h4>
                                        <React.Fragment>
                                          <section>
                                        <p>Notre système a découvert que votre mot de passe correspond peut-être à un mot de passe volé sur 
@@ -511,7 +504,7 @@ Votre mot de passe actuel n’est peut-être pas assez fort
                     <input
                 type="text"
                 className={`form-control ${errors.phone && "invalid"}`}
-                {...register("phone", { required: "Phone is Required",
+                {...register("phone", { required: "Numero de télephone est obligatoire ",
                 pattern: {
                   value: /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
                   message: "Invalid phone no",
@@ -529,7 +522,7 @@ Votre mot de passe actuel n’est peut-être pas assez fort
                     <label className='col-sm-3 col-form-label'>Nombre d'enfants</label>
                     <div className='col-sm-9'>
                       <input
-                        type='password'
+                        type='text'
                         className='form-control'
                         placeholder='2'
                       />

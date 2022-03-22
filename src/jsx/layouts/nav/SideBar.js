@@ -47,45 +47,7 @@ class SideBar extends Component {
     path = path[path.length - 1];
     
     /// Active menu
-    let dashBoard = [
-        "",
-        "patient-list",
-		"patient-details",
-		"doctor-list",
-		"appoiform",
-		"reviews",
-		"task",
-      ],
-     
-    
-      charts = [
-        "chart-rechart",
-        "chart-flot",
-        "chart-chartjs",
-        "chart-chartist",
-        "chart-sparkline",
-        "chart-apexchart",
-      ],
-      bootstrap = [
-        "ui-accordion",
-        "ui-badge",
-        "ui-alert",
-        "ui-button",
-        "ui-modal",
-        "ui-button-group",
-        "ui-list-group",
-        "ui-media-object",
-        "ui-card",
-        "ui-carousel",
-        "ui-dropdown",
-        "ui-popover",
-        "ui-progressbar",
-        "ui-tab",
-        "ui-typography",
-        "ui-pagination",
-        "ui-grid",
-      ],
-      plugins = [
+    let      plugins = [
         "uc-select2",
         "uc-nestable",
         "uc-sweetalert",
@@ -95,11 +57,7 @@ class SideBar extends Component {
         //"post",
         
       ],
-        redux = [
-            "Appointment",
-            "form-redux",
-            "form-redux-wizard", 
-        ],
+      
       forms = [
         "form-element",
         "form-wizard",
@@ -107,21 +65,12 @@ class SideBar extends Component {
         "form-pickers",
         "mail-Medecin",
       ],
-      table = [
-        "table-bootstrap-basic", 
-        "table-datatable-basic",
-        "table-sorting",
-        "table-Medecin",
-      ],
+   
       pages = [
         "page-register",
         "page-login",
         "page-lock-screen",
-        "page-error-400",
-        "page-error-403",
-        "page-error-404",
-        "page-error-500",
-        "page-error-503",
+      
       ];
 
     return (
@@ -135,7 +84,7 @@ class SideBar extends Component {
           <li className={`${forms.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="/" >
                 <i className="flaticon-381-notepad"></i>
-                <span className="nav-text forms">dashBoard</span>
+                <span className="nav-text forms">tableau de bord</span>
               </Link>
              
             </li>
@@ -143,10 +92,10 @@ class SideBar extends Component {
 
 
 
-            <li className={`${dashBoard.includes(path) ? "mm-active" : ""}`}>
+            <li className={`${plugins.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
-                <i className="flaticon-381-networking"></i>
-                <span className="nav-text">Mon Profile</span>
+                <i className="flaticon-381-user"></i>
+                <span className="nav-text">Mon profile</span>
               </Link>
 			
 
@@ -158,14 +107,8 @@ class SideBar extends Component {
                 <li>
 					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/patient/acces">Accés</Link>
                 </li>
-
-            	
-              
-
-
-
-		
-               </ul></li> 
+               </ul>
+               </li> 
             <li className={`${plugins.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-heart"></i>
@@ -178,28 +121,19 @@ class SideBar extends Component {
                   <Link
                     className={`${path === "uc-sweetalert" ? "mm-active" : ""}`}
                     onClick={() => this.props.onClick()}
-                    to="/patient/dossier-medical"
+                    to="/dossier-medical/traitement"
                   >
-                    Dossier Patient Par Spécialité
+                    Profile Médical
                   </Link>
+                
                 </li>
                
                
-				<li>
-					<Link className={`${path === "uc-lightgallery" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/">Light Gallery</Link>
-                </li>
+			
                 {/* <li><Link className={`${path === "posts" ? "mm-active" : ""}`} to="/posts">Posts</Link></li> */}
               </ul>
             </li>
-            <li className={`${redux.includes(path) ? "mm-active" : ""}`}>
-                <Link className="has-arrow ai-icon" to="#" >
-                    <i className="flaticon-381-book"></i><span className="nav-text">Rendez Vous</span>
-                </Link>
-                <ul>
-                    <li><Link className={`${path === "appointment" ? "mm-active" : ""}`} to="/appointment">Vois les rendez vous</Link></li> 
-                  
-                </ul>
-            </li>    
+           
            
             <li className={`${forms.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >

@@ -1,6 +1,15 @@
 import React from "react";
 import img2 from '../../../images/big/img2.jpg'
+import PerfectScrollbar from "react-perfect-scrollbar";
+import widget1 from "../../../images/widget/1.jpg";
+import widget5 from "../../../images/widget/5.jpg";
+import widget6 from "../../../images/widget/6.jpg";
+import widget7 from "../../../images/widget/7.jpg";
+import widget8 from "../../../images/widget/8.jpg";
 import img3 from '../../../images/big/img3.jpg'
+import img1 from '../../../images/big/img1.jpg'
+import img5 from '../../../images/big/img5.jpg'
+import img6 from '../../../images/big/img6.jpg'
 import img4 from '../../../images/big/img4.jpg'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,10 +18,37 @@ import Avatar from '@mui/material/Avatar';
 import doctors10 from "../../../images/doctors/10.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Row, Col, Card, Carousel } from 'react-bootstrap'
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 /// Scroll
 const Home = () => {
    const carousel1 = [img2, img3, img4]
 
+   const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
    return (
       <div>
          
@@ -26,7 +62,8 @@ const Home = () => {
    />
  </Stack>
             <div className="mr-auto d-none d-lg-block">
-               <h3 className="text-black font-w600">Bienvenue dans HC ! Mr x</h3>
+               <h3 className="text-black font-w600"> Mr X  ! </h3>
+               <h6><strong>Bienvenue </strong> Mon espace santé vous permet de conserver et partager vos données et documents de santé en toute confidentialité.</h6>
             </div>
          
           
@@ -60,9 +97,10 @@ const Home = () => {
                            <p className="mb-1">les vu de votre dossier par mois </p>
                            <div className="d-flex flex-wrap">
                               <h2 className="fs-40 font-w600 text-white mb-0 mr-3">
-                                 15 Fois par 3 médecins
+                                 15 fois
                               </h2>
-                              <div>
+                              <br></br>
+                              <div> <br></br> <br></br>
                                  <svg
                                     width={28}
                                     height={19}
@@ -128,7 +166,7 @@ const Home = () => {
                   <div className="card-body">
                      <div className="media align-items-center">
                         <div className="media-body">
-                           <p className="mb-1">Ajout d'un votre dossier medical </p>
+                           <p className="mb-1">Les Ajouts dans votre dossier médical </p>
                            <div className="d-flex flex-wrap">
                               <h2 className="fs-40 font-w600 text-white mb-0 mr-3">
                                  Pneumologue 
@@ -197,7 +235,249 @@ const Home = () => {
             </div>
 </div>
 
+            <Row>
+            <Col xl="12">
+               <Card className='mb-3'>
+                  <Card.Header>
+                     <Card.Title>L'accès au dossier médical : </Card.Title>
+                     <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab color="dark" aria-label="add">
+        
+        <div>
+        <AddCircleOutlineIcon variant="outlined" onClick={handleClickOpen} />
+     
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Choisir le professionelle de santé </DialogTitle>
+        <DialogContent>
+         
+          <div>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 545 }}>
+        <InputLabel id="demo-simple-select-standard-label">Ville</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={age}
+          onChange={handleChange}
+          label="Age"
+        >
+         
+          <MenuItem value={1} >Tunis</MenuItem>
+          <MenuItem value={2}>Sfax</MenuItem>
+          <MenuItem value={3}>Mednine</MenuItem>
+          <MenuItem value={4}>Gabes</MenuItem>
+          <MenuItem value={5}>Sousse</MenuItem>
+          <MenuItem value={6}>Monastir</MenuItem>
+          <MenuItem value={7}>Mahdia</MenuItem>
+
+        </Select>
+      </FormControl>
       </div>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Nom du professionelle de santé"
+            type="Text"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Annuler </Button>
+          <Button onClick={handleClose}>Confirmer</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+      </Fab>
+      </Box>
+                  </Card.Header>
+                  <Card.Body>
+                  <Stack direction="row" spacing={2}>
+      <Avatar alt="Remy Sharp" src={img6} />
+      <Avatar alt="Travis Howard" src={img3} />
+      <Avatar alt="Cindy Baker" src={img4} />
+      <Avatar alt="Remy Sharp" src={img1} />
+      <Avatar alt="Travis Howard" src={img5} />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+    </Stack>
+                  
+                  </Card.Body>
+               </Card>
+            </Col>
+             
+           
+           <Col xl="4">
+
+               <div className="card">
+                  <div className="card-header border-0 pb-0">
+                     <h4 className="fs-20 font-w600 mb-0">
+                        Les prochaines rendez-vous 
+                     </h4>
+                  </div>
+                  <div className="card-body pt-4">
+                     <PerfectScrollbar
+                        id="DZ_W_Todo2"
+                        className="widget-media dz-scroll ps ps--active-y height370"
+                     >
+                        <ul className="timeline">
+                           <li>
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
+                                    <img
+                                       className="rounded-circle"
+                                       alt="widget"
+                                       width={48}
+                                       src={widget6}
+                                    />
+                                 </div>
+                                 <div className="media-body">
+                                    <h5 className="mb-1 fs-18">Dr salim </h5>
+                                    <span>Psychologue </span>
+                                 </div>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
+                                    <img
+                                       className="rounded-circle"
+                                       alt="widget"
+                                       width={48}
+                                       src={widget7}
+                                    />
+                                 </div>
+                                 <div className="media-body">
+                                    <h5 className="mb-1 fs-18">Dr omar hakmouni </h5>
+                                    <span>Dentiste </span>
+                                 </div>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
+                                    <img
+                                       className="rounded-circle"
+                                       alt="widget"
+                                       width={48}
+                                       src={widget8}
+                                    />
+                                 </div>
+                                 <div className="media-body">
+                                    <h5 className="mb-1 fs-18">Dr mounira smida</h5>
+                                    <span>Physical Therapy</span>
+                                 </div>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
+                                    <img
+                                       className="rounded-circle"
+                                       alt="widget"
+                                       width={48}
+                                       src={widget5}
+                                    />
+                                 </div>
+                                 <div className="media-body">
+                                    <h5 className="mb-1 fs-18">Maroua ben amor</h5>
+                                    <span>Physical Therapy</span>
+                                 </div>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
+                                    <img
+                                       className="rounded-circle"
+                                       alt="widget"
+                                       width={48}
+                                       src={widget1}
+                                    />
+                                 </div>
+                                 <div className="media-body">
+                                    <h5 className="mb-1 fs-18">Alberto musipher </h5>
+                                    <span>Pediatrie</span>
+                                 </div>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
+                                    <img
+                                       className="rounded-circle"
+                                       alt="widget"
+                                       width={48}
+                                       src={widget6}
+                                    />
+                                 </div>
+                                 <div className="media-body">
+                                    <h5 className="mb-1 fs-18">Cive Slauw</h5>
+                                    <span>Pneumologue</span>
+                                 </div>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </PerfectScrollbar>
+                  </div>
+               </div>
+               </Col>
+
+
+               <Col xl="4">
+
+<div className="card">
+  
+   <div className="card-body pt-4">
+     
+   </div>
+</div>
+</Col>
+<Col xl="4">
+
+<div className="card">
+  
+   <div className="card-body pt-4">
+   
+   </div>
+</div>
+</Col>
+
+
+
+
+            </Row>
+            
+      </div>
+      
+      
    );
 };
 

@@ -3,6 +3,7 @@ import swal from "sweetalert";
 
 const StepFourPro = () => {
    return (
+      <div>
       <section>
                     <div className="row justify-content-center h-100 align-items-center">
 
@@ -51,8 +52,8 @@ const StepFourPro = () => {
     <button
                               onClick={() =>
                                  swal(
-                                    "Attention ",
-                                    "Votre demande a bien été enregistrée",
+                                    " Félicitations",
+                                   "Votre compte a bien été crée",
                                     "success"
                                  )
                               }
@@ -64,8 +65,9 @@ const StepFourPro = () => {
    </div></div>
                         
     </div>
-  </div>
-      </section>
+
+  </div>   
+      </section>  </div>
    );
 };
 

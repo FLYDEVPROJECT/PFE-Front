@@ -40,7 +40,7 @@ const RendezVous = () => {
                                     />
                                  </div>
                                  <div className="text-center">
-                                    <Link to="/TimeRendezVous">
+                                    <Link to="/patient/nv/rendez-vous/form/affichage">
                                     <input
                                        type="submit"
                                        value="Confirmer"

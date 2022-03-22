@@ -102,14 +102,7 @@ const AppProfile = () => {
                         <i className="fa fa-users text-primary mr-2" />
                         Voir liste rendez vous 
                       </Dropdown.Item>
-                      <Dropdown.Item className="dropdown-item">
-                        <i className="fa fa-plus text-primary mr-2" />
-                        Add to group
-                      </Dropdown.Item>
-                      <Dropdown.Item className="dropdown-item">
-                        <i className="fa fa-ban text-primary mr-2" />
-                        Block
-                      </Dropdown.Item>
+                    
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>

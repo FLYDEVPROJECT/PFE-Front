@@ -16,11 +16,22 @@ import DoctorList from "./components/Dashboard/DoctorList";
 /// App
 import ProfilePat from './components/ProfilePatient/ProfilePat/ProfilePat'
 import Compose from './components/ProfilePatient/AccesPat/Compose'
-
-
-
 /// Dossier Patient 
 import DocReport from './components/DossierPatient/DocReport'
+import hospitalisations from './components/DossierPatient/hospitalisations'
+import maladies from './components/DossierPatient/maladies'
+import antecedents from './components/DossierPatient/antecedents'
+import habitudes from './components/DossierPatient/habitudes'
+import vaccinations from './components/DossierPatient/vaccinations'
+import Mesures from './components/DossierPatient/Mesures'
+import ProfessionnelsDeSanté from './components/DossierPatient/ProfessionnelsDeSanté'
+
+
+import allergies from './components/DossierPatient/allergies'
+
+
+
+
 import DocMD from './components/DossierPatient/DocMD'
 import DocCardio from './components/DossierPatient/DocCardio'
 import DocGen from './components/DossierPatient/DocGen'
@@ -75,6 +86,7 @@ import Doctordetail from "./components/RendezVousPatient/RendezVous";
 import TimeRendezVous  from './components/RendezVousPatient/TimeRendezVous'
 import DocSexo from './components/DossierPatient/DocSexo'
 import DocPneumo from './components/DossierPatient/DocPneumo'
+import DossierComplet from './components/DossierPatient/DossierComplet'
 
 
 
@@ -90,7 +102,7 @@ const Markup = () => {
     { url: "", component: Home },
 	{ url: "Reponse", component: Reponse },
     { url: "doctor-list", component: DoctorList },
-    { url: "appoiform", component: Doctordetail },
+    { url: "patient/nv/rendez-vous/form", component: Doctordetail },
   { url: 'patient/contact', component: ContactAll },
 
 
@@ -115,16 +127,32 @@ const Markup = () => {
     { url: 'Med-Sexologie', component: Sexologie },
     { url: 'Med-Gastro', component: Gastro },
     { url: 'Med-Urologie', component: Urologie },
-    { url: 'Med-Pneumologie', component: Pneumologie },
-    { url: 'TimeRendezVous', component: TimeRendezVous },
+    { url: 'patient/acces/pneumologie', component: Pneumologie },
+    { url: 'patient/nv/rendez-vous/form/affichage', component: TimeRendezVous },
+    { url: 'patient/dossier-medical/complet', component: DossierComplet },
+
 
 
   
 
     /// Bootstrap
-    { url: 'patient/dossier-medical', component: DocReport },
+    { url: 'dossier-medical/hospitalisations', component: hospitalisations },
+    { url: 'dossier-medical/maladies', component: maladies },
+    { url: 'dossier-medical/Antecedents', component: antecedents },
+    { url: 'dossier-medical/habitudes', component: habitudes },
+    { url: 'dossier-medical/Allergies', component: allergies },
+    { url: 'dossier-medical/Vaccinations', component: vaccinations },
+    { url: 'dossier-medical/Mesures', component: Mesures },
+    { url: 'dossier-medical/ProfessionnelsDeSanté', component: ProfessionnelsDeSanté },
+
+
+
+    
+
+
+    { url: 'dossier-medical/traitement', component: DocReport },
     { url: 'patient/dossier-medical/medecine-dentaire', component: DocMD },
-    { url: 'patient/dossier-medical/géneraliste', component: DocGen },
+    { url: 'patient/dossier-medical/generaliste', component: DocGen },
     { url: 'patient/dossier-medical/cardiologie', component: DocCardio },
 
     { url: 'Doc-ORL', component: DocORM },
@@ -149,8 +177,8 @@ const Markup = () => {
     { url: 'page-lock-screen', component: LockScreen },
     { url: 'page-login', component: Login },
 
-    { url: 'appointment', component: Todo },
-    { url: 'doc-Details', component: docDetails },
+    { url: 'patient/nv/rendez-vous', component: Todo },
+    { url: 'patient/details', component: docDetails },
 
   ]
 
