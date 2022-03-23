@@ -6,6 +6,8 @@ import doctors11 from "../../../images/doctors/11.jpg";
 import doctors12 from "../../../images/doctors/12.jpg";
 import doctors13 from "../../../images/doctors/13.jpg";
 import LogoutLink from './Logout'; 
+import Stack from '@mui/material/Stack';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 
 const Header = ({ onNote, toggle, onProfile }) => {
    var path = window.location.pathname.split("/");
@@ -136,15 +138,10 @@ const Header = ({ onNote, toggle, onProfile }) => {
                   </ul>
                 
                </div>
-               <AvatarGroup max={4}>
-      <Avatar  alt="rravis Howard" 
-                                             src={doctors11}
-                                             />
-      <Avatar alt="Travis Howard"   src={doctors12} />
-      <Avatar alt="Cindy Baker"   src={doctors13} />
-      <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
-      <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
-    </AvatarGroup>
+               <Stack direction="row" spacing={2}>
+      <Avatar>H</Avatar>
+     
+    </Stack>
             </nav>
          </div>
       </div>

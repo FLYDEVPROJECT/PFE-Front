@@ -9,22 +9,17 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
-import MedicalReport from '../../../images/big/MedicalReport.png'
 import { Link } from "react-router-dom";
-import MetarialDate from "./MetarialDate";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
+import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 
-
-const Vaccinations = () => {
+const Volontaire = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -34,11 +29,6 @@ const Vaccinations = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const [value, setValue] = React.useState('female');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
    return (
     <Box
     sx={{
@@ -46,7 +36,7 @@ const Vaccinations = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-     
+      
       },
     }}
   > 
@@ -191,108 +181,109 @@ const Vaccinations = () => {
                
               
                 <div className='form-group pt-3'>
-                <div class="d-flex justify-content-center">
-
-                <img
-                      className='mr-3 rounded'
-                      width='130'
-                      height='130'
-                      alt=''
-                      src={MedicalReport}
-                    />      
-                     
-                    
-                               </div>
+              
                                <br></br>
-                               <div class="d-flex justify-content-center">
-                               <h1 className ="card-title h5">
-                               J'ajoute une vaccination 
-</h1>
+                           
 
-</div>
-
-
-
+                      
                          <div class="d-flex justify-content-center">
+                         
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 
-                      <p>Je peux renseigner mes hospitalisations et mes actes chirurgicaux 
-                         (exemples : accouchement, dialyse, appendicite, extraction des dents de sagesse...).</p>
-                         </div>
-                         <div class="d-flex justify-content-center">
-
-
-
-                         <div>
-      <Button  variant="outlined" onClick={handleClickOpen}>Ajouter</Button>
+<div class="justify-content-center">
+                         <Card >
+   
+    <CardContent>
+     
+      <Typography variant="body2" color="text.secondary">
+      Je peux renseigner ma personne de confiance , mes contact d'urgence , mes proche aidants ou aidés . Ces contacts seront communiqués aux établissements de santé en cas d'urgence .
+      </Typography>
+    </CardContent>
+    <CardActions>
+    <div>
+      <Button  variant="outlined" onClick={handleClickOpen}>Ajouter un  contact </Button>
       <Dialog open={open} onClose={handleClose} 
 >
-        <DialogTitle> Ajouter une vaccination  </DialogTitle>
+        <DialogTitle>Ajouter un antécédent </DialogTitle>
         <DialogContent>
-                    <label className='col-sm-8 col-form-label'>Nom de la maladie ou du vaccin  </label>
-                    <select
-                                                   className="form-control"
-                                                   id="inputState"
-                                                   defaultValue="option-1"
-                                                 >
-                                       <option value="option-1">Grippe</option>
-                                       <option value="option-2">Jour(s)</option>
-                                       <option value="option-3">Semaine(s)</option>
-                                       <option value="option-4">Mois</option>
-                                                 </select>
+          <br></br>
+                    <label className='col-sm-12 col-form-label'>Type de contact ( plusieurs choix disponibles)</label>
+                    <FormGroup>
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Contact d'urgence " />
+      <FormControlLabel control={<Checkbox  />} label="Personne de confiance " />
+      <FormControlLabel control={<Checkbox  />} label="Proche aidant" />
+      <FormControlLabel control={<Checkbox  />} label="Proche aidé " />
+
+    </FormGroup>
 
      
-                <br></br>
-                <div >
-                  <label className='col-sm-8 col-form-label'>Date de vaccination ( JJ/MM/AAAA) </label>
-                  <MetarialDate style={{ width: 500 }}
-/>
-                </div>  
-<br></br>
-                <div className='col-12'>
-                <label className='col-sm-8 col-form-label'>Type de vaccination ( facultatif) </label>
-
-
-                <FormControl>
-
-     <RadioGroup
-        aria-labelledby="demo-controlled-radio-buttons-group"
-        name="controlled-radio-buttons-group"
-        value={value}
-        onChange={handleChange}
-      >
-        <FormControlLabel value="female" control={<Radio />} label="Premiére vaccination " />
-        <FormControlLabel value="male" control={<Radio />} label="Rappel de vaccination " />
-        <FormControlLabel value="male" control={<Radio />} label="Je ne sais pas  " />
-
-      </RadioGroup>    
-
-    </FormControl>
-    </div>
-<br></br>
-               
-                <label className='col-sm-8 col-form-label'>Lot de vaccin ( facultatif) </label>
+                <br></br> 
+                <label className='col-sm-8 col-form-label'>Nom</label>
                       <input
                         type='Text'
                         className='form-control'
-                        placeholder='Ex : A5247'
                         style={{ width: 500 }}
 
                       />
-                       <br></br>
-                <label className='col-sm-8 col-form-label'>Nom du vaccinateur  ( facultatif) </label>
+                                      <br></br>
+
+                           <label className='col-sm-8 col-form-label'>Prénom </label>
                       <input
                         type='Text'
                         className='form-control'
-                        placeholder='Ex : Dr Samir '
+                        style={{ width: 500 }}
+
+                      />
+                                      <br></br>
+
+                      
+
+                <label className='col-sm-8 col-form-label'> Lien avec ce contact   </label>
+                <select
+                                                   className="form-control"
+                                                   id="inputState"
+                                                   defaultValue="option-2"
+                                                 >
+                                       <option value="option-5">Mére</option>
+                                       <option value="option-6">Pére</option>
+                                       <option value="option-23">Enfant</option>
+                                       <option value="option-24">Partenaire</option>
+                                       <option value="option-24">Autre</option>
+
+                                                 </select>
+
+                <br></br>
+                <label className='col-sm-8 col-form-label'>télephone </label>
+                      <input
+                        type='phone'
+                        className='form-control'
                         style={{ width: 500 }}
 
                       />
                       <br></br>
-                <div >
-                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
-                <textarea rows={3} className="form-control" name="comment" 
-                placeholder="Ex : Contexte , effets secondaires observés ..." defaultValue={""}/>
-                </div>                
+
+                       <label className='col-sm-8 col-form-label'>Adresse email</label>
+                      <input
+                        type='Text'
+                        className='form-control'
+                        style={{ width: 500 }}
+
+                      />
+                                      <br></br>
+                                      <label className='col-sm-8 col-form-label'>Ville</label>
+                      <input
+                        type='Text'
+                        className='form-control'
+                        style={{ width: 500 }}
+
+                      />
+                                      <br></br>
+                          
 
         </DialogContent>
         <DialogActions>
@@ -300,8 +291,29 @@ const Vaccinations = () => {
           <Button onClick={handleClose}>Valider</Button>
         </DialogActions>
       </Dialog>
-      </div>
+      </div>    </CardActions>
+  </Card>
+  <br>
+  </br>
+  <br></br>
+  <Card >
+   
+   <CardContent>
+    
+     <Typography variant="body2" color="text.secondary">
+<h4> don d'organes et de tissus  </h4>    
+ </Typography>
+   </CardContent>
+   <CardActions>
+   <FormGroup>
+      <FormControlLabel control={<Checkbox  />} label="Je ( ou mon représentant légal ) déclare avoir pris connaissance des dispositions réglementaires relatives au don d'organes et de tissus" />
+    </FormGroup>
 
+
+      </CardActions>
+ </Card>
+  </div>            
+  </div>
 
 
 
@@ -313,7 +325,8 @@ const Vaccinations = () => {
               </div>
             
             </div>
-          </div>
+          </div> <div>
+
         </div>
       </div>
     </div>
@@ -333,4 +346,4 @@ const Vaccinations = () => {
 );
 }
 
-export default Vaccinations ;
+export default Volontaire ;

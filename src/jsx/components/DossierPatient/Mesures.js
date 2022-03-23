@@ -1,17 +1,24 @@
 import React, { Fragment } from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
-import MedicalReport from '../../../images/big/MedicalReport.png'
-import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
+import { Row, Card, Col, Button } from 'react-bootstrap'
+import poid from '../../../images/card/poid.png'
+import taille from '../../../images/card/taille.jpeg'
+import temperature from '../../../images/card/temperature.jpeg'
+import glycemie from '../../../images/card/glycemie.jpeg'
+import coeur from '../../../images/card/coeur.jpeg'
+import tension from '../../../images/card/tension.jpeg'
+import {Dropdown} from "react-bootstrap";
+
+
+
 
 
 const Mesures = () => {
@@ -23,8 +30,7 @@ const Mesures = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-        width: 1300,
-        height: 1300,
+       
       },
     }}
   > 
@@ -116,7 +122,6 @@ const Mesures = () => {
                <Link   
                   to="/dossier-medical/habitudes"     
                   >
-        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Habitudes de vie</button>
 
                </Link>
                <Link   
@@ -126,19 +131,19 @@ const Mesures = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/ProfessionnelsDeSanté"     
+                  to="/dossier-medical/ProfessionnelsDeSante"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/volontaire"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/historique"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 
@@ -173,51 +178,368 @@ const Mesures = () => {
                
               
                 <div className='form-group pt-3'>
-                <div class="d-flex justify-content-center">
+              <h3> Mesure  </h3>
+              <Row>
+        <Col xl='4'>
+        <Card>
+            <Card.Header className=' border-0 pb-0'>
+              <Card.Title>Poids</Card.Title>
+              <Dropdown className="dropdown ml-auto">
+                    <Dropdown.Toggle
+                      variant="primary"
+                      className="btn btn-primary light sharp i-false"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
+                        <g
+                          stroke="none"
+                          strokeWidth="1"
+                          fill="none"
+                          fillRule="evenodd"
+                        >
+                          <rect x="0" y="0" width="24" height="24"></rect>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                        </g>
+                      </svg>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
+                      <Dropdown.Item className="dropdown-item">
+                      <Link to="/dossier-medical/Mesures/poid" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                        Ajouter un  poid
+										</Link>
+                      </Dropdown.Item>
+                    
+                    
+                    </Dropdown.Menu>
+                  </Dropdown>
+            </Card.Header>
+            <Card.Body>
+            <img
+              className='card-img-top img-fluid'
+              src={poid}
+              alt='Card cap'
+            />
+              <Card.Text>
+          -
+          <br></br>
+          aucune valeur 
+              </Card.Text>
+            </Card.Body>
+          
+          </Card>
+        </Col>
+        <Col xl='4'>
+          <Card>
+            <Card.Header className=' border-0 pb-0'>
+              <Card.Title>Taille</Card.Title>
+              <Dropdown className="dropdown ml-auto">
+                    <Dropdown.Toggle
+                      variant="primary"
+                      className="btn btn-primary light sharp i-false"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
+                        <g
+                          stroke="none"
+                          strokeWidth="1"
+                          fill="none"
+                          fillRule="evenodd"
+                        >
+                          <rect x="0" y="0" width="24" height="24"></rect>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                        </g>
+                      </svg>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
+                      <Dropdown.Item className="dropdown-item">
+                      <Link to="/dossier-medical/Mesures/taille" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                        Ajouter un taille
+										</Link>
+                      </Dropdown.Item>
+                   
+                    
+                    </Dropdown.Menu>
+                  </Dropdown>
+            </Card.Header>
+            <Card.Body>
+            <img
+              className='card-img-top img-fluid'
+              src={taille}
+              alt='Card cap'
+            />
+           
+              <Card.Text>
+              -
+          <br></br>
+          aucune valeur               </Card.Text>
+            </Card.Body>
+           
+          </Card>
+        </Col>
+        <Col xl='4'>
+        <Card>
+            <Card.Header className=' border-0 pb-0'>
+              <Card.Title>Température</Card.Title>
+              <Dropdown className="dropdown ml-auto">
+                    <Dropdown.Toggle
+                      variant="primary"
+                      className="btn btn-primary light sharp i-false"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
+                        <g
+                          stroke="none"
+                          strokeWidth="1"
+                          fill="none"
+                          fillRule="evenodd"
+                        >
+                          <rect x="0" y="0" width="24" height="24"></rect>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                        </g>
+                      </svg>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
+                      <Dropdown.Item className="dropdown-item">
+                      <Link to="/dossier-medical/Mesures/temperature" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                        Ajouter une température 
+										</Link>
+                      </Dropdown.Item>
+                    
+                    
+                    </Dropdown.Menu>
+                  </Dropdown>
+            </Card.Header>
+            <Card.Body>
+            <img
+              className='card-img-top img-fluid'
+              src={temperature}
+              alt='Card cap'
+            />
+              <Card.Text>
+              -
+          <br></br>
+          aucune valeur               </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        </Row>
 
-                <img
-                      className='mr-3 rounded'
-                      width='130'
-                      height='130'
-                      alt=''
-                      src={MedicalReport}
-                    />      
+
+
+
+        <Row>
+        <Col xl='4'>
+        <Card>
+            <Card.Header className=' border-0 pb-0'>
+              <Card.Title>Glycémie</Card.Title>
+              <Dropdown className="dropdown ml-auto">
+                    <Dropdown.Toggle
+                      variant="primary"
+                      className="btn btn-primary light sharp i-false"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
+                        <g
+                          stroke="none"
+                          strokeWidth="1"
+                          fill="none"
+                          fillRule="evenodd"
+                        >
+                          <rect x="0" y="0" width="24" height="24"></rect>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                        </g>
+                      </svg>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
+                      <Dropdown.Item className="dropdown-item">
+                      <Link to="/dossier-medical/Mesures/glycemie" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                        Ajouter la valeur de glycémie 
+										</Link>
+                      </Dropdown.Item>
+                    
+                    
+                    </Dropdown.Menu>
+                  </Dropdown>
+            </Card.Header>
+            <Card.Body>
+            <img
+              className='card-img-top img-fluid'
+              src={glycemie}
+              alt='Card cap'
+            />
+              <Card.Text>
+          -
+          <br></br>
+          aucune valeur 
+              </Card.Text>
+            </Card.Body>
+          
+          </Card>
+        </Col>
+        <Col xl='4'>
+          <Card>
+            <Card.Header className=' border-0 pb-0'>
+              <Card.Title>Fréquence cardiaque </Card.Title>
+              <Dropdown className="dropdown ml-auto">
+                    <Dropdown.Toggle
+                      variant="primary"
+                      className="btn btn-primary light sharp i-false"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
+                        <g
+                          stroke="none"
+                          strokeWidth="1"
+                          fill="none"
+                          fillRule="evenodd"
+                        >
+                          <rect x="0" y="0" width="24" height="24"></rect>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                        </g>
+                      </svg>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
+                      <Dropdown.Item className="dropdown-item">
+                      <Link to="/dossier-medical/Mesures/coeur" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                       Ajouter la valeur de la fréquence cardiqaque 
+										</Link>
+                      </Dropdown.Item>
                      
                     
-                               </div>
-                               <br></br>
-                               <div class="d-flex justify-content-center">
-                               <h1 className ="card-title h5">
-                               J'ajoute une hospitalisation ou un acte chirurgical
-</h1>
+                    </Dropdown.Menu>
+                  </Dropdown>
+            </Card.Header>
+            <Card.Body>
+            <img
+              className='card-img-top img-fluid'
+              src={coeur}
+              alt='Card cap'
+            />
+           
+              <Card.Text>
+              -
+          <br></br>
+          aucune valeur               </Card.Text>
+            </Card.Body>
+           
+          </Card>
+        </Col>
+        <Col xl='4'>
+        <Card>
+            <Card.Header className=' border-0 pb-0'>
+              <Card.Title>Tension arterielle</Card.Title>
+              <Dropdown className="dropdown ml-auto">
+                    <Dropdown.Toggle
+                      variant="primary"
+                      className="btn btn-primary light sharp i-false"
+                      data-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 24 24"
+                        version="1.1"
+                      >
+                        <g
+                          stroke="none"
+                          strokeWidth="1"
+                          fill="none"
+                          fillRule="evenodd"
+                        >
+                          <rect x="0" y="0" width="24" height="24"></rect>
+                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                        </g>
+                      </svg>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
+                      <Dropdown.Item className="dropdown-item">
+                      <Link to="/dossier-medical/Mesures/tension" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+Ajouter la valeur de la tension arterielle 										</Link>
+                      </Dropdown.Item>
+                     
+                    
+                    </Dropdown.Menu>
+                  </Dropdown>
+            </Card.Header>
+            <Card.Body>
+            <img
+              className='card-img-top img-fluid'
+              src={tension}
+              alt='Card cap'
+            />
+              <Card.Text>
+              -
+          <br></br>
+          aucune valeur               </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+        </Row>
 
-</div>
-
-
-
-                         <div class="d-flex justify-content-center">
-
-                      <p>Je peux renseigner mes hospitalisations et mes actes chirurgicaux 
-                         (exemples : accouchement, dialyse, appendicite, extraction des dents de sagesse...).</p>
-                         </div>
-                         <div class="d-flex justify-content-center">
-
-
-
-                         <Stack spacing={2} direction="row">
-    <Button variant="contained">Ajouter</Button>
-  </Stack>
-
-
-
-
-
-</div>
-                               
-                               
-                                </div>
+                    <br></br>                 
+               </div>
               </div>
-            
             </div>
           </div>
         </div>

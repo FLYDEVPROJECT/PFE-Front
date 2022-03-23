@@ -9,8 +9,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
-import MedicalReport from '../../../images/big/MedicalReport.png'
-import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
 
 
@@ -23,8 +21,7 @@ const habitudes = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-        width: 1300,
-        height: 1300,
+     
       },
     }}
   > 
@@ -116,7 +113,6 @@ const habitudes = () => {
                <Link   
                   to="/dossier-medical/habitudes"     
                   >
-        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Habitudes de vie</button>
 
                </Link>
                <Link   
@@ -126,19 +122,19 @@ const habitudes = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/ProfessionnelsDeSanté"     
+                  to="/dossier-medical/ProfessionnelsDeSante"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/volontaire"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/historique"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 
@@ -170,46 +166,10 @@ const habitudes = () => {
                
               
                 <div className='form-group pt-3'>
-                <div class="d-flex justify-content-center">
-
-                <img
-                      className='mr-3 rounded'
-                      width='130'
-                      height='130'
-                      alt=''
-                      src={MedicalReport}
-                    />      
-                     
-                    
-                               </div>
-                               <br></br>
-                               <div class="d-flex justify-content-center">
-                               <h1 className ="card-title h5">
-                               J'ajoute une hospitalisation ou un acte chirurgical
-</h1>
-
-</div>
-
-
-
-                         <div class="d-flex justify-content-center">
-
-                      <p>Je peux renseigner mes hospitalisations et mes actes chirurgicaux 
-                         (exemples : accouchement, dialyse, appendicite, extraction des dents de sagesse...).</p>
-                         </div>
-                         <div class="d-flex justify-content-center">
-
-
-
-                         <Stack spacing={2} direction="row">
-    <Button variant="contained">Ajouter</Button>
-  </Stack>
 
 
 
 
-
-</div>
                                
                                
                                 </div>

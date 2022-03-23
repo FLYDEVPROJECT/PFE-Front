@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
+import MetarialDate from "./MetarialDate";
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -10,11 +11,22 @@ import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
 import MedicalReport from '../../../images/big/MedicalReport.png'
-import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 
+const Maladies = () => {
+  const [open, setOpen] = React.useState(false);
 
-const maladies = () => {
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
  
    return (
     <Box
@@ -23,8 +35,7 @@ const maladies = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-        width: 1300,
-        height: 1300,
+       
       },
     }}
   > 
@@ -116,8 +127,6 @@ const maladies = () => {
                <Link   
                   to="/dossier-medical/habitudes"     
                   >
-        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Habitudes de vie</button>
-
                </Link>
                <Link   
                   to="/dossier-medical/Mesures"     
@@ -126,19 +135,19 @@ const maladies = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/ProfessionnelsDeSanté"     
+                  to="/dossier-medical/ProfessionnelsDeSante"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/volontaire"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/historique"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 
@@ -185,7 +194,7 @@ const maladies = () => {
                                <br></br>
                                <div class="d-flex justify-content-center">
                                <h1 className ="card-title h5">
-                               J'ajoute une hospitalisation ou un acte chirurgical
+                               J'ajoute une maladie ou un autre sujet de santé 
 </h1>
 
 </div>
@@ -201,9 +210,43 @@ const maladies = () => {
 
 
 
-                         <Stack spacing={2} direction="row">
-    <Button variant="contained">Ajouter</Button>
-  </Stack>
+                         <div>
+      <Button  variant="outlined" onClick={handleClickOpen}>Ajouter</Button>
+      <Dialog open={open} onClose={handleClose} 
+>
+        <DialogTitle> Ajouter une maladie ou un autre sujet de santé  </DialogTitle>
+        <DialogContent>
+                    <label className='col-sm-8 col-form-label'>Nom </label>
+                      <input
+                        type='Text'
+                        className='form-control'
+                        placeholder='Ex : Eczéma'
+                        style={{ width: 500 }}
+
+                      />
+
+     
+                <br></br>
+                <div >
+                  <label className='col-sm-8 col-form-label'>Date de début (année obligatoire)</label>
+                  <MetarialDate style={{ width: 500 }}
+/>
+                </div>    
+               
+                <br></br>
+                <div >
+                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
+                <textarea rows={3} className="form-control" name="comment" 
+                placeholder="Informations complémentaires (ex : sévérité , date , praticiens , rencontrés , diagnostic , épisodes médicaux ...)" defaultValue={""}/>
+                </div>                
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>annuler</Button>
+          <Button onClick={handleClose}>Valider</Button>
+        </DialogActions>
+      </Dialog>
+      </div>
 
 
 
@@ -236,4 +279,4 @@ const maladies = () => {
 );
 }
 
-export default maladies;
+export default Maladies;

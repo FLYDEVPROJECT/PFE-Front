@@ -269,7 +269,7 @@ body {
   line-height: 1.5;
   color: #7e7e7e;
   text-align: left;
-  background-color: grey; }
+  background-color: white; }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -24311,7 +24311,7 @@ button {
       fill: #fff; }
 .light.btn-primary {
   background-color: #ebfaef;
-  border-color: #4682B4;
+  border-color: white;
   color: #4682B4; }
   .light.btn-primary g [fill] {
     fill: #36C95F; }
@@ -24319,11 +24319,11 @@ button {
     background-color: rgba(54, 201, 95, 0.2);
     border-color: transparent; }
   .light.btn-primary:hover {
-    background-color: #36C95F;
+    background-color:#2846b2;
     border-color: #36C95F;
     color: #fff; }
     .light.btn-primary:hover g [fill] {
-      fill: #fff; }
+      fill: #2846b2; }
 .light.btn-secondary {
   background-color: #f6ebfa;
   border-color: #f6ebfa;

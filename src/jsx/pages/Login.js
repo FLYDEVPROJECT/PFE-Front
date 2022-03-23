@@ -7,7 +7,7 @@ import { loadingToggleAction,loginAction,
 } from '../../store/actions/AuthActions';
  
 //
-import logo from '../../images/logo3.png'
+import logo from '../../images/logopatient.png'
  
  
 function Login (props) {
@@ -50,7 +50,7 @@ function Login (props) {
                                
                             </div>
                             <div className="mb-4">
-                                <h3 className="mb-1 font-w600">Welcome to HC
+                                <h3 className="mb-1 font-w600">Bienvenue
                                      </h3>
                                 <p className="">Connectez-vous en saisissant les informations ci-dessous</p>
                             </div>

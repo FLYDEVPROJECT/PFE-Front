@@ -5,18 +5,30 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
+import MetarialDate from "./MetarialDate";
 import Typography from '@mui/material/Typography';
-import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
 import MedicalReport from '../../../images/big/MedicalReport.png'
-import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
 
 const DocReport = () => {
- 
+   const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
    return (
       <Box
       sx={{
@@ -24,8 +36,7 @@ const DocReport = () => {
         flexWrap: 'wrap',
         '& > :not(style)': {
           m: 1,
-          width: 1300,
-          height: 1300,
+      
         },
       }}
     > 
@@ -38,14 +49,7 @@ const DocReport = () => {
     <div className='card'>
       <div className='card-body'>
         <div className='email-left-box generic-width px-0 mb-5'>
-        <img
-                        className='mr-3 rounded'
-                        width='130'
-                        height='130'
-                        alt=''
-                        src={AddD}
-                      />
-                                        <hr />
+      
 
           <div className='mail-list mt-4'>
           
@@ -117,7 +121,6 @@ const DocReport = () => {
                <Link   
                   to="/dossier-medical/habitudes"     
                   >
-          <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Habitudes de vie</button>
 
                </Link>
                <Link   
@@ -127,21 +130,21 @@ const DocReport = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/ProfessionnelsDeSanté"     
+                  to="/dossier-medical/ProfessionnelsDeSante"     
                   >
           <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
 
                </Link>
 
                <Link   
-                  to=""     
+                  to="/dossier-medical/volontaire"     
                   >
           <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
 
                </Link>
 
                <Link   
-                  to=""     
+                  to="/dossier-medical/historique"     
                   >
           <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 
@@ -203,14 +206,53 @@ J'ajoute un traitement
                         <p>Je peux renseigner mes hospitalisations et mes actes chirurgicaux 
                            (exemples : accouchement, dialyse, appendicite, extraction des dents de sagesse...).</p>
                            </div>
+                           <br></br>
                            <div class="d-flex justify-content-center">
 
 
 
-                           <Stack spacing={2} direction="row">
-      <Button variant="contained">Ajouter</Button>
-    </Stack>
+<div>
+      <Button  variant="outlined" onClick={handleClickOpen}>Ajouter</Button>
+      <Dialog open={open} onClose={handleClose} 
+>
+        <DialogTitle>Ajouter un traitement </DialogTitle>
+        <DialogContent>
+                    <label className='col-sm-8 col-form-label'>Nom du traitement</label>
+                    <div className='col-sm-9'>
+                      <input
+                        type='email'
+                        className='form-control'
+                        placeholder='Ex : pilule'
+                        style={{ width: 500 }}
 
+                      />
+  </div>
+  <br></br>
+  <div >
+                  <label className='col-sm-8 col-form-label'>Date de début (année obligatoire)</label>
+                  <MetarialDate style={{ width: 500 }}
+/>
+                </div>    
+                <br></br> 
+                <div >
+                <label className='col-sm-8 col-form-label'>Posologie (facultatif)</label>
+                <textarea rows={4} className="form-control" name="comment" 
+                placeholder="ex : 2 sachets de 1mg par jour , matin et soir aprés le repas" defaultValue={""}/>
+                </div> 
+                <br></br>
+                <div >
+                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
+                <textarea rows={4} className="form-control" name="comment" 
+                placeholder="Informations complémentaires ( effets secondaires)" defaultValue={""}/>
+                </div>                
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>annuler</Button>
+          <Button onClick={handleClose}>Valider</Button>
+        </DialogActions>
+      </Dialog>
+      </div>
 
 
 

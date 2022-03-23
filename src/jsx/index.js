@@ -18,16 +18,28 @@ import ProfilePat from './components/ProfilePatient/ProfilePat/ProfilePat'
 import Compose from './components/ProfilePatient/AccesPat/Compose'
 /// Dossier Patient 
 import DocReport from './components/DossierPatient/DocReport'
-import hospitalisations from './components/DossierPatient/hospitalisations'
-import maladies from './components/DossierPatient/maladies'
-import antecedents from './components/DossierPatient/antecedents'
+import Hospitalisations from './components/DossierPatient/hospitalisations'
+import Maladies from './components/DossierPatient/maladies'
+import Antecedents from './components/DossierPatient/antecedents'
 import habitudes from './components/DossierPatient/habitudes'
-import vaccinations from './components/DossierPatient/vaccinations'
+import Vaccinations from './components/DossierPatient/vaccinations'
 import Mesures from './components/DossierPatient/Mesures'
-import ProfessionnelsDeSanté from './components/DossierPatient/ProfessionnelsDeSanté'
+import Poid from './components/DossierPatient/mesure/poid'
+import Coeur from './components/DossierPatient/mesure/coeur'
+import Temperature from './components/DossierPatient/mesure/temperature'
+import Taille from './components/DossierPatient/mesure/taille'
+import Glycemie from './components/DossierPatient/mesure/glycemie'
+import Tension  from './components/DossierPatient/mesure/tension'
 
 
-import allergies from './components/DossierPatient/allergies'
+
+
+import ProfessionnelsDeSante from './components/DossierPatient/ProfessionnelsDeSanté'
+import Volontaire from './components/DossierPatient/volontaire'
+import Historique from './components/DossierPatient/historique'
+
+
+import Allergies from './components/DossierPatient/allergies'
 
 
 
@@ -107,8 +119,8 @@ const Markup = () => {
 
 
     /// Profile patient  et acces
-    { url: 'patient/profile', component: ProfilePat },
-    { url: 'patient/acces', component: Compose },
+    { url: 'profile', component: ProfilePat },
+    { url: 'acces', component: Compose },
 
 
 
@@ -136,14 +148,28 @@ const Markup = () => {
   
 
     /// Bootstrap
-    { url: 'dossier-medical/hospitalisations', component: hospitalisations },
-    { url: 'dossier-medical/maladies', component: maladies },
-    { url: 'dossier-medical/Antecedents', component: antecedents },
+    { url: 'dossier-medical/hospitalisations', component: Hospitalisations },
+    { url: 'dossier-medical/maladies', component: Maladies },
+    { url: 'dossier-medical/Antecedents', component: Antecedents },
     { url: 'dossier-medical/habitudes', component: habitudes },
-    { url: 'dossier-medical/Allergies', component: allergies },
-    { url: 'dossier-medical/Vaccinations', component: vaccinations },
+    { url: 'dossier-medical/Allergies', component: Allergies },
+    { url: 'dossier-medical/Vaccinations', component: Vaccinations },
     { url: 'dossier-medical/Mesures', component: Mesures },
-    { url: 'dossier-medical/ProfessionnelsDeSanté', component: ProfessionnelsDeSanté },
+    { url: 'dossier-medical/Mesures/poid', component: Poid },
+    { url: 'dossier-medical/ProfessionnelsDeSante', component: ProfessionnelsDeSante },
+    { url: 'dossier-medical/volontaire', component: Volontaire },
+    { url: 'dossier-medical/historique', component: Historique },
+    { url: 'dossier-medical/Mesures/taille', component: Taille },
+    { url: 'dossier-medical/Mesures/coeur', component: Coeur },
+    { url: 'dossier-medical/Mesures/temperature', component: Temperature },
+  
+    { url: 'dossier-medical/Mesures/glycemie', component: Glycemie },
+    { url: 'dossier-medical/Mesures/tension ', component: Tension },
+
+
+
+
+
 
 
 

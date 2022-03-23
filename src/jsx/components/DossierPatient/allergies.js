@@ -10,11 +10,23 @@ import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
 import MedicalReport from '../../../images/big/MedicalReport.png'
-import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
-const allergies = () => {
+const Allergies = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
  
    return (
     <Box
@@ -23,8 +35,7 @@ const allergies = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-        width: 1300,
-        height: 1300,
+      
       },
     }}
   > 
@@ -116,7 +127,6 @@ const allergies = () => {
                <Link   
                   to="/dossier-medical/habitudes"     
                   >
-        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Habitudes de vie</button>
 
                </Link>
                <Link   
@@ -126,19 +136,19 @@ const allergies = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/ProfessionnelsDeSanté"     
+                  to="/dossier-medical/ProfessionnelsDeSante"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/volontaire"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/historique"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 
@@ -188,7 +198,7 @@ const allergies = () => {
                                <br></br>
                                <div class="d-flex justify-content-center">
                                <h1 className ="card-title h5">
-                               J'ajoute une hospitalisation ou un acte chirurgical
+                               J'ajoute une allergie
 </h1>
 
 </div>
@@ -204,10 +214,35 @@ const allergies = () => {
 
 
 
-                         <Stack spacing={2} direction="row">
-    <Button variant="contained">Ajouter</Button>
-  </Stack>
+                         <div>
+      <Button  variant="outlined" onClick={handleClickOpen}>Ajouter</Button>
+      <Dialog open={open} onClose={handleClose} 
+>
+        <DialogTitle>Ajouter une allergie </DialogTitle>
+        <DialogContent>
+                    <label className='col-sm-8 col-form-label'>Nom de l'allergéne </label>
+                      <input
+                        type='Text'
+                        className='form-control'
+                        placeholder='Ex : Pénicilline '
+                        style={{ width: 500 }}
 
+                      />
+               
+                <br></br>
+                <div >
+                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
+                <textarea rows={3} className="form-control" name="comment" 
+                placeholder="Informations complémentaires ( Ex : date de début de l'allergie , épisode allergique , réactions , intolérance  ..)" defaultValue={""}/>
+                </div>                
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>annuler</Button>
+          <Button onClick={handleClose}>Valider</Button>
+        </DialogActions>
+      </Dialog>
+      </div>
 
 
 
@@ -239,4 +274,4 @@ const allergies = () => {
 );
 }
 
-export default allergies ;
+export default Allergies ;

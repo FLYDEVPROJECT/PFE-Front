@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useEffect } from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
@@ -9,36 +9,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
-import MedicalReport from '../../../images/big/MedicalReport.png'
 import { Link } from "react-router-dom";
-import MetarialDate from "./MetarialDate";
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 
 
 
-const Vaccinations = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const [value, setValue] = React.useState('female');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+const Historique  = () => {
+  
+ 
    return (
     <Box
     sx={{
@@ -46,7 +23,7 @@ const Vaccinations = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-     
+      
       },
     }}
   > 
@@ -191,122 +168,19 @@ const Vaccinations = () => {
                
               
                 <div className='form-group pt-3'>
-                <div class="d-flex justify-content-center">
+<h4> historiques des soins </h4>
+<br></br>
 
-                <img
-                      className='mr-3 rounded'
-                      width='130'
-                      height='130'
-                      alt=''
-                      src={MedicalReport}
-                    />      
+
+                 
                      
                     
-                               </div>
-                               <br></br>
-                               <div class="d-flex justify-content-center">
-                               <h1 className ="card-title h5">
-                               J'ajoute une vaccination 
-</h1>
-
-</div>
+                             
 
 
 
-                         <div class="d-flex justify-content-center">
-
-                      <p>Je peux renseigner mes hospitalisations et mes actes chirurgicaux 
-                         (exemples : accouchement, dialyse, appendicite, extraction des dents de sagesse...).</p>
-                         </div>
-                         <div class="d-flex justify-content-center">
-
-
-
-                         <div>
-      <Button  variant="outlined" onClick={handleClickOpen}>Ajouter</Button>
-      <Dialog open={open} onClose={handleClose} 
->
-        <DialogTitle> Ajouter une vaccination  </DialogTitle>
-        <DialogContent>
-                    <label className='col-sm-8 col-form-label'>Nom de la maladie ou du vaccin  </label>
-                    <select
-                                                   className="form-control"
-                                                   id="inputState"
-                                                   defaultValue="option-1"
-                                                 >
-                                       <option value="option-1">Grippe</option>
-                                       <option value="option-2">Jour(s)</option>
-                                       <option value="option-3">Semaine(s)</option>
-                                       <option value="option-4">Mois</option>
-                                                 </select>
-
-     
-                <br></br>
-                <div >
-                  <label className='col-sm-8 col-form-label'>Date de vaccination ( JJ/MM/AAAA) </label>
-                  <MetarialDate style={{ width: 500 }}
-/>
-                </div>  
-<br></br>
-                <div className='col-12'>
-                <label className='col-sm-8 col-form-label'>Type de vaccination ( facultatif) </label>
-
-
-                <FormControl>
-
-     <RadioGroup
-        aria-labelledby="demo-controlled-radio-buttons-group"
-        name="controlled-radio-buttons-group"
-        value={value}
-        onChange={handleChange}
-      >
-        <FormControlLabel value="female" control={<Radio />} label="Premiére vaccination " />
-        <FormControlLabel value="male" control={<Radio />} label="Rappel de vaccination " />
-        <FormControlLabel value="male" control={<Radio />} label="Je ne sais pas  " />
-
-      </RadioGroup>    
-
-    </FormControl>
-    </div>
-<br></br>
-               
-                <label className='col-sm-8 col-form-label'>Lot de vaccin ( facultatif) </label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        placeholder='Ex : A5247'
-                        style={{ width: 500 }}
-
-                      />
-                       <br></br>
-                <label className='col-sm-8 col-form-label'>Nom du vaccinateur  ( facultatif) </label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        placeholder='Ex : Dr Samir '
-                        style={{ width: 500 }}
-
-                      />
-                      <br></br>
-                <div >
-                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
-                <textarea rows={3} className="form-control" name="comment" 
-                placeholder="Ex : Contexte , effets secondaires observés ..." defaultValue={""}/>
-                </div>                
-
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>annuler</Button>
-          <Button onClick={handleClose}>Valider</Button>
-        </DialogActions>
-      </Dialog>
-      </div>
-
-
-
-
-
-</div>
+                        
+                        
                                
                                
                                 </div>
@@ -333,4 +207,4 @@ const Vaccinations = () => {
 );
 }
 
-export default Vaccinations ;
+export default Historique ;

@@ -101,11 +101,11 @@ class SideBar extends Component {
 
               <ul >
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/patient/profile">Profile</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/profile">Profile</Link>
                 </li>
 
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/patient/acces">Accés</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/acces">Accés</Link>
                 </li>
                </ul>
                </li> 

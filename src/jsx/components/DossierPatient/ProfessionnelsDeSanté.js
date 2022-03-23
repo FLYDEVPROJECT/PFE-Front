@@ -10,11 +10,10 @@ import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
 import MedicalReport from '../../../images/big/MedicalReport.png'
-import Stack from '@mui/material/Stack';
 import { Link } from "react-router-dom";
 
 
-const ProfessionnelsDeSanté = () => {
+const ProfessionnelsDeSante = () => {
  
    return (
     <Box
@@ -23,8 +22,7 @@ const ProfessionnelsDeSanté = () => {
       flexWrap: 'wrap',
       '& > :not(style)': {
         m: 1,
-        width: 1300,
-        height: 1300,
+       
       },
     }}
   > 
@@ -116,7 +114,6 @@ const ProfessionnelsDeSanté = () => {
                <Link   
                   to="/dossier-medical/habitudes"     
                   >
-        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Habitudes de vie</button>
 
                </Link>
                <Link   
@@ -126,19 +123,19 @@ const ProfessionnelsDeSanté = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/ProfessionnelsDeSanté"     
+                  to="/dossier-medical/ProfessionnelsDeSante"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/volontaire"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
 
                </Link>
                <Link   
-                  to=""     
+                  to="/dossier-medical/historique"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 
@@ -188,7 +185,7 @@ const ProfessionnelsDeSanté = () => {
                                <br></br>
                                <div class="d-flex justify-content-center">
                                <h1 className ="card-title h5">
-                               J'ajoute une hospitalisation ou un acte chirurgical
+                               J'ajoute l'accée a mon Professionnels De Santé
 </h1>
 
 </div>
@@ -203,10 +200,9 @@ const ProfessionnelsDeSanté = () => {
                          <div class="d-flex justify-content-center">
 
 
+                         <Link to="/acces" className="wizard-four-color">
+                         <Button  variant="outlined" >Ajouter</Button>                 </Link>                        
 
-                         <Stack spacing={2} direction="row">
-    <Button variant="contained">Ajouter</Button>
-  </Stack>
 
 
 
@@ -239,4 +235,4 @@ const ProfessionnelsDeSanté = () => {
 );
 }
 
-export default ProfessionnelsDeSanté ;
+export default ProfessionnelsDeSante ;
