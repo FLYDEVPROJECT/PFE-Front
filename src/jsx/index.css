@@ -68,7 +68,7 @@ svg.svg-map {
 }
 
 form#step-form-horizontal div:first-child > div:last-child {
-  text-align: right;
+  text-align: left;
   /* padding-top: 2rem; */
 }
 

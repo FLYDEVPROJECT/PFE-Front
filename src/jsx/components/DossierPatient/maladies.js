@@ -16,6 +16,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import * as Yup from 'yup';
+import './validation.css';
 
 const Maladies = () => {
   const [open, setOpen] = React.useState(false);
@@ -27,6 +31,24 @@ const Maladies = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const validate = Yup.object({
+    Nom: Yup.string()
+      .max(15, 'Doit contenir 15 caractères ou moins')
+      .required('Champ obligatoire'),
+    lastName: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Required'),
+    email: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 charaters')
+      .required('Password is required'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Password must match')
+      .required('Confirm password is required'),
+  })
+
  
    return (
     <Box
@@ -216,34 +238,54 @@ const Maladies = () => {
 >
         <DialogTitle> Ajouter une maladie ou un autre sujet de santé  </DialogTitle>
         <DialogContent>
-                    <label className='col-sm-8 col-form-label'>Nom </label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        placeholder='Ex : Eczéma'
-                        style={{ width: 500 }}
 
-                      />
-
-     
-                <br></br>
-                <div >
+        <Formik
+      initialValues={{
+        Nom : '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
+            <TextField label="Nom " name="Nom" type="text" 
+                placeholder='Ex : Eczéma'
+                style={{ width: 500 }}
+                />
+            <br></br>
+            <div >
                   <label className='col-sm-8 col-form-label'>Date de début (année obligatoire)</label>
                   <MetarialDate style={{ width: 500 }}
 />
                 </div>    
-               
-                <br></br>
+                <br>
+                </br>
                 <div >
                 <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
                 <textarea rows={3} className="form-control" name="comment" 
                 placeholder="Informations complémentaires (ex : sévérité , date , praticiens , rencontrés , diagnostic , épisodes médicaux ...)" defaultValue={""}/>
-                </div>                
+                </div>   
+               
+           
+            
+
+          </Form>
+        </div>
+      )}
+    </Formik>
+                             
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>annuler</Button>
-          <Button onClick={handleClose}>Valider</Button>
+        <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
+          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

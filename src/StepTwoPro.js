@@ -7,6 +7,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import { Formik , Form } from 'formik';
+import { TextField } from './TextField';
+import { TextArea } from './TextArea';
+import * as Yup from 'yup';
+import './validation.css';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -54,48 +60,68 @@ export default function StepTwoPro () {
       typeof value === 'string' ? value.split(',') : value,
     );
   };
+  const validate = Yup.object({
+    firstname: Yup.string()
+      .max(15, 'Doit contenir 15 caractéres ou moins')
+      .required('Champ obligatoire'),
+    lastName: Yup.string()
+      .max(20, 'Doit contenir 20 caractéres ou moins ')
+      .required('Champ obligatoire'),
+    emailpro: Yup.string()
+      .email('Email is invalid')
+      .required('Email est obligatoire '),
+    rpps: Yup.string()
+      .min(6, 'Le code doit contenir 6 caractéres')
+      .max(6, 'Le code doit contenir 6 caractéres')
+      .required('Champ est obligatoire *'),
+    cin: Yup.string()
+      .min(8, 'Le code doit contenir 6 caractéres')
+      .max(8, 'Le code doit contenir 6 caractéres')
+      .required('Champ est obligatoire *'),
+  
+  })
    return (
       <section>
-            <div className="row">
-                 <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"> <strong>Identifiant RPPS *</strong></label>
-                  <input
-                     type="Password"
-                     name="place"
-                     className="form-control"
-                     placeholder="*********"
-                     required
-                  />
-                  </div>
-               
-            </div>
-            <div className="col-lg-6 mb-2">
-               <div className="form-group">
-               <label className="text-label">
-                  <strong> Numéro carte d'identité *</strong></label>
-                  <input
-                     type="Password"
-                     className="form-control"
-                     placeholder="*********"
-                     required
-                  />
-                  </div>
-                  </div></div>
-                  <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Joindrez votre carte CIN et votre Signature</strong></label></div>
+        <Formik
+      initialValues={{
+        id: '',
+        lastName: '',
+        emailpro: '',
+        rpps: '',
+        cin: '',
+        confirmPassword: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
+          <h6 ><strong>Identifiant RPPS *</strong></h6>
+          <TextField name="rpps" type="password" />
+          <br></br>
+          <h6 ><strong>Numéro carte d'identité *</strong></h6>
+          <TextField name="cin" type="password" />
+          <br></br>
+          <div className="form-group">
    
- 
+          <h6 ><strong>Joindrez votre carte cin et votre signature </strong></h6>
+<br></br>
     <input type="file"
            id="avatar" name="avatar"
            accept="image/png, image/jpeg"  className="form-control"/>
             </div>
             <div className="row">
-            <div className="col-lg-6 mb-2">
-               <div className="form-group">
-               <label className="text-label"><strong>Type*</strong></label>
-                                    <select
+
+<div className="col-6 ">
+   <br></br>
+<h6 ><strong>type *</strong></h6>
+<br></br>
+
+
+<select
                                       className="form-control"
                                       id="inputState"
                                       defaultValue="option-1"
@@ -105,12 +131,15 @@ export default function StepTwoPro () {
                                       <option value="option-3">Biologiste</option>
                                      
                         </select>
-                        </div>
-            </div>
-            <div className="col-lg-6 mb-2">
-               <div className="form-group">
-               <label className="text-label"><strong>Spécialité*</strong></label>
-                                    <select
+
+
+</div>
+<br></br>
+<div className="col-lg-6 mb-1">
+<br></br>
+  <h6><strong>Spécialité *</strong></h6>
+  <br></br>
+  <select
                                       className="form-control"
                                       id="inputState"
                                       defaultValue="option-1"
@@ -132,28 +161,18 @@ export default function StepTwoPro () {
                                       <option value="option-3"> O.R.L</option>
                                       <option value="option-3"> Anesthésie</option>
                                      
-                        </select>
-                        </div>
-            </div></div>
-            <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Adresse E-mail professionel*</strong></label></div>
-   
- 
-            <input
-                     type="email"
-                     className="form-control"
-                     placeholder="example@gmail.com"
-                     required
-                  />
-            </div>
+                        </select>   <br></br>
+          
+          </div></div>
+          <h6><strong>Adresse E-mail professionel *</strong></h6>
 
-            <div>
-            <div className="row">
-            <div className="col-lg-6 mb-2">
-               <div className="form-group">
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Langue</InputLabel>
+            <TextField  name="emailpro" type="email" />
+            <br></br>
+
+
+
+            <FormControl sx={{ m: 1, width: 650 }}>
+            <h6><strong>Langue </strong></h6>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
@@ -181,27 +200,20 @@ export default function StepTwoPro () {
           ))}
         </Select>
       </FormControl>
-    </div>
-    </div></div></div>
- 
-            <div className="col-lg-12 mb-2">
-               <div className="form-group">
-                  <label className="text-label">
-Expérience                   </label>
-                  <textarea
-                     name="paragraph_text"
-                     type="text"
-                     className="form-control"
-                     cols="50" rows="10"
-                     required
-                  >
-                 </textarea>
-                 </div>
-                 </div>
- 
-               
-         
 
+<br></br>
+<br></br>
+
+      <h6><strong>Expérience professionel *</strong></h6>
+
+            <TextArea  name="lastName" type="textarea" />
+          
+          </Form>
+        </div>
+      )}
+    </Formik>
+    <br></br>
+    <br></br>
       </section>
    );
 };

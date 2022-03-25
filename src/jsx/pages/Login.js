@@ -101,7 +101,7 @@ function Login (props) {
                             </form>
                             <div className="new-account mt-2">
                                 <p className="mb-0">Vous n'avez pas de compte ?{" "}
-                                    <Link className="text-black" to="./Authentif">s'inscrire</Link>
+                                    <Link className="text-black" to="/patient-professionnel">s'inscrire</Link>
                                 </p>
                             </div>
                             <div className="new-account mt-2">

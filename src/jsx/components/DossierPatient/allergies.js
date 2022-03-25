@@ -15,6 +15,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import { TextArea } from './TextArea';
+import * as Yup from 'yup';
+import './validation.css';
+
 
 
 const Allergies = () => {
@@ -27,6 +33,14 @@ const Allergies = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const validate = Yup.object({
+    allergieName: Yup.string()
+      .max(15, 'Doit contenir 15 caractères ou moins')
+      .required('Champ obligatoire'),
+    lastName: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Required'),
+     })
  
    return (
     <Box
@@ -220,26 +234,43 @@ const Allergies = () => {
 >
         <DialogTitle>Ajouter une allergie </DialogTitle>
         <DialogContent>
-                    <label className='col-sm-8 col-form-label'>Nom de l'allergéne </label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        placeholder='Ex : Pénicilline '
-                        style={{ width: 500 }}
+        <Formik
+      initialValues={{
+        allergieName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
+            <br></br>
+            <TextField label="Nom de l'allergéne" name="allergieName" type="text"   placeholder='Ex : Pénicilline '
+                        style={{ width: 500 }} />
 
-                      />
-               
-                <br></br>
-                <div >
-                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
+            <div >
+                <label className='form-label'>Commentaire (facultatif)</label>
                 <textarea rows={3} className="form-control" name="comment" 
                 placeholder="Informations complémentaires ( Ex : date de début de l'allergie , épisode allergique , réactions , intolérance  ..)" defaultValue={""}/>
-                </div>                
+                </div>    
 
+            
+            
+          </Form>
+        </div>
+      )}
+    </Formik>
+              
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>annuler</Button>
-          <Button onClick={handleClose}>Valider</Button>
+        <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
+          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

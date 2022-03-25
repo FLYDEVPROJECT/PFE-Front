@@ -16,6 +16,11 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import { TextArea } from './TextArea';
+import * as Yup from 'yup';
+import './validation.css';
 
 
 const Hospitalisations = () => {
@@ -28,7 +33,23 @@ const Hospitalisations = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const validate = Yup.object({
+    Motif: Yup.string()
+      .max(15, 'Doit contenir 15 caractères ou moins')
+      .required('Obligatoire'),
+    lastName: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Required'),
+    email: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 charaters')
+      .required('Password is required'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Password must match')
+      .required('Confirm password is required'),
+  })
    return (
     <Box
     sx={{
@@ -219,31 +240,41 @@ const Hospitalisations = () => {
 >
         <DialogTitle>Ajouter une hospitalisation ou un acte chirurgical  </DialogTitle>
         <DialogContent>
-        <div >
+        <Formik
+      initialValues={{
+        Motif: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
+            <br></br>
+            <TextField 
+            label="Motif" 
+            name="Motif" 
+            type="text" 
+            style={{ width: 490 }}
+            placeholder='Ex : Appendicite'
+            />
 
-                    <label className='col-sm-8 col-form-label'>Motif</label>
-                    <div className='col-sm-4'>
-                      <input
-                        type='email'
-                        className='form-control'
-                        placeholder='Ex : Appendicite'
-                        style={{ width: 500 }}
+<br></br>
 
-                      />
-                      </div>
-  </div>
-  <br></br>
-  <div >
-                  <label className='col-sm-8 col-form-label'>Date d'admission (année obligatoire)</label>
-                  <MetarialDate style={{ width: 500 }}
+<div >
+                 <label className='form-label'>Date de début (année obligatoire)</label>
+                 <MetarialDate style={{ width: 500 }}
 />
-                </div>    
-                <br></br> 
-                <div >
-
-               
-               
-                <label className='col-sm-8 col-form-label'>Durée du séjour ( facultatif )  </label>
+               </div>
+               <br></br>
+               <div >
+                <label className='form-label'>Durée du séjour ( facultatif )  </label>
                 <div className="row">
                 <div className='col-sm-5'>
 
@@ -268,16 +299,28 @@ const Hospitalisations = () => {
                                                  </select></div>
                 </div> </div>
                 <br></br>
-                <div >
-                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
-                <textarea rows={4} className="form-control" name="comment" 
-                placeholder="Informations complémentaires (exemples: lieu du séjour , détails sur l'acte , professionnels de santé , complications ...)" defaultValue={""}/>
-                </div>                
+                <TextArea
+            label="Commentaire (facultatif)" 
+            name="Commentaire" 
+            type="text" 
+            style={{ width: 500 }}
+            placeholder="ex : 2 sachets de 1mg par jour , matin et soir aprés le repas" rows={4} />
+
+
+
+
+       
+          </Form>
+        </div>
+      )}
+    </Formik>
+        
+               
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>annuler</Button>
-          <Button onClick={handleClose}>Valider</Button>
+          <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
+          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

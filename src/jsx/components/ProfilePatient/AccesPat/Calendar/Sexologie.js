@@ -1,15 +1,15 @@
 import React from "react";
-
+import BookData from './Data.json';
 import EventSexologie from "./EventSexologie";
 
 
-const Pediatrie = () => {
+const Sexologie = () => {
    return (
       <div className="h-80">
 
-         <EventSexologie />
+         <EventSexologie placeholder="le Nom du professionell de santé " data={BookData} />      
       </div>
    );
 };
 
-export default Pediatrie ;
+export default Sexologie ;

@@ -96,10 +96,10 @@ export const FilteringTable = () => {
 								<button className=" previous-button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
 								
 								<button className="previous-button" onClick={() => previousPage()} disabled={!canPreviousPage}>
-									Previous
+									Précedent
 								</button>
 								<button className="next-button" onClick={() => nextPage()} disabled={!canNextPage}>
-									Next
+									Suivant 
 								</button>
 								<button className=" next-button" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
 							</div>

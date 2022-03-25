@@ -32,7 +32,7 @@ const Wizard = () => {
       marginRight: "1rem",
    };
    const nextStyle = {
-      background: "#36c95f",
+      background: "#2b68a1",
       borderWidth: "0px",
       color: "#fff",
       borderRadius: "4px",
@@ -46,9 +46,9 @@ const blue = {
    100: '#C2E0FF',
    200: '#80BFFF',
    300: '#66B2FF',
-   400: '#3399FF',
-   500: '#007FFF',
-   600: '#0072E5',
+   400: '#B9C3DB',
+   500: '#2b68a1',
+   600: '#3065D0',
    700: '#0059B2',
    800: '#004C99',
    900: '#003A75',

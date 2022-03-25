@@ -1,134 +1,85 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import loadable from "@loadable/component";
-
-// Images
-import DrAlexandro from "../../../images/doctors/5.jpg";
-import DrSamantha from "../../../images/doctors/1.jpg";
-import DrAliandro from "../../../images/doctors/2.jpg";
-import DrSamuel from "../../../images/doctors/4.jpg";
-import DrMelinda from "../../../images/doctors/3.jpg";
-import widget01 from "../../../images/widget/1.jpg";
-import widget02 from "../../../images/widget/2.jpg";
-import widget03 from "../../../images/widget/3.jpg";
-import widget05 from "../../../images/widget/5.jpg";
-import { Dropdown, Tab, Nav } from "react-bootstrap";
-
-import Slider from "react-slick";
-
+import img2 from '../../../images/big/img2.jpg'
+import PerfectScrollbar from "react-perfect-scrollbar";
+import widget1 from "../../../images/widget/1.jpg";
+import widget5 from "../../../images/widget/5.jpg";
+import widget6 from "../../../images/widget/6.jpg";
+import widget7 from "../../../images/widget/7.jpg";
+import widget8 from "../../../images/widget/8.jpg";
+import img3 from '../../../images/big/img3.jpg'
+import img1 from '../../../images/big/img1.jpg'
+import img5 from '../../../images/big/img5.jpg'
+import img6 from '../../../images/big/img6.jpg'
+import img4 from '../../../images/big/img4.jpg'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
+import doctors10 from "../../../images/doctors/10.jpg";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Row, Col, Card, Carousel } from 'react-bootstrap'
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 /// Scroll
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-
 const Home = () => {
-   function SampleNextArrow(props) {
-      const { onClick } = props;
-      return (
-         <div className="owl-next" onClick={onClick} style={{ zIndex: 99 }}>
-            <i className="fa fa-caret-right" />
-         </div>
-      );
-   }
+   const carousel1 = [img2, img3, img4]
 
-   function SamplePrevArrow(props) {
-      const { onClick } = props;
-      return (
-         <div
-            className="owl-prev disabled"
-            onClick={onClick}
-            style={{ zIndex: 99 }}
-         >
-            <i className="fa fa-caret-left" />
-         </div>
-      );
-   }
+   const [open, setOpen] = React.useState(false);
 
-   const settings = {
-      focusOnSelect: true,
-      infinite: true,
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      speed: 500,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-      responsive: [
-         {
-            breakpoint: 1600,
-            settings: {
-               slidesToShow: 3,
-               slidesToScroll: 1,
-            },
-         },
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-         {
-            breakpoint: 1200,
-            settings: {
-               slidesToShow: 2,
-               slidesToScroll: 1,
-            },
-         },
-         {
-            breakpoint: 991,
-            settings: {
-               slidesToShow: 3,
-               slidesToScroll: 1,
-            },
-         },
-         {
-            breakpoint: 767,
-            settings: {
-               slidesToShow: 2,
-               slidesToScroll: 1,
-            },
-         },
-         {
-            breakpoint: 575,
-            settings: {
-               slidesToShow: 1,
-               slidesToScroll: 1,
-            },
-         },
-      ],
-   };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const [age, setAge] = React.useState('');
 
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
    return (
       <div>
+         
          <div className="form-head d-flex mb-3 mb-md-4 align-items-start">
+         <Stack direction="row" spacing={2}>
+   
+   <Avatar
+     alt="Remy Sharp"
+     src={doctors10}
+     sx={{ width: 56, height: 56 }}
+   />
+ </Stack>
             <div className="mr-auto d-none d-lg-block">
-               <h3 className="text-black font-w600">Welcome to Eres!</h3>
-               <p className="mb-0 fs-18">Hospital Admin Dashboard Template</p>
+               <h3 className="text-black font-w600"> Mr X  ! </h3>
+               <h6><strong>Bienvenue </strong> HC vous permet de conserver et partager vos données et documents de santé en toute confidentialité.</h6>
             </div>
-            <div className="input-group search-area ml-auto d-inline-flex">
-               <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search here"
-               />
-               <div className="input-group-append">
-                  <button type="button" className="input-group-text">
-                     <i className="flaticon-381-search-2" />
-                  </button>
-               </div>
-            </div>
-            <Link to="/" className="settings-icon  ml-3">
-               <i className="flaticon-381-settings-2 mr-0" />
-            </Link>
          </div>
-         <div className="row">
+        <br></br>
+
+            <div className="row">
             <div className="col-xl-3 col-xxl-6 col-sm-6">
                <div className="card gradient-bx text-white bg-danger rounded">
                   <div className="card-body">
                      <div className="media align-items-center">
                         <div className="media-body">
-                           <p className="mb-1">Total Patient</p>
+                           <p className="mb-1">les vu de votre dossier par mois </p>
                            <div className="d-flex flex-wrap">
                               <h2 className="fs-40 font-w600 text-white mb-0 mr-3">
-                                 783k
+                                 15 fois
                               </h2>
-                              <div>
+                              <br></br>
+                              <div> <br></br> <br></br>
                                  <svg
                                     width={28}
                                     height={19}
@@ -194,10 +145,11 @@ const Home = () => {
                   <div className="card-body">
                      <div className="media align-items-center">
                         <div className="media-body">
-                           <p className="mb-1">Doctor</p>
+                           <p className="mb-1">Les Ajouts dans votre dossier médical </p>
                            <div className="d-flex flex-wrap">
                               <h2 className="fs-40 font-w600 text-white mb-0 mr-3">
-                                 76
+                                 Pneumologue 
+                                 Géneraliste 
                               </h2>
                               <div>
                                  <svg
@@ -238,7 +190,7 @@ const Home = () => {
                                        </linearGradient>
                                     </defs>
                                  </svg>
-                                 <div className="fs-14">-4%</div>
+                                 <div className="fs-14">+8%</div>
                               </div>
                            </div>
                         </div>
@@ -260,717 +212,251 @@ const Home = () => {
                   </div>
                </div>
             </div>
-            <div className="col-xl-3 col-xxl-6 col-sm-6">
-               <div className="card gradient-bx text-white bg-info rounded">
-                  <div className="card-body">
-                     <div className="media align-items-center">
-                        <div className="media-body">
-                           <p className="mb-1">Appointment</p>
-                           <div className="d-flex flex-wrap">
-                              <h2 className="fs-40 font-w600 text-white mb-0 mr-3">
-                                 76
-                              </h2>
-                              <div>
-                                 <svg
-                                    width={28}
-                                    height={19}
-                                    viewBox="0 0 28 19"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                 >
-                                    <path
-                                       d="M18.875 9.25C21.0787 11.6256 25.1753 16.0091 26.4375 17.5H1V1L10.625 13.375L18.875 9.25Z"
-                                       fill="url(#paint0_linear2)"
-                                    />
-                                    <path
-                                       d="M26.4375 17.5C25.1753 16.0091 21.0787 11.6256 18.875 9.25L10.625 13.375L1 1"
-                                       stroke="white"
-                                       strokeWidth={2}
-                                    />
-                                    <defs>
-                                       <linearGradient
-                                          id="paint0_linear2"
-                                          x1="13.7188"
-                                          y1="3.0625"
-                                          x2="12.6875"
-                                          y2="17.5"
-                                          gradientUnits="userSpaceOnUse"
-                                       >
-                                          <stop
-                                             stopColor="white"
-                                             stopOpacity="0.73"
-                                             offset="0.1"
-                                          />
-                                          <stop
-                                             offset={1}
-                                             stopColor="white"
-                                             stopOpacity={0}
-                                          />
-                                       </linearGradient>
-                                    </defs>
-                                 </svg>
-                                 <div className="fs-14">-4%</div>
-                              </div>
-                           </div>
-                        </div>
-                        <span className="border rounded-circle p-4">
-                           <svg
-                              width={34}
-                              height={34}
-                              viewBox="0 0 40 40"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <g clipPath="url(#clip0)">
-                                 <path
-                                    d="M35 5H33.3333C33.3333 3.67392 32.8065 2.40215 31.8689 1.46447C30.9312 0.526784 29.6594 0 28.3333 0C27.0072 0 25.7355 0.526784 24.7978 1.46447C23.8601 2.40215 23.3333 3.67392 23.3333 5H16.6667C16.6667 3.67392 16.1399 2.40215 15.2022 1.46447C14.2645 0.526784 12.9927 7.45058e-08 11.6667 7.45058e-08C10.3406 7.45058e-08 9.06881 0.526784 8.13113 1.46447C7.19345 2.40215 6.66667 3.67392 6.66667 5H5C3.67392 5 2.40215 5.52678 1.46447 6.46447C0.526784 7.40215 0 8.67392 0 10L0 35C0 36.3261 0.526784 37.5979 1.46447 38.5355C2.40215 39.4732 3.67392 40 5 40H35C36.3261 40 37.5979 39.4732 38.5355 38.5355C39.4732 37.5979 40 36.3261 40 35V10C40 8.67392 39.4732 7.40215 38.5355 6.46447C37.5979 5.52678 36.3261 5 35 5ZM5 8.33333H6.66667C6.66667 9.65942 7.19345 10.9312 8.13113 11.8689C9.06881 12.8065 10.3406 13.3333 11.6667 13.3333C12.1087 13.3333 12.5326 13.1577 12.8452 12.8452C13.1577 12.5326 13.3333 12.1087 13.3333 11.6667C13.3333 11.2246 13.1577 10.8007 12.8452 10.4882C12.5326 10.1756 12.1087 10 11.6667 10C11.2246 10 10.8007 9.8244 10.4882 9.51184C10.1756 9.19928 10 8.77536 10 8.33333V5C10 4.55797 10.1756 4.13405 10.4882 3.82149C10.8007 3.50893 11.2246 3.33333 11.6667 3.33333C12.1087 3.33333 12.5326 3.50893 12.8452 3.82149C13.1577 4.13405 13.3333 4.55797 13.3333 5V6.66667C13.3333 7.10869 13.5089 7.53262 13.8215 7.84518C14.134 8.15774 14.558 8.33333 15 8.33333H23.3333C23.3333 9.65942 23.8601 10.9312 24.7978 11.8689C25.7355 12.8065 27.0072 13.3333 28.3333 13.3333C28.7754 13.3333 29.1993 13.1577 29.5118 12.8452C29.8244 12.5326 30 12.1087 30 11.6667C30 11.2246 29.8244 10.8007 29.5118 10.4882C29.1993 10.1756 28.7754 10 28.3333 10C27.8913 10 27.4674 9.8244 27.1548 9.51184C26.8423 9.19928 26.6667 8.77536 26.6667 8.33333V5C26.6667 4.55797 26.8423 4.13405 27.1548 3.82149C27.4674 3.50893 27.8913 3.33333 28.3333 3.33333C28.7754 3.33333 29.1993 3.50893 29.5118 3.82149C29.8244 4.13405 30 4.55797 30 5V6.66667C30 7.10869 30.1756 7.53262 30.4882 7.84518C30.8007 8.15774 31.2246 8.33333 31.6667 8.33333H35C35.442 8.33333 35.866 8.50893 36.1785 8.82149C36.4911 9.13405 36.6667 9.55797 36.6667 10V16.6667H3.33333V10C3.33333 9.55797 3.50893 9.13405 3.82149 8.82149C4.13405 8.50893 4.55797 8.33333 5 8.33333ZM35 36.6667H5C4.55797 36.6667 4.13405 36.4911 3.82149 36.1785C3.50893 35.866 3.33333 35.442 3.33333 35V20H36.6667V35C36.6667 35.442 36.4911 35.866 36.1785 36.1785C35.866 36.4911 35.442 36.6667 35 36.6667Z"
-                                    fill="white"
-                                 />
-                                 <path
-                                    d="M20 26.6667C20.9205 26.6667 21.6667 25.9205 21.6667 25C21.6667 24.0795 20.9205 23.3333 20 23.3333C19.0795 23.3333 18.3333 24.0795 18.3333 25C18.3333 25.9205 19.0795 26.6667 20 26.6667Z"
-                                    fill="white"
-                                 />
-                                 <path
-                                    d="M30 26.6667C30.9205 26.6667 31.6667 25.9205 31.6667 25C31.6667 24.0795 30.9205 23.3333 30 23.3333C29.0796 23.3333 28.3334 24.0795 28.3334 25C28.3334 25.9205 29.0796 26.6667 30 26.6667Z"
-                                    fill="white"
-                                 />
-                                 <path
-                                    d="M9.99995 26.6667C10.9204 26.6667 11.6666 25.9205 11.6666 25C11.6666 24.0795 10.9204 23.3333 9.99995 23.3333C9.07947 23.3333 8.33328 24.0795 8.33328 25C8.33328 25.9205 9.07947 26.6667 9.99995 26.6667Z"
-                                    fill="white"
-                                 />
-                                 <path
-                                    d="M20 33.3334C20.9205 33.3334 21.6667 32.5872 21.6667 31.6667C21.6667 30.7462 20.9205 30 20 30C19.0795 30 18.3333 30.7462 18.3333 31.6667C18.3333 32.5872 19.0795 33.3334 20 33.3334Z"
-                                    fill="white"
-                                 />
-                                 <path
-                                    d="M30 33.3334C30.9205 33.3334 31.6667 32.5872 31.6667 31.6667C31.6667 30.7462 30.9205 30 30 30C29.0796 30 28.3334 30.7462 28.3334 31.6667C28.3334 32.5872 29.0796 33.3334 30 33.3334Z"
-                                    fill="white"
-                                 />
-                                 <path
-                                    d="M9.99995 33.3334C10.9204 33.3334 11.6666 32.5872 11.6666 31.6667C11.6666 30.7462 10.9204 30 9.99995 30C9.07947 30 8.33328 30.7462 8.33328 31.6667C8.33328 32.5872 9.07947 33.3334 9.99995 33.3334Z"
-                                    fill="white"
-                                 />
-                              </g>
-                              <defs>
-                                 <clipPath id="clip0">
-                                    <rect width={40} height={40} fill="white" />
-                                 </clipPath>
-                              </defs>
-                           </svg>
-                        </span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-xl-3 col-xxl-6 col-sm-6">
-               <div className="card gradient-bx text-white bg-secondary rounded">
-                  <div className="card-body">
-                     <div className="media align-items-center">
-                        <div className="media-body">
-                           <p className="mb-1">Hospital Earning</p>
-                           <div className="d-flex flex-wrap">
-                              <h2 className="fs-40 font-w600 text-white mb-0 mr-3">
-                                 $56k
-                              </h2>
-                              <div>
-                                 <svg
-                                    width={28}
-                                    height={19}
-                                    viewBox="0 0 28 19"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                 >
-                                    <path
-                                       d="M8.56244 9.25C6.35869 11.6256 2.26214 16.0091 0.999939 17.5H26.4374V1L16.8124 13.375L8.56244 9.25Z"
-                                       fill="url(#paint0_linear3)"
-                                    />
-                                    <path
-                                       d="M0.999939 17.5C2.26214 16.0091 6.35869 11.6256 8.56244 9.25L16.8124 13.375L26.4374 1"
-                                       stroke="white"
-                                       strokeWidth={2}
-                                    />
-                                    <defs>
-                                       <linearGradient
-                                          id="paint0_linear3"
-                                          x1="13.7187"
-                                          y1="3.0625"
-                                          x2="14.7499"
-                                          y2="17.5"
-                                          gradientUnits="userSpaceOnUse"
-                                       >
-                                          <stop
-                                             stopColor="white"
-                                             stopOpacity="0.73"
-                                             offset="0.1"
-                                          />
-                                          <stop
-                                             offset={1}
-                                             stopColor="white"
-                                             stopOpacity={0}
-                                          />
-                                       </linearGradient>
-                                    </defs>
-                                 </svg>
-                                 <div className="fs-14">+4%</div>
-                              </div>
-                           </div>
-                        </div>
-                        <span className="border rounded-circle p-4">
-                           <svg
-                              width={34}
-                              height={34}
-                              viewBox="0 0 21 35"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <path
-                                 d="M9.21864 35H11.6667V31.7747C17.7104 31.496 21.0001 27.7133 21.0001 23.413C21.0001 17.2412 15.7596 16.0865 11.6667 14.8919V8.72014C12.7378 9.11832 13.4645 10.0341 13.6175 11.5074H20.6175C20.2733 6.45051 16.9072 3.66325 11.6667 3.22526V0H9.21864V3.22526C4.01645 3.58362 6.10352e-05 6.53015 6.10352e-05 11.5074C6.10352e-05 17.7588 5.12574 18.9534 9.21864 20.0683V26.3595C7.91809 25.9215 7.15307 24.9261 7.00006 23.2935H0.0383124C0.229569 28.43 4.01645 31.2571 9.21864 31.7349V35ZM14.1531 23.6519C14.1531 25.1251 13.1968 26.2002 11.6667 26.479V20.8248C13.1585 21.4221 14.1531 22.2184 14.1531 23.6519ZM6.92356 11.1889C6.92356 9.63595 7.80334 8.75995 9.21864 8.52105V14.0557C7.84159 13.4187 6.92356 12.5825 6.92356 11.1889Z"
-                                 fill="white"
-                              />
-                           </svg>
-                        </span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-xl-3 col-xxl-4 col-lg-4">
+</div>
+
+            <Row>
+            <Col xl="12">
+               <Card className='mb-3'>
+                  <Card.Header>
+                     <Card.Title>L'accès au dossier médical : </Card.Title>
+                     <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab color="dark" aria-label="add">
+        
+        <div>
+        <AddCircleOutlineIcon variant="outlined" onClick={handleClickOpen} />
+     
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Choisir le professionelle de santé </DialogTitle>
+        <DialogContent>
+         
+          <div>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 545 }}>
+        <InputLabel id="demo-simple-select-standard-label">Ville</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={age}
+          onChange={handleChange}
+          label="Age"
+        >
+         
+          <MenuItem value={1} >Tunis</MenuItem>
+          <MenuItem value={2}>Sfax</MenuItem>
+          <MenuItem value={3}>Mednine</MenuItem>
+          <MenuItem value={4}>Gabes</MenuItem>
+          <MenuItem value={5}>Sousse</MenuItem>
+          <MenuItem value={6}>Monastir</MenuItem>
+          <MenuItem value={7}>Mahdia</MenuItem>
+
+        </Select>
+      </FormControl>
+      </div>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Nom du professionelle de santé"
+            type="Text"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Annuler </Button>
+          <Button onClick={handleClose}>Confirmer</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+      </Fab>
+      </Box>
+                  </Card.Header>
+                  <Card.Body>
+                  <Stack direction="row" spacing={2}>
+      <Avatar alt="Remy Sharp" src={img6} />
+      <Avatar alt="Travis Howard" src={img3} />
+      <Avatar alt="Cindy Baker" src={img4} />
+      <Avatar alt="Remy Sharp" src={img1} />
+      <Avatar alt="Travis Howard" src={img5} />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+    </Stack>
+                  
+                  </Card.Body>
+               </Card>
+            </Col>
+             
+           
+           <Col xl="4">
+
                <div className="card">
                   <div className="card-header border-0 pb-0">
-                     <h3 className="fs-20 mb-0 text-black">Revenue</h3>
-                     <Dropdown className="dropdown d-inline-block">
-                        <Dropdown.Toggle
-                           variant=""
-                           className="btn-link text-primary dropdown-toggle p-0 mb-0 fs-14 text-primary"
-                           data-toggle="dropdown"
-                        >
-                           <span className="font-w500">2020</span>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu dropdown-menu-left">
-                           <Dropdown.Item className="dropdown-item" to="/">
-                              2019
-                           </Dropdown.Item>
-                           <Dropdown.Item className="dropdown-item" to="/">
-                              2018
-                           </Dropdown.Item>
-                        </Dropdown.Menu>
-                     </Dropdown>
+                     <h4 className="fs-20 font-w600 mb-0">
+                        Les prochaines rendez-vous 
+                     </h4>
                   </div>
-                  <div className="card-body">
-                     <div>
-                        <span className="text-info fs-26 font-w600 mr-3">
-                           $41,512k
-                        </span>
-                        <span className="text-secondary fs-18 font-w400">
-                           $25,612k
-                        </span>
-                     </div>
-                     <div className="chart" style={{ overflow: "hidden" }}>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-xl-9 col-xxl-8 col-lg-8">
-               <Tab.Container defaultActiveKey="monthly">
-                  <div className="card">
-                     <div className="card-header d-sm-flex d-block border-0 pb-0">
-                        <h3 className="fs-20 mb-3 mb-sm-0 text-black">
-                           Patient Statistic
-                        </h3>
-                        <div className="card-action card-tabs mt-3 mt-sm-0 mt-3 mt-sm-0">
-                           <Nav className="nav nav-tabs" role="tablist">
-                              <Nav.Item className="nav-item">
-                                 <Nav.Link
-                                    className="nav-link"
-                                    data-toggle="tab"
-                                    eventKey="monthly"
-                                    role="tab"
-                                 >
-                                    Monthly
-                                 </Nav.Link>
-                              </Nav.Item>
-                              <li className="nav-item">
-                                 <Nav.Link
-                                    className="nav-link"
-                                    data-toggle="tab"
-                                    eventKey="weekly"
-                                    role="tab"
-                                 >
-                                    Weekly
-                                 </Nav.Link>
-                              </li>
-                              <li className="nav-item">
-                                 <Nav.Link
-                                    className="nav-link"
-                                    data-toggle="tab"
-                                    eventKey="today"
-                                    role="tab"
-                                 >
-                                    Today
-                                 </Nav.Link>
-                              </li>
-                           </Nav>
-                        </div>
-                     </div>
-                     <Tab.Content>
-                        <div className="card-body pb-0">
-                           <div className="tab-pan active show pb-0">
-                              <div
-                                 className="chart-warp"
-                                 style={{ overflow: "hidden" }}
-                              >
-                              </div>
-                           </div>
-                        </div>
-                     </Tab.Content>
-                  </div>
-               </Tab.Container>
-            </div>
-            <div className="col-xl-9 col-xxl-8 col-lg-7">
-               <div className="card">
-                  <div className="card-header border-0 pb-0">
-                     <h3 className="fs-20 mb-0 text-black">
-                        Top Rated Doctors
-                     </h3>
-                     <Link to="/reviews" className="text-primary font-w500">
-                        View more &gt;&gt;
-                     </Link>
-                  </div>
-                  <div className="card-body">
-                     <div className="assigned-doctor owl-carousel">
-                        <Slider {...settings}>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrAlexandro} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Alexandro Jr.
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Dentist
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrSamantha} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Samantha
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Physical Therapy
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrAliandro} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Aliandro M
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Nursing
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrMelinda} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Samuel
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Gynecologist
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrSamuel} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Melinda
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Dentist
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrSamantha} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Alexandro Jr.
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Dentist
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrAliandro} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Aliandro M
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Nursing
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="items">
-                              <div className="text-center">
-                                 <img src={DrMelinda} alt="profile" />
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.2
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                    <Link className="text-black" to="/reviews">
-                                       Dr. Samuel
-                                    </Link>
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                    Gynecologist
-                                 </span>
-                                 <p className="fs-12">
-                                    795 Folsom Ave, Suite 600 San Francisco,
-                                    CADGE 94107
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                        </Slider>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-xl-3 col-xxl-4 col-lg-5">
-               <div className="card border-0 pb-0">
-                  <div className="card-header flex-wrap border-0 pb-0">
-                     <h3 className="fs-20 mb-0 text-black">Recent Patient</h3>
-                     <Link
-                        to="/patient-list"
-                        className="text-primary font-w500"
-                     >
-                        View more &gt;&gt;
-                     </Link>
-                  </div>
-                  <div className="card-body">
+                  <div className="card-body pt-4">
                      <PerfectScrollbar
                         id="DZ_W_Todo2"
-                        className="widget-media dz-scroll ps ps--active-y height320"
+                        className="widget-media dz-scroll ps ps--active-y height370"
                      >
                         <ul className="timeline">
                            <li>
-                              <div className="timeline-panel flex-wrap">
-                                 <div className="media mr-3">
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
                                     <img
                                        className="rounded-circle"
                                        alt="widget"
-                                       width={50}
-                                       src={widget01}
+                                       width={48}
+                                       src={widget6}
                                     />
                                  </div>
                                  <div className="media-body">
-                                    <h5 className="mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/patient-details"
-                                       >
-                                          Aziz Bakree
-                                       </Link>
-                                    </h5>
-                                    <span className="fs-14">24 Years</span>
+                                    <h5 className="mb-1 fs-18">Dr salim </h5>
+                                    <span>Psychologue </span>
                                  </div>
-                                 <Link to="/" className="text-warning mt-2">
-                                    Pending
-                                 </Link>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
                               </div>
                            </li>
                            <li>
-                              <div className="timeline-panel flex-wrap">
-                                 <div className="media mr-3">
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
                                     <img
                                        className="rounded-circle"
                                        alt="widget"
-                                       width={50}
-                                       src={widget02}
+                                       width={48}
+                                       src={widget7}
                                     />
                                  </div>
                                  <div className="media-body">
-                                    <h5 className="mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/patient-details"
-                                       >
-                                          Griezerman
-                                       </Link>
-                                    </h5>
-                                    <span className="fs-14">24 Years</span>
+                                    <h5 className="mb-1 fs-18">Dr omar hakmouni </h5>
+                                    <span>Dentiste </span>
                                  </div>
-                                 <Link to="/" className="text-info mt-2">
-                                    On Recovery
-                                 </Link>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
                               </div>
                            </li>
                            <li>
-                              <div className="timeline-panel flex-wrap">
-                                 <div className="media mr-3">
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
                                     <img
                                        className="rounded-circle"
                                        alt="widget"
-                                       width={50}
-                                       src={widget03}
+                                       width={48}
+                                       src={widget8}
                                     />
                                  </div>
                                  <div className="media-body">
-                                    <h5 className="mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/patient-details"
-                                       >
-                                          Oconner
-                                       </Link>
-                                    </h5>
-                                    <span className="fs-14">24 Years</span>
+                                    <h5 className="mb-1 fs-18">Dr mounira smida</h5>
+                                    <span>Physical Therapy</span>
                                  </div>
-                                 <Link to="/" className="text-danger mt-2">
-                                    Rejected
-                                 </Link>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
                               </div>
                            </li>
                            <li>
-                              <div className="timeline-panel flex-wrap">
-                                 <div className="media mr-3">
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
                                     <img
                                        className="rounded-circle"
                                        alt="widget"
-                                       width={50}
-                                       src={widget05}
+                                       width={48}
+                                       src={widget5}
                                     />
                                  </div>
                                  <div className="media-body">
-                                    <h5 className="mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/patient-details"
-                                       >
-                                          Uli Trumb
-                                       </Link>
-                                    </h5>
-                                    <span className="fs-14">24 Years</span>
+                                    <h5 className="mb-1 fs-18">Maroua ben amor</h5>
+                                    <span>Physical Therapy</span>
                                  </div>
-                                 <Link to="/" className="text-primary mt-2">
-                                    Recovered
-                                 </Link>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
                               </div>
                            </li>
                            <li>
-                              <div className="timeline-panel flex-wrap">
-                                 <div className="media mr-3">
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
                                     <img
                                        className="rounded-circle"
                                        alt="widget"
-                                       width={50}
-                                       src={widget01}
+                                       width={48}
+                                       src={widget1}
                                     />
                                  </div>
                                  <div className="media-body">
-                                    <h5 className="mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/patient-details"
-                                       >
-                                          Aziz Bakree
-                                       </Link>
-                                    </h5>
-                                    <span className="fs-14">24 Years</span>
+                                    <h5 className="mb-1 fs-18">Alberto musipher </h5>
+                                    <span>Pediatrie</span>
                                  </div>
-                                 <Link to="/" className="text-warning mt-2">
-                                    Pending
-                                 </Link>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
                               </div>
                            </li>
                            <li>
-                              <div className="timeline-panel flex-wrap">
-                                 <div className="media mr-3">
+                              <div className="timeline-panel bgl-dark flex-wrap border-0 p-3 rounded">
+                                 <div className="media bg-transparent mr-2">
                                     <img
                                        className="rounded-circle"
                                        alt="widget"
-                                       width={50}
-                                       src={widget02}
+                                       width={48}
+                                       src={widget6}
                                     />
                                  </div>
                                  <div className="media-body">
-                                    <h5 className="mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/patient-details"
-                                       >
-                                          Aziz Bakree
-                                       </Link>
-                                    </h5>
-                                    <span className="fs-14">24 Years</span>
+                                    <h5 className="mb-1 fs-18">Cive Slauw</h5>
+                                    <span>Pneumologue</span>
                                  </div>
-                                 <Link to="/" className="text-warning mt-2">
-                                    Pending
-                                 </Link>
+                                 <ul className="mt-3 d-flex flex-wrap text-primary font-w600">
+                                    <li className="mr-2">Sat, 23/08/2020</li>
+                                    <li>08:00 - 09:30 AM</li>
+                                 </ul>
                               </div>
                            </li>
                         </ul>
                      </PerfectScrollbar>
                   </div>
                </div>
-            </div>
-         </div>
+               </Col>
+
+
+               <Col xl="4">
+
+<div className="card">
+  
+   <div className="card-body pt-4">
+     
+   </div>
+</div>
+</Col>
+<Col xl="4">
+
+<div className="card">
+  
+   <div className="card-body pt-4">
+   
+   </div>
+</div>
+</Col>
+
+
+
+
+            </Row>
+            
       </div>
+      
+      
    );
 };
 

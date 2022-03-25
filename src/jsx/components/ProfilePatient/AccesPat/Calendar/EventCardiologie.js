@@ -1,15 +1,13 @@
 import React, {Fragment, useState } from "react";
 import {Button} from "react-bootstrap";
 
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
+
 import "./EventCalender.css";
 
 
 function EventCalendar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [contentModal, setContentModal] = useState(false);
 
   const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -46,29 +44,9 @@ function EventCalendar({ placeholder, data }) {
 <div class="container">
   <div class="row">
     <div class="col">  
-    <input
-          type="text"
-          class="form-control"
+   
 
-          placeholder={placeholder}
-          value={wordEntered}
-          onChange={handleFilter}
-        />
-    
-      {filteredData.length != 0 && (
-        <div className="dataResult">
-          {filteredData.slice(0, 15).map((value, key) => {
-            return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
-              </a>
-            );
-          })}
-        </div>
-      )}</div>
-    <div class="col"> <div className="col-lg-10 mb-6">
-               <div class="input-group search-area ml-auto d-inline-flex">
-               <select
+    <select
                                                    className="form-control"
                                                    id="inputState"
                                                    defaultValue="option-2"
@@ -97,7 +75,38 @@ function EventCalendar({ placeholder, data }) {
                                        <option value="option-22">Tozeur</option>
                                        <option value="option-23">Tunis</option>
                                        <option value="option-24">zaghouan</option>
-                                                 </select>           
+                                                 </select> </div>
+
+
+
+
+    <div class="col"> 
+    <div className="col-lg-10 mb-6">
+               <div class="input-group search-area ml-auto d-inline-flex">
+
+
+               <input
+          type="text"
+          class="form-control"
+
+          placeholder={placeholder}
+          value={wordEntered}
+          onChange={handleFilter}
+        />
+    
+      {filteredData.length != 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <a className="dataItem" href={value.link} target="_blank">
+                <p>{value.title} </p>
+              </a>
+            );
+          })}
+        </div>
+      )}
+
+
                </div>
             </div></div>
             <div class="w-40"></div>

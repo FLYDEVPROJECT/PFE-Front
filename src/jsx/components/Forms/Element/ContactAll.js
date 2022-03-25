@@ -43,20 +43,22 @@ const ContactAll = () => {
                              
         <Col xl='9'>
         {data.map((values) => {
-                             const {id,title, Text,image}=values ;
+                             const {title, Text}=values ;
                              return (
                               <>
 
 
  <Card  style={{ height: '15rem' , minWidth: '275'}} >
-           
             <Card.Header>
               <Card.Title>{title} </Card.Title> 
             </Card.Header>
-            <Card.Body>
+
             
-           {Text}
+            <Card.Body>        
+               {Text}
             </Card.Body>
+
+
             <Card.Footer>
               <Card.Text className=' d-inline'>
               <Link to='/patient/details' className='card-link float-left'>
@@ -67,7 +69,6 @@ const ContactAll = () => {
                Voir la Réponse 
               </Link>
             </Card.Footer>
-
             </Card>
 
 

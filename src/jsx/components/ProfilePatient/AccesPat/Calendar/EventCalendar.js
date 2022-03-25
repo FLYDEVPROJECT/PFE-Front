@@ -1,7 +1,5 @@
 import React, {Fragment, useState } from "react";
 import {Button} from "react-bootstrap";
-
-
 import "./EventCalender.css";
 
 

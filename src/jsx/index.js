@@ -60,8 +60,6 @@ import jQueryValidation from './components/Forms/jQueryValidation/MedContact'
 
 /// Pages
 import Registration from './pages/Registration'
-import Login from './pages/Login'
-import LockScreen from './pages/LockScreen'
 
 
 //Scroll To Top
@@ -115,7 +113,7 @@ const Markup = () => {
 	{ url: "Reponse", component: Reponse },
     { url: "doctor-list", component: DoctorList },
     { url: "patient/nv/rendez-vous/form", component: Doctordetail },
-  { url: 'patient/contact', component: ContactAll },
+  { url: 'contact', component: ContactAll },
 
 
     /// Profile patient  et acces
@@ -200,9 +198,7 @@ const Markup = () => {
 
     /// pages
     { url: 'page-register', component: Registration },
-    { url: 'page-lock-screen', component: LockScreen },
-    { url: 'page-login', component: Login },
-
+   
     { url: 'patient/nv/rendez-vous', component: Todo },
     { url: 'patient/details', component: docDetails },
 

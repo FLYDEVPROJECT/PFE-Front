@@ -1,12 +1,14 @@
 import React from "react";
-import Category from "./Category";
+import EventCardiologie from "./EventCardiologie";
+import BookData from './Data.json';
+
 
  
 
 function Cardiologie  () {
    return (
       <div className="h-80">
-         <Category/>      
+         <EventCardiologie placeholder="le Nom du professionell de santé " data={BookData} />      
       </div>
    );
 };

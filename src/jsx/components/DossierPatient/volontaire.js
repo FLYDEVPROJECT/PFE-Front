@@ -17,7 +17,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import * as Yup from 'yup';
+import './validation.css';
 
 const Volontaire = () => {
   const [open, setOpen] = React.useState(false);
@@ -29,6 +32,23 @@ const Volontaire = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const validate = Yup.object({
+    Nom: Yup.string()
+      .max(15, 'Doit contenir 15 caractères ou moins')
+      .required('Champ obligatoire'),
+    prenom: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Required'),
+      telephone: Yup.string()
+      .max(20, 'Must be 20 characters or less')
+      .required('Required'),
+    email: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+      ville: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+  })
    return (
     <Box
     sx={{
@@ -209,8 +229,24 @@ const Volontaire = () => {
       <Button  variant="outlined" onClick={handleClickOpen}>Ajouter un  contact </Button>
       <Dialog open={open} onClose={handleClose} 
 >
-        <DialogTitle>Ajouter un antécédent </DialogTitle>
+        <DialogTitle>Ajouter un Contact </DialogTitle>
         <DialogContent>
+        <Formik
+      initialValues={{
+        Nom: '',
+        prenom: '',
+        telephone: '',
+        ville: '',
+        email: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
           <br></br>
                     <label className='col-sm-12 col-form-label'>Type de contact ( plusieurs choix disponibles)</label>
                     <FormGroup>
@@ -223,72 +259,48 @@ const Volontaire = () => {
 
      
                 <br></br> 
-                <label className='col-sm-8 col-form-label'>Nom</label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        style={{ width: 500 }}
-
-                      />
-                                      <br></br>
-
-                           <label className='col-sm-8 col-form-label'>Prénom </label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        style={{ width: 500 }}
-
-                      />
-                                      <br></br>
+            <TextField label="Nom " name="Nom" type="text" 
+               style={{ width: 500 }}/>
+            <br></br>
+            <TextField label="prénom" name="prenom" type="text"
+               style={{ width: 500 }} />
+            <br></br>
 
                       
 
-                <label className='col-sm-8 col-form-label'> Lien avec ce contact   </label>
-                <select
-                                                   className="form-control"
-                                                   id="inputState"
-                                                   defaultValue="option-2"
-                                                 >
-                                       <option value="option-5">Mére</option>
-                                       <option value="option-6">Pére</option>
-                                       <option value="option-23">Enfant</option>
-                                       <option value="option-24">Partenaire</option>
-                                       <option value="option-24">Autre</option>
+<label className='form-label'> Lien avec ce contact   </label>
+<select
+                                   className="form-control"
+                                   id="inputState"
+                                   defaultValue="option-2"
+                                   style={{ width: 500 }}
+                                 >
+                       <option value="option-5">Mére</option>
+                       <option value="option-6">Pére</option>
+                       <option value="option-23">Enfant</option>
+                       <option value="option-24">Partenaire</option>
+                       <option value="option-24">Autre</option>
 
-                                                 </select>
+                                 </select>
 
-                <br></br>
-                <label className='col-sm-8 col-form-label'>télephone </label>
-                      <input
-                        type='phone'
-                        className='form-control'
-                        style={{ width: 500 }}
+<br></br>
+<TextField label="Télephone" name="telephone" type="text"    style={{ width: 500 }} />
+            <br></br>
 
-                      />
-                      <br></br>
-
-                       <label className='col-sm-8 col-form-label'>Adresse email</label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        style={{ width: 500 }}
-
-                      />
-                                      <br></br>
-                                      <label className='col-sm-8 col-form-label'>Ville</label>
-                      <input
-                        type='Text'
-                        className='form-control'
-                        style={{ width: 500 }}
-
-                      />
-                                      <br></br>
-                          
+            <TextField label="Adresse email" name="email" type="text"     style={{ width: 500 }}/>
+            <br></br>
+<TextField label="Ville" name="ville" type="text"    style={{ width: 500 }} />
+            <br></br>
+           
+          </Form>
+        </div>
+      )}
+    </Formik>
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>annuler</Button>
-          <Button onClick={handleClose}>Valider</Button>
+        <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
+          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>    </CardActions>

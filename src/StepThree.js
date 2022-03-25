@@ -11,7 +11,6 @@ const StepThree = () => {
             <div className="col-lg-6 mb-2">
                <div className="form-group">
                   <label className="text-label">  <strong>  Avez-vous des problèmes cardiaques </strong> </label>
-               
                </div>
             </div>
             <div className="col-lg-6 mb-2">
@@ -49,7 +48,6 @@ const StepThree = () => {
                <div className="form-group">
                   <label className="text-label"> <strong> Avez-vous déjà fumé du tabac de quelque sorte?
 Veuillez indiquer quel produit</strong></label>
-               
                </div>
             </div>
             <div className="col-lg-6 mb-2">

@@ -15,7 +15,11 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import { TextArea } from './TextArea';
+import * as Yup from 'yup';
+import './validation.css';
 
 
 const DocReport = () => {
@@ -28,7 +32,24 @@ const DocReport = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const validate = Yup.object({
+    Nomdutraitement: Yup.string()
+      .max(20, 'Doit contenir 15 caractères ou moins')
+      .required(' champ obligatoire'),
+  
+    email: Yup.string()
+      .email('Email est invalide')
+      .required('Email est obligatoire'),
+    password: Yup.string()
+      .min(6, 'Mot de passe doit contenir au mois 6 caractéres')
+      .required('Mot de passe est obligatoire'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+    dates: Yup.string()
+      .oneOf([Yup.ref('dates'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+  })
    return (
       <Box
       sx={{
@@ -217,39 +238,66 @@ J'ajoute un traitement
 >
         <DialogTitle>Ajouter un traitement </DialogTitle>
         <DialogContent>
-                    <label className='col-sm-8 col-form-label'>Nom du traitement</label>
-                    <div className='col-sm-9'>
-                      <input
-                        type='email'
-                        className='form-control'
-                        placeholder='Ex : pilule'
-                        style={{ width: 500 }}
+        <Formik
+      initialValues={{
+        Nomdutraitement: '',
+        Posologie: '',
+        Commentaire:'',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        dates:''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
+          <br></br>
 
-                      />
-  </div>
-  <br></br>
-  <div >
-                  <label className='col-sm-8 col-form-label'>Date de début (année obligatoire)</label>
+            <TextField 
+            label="Nom du traitement" 
+            name="Nomdutraitement" 
+            type="text"
+            style={{ width: 500 }} 
+            placeholder='Ex : pilule' />
+              <br></br>
+
+ <div >
+                  <label className='form-label'>Date d'admission (année obligatoire)</label>
                   <MetarialDate style={{ width: 500 }}
 />
-                </div>    
-                <br></br> 
-                <div >
-                <label className='col-sm-8 col-form-label'>Posologie (facultatif)</label>
-                <textarea rows={4} className="form-control" name="comment" 
-                placeholder="ex : 2 sachets de 1mg par jour , matin et soir aprés le repas" defaultValue={""}/>
-                </div> 
-                <br></br>
-                <div >
-                <label className='col-sm-8 col-form-label'>Commentaire (facultatif)</label>
-                <textarea rows={4} className="form-control" name="comment" 
-                placeholder="Informations complémentaires ( effets secondaires)" defaultValue={""}/>
-                </div>                
+                </div>
+                <br></br>   
 
+
+            <TextArea
+            label="Posologie (facultatif)" 
+            name="Posologie" 
+            type="text" 
+            style={{ width: 500 }}
+            placeholder="ex : 2 sachets de 1mg par jour , matin et soir aprés le repas" rows={4} />
+<br></br>
+               <TextArea
+            label="Commentaire (facultatif)" 
+            name="Commentaire" 
+            type="text" 
+            style={{ width: 500 }}
+            placeholder="ex : 2 sachets de 1mg par jour , matin et soir aprés le repas" rows={4} />
+
+          
+           
+          </Form>
+        </div>
+      )}
+    </Formik>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>annuler</Button>
-          <Button onClick={handleClose}>Valider</Button>
+        <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
+          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

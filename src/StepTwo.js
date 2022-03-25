@@ -1,24 +1,55 @@
 import React from "react";
+import { Formik , Form } from 'formik';
+import { TextField } from './TextField';
+import * as Yup from 'yup';
+import './validation.css';
+import Checkbox from '@mui/material/Checkbox';
 
 const StepTwo = () => {
+   const validate = Yup.object({
+      firstName: Yup.string()
+        .max(15, 'Must be 15 characters or less')
+        .required('Required'),
+      lastName: Yup.string()
+        .max(20, 'Must be 20 characters or less')
+        .required('Required'),
+      email: Yup.string()
+        .email('Email is invalid')
+        .required('Email is required'),
+      password: Yup.string()
+        .min(6, 'Le code doit contenir 6 caractéres')
+        .max(6, 'Le code doit contenir 6 caractéres')
+
+        .required('Champ est obligatoire *'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Password must match')
+        .required('Confirm password is required'),
+    })
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
    return (
       <section>
-           <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Code Sécurité Sociale ( CSS)*</strong></label>
-                  <input
-                     type="Password"
-                     name="place"
-                     className="form-control"
-                     placeholder="*********"
-                     required
-                  />
-                  </div>
-               
-            </div>
-         <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Nombre d'enfants</strong></label>
+          <Formik
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div>
+          <Form>
+          <h6 ><strong>Code Sécurité Sociale ( CSS)*</strong></h6>
+          <TextField name="password" type="password" />
+          <br></br>
+          <h6 ><strong>Nombre d'enfants</strong></h6>
+
                   <input
                      type="Number"
                      className="form-control"
@@ -26,12 +57,9 @@ const StepTwo = () => {
                      placeholder="0"
                      required
                   />
-                  </div>
-            </div>
- 
-            <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Profession / Scolarité*</strong></label>
+                  <br>
+                  </br>
+                  <h6 ><strong>Profession / Scolarité</strong></h6>
                                     <select
                                       className="form-control"
                                       id="inputState"
@@ -42,23 +70,12 @@ const StepTwo = () => {
                                       <option value="option-3">Autre</option>
                                      
                         </select>
-                        </div>
-            </div>
- 
- 
-            <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Retreté(e)*</strong></label>
-  <input className="text-label" type="checkbox" id="scales" name="scales"
-         />
-            </div>
-            </div>
- 
- 
-            <div className="col-lg-12 mb-3">
-               <div className="form-group">
-               <label className="text-label"><strong>Type d'âge *</strong></label>
-                                    <select
+                        <br></br>
+                        <h6 ><strong>Retreté(e)*</strong></h6>
+                        <Checkbox {...label} defaultChecked />
+                        <br></br>
+                        <h6 ><strong>Type d'âge *</strong></h6>
+                        <select
                                       className="form-control"
                                       id="inputState"
                                       defaultValue="option-1"
@@ -70,9 +87,16 @@ const StepTwo = () => {
  
                                      
                                     </select>
-            </div>
-            </div>
- 
+
+
+          
+           
+          </Form>
+        </div>
+      )}
+    </Formik>
+    <br></br>
+    <br></br>
 
       </section>
    );

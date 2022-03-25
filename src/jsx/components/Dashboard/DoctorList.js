@@ -1305,7 +1305,7 @@ const DoctorList = () => {
                                  onClick(activePag.current - 1)
                               }
                            >
-                              Previous
+                              Précedent
                            </Link>
                            <span>
                               {paggination.map((number, i) => (
@@ -1329,7 +1329,7 @@ const DoctorList = () => {
                                  onClick(activePag.current + 1)
                               }
                            >
-                              Next
+                              Suivant
                            </Link>
                         </div>
                      </div>
