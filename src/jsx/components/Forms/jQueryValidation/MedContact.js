@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import DropFile from "./DropFile";
-
 import { Dropdown } from "react-bootstrap";
-
-const Compose = () => {
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
+const MedContact = () => {
    return (
       <Fragment>
 
@@ -208,4 +209,4 @@ const Compose = () => {
    );
 };
 
-export default Compose;
+export default MedContact;

@@ -87,6 +87,8 @@ import OtoRhinoLaryngologie from './components/ProfilePatient/AccesPat/Calendar/
 import Reponse from './components/Dashboard/PatientList'
 import docDetails from './components/Dashboard/docDetails'
 import ContactAll from './components/Forms/Element/ContactAll'
+import MedContact from './components/Forms/jQueryValidation/MedContact'
+
 
 
 
@@ -140,6 +142,7 @@ const Markup = () => {
     { url: 'patient/acces/pneumologie', component: Pneumologie },
     { url: 'patient/nv/rendez-vous/form/affichage', component: TimeRendezVous },
     { url: 'patient/dossier-medical/complet', component: DossierComplet },
+    { url: 'med-contact', component: MedContact },
 
 
 

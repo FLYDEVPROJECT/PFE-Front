@@ -374,7 +374,7 @@ setPasswordEye(!passwordEye);
             <div className='form-group row'>
                     <label className='col-sm-3 col-form-label'>Actuel	</label>
   
-                    <div className='col-sm-9'>
+                    <div className='col-sm-12'>
                     <input
                         type='password'
                         className='form-control'
@@ -389,9 +389,11 @@ Votre mot de passe actuel n’est peut-être pas assez fort
               <div className="mx-8">
                 {/* password section */}
                 <div className='form-group row'>
-                <label className='col-sm-4 col-form-label'>Nouveau Mot de passe </label>
+                <label className='col-sm-3 col-form-label'>Nouveau Mot de passe </label>
+                
                 <div className="mt-10 relative">
-                  <input
+                <div className='col-sm-9'>                 
+                 <input
                     type={passwordEye === false ? "password" : "text"}
                     placeholder="Mot de passe "
                     
@@ -416,7 +418,7 @@ Votre mot de passe actuel n’est peut-être pas assez fort
                   />
                     {errors.password && 
                     <span className="text-sm text-red-500">{errors.password.message}</span>}
-</div>
+</div></div>
                   {/* eye section */}
                   <div className="text-3xl absolute top-4 right-5">
                     {passwordEye === false ? (

@@ -168,7 +168,7 @@ const Antecedents = () => {
 
                </Link>
                <Link   
-                  to="/dossier-medical/historique"     
+                  to="/table-Medecin"     
                   >
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
 

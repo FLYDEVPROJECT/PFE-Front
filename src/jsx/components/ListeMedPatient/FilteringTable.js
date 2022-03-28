@@ -1,9 +1,33 @@
-import React,{ useMemo } from 'react';
+import React,{ useMemo , Fragment , useEffect, useState } from 'react';
 import { useTable, useGlobalFilter, useFilters, usePagination } from 'react-table';
 import MOCK_DATA from './MOCK_DATA_2.json';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import AddD from '../../../images/big/AddD.png'
+import tele from '../../../images/big/tele.png'
+import { Link } from "react-router-dom";
+import * as Yup from 'yup';
 import { COLUMNS } from './Columns';
-import { GlobalFilter } from './GlobalFilter'; 
 import './filtering.css';
+import './tabela.css'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Container
+} from "@mui/material";
+import fakedata from "./fakedata";
+import Collapsible from "./Collapsible";
 
 
 export const FilteringTable = () => {
@@ -34,79 +58,381 @@ export const FilteringTable = () => {
 	
 	
 	const {globalFilter, pageIndex} = state
-	
+	const [open, setOpen] = React.useState(false);
+
+	const handleClickOpen = () => {
+	  setOpen(true);
+	};
+  
+	const handleClose = () => {
+	  setOpen(false);
+	};
+	const validate = Yup.object({
+	  Motif: Yup.string()
+		.max(15, 'Doit contenir 15 caractères ou moins')
+		.required('Obligatoire'),
+	  lastName: Yup.string()
+		.max(20, 'Must be 20 characters or less')
+		.required('Required'),
+	  email: Yup.string()
+		.email('Email is invalid')
+		.required('Email is required'),
+	  password: Yup.string()
+		.min(6, 'Password must be at least 6 charaters')
+		.required('Password is required'),
+	  confirmPassword: Yup.string()
+		.oneOf([Yup.ref('password'), null], 'Password must match')
+		.required('Confirm password is required'),
+	})
+	const [clientes, setClientes] = useState([]);
+
+	useEffect(() => {
+	  setClientes(fakedata);
+	}, []);
+  
 	
 	return(
 		<>
-			<div className="card">
-				<div className="card-header">
-					<h4 className="card-title">Liste des médecins</h4>
+
+<Box
+    sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      '& > :not(style)': {
+        m: 1,
+      
+      },
+    }}
+  > 
+    <Paper elevation={3} >
+
+    <Fragment>
+
+<div className='row'>
+<div className='col-lg-12'>
+  <div className='card'>
+    <div className='card-body'>
+      <div className='email-left-box generic-width px-0 mb-5'>
+      <img
+                      className='mr-3 rounded'
+                      width='130'
+                      height='130'
+                      alt=''
+                      src={AddD}
+                    />
+                                      <hr />
+
+        <div className='mail-list mt-4'>
+        
+
+        <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+      component="img"
+      height="150"
+      src={tele}
+      alt="green iguana"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h7" component="div">
+      Synthèse de mon profil
+              </Typography>
+      <Typography variant="body2" color="text.secondary">
+      Je souhaite visualiser et partager la synthèse PDF 
+      de mon profil médical avec mes professionnels de santé.
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Continuer</Button>
+    </CardActions>
+  </Card>
+
+
+
+
+
+        </div>
+        <br></br>
+        <Link
+                to="/dossier-medical/traitement"
+              
+             >
+        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Traitements</button>
+             </Link>
+        <Link   
+                to="/dossier-medical/hospitalisations"     
+                >
+                             <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Hospitalisations et chirugies</button>
+
+             </Link>
+             <Link   
+                  to="/dossier-medical/Antecedents"     
+                  >
+          <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Antécédents familiaux</button>
+
+               </Link>    
+               <Link   
+                  to="/dossier-medical/Allergies"     
+                  >
+               <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Allergies</button>
+
+               </Link>
+
+               <Link   
+                  to="/dossier-medical/maladies"     
+                  >
+                   <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Maladie et sujets de santés</button>
+
+               </Link>
+               <Link   
+                  to="/dossier-medical/Vaccinations"     
+                  >
+        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Vaccinations</button>
+
+               </Link>
+               <Link   
+                  to="/dossier-medical/habitudes"     
+                  >
+
+               </Link>
+               <Link   
+                  to="/dossier-medical/Mesures"     
+                  >
+        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Mesures</button>
+
+               </Link>
+               <Link   
+                  to="/dossier-medical/ProfessionnelsDeSante"     
+                  >
+        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
+
+               </Link>
+               <Link   
+                  to="/dossier-medical/volontaire"     
+                  >
+        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Entoutrages et volontés </button>
+
+               </Link>
+               <Link   
+                  to="/dossier-medical/historique"     
+                  >
+        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Historique des soins</button>
+
+               </Link>
+
+
+      </div>
+      <div className='email-right-box ml-0 ml-sm-4 ml-sm-0'>
+        <div className='row'>
+          <div className='col-12'>
+            <div className='right-box-padding'>
+             
+              <div className='read-content'>
+                <div className='media pt-3 d-sm-flex d-block justify-content-between'>
+                  <div className='clearfix mb-3 d-flex'>
+                 
+                    <div className='media-body mr-2'>
+                      <h1 className='text-primary mb-0 mt-1'>
+                      Profil médical
+
+</h1>
+                      <p className='mb-0'>Je complète mon profil médical pour retrouver facilement toutes les informations importantes qui caractérisent ma santé.</p>
+                    </div>
+                  </div>
+                
                 </div>
-				<div className="card-body">
-					<div className="table-responsive">
-						<GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-						<table {...getTableProps()} className="table filtering-table table-responsive-lg">
-							<thead>
-							   {headerGroups.map(headerGroup => (
-									<tr {...headerGroup.getHeaderGroupProps()}>
-										{headerGroup.headers.map(column => (
-											<th {...column.getHeaderProps()}>
-												{column.render('Header')}
-												{column.canFilter ? column.render('Filter') : null}
-											</th>
-										))}
-									</tr>
-							   ))}
-							</thead> 
-							<tbody {...getTableBodyProps()} className="" >
-							
-								{page.map((row) => {
-									prepareRow(row)
-									return(
-										<tr {...row.getRowProps()}>
-											{row.cells.map((cell) => {
-												return <td {...cell.getCellProps()}> {cell.render('Cell')} </td>
-											})}
-										</tr>
-									)
-								})}
-							</tbody>
-						</table>
-						<div className="d-flex justify-content-between">
-							<span>
-								Page{' '}
-								<strong>
-									{pageIndex + 1} of {pageOptions.length}
-								</strong>{''}
-							</span>
-							<span className="table-index">
-								Go to page : {' '}
-								<input type="number" 
-									className="ml-2"
-									defaultValue={pageIndex + 1} 
-									onChange = {e => { 
-										const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0 
-										gotoPage(pageNumber)
-									} } 
-								/>
-							</span>
-						</div>
-						<div className="text-center">	
-							<div className="filter-pagination  mt-3">
-								<button className=" previous-button" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
-								
-								<button className="previous-button" onClick={() => previousPage()} disabled={!canPreviousPage}>
-									Précedent
-								</button>
-								<button className="next-button" onClick={() => nextPage()} disabled={!canNextPage}>
-									Suivant 
-								</button>
-								<button className=" next-button" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                <hr />
+               
+               
+              
+                <div className='form-group pt-3'>
+                <div class="d-flex justify-content-center">   
+                     
+                    
+                               </div>
+                               <br></br>
+                               <div class="d-flex justify-content-center">
+								   	<div className="card">
+									   <Container>
+    
+      
+    <TableContainer className="container border mt-5 p-2">
+      <Table striped bordered hover>
+        <TableHead >
+          <TableRow >
+            <TableCell className="tableHeader">Nom du Médecin </TableCell>
+            <TableCell className="tableHeader">Spécialité  </TableCell>
+            <TableCell className="tableHeader">Date </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <>
+            {clientes.length > 0 ? (
+              clientes.map((cliente, index) => (
+                <>
+                  <Collapsible
+                    header={
+                      <>
+                        <TableCell className="clientRow">{cliente.nom}</TableCell>
+                        <TableCell className="clientRow">{cliente.specialite}<TableRow> 
+                                       </TableRow></TableCell>
+                        <TableCell className="clientRow">{cliente.date} <TableRow>{"\u00A0"}</TableRow></TableCell>
+                        
+                      </>
+                    }
+                  >
+                    <>
+                      {
+                        <TableRow>
+                          <TableCell></TableCell>
+                          <TableCell>
+                            {cliente.endereco ? (
+                              cliente.endereco.map((data, indexB) => (
+                                <>
+                                  <TableRow>
+                                    {data.principal ? (
+                                      <>
+                                        <strong>
+                                          <TableRow>
+                                            Diagnostic
+                                          </TableRow>
+                                        </strong>
+                                        <TableRow>
+                                          {data.diagnostic} - {data.cidade} -{" "}
+                                          {data.estado}
+                                        </TableRow>
+                                        <TableRow>
+                                       
+                                        </TableRow>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {`\u00A0`}
+                                        <strong>
+                                       
+                                        </strong>
+                                        <TableRow>
+                                          {data.diagnostic} -{data.cidade} -
+                                          {data.estado}
+                                        </TableRow>
+
+                                        <TableRow>
+                                         
+                                        </TableRow>
+                                      </>
+                                    )}
+                                  </TableRow>
+
+                                  <hr />
+                                </>
+                              ))
+                            ) : (
+                              <>
+                                {" "}
+                                <TableRow> Nenhum Endereço </TableRow>
+                                <hr />
+                              </>
+                            )}
+                          
+                          </TableCell>
+
+                          <TableCell>
+                            {cliente.medicament ? (
+                              cliente.medicament.map((data, indexC) => (
+                                <>
+                                  <TableRow>
+                                   <strong> médicament  </strong>
+                                  </TableRow>
+                                  <TableRow>{data.medicament}</TableRow>
+                                  <TableRow>
+                                         
+                                        </TableRow>
+
+                                  <hr />
+                                </>
+                              ))
+                            ) : (
+                              <>
+                                {" "}
+                                <TableRow><strong> médicament </strong></TableRow>
+                                <hr />
+                              </>
+                            )}
+
+                      
+                          </TableCell>
+                        </TableRow>
+                      }
+                    </>
+                  </Collapsible>
+                </>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+              </TableRow>
+            )}
+          </>
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </Container>
+
+
+
+
+
+
+
+
+                           
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+</div>
+                               
+                               
+                                </div>
+              </div>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</Fragment>
+
+
+
+
+
+
+     </Paper>
+
+  </Box>
+
+
+
+
+
+
+
+
+
+
+
+		
 		</>
 	)
 	

@@ -44,6 +44,7 @@
     "html-to-draftjs": "^1.5.0",
     "material-ui": "^0.20.2",
     "material-ui-color-picker": "^3.5.1",
+    "mdb-react-ui-kit": "^3.0.0",
     "mdbreact": "^5.0.1",
     "metismenujs": "^1.2.1",
     "nouislider-react": "^3.3.9",

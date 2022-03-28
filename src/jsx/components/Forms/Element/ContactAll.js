@@ -1,6 +1,9 @@
 import React, { useState , Fragment } from "react";
 import { Link } from "react-router-dom";
 import CategoriesDoc from './CategoriesDoc'
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
 /// Bootstrap
 import {
    Row,
@@ -9,6 +12,8 @@ import {
   
  
 } from "react-bootstrap";
+import { MDBCard, MDBCardBody , MDBCardHeader } from 'mdb-react-ui-kit';
+import { MDBCardFooter } from "mdbreact";
 
 const ContactAll = () => {
    
@@ -23,6 +28,21 @@ const ContactAll = () => {
 
 
    }
+
+   const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
    return (
       <Fragment>
 
@@ -30,13 +50,26 @@ const ContactAll = () => {
 <div className="row">
             <div className="col-lg-12">
                     
-                        <div class="card">
-                           <div class=" d-block card-header">
-                              <div class="card-title h5">Questions médicales</div>
-                      
-                           </div>
+                       <Card>
+                       <Card.Header>
+                     <Card.Title>Questions médicales </Card.Title>
+                     <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab color="dark" aria-label="add">
+        
+        <div>
+        <Link   
+                  to="/med-contact"     
+                  >
+        <AddCircleOutlineIcon variant="outlined" onClick={handleClickOpen} />
+     
+     </Link>
+    </div>
+      </Fab>
+      </Box>
+                  </Card.Header>
                            
-                           <div class="card-body">
+                  <Card.Body>
+
 
                             
                                  <Row >
@@ -48,28 +81,26 @@ const ContactAll = () => {
                               <>
 
 
- <Card  style={{ height: '15rem' , minWidth: '275'}} >
-            <Card.Header>
+ <MDBCard  style={{ height: '15rem' , minWidth: '275'}} >
+            <MDBCardHeader>
               <Card.Title>{title} </Card.Title> 
-            </Card.Header>
+            </MDBCardHeader>
 
             
-            <Card.Body>        
+            <MDBCardBody>        
                {Text}
-            </Card.Body>
+            </MDBCardBody>
 
 
-            <Card.Footer>
+            <MDBCardFooter>
               <Card.Text className=' d-inline'>
               <Link to='/patient/details' className='card-link float-left'>
               Dr Sana BOUDALI EP BEN AYED    
               </Link>          
                </Card.Text>
-              <Link to='/ui-card' className='card-link float-right'>
-               Voir la Réponse 
-              </Link>
-            </Card.Footer>
-            </Card>
+            
+            </MDBCardFooter>
+            </MDBCard>
 
 
                                  </>
@@ -102,7 +133,8 @@ const ContactAll = () => {
         </Row>
           
             
-</div></div></div></div>
+         </Card.Body>
+</Card></div></div>
 <div className="col-md-9">
                     
                  </div>

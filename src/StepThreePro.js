@@ -5,19 +5,24 @@ import * as Yup from 'yup';
 import './validation.css';
 
 const StepThreePro = () => {
+  const regMatch = /^((http|https):\/\/)?(www.)?(?!.*(http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+(\/)?.([\w\?[a-zA-Z-_%\/@?]+)*([^\/\w\?[a-zA-Z0-9_-]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/;
+
    const validate = Yup.object({
       Name: Yup.string()
         .max(15, 'Must be 15 characters or less')
-        .required('Required'),
+        .required('champ obligatoire '),
       lastName: Yup.string()
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
+        .max(20, 'doit contenir 20 caractéres ou moins')
+        .required('champ obligatoire '),
+        site : Yup.string()
+        .required('champ obligatoire ')
+        .matches(regMatch, "invalide URL"),
         adresseetab: Yup.string()
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
+        .max(20, 'doit contenir 20 caractéres ou moins')
+        .required('champ obligatoire '),
       emailpro: Yup.string()
-        .email('Email is invalid')
-        .required('Email is required'),
+        .email('Email n est pas correcte  ')
+        .required('Email est obligatoire '),
       password: Yup.string()
         .min(6, 'Le code doit contenir 6 caractéres')
         .max(6, 'Le code doit contenir 6 caractéres')
@@ -35,6 +40,7 @@ const StepThreePro = () => {
         lastName: '',
         adresseetab: '',
         emailpro: '',
+        site:'' ,
         password: '',
         confirmPassword: ''
       }}
@@ -106,10 +112,11 @@ const StepThreePro = () => {
             <TextField  name="emailpro" type="email" placeholder="example@gmail.com" />
           <br></br>
             <h6><strong> Site web </strong></h6>
-            <input
+            <TextField
+                     name="site"
                      type="email"
                      className="form-control"
-                     placeholder="example@gmail.com"
+                     placeholder="Flydev.fr"
                      required
                   />
                   <br></br>
