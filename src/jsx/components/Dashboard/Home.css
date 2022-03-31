@@ -1,0 +1,21 @@
+h1 {
+    
+        color: #4682B4;
+        width: 500px;
+     
+     font-size: x-large;
+     font-family: monospace;
+     
+
+}
+
+p{
+      
+    margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  font-size: small;
+  text-align: center;
+}
+
