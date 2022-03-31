@@ -231,21 +231,7 @@ const UiListGroup = () => {
                                           Messages Tab Content
                                        </h4>
                                        <p>
-                                          Ut ut do pariatur aliquip aliqua
-                                          aliquip exercitation do nostrud
-                                          commodo reprehenderit aute ipsum
-                                          voluptate. Irure Lorem et laboris
-                                          nostrud amet cupidatat cupidatat anim
-                                          do ut velit mollit consequat enim
-                                          tempor. Consectetur est minim nostrud
-                                          nostrud consectetur irure labore
-                                          voluptate irure. Ipsum id Lorem sit
-                                          sint voluptate est pariatur eu ad
-                                          cupidatat et deserunt culpa sit
-                                          eiusmod deserunt. Consectetur et
-                                          fugiat anim do eiusmod aliquip nulla
-                                          laborum elit adipisicing pariatur
-                                          cillum.
+                                         AAAAAAAAAAAAAAAAAAA
                                        </p>
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="#settings">

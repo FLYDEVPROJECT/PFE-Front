@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import {Dropdown,  Tab , ListGroup } from "react-bootstrap";
+import {  Tab , ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
@@ -58,48 +58,7 @@ setPasswordEye(!passwordEye);
                     <h4 className="text-primary mb-0">mr/mme </h4>
                   </div>
                  
-                  <Dropdown className="dropdown ml-auto">
-                    <Dropdown.Toggle
-                      variant="primary"
-                      className="btn btn-primary light sharp i-false"
-                      data-toggle="dropdown"
-                      aria-expanded="true"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        //    xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="18px"
-                        height="18px"
-                        viewBox="0 0 24 24"
-                        version="1.1"
-                      >
-                        <g
-                          stroke="none"
-                          strokeWidth="1"
-                          fill="none"
-                          fillRule="evenodd"
-                        >
-                          <rect x="0" y="0" width="24" height="24"></rect>
-                          <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                          <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                          <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                        </g>
-                      </svg>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className="dropdown-menu dropdown-menu-right">
-                      <Dropdown.Item className="dropdown-item">
-                      <Link to="/Reponse" className="text-black">
-                      <i className="fa fa-users text-primary mr-2" />
-                        Voir liste médecin
-										</Link>
-                      </Dropdown.Item>
-                      <Dropdown.Item className="dropdown-item">
-                        <i className="fa fa-users text-primary mr-2" />
-                        Voir liste rendez vous 
-                      </Dropdown.Item>
-                    
-                    </Dropdown.Menu>
-                  </Dropdown>
+                
                 </div>
               </div>
             </div>
