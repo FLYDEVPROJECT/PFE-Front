@@ -11,7 +11,7 @@ const StepFour = ({ history }) => {
   }; 
   const validate = Yup.object({
    password: Yup.string()
-     .min(6, 'Le mot de passe doit être au moins de 6 caractères')
+     .min(12, 'Le mot de passe doit être au moins de 12 caractères')
      .required('Mot de passe est obligatoire '),
    confirmPassword: Yup.string()
      .oneOf([Yup.ref('password'), null], 'Password must match')

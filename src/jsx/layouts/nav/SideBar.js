@@ -138,7 +138,7 @@ class SideBar extends Component {
             <li className={`${forms.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-notepad"></i>
-                <span className="nav-text forms">Contact</span>
+                <span className="nav-text forms">Contact </span>
               </Link>
               <ul >
                 <li>

@@ -101,32 +101,17 @@ const MedContact = () => {
                                  className="btn btn-primary light dropdown-toggle v ml-1"
                                  data-toggle="dropdown"
                               >
-                                 More <span className="caret m-l-5"></span>
+                                 Plus <span className="caret m-l-5"></span>
                               </Dropdown.Toggle>
                               <Dropdown.Menu className="dropdown-menu">
+                               
                                  <Dropdown.Item
                                     className="dropdown-item"
-                                    to="/email-compose"
+                                    to="/contact"
                                  >
-                                    Mark as Unread
-                                 </Dropdown.Item>
-                                 <Dropdown.Item
-                                    className="dropdown-item"
-                                    to="/email-compose"
-                                 >
-                                    Add to Tasks
-                                 </Dropdown.Item>
-                                 <Dropdown.Item
-                                    className="dropdown-item"
-                                    to="/email-compose"
-                                 >
-                                    Add Star
-                                 </Dropdown.Item>
-                                 <Dropdown.Item
-                                    className="dropdown-item"
-                                    to="/email-compose"
-                                 >
-                                    Mute
+                                    <Link to ="/contact">
+                                    Voir Tous les questions 
+                                    </Link>
                                  </Dropdown.Item>
                               </Dropdown.Menu>
                            </Dropdown>

@@ -119,8 +119,7 @@ const blue = {
                 <div className="auth-form">
            <TabsUnstyled defaultValue={0}>
       <TabsList>
-        <Tab>Patient</Tab>
-        <Tab>Professionnel de santé</Tab>
+       
       </TabsList>
       <TabPanel value={0}> 
       <div className="row">

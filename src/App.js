@@ -1,7 +1,7 @@
 import { lazy, Suspense} from 'react';
 /// Components
 import Index from './jsx/index';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import {  Route, Switch, withRouter } from 'react-router-dom';
 // action
 import { isAuthenticated } from './store/selectors/AuthSelectors';
