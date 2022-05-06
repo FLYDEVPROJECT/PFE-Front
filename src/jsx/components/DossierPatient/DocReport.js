@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useState} from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
@@ -20,6 +20,8 @@ import { TextField } from './TextField';
 import { TextArea } from './TextArea';
 import * as Yup from 'yup';
 import './validation.css';
+import { Modal } from "react-bootstrap";
+
 
 
 const DocReport = () => {
@@ -28,6 +30,8 @@ const DocReport = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const [largeModal, setLargeModal] = useState(false);
+
 
   const handleClose = () => {
     setOpen(false);
@@ -197,7 +201,46 @@ const DocReport = () => {
                   </div>
                   <hr />
                  
-                 
+    {/* <!-- Large modal --> */}
+    <Button
+                           variant="primary"
+                           className="mb-2 mr-2"
+                           onClick={() => setLargeModal(true)}
+                        >
+                           Large modal
+                        </Button>
+                        <Modal
+                           className="fade bd-example-modal-lg"
+                           show={largeModal}
+                           size="lg"
+                        >
+                           <Modal.Header>
+                              <Modal.Title>Modal title</Modal.Title>
+                              <Button
+                                 variant=""
+                                 className="close"
+                                 onClick={() => setLargeModal(false)}
+                              >
+                                 <span>&times;</span>
+                              </Button>
+                           </Modal.Header>
+                           <Modal.Body>Modal body text goes here.</Modal.Body>
+                           <Modal.Footer>
+                              <Button
+                                 variant="danger light"
+                                 onClick={() => setLargeModal(false)}
+                              >
+                                 Close
+                              </Button>
+                              <Button
+                                 variant=""
+                                 type="button"
+                                 className="btn btn-primary"
+                              >
+                                 Save changes
+                              </Button>
+                           </Modal.Footer>
+                        </Modal>
                 
                   <div className='form-group pt-3'>
                   <div class="d-flex justify-content-center">

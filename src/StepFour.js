@@ -3,6 +3,8 @@ import { Formik , Form} from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
 import './validation.css';
+import swal from "sweetalert";
+
 
 const StepFour = ({ history }) => {
   const submitHandler = (e) => {
@@ -54,13 +56,20 @@ const StepFour = ({ history }) => {
       )}
     </Formik>
                                 <br></br>
-                                 <div className="text-center">
-                                    <input
-                                       type="submit"
-                                       value="Valider"
-                                       className="btn btn-primary btn-block"
-                                    />
-                                 </div>
+
+
+                                <button
+                              onClick={() =>
+                                 swal(
+                                    "Félicitations!",
+                                    "Votre demande a éte envoyez avec succés!",
+                                    "success"
+                                 )
+                              }
+                              className="btn btn-success btn sweet-success"
+                           >
+                              Sweet Success
+                           </button>
                               </form>
                         </div>
                      </div>

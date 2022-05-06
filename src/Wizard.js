@@ -8,7 +8,6 @@ import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 import Multistep from "react-multistep";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
-import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import WizardPro from "./WizardPro";
 
@@ -17,7 +16,6 @@ const Wizard = () => {
    const steps = [
       { name: "Personal Info", component: <StepOne /> },
       { name: "Company Info", component: <StepTwo /> },
-      { name: "Business Hours", component: <StepThree /> },
       { name: "Email Setup", component: <StepFour /> },
    ];
    const prevStyle = {
@@ -30,6 +28,7 @@ const Wizard = () => {
       padding: "0.55em 2em",
       border: "1px solid #EEEEEE",
       marginRight: "1rem",
+
    };
    const nextStyle = {
       background: "#2b68a1",
@@ -147,7 +146,10 @@ const blue = {
       </TabPanel>
 
     </TabsUnstyled>
-        </div></div></div></div></div></div>
+        </div>
+        </div>
+        </div>
+        </div></div></div>
       </Fragment>
    );
 };

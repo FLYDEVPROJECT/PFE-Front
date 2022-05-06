@@ -96,10 +96,26 @@ setPasswordEye(!passwordEye);
  
                                     <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500"> Nom et prénom<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500"> Nom<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>Dr</span>
+                                        <span>med</span>
+                                    </div>
+                                </div>
+                                <div className="row mb-2">
+                                    <div className="col-3">
+                                        <h6 className="f-w-500">Prénom<span className="pull-right">:</span></h6>
+                                    </div>
+                                    <div className="col-9">
+                                        <span>med</span>
+                                    </div>
+                                </div>
+                                <div className="row mb-2">
+                                    <div className="col-3">
+                                        <h6 className="f-w-500">Sexe<span className="pull-right">:</span></h6>
+                                    </div>
+                                    <div className="col-9">
+                                        <span>masculin</span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
@@ -128,10 +144,10 @@ setPasswordEye(!passwordEye);
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Age<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Ville<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>27</span>
+                                        <span>Tunis</span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
@@ -144,12 +160,13 @@ setPasswordEye(!passwordEye);
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Ville<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500"> Code postal<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>Tunis</span>
+                                        <span>3000</span>
                                     </div>
                                 </div>
+                               
                             </div>
                             <div className="profile-about-me">
                                 <div className="pt-4 border-bottom-1 pb-3">
@@ -162,50 +179,43 @@ setPasswordEye(!passwordEye);
                                         <h6 className="f-w-500">Code Sécurité Sociale ( CSS)*<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>********
+                                        <span>*************
                                         </span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Numéro carte d'identité <span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Nombre d'enfants <span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>********</span>
+                                        <span>2</span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Type et Spécialité<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Profession / Scolarité<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>+216        </span>
+                                        <span>scolarité</span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Adresse E-mail professionel<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Retreté(e)*<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>example @gmail.com</span>
+                                        <span>oui</span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Langue parlée<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Type d'âge *<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>Espagnol - français - allemand</span>
+                                        <span>Enfant </span>
                                     </div>
                                 </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Expérience Professionelle<span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>ans d'experience  ..</span>
-                                    </div>
-                                </div>
+                               
                            
                                     </div>
                                     </div>
@@ -217,72 +227,13 @@ setPasswordEye(!passwordEye);
                                     <br></br>
                                     <br></br>
  
-                                    <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Nom de l'établissement<span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>Hopital ..</span>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Numéro de l'établissement <span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>+9875685487555</span>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Adresse de l'établissement <span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span> Avenue chanigol pad      </span>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Ville<span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span> padto </span>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Adresse E-mail de l'établissement<span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>hopital x @gmail.com</span>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Site web <span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>www.medical.fr</span>
-                                    </div>
-                                </div>
- 
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Heure début de journée <span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>9h</span>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-3">
-                                        <h6 className="f-w-500">Heure fin de journée <span className="pull-right">:</span></h6>
-                                    </div>
-                                    <div className="col-9">
-                                        <span>18h</span>
-                                    </div>
-                                </div>
-                           
+                             
+                               
+                              
+                              
+                               
+                              
+                             
                                     </div>
                                     </div>
                                    

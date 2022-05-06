@@ -75,13 +75,7 @@ function Login (props) {
                                     </label>
                                     <input type="RPPS" className="form-control" placeholder='********' />
                                 </div>
-                                <div className="form-group">
-                                    <label className="mb-2 ">
-                                        <strong className="">Email</strong>
-                                    </label>
-                                    <input type="RPPS" className="form-control" value={RPPS} onChange={(e) => setRPPS(e.target.value)}/>
-                                    {errors.RPPS && <div className="text-danger fs-12">{errors.RPPS}</div>}
-                                </div>
+                             
                                 <div className="form-group">
                                     <label className="mb-2 "><strong className="">Mot de passe</strong></label>
                                     <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)}/>

@@ -46,7 +46,7 @@ const StepOne = () => {
         console.log(values)
       }}
     >
-      {formik => (
+      
         <div>
           <div className="row">
 
@@ -75,7 +75,6 @@ accept="image/png, image/jpeg"  className="form-control"/>
       >
         <FormControlLabel value="female"  control={<Radio />} label="Female" defaultChecked />
         <FormControlLabel value="male" control={<Radio />} label="Male" />
-        <FormControlLabel value="other" control={<Radio />} label="Other" />
        
       </RadioGroup>
       <br></br>
@@ -155,7 +154,6 @@ accept="image/png, image/jpeg"  className="form-control"/>
   
   
    </div>
-      )}
     </Formik>
     <br></br>
     <br></br>
