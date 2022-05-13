@@ -162,45 +162,24 @@ class SideBar extends Component {
         <PerfectScrollbar className="deznav-scroll">
           <MM className="metismenu" id="menu">
             <li className={`${dashBoard.includes(path) ? "mm-active" : ""}`}>
-              <Link className="has-arrow ai-icon" to="#" >
+              <Link className="has-arrow ai-icon" to="/" >
                 <i className="flaticon-381-networking"></i>
                 <span className="nav-text">Tableau de bord </span>
               </Link>
-				<ul >
-				
-				
-				<li>
-        <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/docteur/liste-professionnels">
-                        Liste des professionels de santé 
-                    </Link>
-        </li>
-        <li>
-        <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="/docteur/liste-patient">
-                        Liste des patients
-                    </Link>
-        </li>
-			
-					<li>
-						<Link className={`${path === "doctor-details" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/details">
-            Docteur details
-						</Link>
-					</li>
-			 
-							
-				</ul>
+	
             </li>
             <li className={`${app.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
-                <i className="flaticon-381-television"></i>
+                <i className="flaticon-381-user"></i>
                 <span className="nav-text">Mon profile</span>
               </Link>
               <ul >
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/profile">Profile</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/profile">Profile</Link>
                 </li>
 				
                 <li>
-						<Link className={`${path === "experience" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/docteur/experience">Expérience professionel</Link>
+						<Link className={`${path === "experience" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/experience">Expérience professionel</Link>
 					</li>	
                 <li className={`${email.includes(path) ? "mm-active" : ""}`}>
                 
@@ -289,10 +268,41 @@ class SideBar extends Component {
              
              
             </li>
+            
             <li className={`${table.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="Compose" >
                 <i className="flaticon-381-network"></i>
-                <span className="nav-text">Compte </span>
+                <span className="nav-text">Liste  </span>
+              </Link>
+              <ul >
+				
+				
+				<li>
+        <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="liste-professionnels">
+                        Liste des professionels de santé 
+                    </Link>
+        </li>
+        <li>
+        <Link className={`${ path === "table-filtering" ? "mm-active" : "" }`} onClick={() => this.props.onClick()} to="liste-patient">
+                        Liste des patients
+                    </Link>
+        </li>
+			
+				
+			 
+							
+				</ul>
+            </li>
+           <li>
+                     
+                    </li>
+
+
+
+            <li className={`${table.includes(path) ? "mm-active" : ""}`}>
+              <Link className="has-arrow ai-icon" to="Compose" >
+                <i className="flaticon-381-heart"></i>
+                <span className="nav-text">Dossier Patient </span>
               </Link>
               <ul >
                 <li>
@@ -300,7 +310,7 @@ class SideBar extends Component {
                         className={`${
                           path === "ecom-product-detail" ? "mm-active" : ""
                         }`}
-                        to="/docteur/creationcompte"
+                        to="creationcompte"
                         onClick={() => this.props.onClick()}
                       >
                        Création d'un Compte
@@ -310,21 +320,13 @@ class SideBar extends Component {
                         className={`${
                           path === "ecom-product-detail" ? "mm-active" : ""
                         }`}
-                        to="/docteur/ordonnance-medicale"
+                        to="ordonnance-medicale"
                         onClick={() => this.props.onClick()}
                       >
-                       ordonnance médicale
+                       prescription médicale
                       </Link>
                 <li>
-                <Link
-                        className={`${
-                          path === "contact" ? "mm-active" : ""
-                        }`}
-                        to="/docteur/contact"
-                        onClick={() => this.props.onClick()}
-                      >
-                        Contact
-                      </Link>
+         
        
                  
                 </li>
@@ -334,9 +336,29 @@ class SideBar extends Component {
            <li>
                      
                     </li>
-            <li>
-                     
-                    </li>
+                    <li className={`${app.includes(path) ? "mm-active" : ""}`}>
+              <Link className="has-arrow ai-icon" to="#" >
+                <i className="flaticon-381-notepad"></i>
+                <span className="nav-text">Contact</span>
+              </Link>
+              <ul >
+                <li>
+                <Link
+                        className={`${
+                          path === "contact" ? "mm-active" : ""
+                        }`}
+                        to="contact"
+                        onClick={() => this.props.onClick()}
+                      >
+                        Q 	& R 
+                      </Link>
+                </li>
+                </ul>
+                </li>
+
+
+                   
+                      
             
             <li className={`${pages.includes(path) ? "mm-active" : ""}`}>
                 <Link className="has-arrow ai-icon" to="#" >

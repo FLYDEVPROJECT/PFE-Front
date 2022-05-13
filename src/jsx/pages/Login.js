@@ -70,15 +70,9 @@ function Login (props) {
                                     <label className="mb-2 ">
                                         <strong className="">Identifiant RPPS</strong>
                                     </label>
-                                    <input type="RPPS" className="form-control" placeholder='********' />
+                                    <input type="RPPS" className="form-control" placeholder='89271224' />
                                 </div>
-                                <div className="form-group">
-                                    <label className="mb-2 ">
-                                        <strong className="">Email</strong>
-                                    </label>
-                                    <input type="RPPS" className="form-control" value={RPPS} onChange={(e) => setRPPS(e.target.value)}/>
-                                    {errors.RPPS && <div className="text-danger fs-12">{errors.RPPS}</div>}
-                                </div>
+                               
                                 <div className="form-group">
                                     <label className="mb-2 "><strong className="">Mot de passe</strong></label>
                                     <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)}/>
@@ -92,6 +86,7 @@ function Login (props) {
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <div className="text-center">
                                     <button type="submit" className="btn btn-primary btn-block">s'identifier</button>
                                 </div>
@@ -99,6 +94,9 @@ function Login (props) {
                             <div className="new-account mt-2">
                                 <p className="mb-0">Vous n'avez pas de compte ?{" "}
                                     <Link className="text-black" to="./Authentif">s'inscrire</Link>
+                                    <div> <Link to="/about">Mot de passe oublié</Link></div>
+                                   
+
                                 </p>
                             </div>
                         </div>

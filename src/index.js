@@ -14,7 +14,7 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store = {store}>
             <SimpleReactLightbox>
-                <BrowserRouter basename=''>
+                <BrowserRouter basename='/docteur'>
                     <ThemeContext>
                         <App />
                     </ThemeContext>  

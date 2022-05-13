@@ -9,21 +9,15 @@ import { isAuthenticated } from './store/selectors/AuthSelectors';
 /// Style
 import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import "./css/style.css";
-
+import Wizard from "./Wizard" ; 
 
 //import Test from './test'
 import Checkout from './jsx/components/Dashboard/Checkout'
 import CustomeSelete from './jsx/components/PluginsMenu/Select2/CustomeSelete'
-import dossier from './jsx/components/PluginsMenu/Toastr/dossier'
-import verification from './jsx/components/PluginsMenu/Toastr/verification'
-import CustomGroup from './jsx/components/PluginsMenu/Select2/CustomGroup' 
-import patient from './patient'
+
 import professionnel from './professionnel'
-import WizardFormFirstPage from './jsx/components/Forms/ReduxWizard/WizardFormFirstPage';
-import WizardForm from './jsx/components/Forms/ReduxWizard/WizardForm';
-import { FaHatWizard } from 'react-icons/fa';
-import Wizard from './jsx/components/Forms/Wizard/Wizard';
-import Wizardpt from './jsx/components/Forms/Wizardpt/Wizard'; 
+
+
 import PatientDetails from './jsx/components/Dashboard/PatientDetails';
 import Search from './jsx/components/Dashboard/Search';
 
@@ -48,13 +42,13 @@ function App (props) {
        
            <Route exact path="/" component={Login}/>
            <Route  path="/search" component={Search}/>
-          
+          <Route path ="/Authentif" component={Wizard}/>
            <Route path ="/verification" component={CustomeSelete}/>
          <Route  path ="/contact" component={professionnel}/>
            <Route exact path="/patient" component={Checkout}/>
           <Route path="/Saisiedesdonnees" component={PatientDetails}/>
             <Route path='/login' component={Login} />
-            <Route path='/Authentif' component={patient} />
+          
             <Route path='/page-forgot-password' component={ForgotPassword} />
            
         </Switch>

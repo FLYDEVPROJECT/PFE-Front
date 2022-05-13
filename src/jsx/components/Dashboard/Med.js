@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-// date-fns
+import React, {Component, PropTypes} from 'react';
 import TextField from '@mui/material/TextField';
+
 import Checkbox from '@mui/material/Checkbox';
 import { Row, Col, Card} from 'react-bootstrap'
 import Autocomplete from '@mui/material/Autocomplete';
@@ -98,17 +98,19 @@ export default class FormInputs extends Component {
 </div>
 <br></br>
 
+<div classname="row"></div>
+<div class="mb-6">
+
                             <div className="form-group">
-                                <label  >Nom et prénom du patient</label>
+                                <label>Nom et prénom du patient</label>
                                 <input type="text"
-                                 
-                                    className="form-control "
-                                    name="ville"
+                                    className="form-control"
+                                    name="nom"
                                     onChange={this.onChange}
-                                    value={this.state.ville}
-                                    style={{ width: 1030 , height : 40}} 
+                                    value={this.state.nom}
                                 />
-                            </div>
+                            </div></div>
+
                             <label >Médicaments 
                            
                             </label>
@@ -138,7 +140,7 @@ export default class FormInputs extends Component {
       renderInput={(params) => (
 
         <TextField {...params} label="Médicaments"  
-        style={{ width: 1030 , height : 40}} />
+        style={{ width: 1030 , height : 30}} />
         
       )}
     />
@@ -160,6 +162,9 @@ export default class FormInputs extends Component {
                                     onChange={this.onChange}
                                     value={this.state.Diag}
       ></textarea>
+    <div>
+ 
+    </div>
     </div>
     <br></br> <br></br>
                             <button className="btn btn-primary btn-block">Créez votre Fiche !</button>

@@ -75,7 +75,7 @@ const Header = ({ onNote, toggle, onProfile }) => {
                            }`}
                         >
                            <Link
-                              to="/docteur/profile"
+                              to="/profile"
                               className="dropdown-item ai-icon"
                            >
                               <svg

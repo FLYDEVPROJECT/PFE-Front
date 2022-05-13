@@ -1,437 +1,1183 @@
-import React from "react";
+import React, { Fragment } from "react";
+
+import PageTitle from "../../layouts/PageTitle";
+import { useState, useEffect } from "react";
+import {
+  Row,
+  Col,
+  Card,
+  Table,
+  Badge,
+  Dropdown,
+  ProgressBar,
+} from "react-bootstrap";
+
+/// imge
+
 import { Link } from "react-router-dom";
 
-//Image
-import doctors6 from "../../../images/doctors/6.jpg";
-import doctors7 from "../../../images/doctors/7.jpg";
-import doctors17 from "../../../images/doctors/17.jpg";
-import doctors18 from "../../../images/doctors/18.jpg";
-import doctors19 from "../../../images/doctors/19.jpg";
-import doctors20 from "../../../images/doctors/20.jpg";
+const dentiste = () => {
+  const svg1 = (
+    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <rect x="0" y="0" width="24" height="24"></rect>
+        <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+        <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+        <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+      </g>
+    </svg>
+  );
+  // Normal page
+ /*  const [data, setData] = useState(
+    document.querySelectorAll(".custom-checkbox")
+  ); */
+  const [test, settest] = useState(false);
+  // use effect
+  useEffect(() => {
+    //   getAppData();
+    //setData(document.querySelectorAll(".custom-checkbox"));
+    setTimeout(() => {
+      settest(true);
+    }, 2000);
+  }, [test]);
+  const chackbox = document.querySelectorAll(".custom-checkbox input");
+  const motherChackBox = document.querySelector("#checkbox1_exam_all");
+  const chackboxFun = (type) => {
+    for (let i = 0; i < chackbox.length; i++) {
+      const element = chackbox[i];
+      if (type === "all") {
+        if (motherChackBox.checked) {
+          element.checked = true;
+        } else {
+          element.checked = false;
+        }
+      } else {
+        if (!element.checked) {
+          motherChackBox.checked = false;
+          break;
+        } else {
+          motherChackBox.checked = true;
+        }
+      }
+    }
+  };
 
-// Import Bootstrap
-import { Dropdown, Nav, Tab } from "react-bootstrap";
-
-const PageReview = () => {
-   return (
-      <div className="h-70 ml-0">
-         <div className="page-titles">
-         <p> La médecine dentaire est science de la médecine qui concerne les dents mais aussi les organes buccaux et les tissus qui les soutiennent et les parodontes. Il existe de nombreuses spécialisations dans la médecine dentaire même si les spécialités officielles diffèrent d'un pays à un autre. Les spécialisations les plus répandues actuellement sont : la chirurgie dentaire ; l'implantologie ; la parodontie ; la chirurgie maxillo-faciale ; l’orthodontie ; l'orthopédie dentofaciale ; la dentisterie pédiatrique ; l'endodontie, la radiologie buccale et maxillo-faciale.</p>
-         </div>
-         <div className="form-head d-flex mb-3 mb-md-4 align-items-start">
-   
-            <div className="input-group search-area ml-auto d-inline-flex">
-               <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Chercher ici"
-               />
-               <div className="input-group-append">
-                  <button type="button" className="input-group-text">
-                     <i className="flaticon-381-search-2" />
-                  </button>
-               </div>
-            </div>
-            <Dropdown className="dropdown ml-2 d-inline-block">
-               
-              
-            </Dropdown>
-         </div>
-         <div className="row">
-            <div className="col-xl-12">
-               <Tab.Container defaultActiveKey="navpills-1">
-                  <Nav as="ul" className="nav nav-pills review-tab">
-                     <Nav.Item as="li" className="nav-item">
-                        <Nav.Link
-                           eventKey="navpills-1"
-                           className="nav-link "
-                           data-toggle="tab"
-                           aria-expanded="false"
+  return (
+    <Fragment>
+      <PageTitle activeMenu="Table" motherMenu="Bootstrap" />
+      <Row>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Recent Payments Queue</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th className="width80">
+                      <strong>#</strong>
+                    </th>
+                    <th>
+                      <strong>PATIENT</strong>
+                    </th>
+                    <th>
+                      <strong>DR NAME</strong>
+                    </th>
+                    <th>
+                      <strong>DATE</strong>
+                    </th>
+                    <th>
+                      <strong>STATUS</strong>
+                    </th>
+                    <th>
+                      <strong>PRICE</strong>
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>01</strong>
+                    </td>
+                    <td>Mr. Bobby</td>
+                    <td>Dr. Jackson</td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <Badge variant="success light">Successful</Badge>
+                    </td>
+                    <td>$21.56</td>
+                    <td>
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant="success"
+                          className="light sharp i-false"
                         >
-                          Tous les Médecins 
-                        </Nav.Link>
-                     </Nav.Item>
-                     <Nav.Item as="li" className="nav-item">
-                
-                     </Nav.Item>
-                     <Nav.Item as="li" className="nav-item">
-                    
-                     </Nav.Item>
-                  </Nav>
-                  <Tab.Content className="tab-content">
-                     <Tab.Pane eventKey="navpills-1" className="tab-pane ">
-                        <div className="card review-table">
-                           <div className="media align-items-center">
-                              <div className="checkbox mr-lg-4 mr-0 align-self-center">
-                                 <div className="custom-control custom-checkbox checkbox-info">
-                                    <input
-                                       type="checkbox"
-                                       className="custom-control-input"
-                                       id="customCheckBox1"
-                                       required
-                                    />
-                                    
-                                 </div>
-                              </div>
-                              <img
-                                 className="mr-3 img-fluid rounded"
-                                 width={90}
-                                 src={"https://albumimag.files.wordpress.com/2021/08/lexique-medecin-2.jpg?w=500&zoom=2"}
-                                 alt="DexignZone"
-                              />
-                              <div className="media-body d-lg-flex d-block row align-items-center">
-                                 <div className="col-xl-4 col-xxl-5 col-lg-6 review-bx">
-                                    <h3 className="fs-20 font-w600 mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/Dermato"
-                                       >
-                                    <Link to="/MehdiMoussa"> Dr Mehdi Moussa</Link> 
-                                       </Link>
-                                    </h3>
-                                    <span className="fs-15 d-block">
-                                     
-                                    </span>
-                                    <span className="text-primary d-block font-w600 mt-sm-2 mt-3">
-                                       <i className="las la-stethoscope scale5 mr-3" />
-                                       Dentiste
-                                    </span>
-                                 </div>
-                                 <div className="col-xl-7 col-xxl-7 col-lg-6 text-dark mb-lg-0 mb-2">
-                                 Numéro de télephone :+216221874
-                                 </div>
-                              </div>
-                              <div className="media-footer d-sm-flex d-block align-items-center">
-                                 <div className="disease mr-5">
-                                 
-                                 </div>
-                                 <div className="edit ml-auto">
-                               
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="card review-table">
-                           <div className="media align-items-center">
-                              <div className="checkbox mr-lg-4 mr-0 align-self-center">
-                                 <div className="custom-control custom-checkbox checkbox-info">
-                                    <input
-                                       type="checkbox"
-                                       className="custom-control-input"
-                                       id="customCheckBox1"
-                                       required
-                                    />
-                                
-                                 </div>
-                              </div>
-                              <img
-                                 className="mr-3 img-fluid rounded"
-                                 width={90}
-                                 src={"https://f.hellowork.com/obs-static-images/seo/ObsJob/medecin-generaliste.jpg"}
-                                 alt="DexignZone"
-                              />
-                              <div className="media-body d-lg-flex d-block row align-items-center">
-                                 <div className="col-xl-4 col-xxl-5 col-lg-6 review-bx">
-                                    <h3 className="fs-20 font-w600 mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/Dermato"
-                                       >
-                                        Dr Bahri Mohamed Ali
-                                       </Link>
-                                    </h3>
-                                    <span className="fs-15 d-block">
-                                     
-                                    </span>
-                                    <span className="text-primary d-block font-w600 mt-sm-2 mt-3">
-                                       <i className="las la-stethoscope scale5 mr-3" />
-                                       Dentiste
-                                    </span>
-                                 </div>
-                                 <div className="col-xl-7 col-xxl-7 col-lg-6 text-dark mb-lg-0 mb-2">
-                                 Numéro de télephone :+216897425
-                                 </div>
-                              </div>
-                              <div className="media-footer d-sm-flex d-block align-items-center">
-                                 <div className="disease mr-5">
-                             
-                                 </div>
-                                 <div className="edit ml-auto">
-                               
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="card review-table">
-                           <div className="media align-items-center">
-                              <div className="checkbox mr-lg-4 mr-0 align-self-center">
-                                 <div className="custom-control custom-checkbox checkbox-info">
-                                    <input
-                                       type="checkbox"
-                                       className="custom-control-input"
-                                       id="customCheckBox3"
-                                       required
-                                    />
-                              
-                                 </div>
-                              </div>
-                              <img
-                                 className="mr-3 img-fluid rounded"
-                                 width={90}
-                                 src={"https://img.freepik.com/vecteurs-libre/contexte-du-docteur_1270-84.jpg?w=740"}
-                                 alt="DexignZone"
-                              />
-                              <div className="media-body d-lg-flex d-block row align-items-center">
-                                 <div className="col-xl-4 col-xxl-5 col-lg-6 review-bx">
-                                    <h3 className="fs-20 font-w600 mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/Dermato"
-                                       >
-                                    Dr Souha Nasri
-                                       </Link>
-                                    </h3>
-                                    
-                                    <span className="text-primary d-block font-w600 mt-sm-2 mt-3">
-                                       <i className="las la-stethoscope scale5 mr-3" />
-                                       Dentiste
-
-                                    </span>
-                                 </div>
-                                 <div className="col-xl-7 col-xxl-7 col-lg-6 text-dark mb-lg-0 mb-2">
-                                 Numéro de télephone :+2165852417
-                                 </div>
-                              
-                              </div>
-                              <div className="media-footer d-sm-flex d-block align-items-center">
-                                 <div className="disease mr-5">
-                                  
-                                 </div>
-                           
-                              </div>
-                           </div>
-                        </div>
-                       
-                        
-                        
-                     </Tab.Pane>
-                     <Tab.Pane eventKey="navpills-2" className="tab-pane">
-                        <div className="card review-table">
-                           <div className="media align-items-center">
-                              <div className="checkbox mr-lg-4 ml-0 align-self-center">
-                                 <div className="custom-control custom-checkbox checkbox-info">
-                                    <input
-                                       type="checkbox"
-                                       className="custom-control-input"
-                                       id="customCheckBox6"
-                                       required
-                                    />
-                                  
-                                 </div>
-                              </div>
-                              <img
-                                 className="mr-3 img-fluid rounded"
-                                 width={90}
-                                 src={doctors18}
-                                 alt="DexignZone"
-                              />
-                              <div className="media-body d-lg-flex d-block row align-items-center">
-                                 <div className="col-xl-4 col-xxl-5 col-lg-6 review-bx">
-                                    <h3 className="fs-20 font-w600 mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/Dermato"
-                                       >
-                                          Glee Smiley
-                                       </Link>
-                                    </h3>
-                                    
-                                    <span className="text-primary d-block font-w600 mt-sm-2 mt-3">
-                                       <i className="las la-stethoscope scale5 mr-3" />
-                                       Diabetes
-                                    </span>
-                                 </div>
-                                 <div className="col-xl-7 col-xxl-7 col-lg-6 text-dark mb-lg-0 mb-2">
-                                    When I came with my mother, I was very
-                                    nervous. But after entering here I felt
-                                    warmed with smiling
-                                 </div>
-                              </div>
-                              <div className="media-footer d-sm-flex d-block align-items-center">
-                                 <div className="disease mr-5">
-                                    <span className="star-review ml-lg-3 mb-sm-0 mb-2 ml-0 d-inline-block">
-                                      <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                    </span>
-                                 </div>
-                                 <div className="edit ml-auto">
-                                    <Link
-                                       to="/Dermato"
-                                       className="text-primary font-w600 mr-4"
-                                    >
-                                       PUBLISH
-                                    </Link>
-                                    <Link
-                                       to="/Dermato"
-                                       className="text-danger font-w600"
-                                    >
-                                       DELETE
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="card review-table">
-                           <div className="media align-items-center">
-                              <div className="checkbox mr-lg-4 ml-0 align-self-center">
-                                 <div className="custom-control custom-checkbox checkbox-info">
-                                    <input
-                                       type="checkbox"
-                                       className="custom-control-input"
-                                       id="customCheckBox7"
-                                       required
-                                    />
-                             
-                                 </div>
-                              </div>
-                              <img
-                                 className="mr-3 img-fluid rounded"
-                                 width={90}
-                                 src={doctors17}
-                                 alt="DexignZone"
-                              />
-                              <div className="media-body d-lg-flex d-block row align-items-center">
-                                 <div className="col-xl-4 col-xxl-5 col-lg-6 review-bx">
-                                    <h3 className="fs-20 font-w600 mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/Dermato"
-                                       >
-                                          Dentiste
-                                       </Link>
-                                    </h3>
-                                  
-                                    <span className="text-primary d-block font-w600 mt-sm-2 mt-3">
-                                       <i className="las la-stethoscope scale5 mr-3" />
-                                       Allergies &amp; Atshma
-                                    </span>
-                                 </div>
-                                 <div className="col-xl-7 col-xxl-7 col-lg-6 text-dark mb-lg-0 mb-2">
-                                    Thanks for all the services, no doubt it is
-                                    the best hospital. My kidney, BP, diabetes
-                                    problem
-                                 </div>
-                              </div>
-                              <div className="media-footer d-sm-flex d-block align-items-center">
-                                 <div className="disease mr-5">
-                                    <span className="star-review ml-lg-3 mb-sm-0 mb-2 ml-0 d-inline-block">
-                                     <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                    </span>
-                                 </div>
-                                 <div className="edit ml-auto">
-                                    <Link
-                                       to="/Dermato"
-                                       className="text-primary font-w600 mr-4"
-                                    >
-                                       PUBLISH
-                                    </Link>
-                                    <Link
-                                       to="/Dermato"
-                                       className="text-danger font-w600"
-                                    >
-                                       DELETE
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        
-                        <div className="card review-table">
-                           <div className="media align-items-center">
-                              <div className="checkbox mr-lg-4 mr-0 align-self-center">
-                                 <div className="custom-control custom-checkbox checkbox-info">
-                                    <input
-                                       type="checkbox"
-                                       className="custom-control-input"
-                                       id="customCheckBox9"
-                                       required
-                                    />
-                                    <label
-                                       className="custom-control-label"
-                                       htmlFor="customCheckBox9"
-                                    />
-                                 </div>
-                              </div>
-                              <img
-                                 className="mr-3 img-fluid rounded"
-                                 width={90}
-                                 src={doctors18}
-                                 alt="DexignZone"
-                              />
-                              <div className="media-body d-lg-flex d-block row align-items-center">
-                                 <div className="col-xl-4 col-xxl-5 col-lg-6 review-bx">
-                                    <h3 className="fs-20 font-w600 mb-1">
-                                       <Link
-                                          className="text-black"
-                                          to="/Dermato"
-                                       >
-                                        aaaaaaaaaaaaaaa
-                                       </Link>
-                                    </h3>
-                                   
-                                    <span className="text-primary d-block font-w600 mt-sm-2 mt-3">
-                                       <i className="las la-stethoscope scale5 mr-3" />
-                                     Dentiste
-                                    </span>
-                                 </div>
-                                 <div className="col-xl-7 col-xxl-7 col-lg-6 text-dark mb-lg-0 mb-2">
-                                    Hospital &amp; staff were extremely warm
-                                    &amp; quick in getting me start with the
-                                    procedures
-                                 </div>
-                              </div>
-                              <div className="media-footer d-sm-flex d-block align-items-center">
-                                 <div className="disease mr-5">
-                                    <span className="star-review ml-lg-3 mb-sm-0 mb-2 ml-0 d-inline-block">
-                                      <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                       <i className="fa fa-star mr-1 text-orange" />
-                                    </span>
-                                 </div>
-                                 <div className="edit ml-auto">
-                                    <Link
-                                       to="/Dermato"
-                                       className="text-primary font-w600 mr-4"
-                                    >
-                                       PUBLISH
-                                    </Link>
-                                    <Link
-                                       to="/Dermato"
-                                       className="text-danger font-w600"
-                                    >
-                                       DELETE
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        
-                     </Tab.Pane>
-                  </Tab.Content>
-               </Tab.Container>
-            </div>
-         </div>
-      </div>
-   );
+                          {svg1}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>Edit</Dropdown.Item>
+                          <Dropdown.Item>Delete</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>02</strong>
+                    </td>
+                    <td>Mr. Bobby</td>
+                    <td>Dr. Jackson</td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <Badge variant="danger light">Canceled</Badge>
+                    </td>
+                    <td>$21.56</td>
+                    <td>
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant="danger"
+                          className="light sharp i-false"
+                        >
+                          {svg1}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>Edit</Dropdown.Item>
+                          <Dropdown.Item>Delete</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>03</strong>
+                    </td>
+                    <td>Mr. Bobby</td>
+                    <td>Dr. Jackson</td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <Badge variant="warning light">Pending</Badge>
+                    </td>
+                    <td>$21.56</td>
+                    <td>
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant="warning"
+                          className="light sharp i-false"
+                        >
+                          {svg1}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item>Edit</Dropdown.Item>
+                          <Dropdown.Item>Delete</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Exam Toppers</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th className="width50">
+                      <div className="custom-control custom-checkbox checkbox-success check-lg mr-3">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          id="checkbox1_exam_all"
+                          onClick={() => chackboxFun("all")}
+                          required=""
+                        />
+                        <label
+                          className="custom-control-label"
+                          htmlFor="checkbox1_exam_all"
+                        ></label>
+                      </div>
+                    </th>
+                    <th>
+                      <strong>ROLL NO.</strong>
+                    </th>
+                    <th>
+                      <strong>NAME</strong>
+                    </th>
+                    <th>
+                      <strong>Email</strong>
+                    </th>
+                    <th>
+                      <strong>Date</strong>
+                    </th>
+                    <th>
+                      <strong>Status</strong>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="custom-control custom-checkbox checkbox-success check-lg mr-3">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          id="customCheckBox2"
+                          onClick={() => chackboxFun()}
+                          required=""
+                        />
+                        <label
+                          className="custom-control-label"
+                          htmlFor="customCheckBox2"
+                        ></label>
+                      </div>
+                    </td>
+                    <td>
+                      <strong>542</strong>
+                    </td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <img
+                          src={avatar1}
+                          className="rounded-lg mr-2"
+                          width="24"
+                          alt=""
+                        />{" "}
+                        <span className="w-space-no">Dr. Jackson</span>
+                      </div>
+                    </td>
+                    <td>example@example.com </td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <i className="fa fa-circle text-success mr-1"></i>{" "}
+                        Successful
+                      </div>
+                    </td>
+                    <td>
+                      <div className="d-flex">
+                        <Link
+                          href="#"
+                          className="btn btn-primary shadow btn-xs sharp mr-1"
+                        >
+                          <i className="fa fa-pencil"></i>
+                        </Link>
+                        <Link
+                          href="#"
+                          className="btn btn-danger shadow btn-xs sharp"
+                        >
+                          <i className="fa fa-trash"></i>
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="custom-control custom-checkbox checkbox-success check-lg mr-3">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          onClick={() => chackboxFun()}
+                          id="customCheckBox3"
+                          required=""
+                        />
+                        <label
+                          className="custom-control-label"
+                          htmlFor="customCheckBox3"
+                        ></label>
+                      </div>
+                    </td>
+                    <td>
+                      <strong>542</strong>
+                    </td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <img
+                          src={avatar2}
+                          className="rounded-lg mr-2"
+                          width="24"
+                          alt=""
+                        />{" "}
+                        <span className="w-space-no">Dr. Jackson</span>
+                      </div>
+                    </td>
+                    <td>example@example.com </td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <i className="fa fa-circle text-danger mr-1"></i>{" "}
+                        Canceled
+                      </div>
+                    </td>
+                    <td>
+                      <div className="d-flex">
+                        <Link
+                          href="#"
+                          className="btn btn-primary shadow btn-xs sharp mr-1"
+                        >
+                          <i className="fa fa-pencil"></i>
+                        </Link>
+                        <Link
+                          href="#"
+                          className="btn btn-danger shadow btn-xs sharp"
+                        >
+                          <i className="fa fa-trash"></i>
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="custom-control custom-checkbox checkbox-success check-lg mr-3">
+                        <input
+                          type="checkbox"
+                          className="custom-control-input"
+                          onClick={() => chackboxFun()}
+                          id="customCheckBox4"
+                          required=""
+                        />
+                        <label
+                          className="custom-control-label"
+                          htmlFor="customCheckBox4"
+                        ></label>
+                      </div>
+                    </td>
+                    <td>
+                      <strong>542</strong>
+                    </td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <img
+                          src={avatar3}
+                          className="rounded-lg mr-2"
+                          width="24"
+                          alt=""
+                        />{" "}
+                        <span className="w-space-no">Dr. Jackson</span>
+                      </div>
+                    </td>
+                    <td>example@example.com </td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <i className="fa fa-circle text-warning mr-1"></i>{" "}
+                        Pending
+                      </div>
+                    </td>
+                    <td>
+                      <div className="d-flex">
+                        <Link
+                          href="#"
+                          className="btn btn-primary shadow btn-xs sharp mr-1"
+                        >
+                          <i className="fa fa-pencil"></i>
+                        </Link>
+                        <Link
+                          href="#"
+                          className="btn btn-danger shadow btn-xs sharp"
+                        >
+                          <i className="fa fa-trash"></i>
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Basic</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Kolor Tea Shirt For Man</td>
+                    <td>
+                      <Badge variant="primary light">Sale</Badge>
+                    </td>
+                    <td>January 22</td>
+                    <td className="color-primary">$21.56</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Kolor Tea Shirt For Women</td>
+                    <td>
+                      <Badge variant="success">Tax</Badge>
+                    </td>
+                    <td>January 30</td>
+                    <td className="color-success">$55.32</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Blue Backpack For Baby</td>
+                    <td>
+                      <Badge variant="danger">Extended</Badge>
+                    </td>
+                    <td>January 25</td>
+                    <td className="color-danger">$14.85</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Table Striped</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive striped>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Color Tea Shirt For Man</td>
+                    <td>
+                      <Badge variant="primary">Sale</Badge>
+                    </td>
+                    <td>January 22</td>
+                    <td className="color-primary">$21.56</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Color Tea Shirt For Women</td>
+                    <td>
+                      <Badge variant="success light">Tax</Badge>
+                    </td>
+                    <td>January 30</td>
+                    <td className="color-success">$55.32</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Blue Backpack For Baby</td>
+                    <td>
+                      <Badge variant="danger">Extended</Badge>
+                    </td>
+                    <td>January 25</td>
+                    <td className="color-danger">$14.85</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Table Bordered</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive bordered>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Kolor Tea Shirt For Man</td>
+                    <td>
+                      <Badge variant="primary">Sale</Badge>
+                    </td>
+                    <td>January 22</td>
+                    <td className="color-primary">$21.56</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Kolor Tea Shirt For Women</td>
+                    <td>
+                      <Badge variant="success">Tax</Badge>
+                    </td>
+                    <td>January 30</td>
+                    <td className="color-success">$55.32</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Blue Backpack For Baby</td>
+                    <td>
+                      <Badge variant="danger">Extended</Badge>
+                    </td>
+                    <td>January 25</td>
+                    <td className="color-danger">$14.85</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Table Hover</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive hover>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Kolor Tea Shirt For Man</td>
+                    <td>
+                      <Badge variant="primary light">Sale</Badge>
+                    </td>
+                    <td>January 22</td>
+                    <td className="color-primary">$21.56</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Kolor Tea Shirt For Women</td>
+                    <td>
+                      <Badge variant="success">Tax</Badge>
+                    </td>
+                    <td>January 30</td>
+                    <td className="color-success">$55.32</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Blue Backpack For Baby</td>
+                    <td>
+                      <Badge variant="danger light">Extended</Badge>
+                    </td>
+                    <td>January 25</td>
+                    <td className="color-danger">$14.85</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+          {/* <!-- /# card --> */}
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Hover Table</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive hover className="header-border verticle-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Popularity</th>
+                    <th scope="col">Sales</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Air Conditioner</td>
+                    <td>
+                      <ProgressBar now={70} variant="primary" />
+                    </td>
+                    <td>
+                      <Badge variant="primary light">70%</Badge>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Textiles</td>
+                    <td>
+                      <ProgressBar variant="success" now="70" />
+                    </td>
+                    <td>
+                      <Badge variant="success">70%</Badge>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Milk Powder</td>
+                    <td>
+                      <ProgressBar variant="dark" now="70" />
+                    </td>
+                    <td>
+                      <Badge variant="dark light">70%</Badge>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Vehicles</td>
+                    <td>
+                      <ProgressBar variant="danger" now="70" />
+                    </td>
+                    <td>
+                      <Badge variant="danger">70%</Badge>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Boats</td>
+                    <td>
+                      <ProgressBar variant="warning" now="70" />
+                    </td>
+                    <td>
+                      <Badge variant="warning">70%</Badge>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Bordered Table</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive bordered className="verticle-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Progress</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Label</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Air Conditioner</td>
+                    <td>
+                      <ProgressBar now={70} variant="primary" />
+                    </td>
+                    <td>Apr 20,2018</td>
+                    <td>
+                      <Badge variant="primary light">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Textiles</td>
+                    <td>
+                      <ProgressBar now={70} variant="success" />
+                    </td>
+                    <td>May 27,2018</td>
+                    <td>
+                      <Badge variant="success">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Milk Powder</td>
+                    <td>
+                      <ProgressBar now={70} variant="dark" />
+                    </td>
+                    <td>May 18,2018</td>
+                    <td>
+                      <Badge variant="dark light">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Vehicles</td>
+                    <td>
+                      <ProgressBar now={70} variant="danger" />
+                    </td>
+                    <td>Mar 27,2018</td>
+                    <td>
+                      <Badge variant="danger">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Boats</td>
+                    <td>
+                      <ProgressBar now={70} variant="warning" />
+                    </td>
+                    <td>Jun 28,2018</td>
+                    <td>
+                      <Badge variant="warning">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Table Stripped</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive striped bordered className="verticle-middle">
+                <thead>
+                  <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Progress</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Label</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Air Conditioner</td>
+                    <td>
+                      <ProgressBar now={70} variant="primary" />
+                    </td>
+                    <td>Apr 20,2018</td>
+                    <td>
+                      <Badge variant="primary light">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Textiles</td>
+                    <td>
+                      <ProgressBar now={70} variant="success" />
+                    </td>
+                    <td>May 27,2018</td>
+                    <td>
+                      <Badge variant="success">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Milk Powder</td>
+                    <td>
+                      <ProgressBar now={70} variant="dark" />
+                    </td>
+                    <td>May 18,2018</td>
+                    <td>
+                      <Badge variant="dark light">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Vehicles</td>
+                    <td>
+                      <ProgressBar now={70} variant="danger" />
+                    </td>
+                    <td>Mar 27,2018</td>
+                    <td>
+                      <Badge variant="danger">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Boats</td>
+                    <td>
+                      <ProgressBar now={70} variant="warning" />
+                    </td>
+                    <td>Jun 28,2018</td>
+                    <td>
+                      <Badge variant="warning">70%</Badge>
+                    </td>
+                    <td>
+                      <span>
+                        <Link href="#" className="mr-4" title="Edit">
+                          <i className="fa fa-pencil color-muted"></i>{" "}
+                        </Link>
+                        <Link href="#" title="Close">
+                          <i className="fa fa-close color-danger"></i>
+                        </Link>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Responsive Table</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive className="header-border ">
+                <thead>
+                  <tr>
+                    <th>Invoice</th>
+                    <th>User</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Country</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <Link href="#">Order #26589</Link>
+                    </td>
+                    <td>Herman Beck</td>
+                    <td>
+                      <span className="text-muted">Oct 16, 2017</span>
+                    </td>
+                    <td>$45.00</td>
+                    <td>
+                      <Badge variant="success">Paid</Badge>
+                    </td>
+                    <td>EN</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Link href="#">Order #58746</Link>
+                    </td>
+                    <td>Mary Adams</td>
+                    <td>
+                      <span className="text-muted">Oct 12, 2017</span>
+                    </td>
+                    <td>$245.30</td>
+                    <td>
+                      <Badge variant="info light">Shipped</Badge>
+                    </td>
+                    <td>CN</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Link href="#">Order #98458</Link>
+                    </td>
+                    <td>Caleb Richards</td>
+                    <td>
+                      <span className="text-muted">May 18, 2017</span>
+                    </td>
+                    <td>$38.00</td>
+                    <td>
+                      <Badge variant="danger">Shipped</Badge>
+                    </td>
+                    <td>AU</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Link href="#">Order #32658</Link>
+                    </td>
+                    <td>June Lane</td>
+                    <td>
+                      <span className="text-muted">Apr 28, 2017</span>
+                    </td>
+                    <td>$77.99</td>
+                    <td>
+                      <Badge variant="success">Paid</Badge>
+                    </td>
+                    <td>FR</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Heading With Background</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive>
+                <thead className="thead-info">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Primary Table</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive className="primary-table-bordered">
+                <thead className="thead-primary">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Primary Table Hover</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive className="primary-table-bg-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={12}>
+          <Card>
+            <Card.Header>
+              <Card.Title>Contextual Table</Card.Title>
+            </Card.Header>
+            <Card.Body>
+              <Table responsive className="header-border">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Column heading</th>
+                    <th>Column heading</th>
+                    <th>Column heading</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="table-active">
+                    <td>1</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr className="table-primary">
+                    <td>1</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr className="table-success">
+                    <td>2</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr className="table-info">
+                    <td>3</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr className="table-warning">
+                    <td>4</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                  <tr className="table-danger">
+                    <td>5</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Fragment>
+  );
 };
 
-export default PageReview;
+export default dentiste;

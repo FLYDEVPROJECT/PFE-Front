@@ -1,5 +1,5 @@
 form#step-form-horizontal > div:last-child {
-  text-align: right;
+  text-align: left;
   /* padding-top: 2rem; */
 }
 

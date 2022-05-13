@@ -17,7 +17,7 @@ export function signupAction(email, password, history) {
     return (dispatch) => {
         signUp(email, password)
         .then((response) => {
-            saveTokenInLocalStorage(response.data);
+            saveTokenInLocalStorage(response.data);X
             runLogoutTimer(
                 dispatch,
                 response.data.expiresIn * 1000,
@@ -52,7 +52,7 @@ export function loginAction(email, password, history) {
                     history,
                 );
                 dispatch(loginConfirmedAction(response.data));
-				history.push('/docteur/');
+				history.push('/');
 				//window.location.reload();
                 
 				//history.pushState('/index');

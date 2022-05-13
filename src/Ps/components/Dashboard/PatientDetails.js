@@ -38,7 +38,7 @@ const PatientDetails = () => {
                      <div className="icon bg-warning" />
                      <Link
                         className="timeline-panel text-muted"
-                        to="/patient-details"
+                        to="/ajout-patient"
                      >
                         <h4 className="mb-8 mt-0 text-warning fs-45 font-w1800">
                            Saisie des données
@@ -50,7 +50,7 @@ const PatientDetails = () => {
                      <div className="icon bg-info" />
                      <Link
                         className="timeline-panel text-muted"
-                        to="/patient-details"
+                        to="/ajout-patient"
                      >
                          <h4 className="mb-2 mt-0 text-warning fs-16 font-w600">
                          
@@ -62,7 +62,7 @@ const PatientDetails = () => {
                      <div className="icon bg-primary" />
                      <Link
                         className="timeline-panel text-muted"
-                        to="/patient-details"
+                        to="/ajout-patient"
                      >
                         <h4 className="mb-2 text-primary mt-0 fs-16 font-w600">
                         Vérification
@@ -172,7 +172,7 @@ const PatientDetails = () => {
                               <img src={mapSvg} alt="" />
 
                               <Link
-                                 to="/patient-details"
+                                 to="/ajout-patient"
                                  className="map-button"
                               >
                                  
@@ -266,7 +266,7 @@ const PatientDetails = () => {
                               </div>
                               <Link
                                  className="timeline-panel text-muted"
-                                 to="/patient-details"
+                                 to="/ajout-patient"
                               >
                                  <h4 className="mb-2 mt-1"></h4>
                                  <p className="fs-15 mb-0 ">
@@ -281,7 +281,7 @@ const PatientDetails = () => {
                               </div>
                               <Link
                                  className="timeline-panel text-muted"
-                                 to="/patient-details"
+                                 to="/ajout-patient"
                               >
                                  <h4 className="mb-2 mt-1"></h4>
                                  <p className="fs-15 mb-0 ">
@@ -296,7 +296,7 @@ const PatientDetails = () => {
                               </div>
                               <Link
                                  className="timeline-panel text-muted"
-                                 to="/patient-details"
+                                 to="/ajout-patient"
                               >
                                  <h4 className="mb-2 mt-1"></h4>
                                  <p className="fs-15 mb-0 ">
@@ -311,7 +311,7 @@ const PatientDetails = () => {
                               </div>
                               <Link
                                  className="timeline-panel text-muted"
-                                 to="/patient-details"
+                                 to="/ajout-patient"
                               >
                                  <h4 className="mb-2 mt-1"></h4>
                                  <p className="fs-15 mb-0 ">

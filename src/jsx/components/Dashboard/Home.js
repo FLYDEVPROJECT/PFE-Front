@@ -1,77 +1,59 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
+import React from "react";
+import img2 from '../../../images/big/img2.jpg'
+import { Link } from "react-router-dom";
+import img3 from '../../../images/big/img3.jpg'
+import img1 from '../../../images/big/img1.jpg'
+import img5 from '../../../images/big/img5.jpg'
+import img6 from '../../../images/big/img6.jpg'
+import img4 from '../../../images/big/img4.jpg'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ReactDOM from 'react-dom';
+import Avatar from '@mui/material/Avatar';
+import doctors10 from "../../../images/doctors/10.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-import './Home.css'; 
-import DrAliandro from "../../../images/doctors/2.jpg";
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-    
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { Row, Col, Card } from 'react-bootstrap'
+import Box from '@mui/material/Box';
+import Fab from '@mui/material/Fab';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+/// Scroll
+const Home = () => {
+   const carousel1 = [img2, img3, img4]
 
-const theme = createTheme();
+   const [open, setOpen] = React.useState(false);
 
-export default function Album() {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="md">
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-        
-            <div class="container">
-  <div class="row">
-    <div class="col">
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+   return (
+      <div>
+         
+         <div className="form-head d-flex mb-3 mb-md-4 align-items-start">
+         <Stack direction="row" spacing={2}>
    
-    </div>
-   
-    <div class="col">
-     
-    </div>
-  </div>
+   <Avatar
+     alt="Remy Sharp"
+     src={doctors10}
+     sx={{ width: 56, height: 56 }}
+   />
+ </Stack>
+            <div className="mr-auto d-none d-lg-block">
+               <h3 className="text-black font-w600"> Docteur X  ! </h3>
+               <h6><strong>Bienvenue </strong> HC vous permet de conserver et partager les  données et les  documents de santé de vos patients en toute confidentialité et sécurité.</h6>
+            </div>
+         </div>
+        <br></br>
 
-</div>
-           
-            
-
-
-
-
-          </Container>
-        </Box>
         <div className="row">
             <div className="col-xl-3 col-xxl-6 col-sm-6">
                <div className="card gradient-bx text-white bg-danger rounded">
@@ -376,48 +358,59 @@ export default function Album() {
                </div>
             </div>
            </div>
-      </main>
-      <div className="col-xl-9 col-xxl-8 col-lg-7">
-               <div className="card">
-                  <div className="card-header border-0 pb-0">
-                    
-                     
-                  </div>
-                </div>
-      </div>
-      <div className="items">
-                              <div className="text-center">
-                               <h5>  <img src="https://medical-rh.com/wp-content/uploads/medecin-specialiste-medical-rh_.jpg"  width="300"
-     height="200"></img> </h5>
-                                 <div className="dr-star">
-                                    <i className="las la-star" /> 4.8
-                                 </div>
-                                 <h5 className="fs-16 mb-1 font-w600">
-                                       Dr Mondher CHEOUR
-                                 </h5>
-                                 <span className="text-primary mb-2 d-block">
-                                 pédiatre
-                                 </span>
-                                 <p className="fs-12">
-                                 Le médecin le plus recommandé
-                                 </p>
-                                 <div className="social-media">
-                                    <Link to="/">
-                                       <i className="lab la-instagram" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-facebook-f" />
-                                    </Link>
-                                    <Link to="/">
-                                       <i className="lab la-twitter" />
-                                    </Link>
-                                 </div>
-                              </div>
-                           </div>
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Copyright />
+            <Row>
+            <Col xl="12">
+               <Card className='mb-3'>
+                  <Card.Header>
+                     <Card.Title>Demande d'accés : </Card.Title>
+                     <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <Fab color="dark" aria-label="add">
+        
+        <div>
+          
+                  
+       
+                 <Link to="/patientenattente"> <AddCircleOutlineIcon variant="outlined" onClick={handleClickOpen}></AddCircleOutlineIcon> </Link>
+            
+ 
+    </div>
+      </Fab>
       </Box>
-      </ThemeProvider>
-    
-  );
-}
+                  </Card.Header>
+                  <Card.Body>
+                  <Stack direction="row" spacing={2}>
+      <Avatar alt="Remy Sharp" src={img6} />
+      <Avatar alt="Travis Howard" src={img3} />
+      <Avatar alt="Cindy Baker" src={img4} />
+      <Avatar alt="Remy Sharp" src={img1} />
+      <Avatar alt="Travis Howard" src={img5} />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+    </Stack>
+                  
+                  </Card.Body>
+               </Card>
+            </Col>
+             
+           
+          
+
+
+  
+
+
+
+
+
+            </Row>
+            
+      </div>
+      
+      
+   );
+};
+
+export default Home;

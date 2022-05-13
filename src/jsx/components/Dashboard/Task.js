@@ -87,14 +87,14 @@ const PostPage = () => {
 		var errorMsg = '';
         if(addFormData.Date_Join === ""){
             error = true;
-			errorMsg = 'Entrer une date ';
+			errorMsg = 'Ajouter une date ';
         }else if(addFormData.Cust_Name === ""){
             error = true;
-			errorMsg = 'Please fill name.';
+			errorMsg = 'Ajouter une etude de cas du patient';
         }
         else if(addFormData.Location === ""){
             error = true;
-			errorMsg = 'Please fill location';
+			errorMsg = 'Ajouter un hopital';
         }
         if(!error){
             const newContact = {
@@ -108,7 +108,7 @@ const PostPage = () => {
             const newContacts = [...contacts, newContact];
             setContacts(newContacts);
             setPostModal(false);
-            swal('Good job!', 'Successfully Added', "success");
+            swal( '','Opération ajouté avec succès', "success");
             addFormData.Cust_Name = addFormData.Location = addFormData.Date_Join = '';         
             
         }else{
@@ -226,7 +226,7 @@ const PostPage = () => {
 													<input type="text"  className="form-control"  autocomplete="off"
 														name="Cust_Id" required="required"
                                                         onChange={handleAddFormChange}
-														placeholder="write Id"
+														placeholder=""
 													/>
 													<span className="validation-text"></span>
 												</div>
@@ -234,10 +234,10 @@ const PostPage = () => {
                                             <div className="form-group mb-3">
 												<label className="text-black font-w500">Date de l'opération</label>
 												<div className="contact-name">
-													<input type="text"  className="form-control"  autocomplete="off"
+													<input type="datetime-local"  className="form-control"  autocomplete="off"
 														name="Date_Join" required="required"
                                                         onChange={handleAddFormChange}
-														placeholder="date"
+														placeholder=""
 													/>
 													<span className="validation-text"></span>
 												</div>
@@ -248,7 +248,7 @@ const PostPage = () => {
 													<input type="text"   autocomplete="off"
                                                         onChange={handleAddFormChange}
 														name="Cust_Name" required="required"
-														className="form-control" placeholder="name" 
+														className="form-control" placeholder="" 
 													/>
 												</div>
 											</div>
@@ -258,7 +258,7 @@ const PostPage = () => {
 													<input type="text"  autocomplete="off"
                                                         name="Location" required="required"
 														onChange={handleAddFormChange}
-														className="form-control" placeholder="Location" 
+														className="form-control" placeholder="" 
 													/>
 												</div>
 											</div> 

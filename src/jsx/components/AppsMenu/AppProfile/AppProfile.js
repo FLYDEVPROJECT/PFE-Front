@@ -88,7 +88,7 @@ setPasswordEye(!passwordEye);
             <div id="my-posts" className={`tab-pane fade ${ activeToggle === "posts" ? "active show" : "" }`} >
                         <div className="profile-about-me">
                                 <div className="pt-4 border-bottom-1 pb-3">
-                                    <h4 className="text-primary">Etat civil de monsieur</h4>
+                                    <h4 className="text-primary">Etat civil du docteur </h4>
                                     <br></br>
                                     <br></br>
  
@@ -122,7 +122,7 @@ setPasswordEye(!passwordEye);
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Adresse E-mail<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Adresse Email<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
                                         <span>example @gmail.com</span>
@@ -152,16 +152,24 @@ setPasswordEye(!passwordEye);
                                         <span>Tunis</span>
                                     </div>
                                 </div>
+                                <div className="row mb-2">
+                                    <div className="col-3">
+                                        <h6 className="f-w-500">Code Postale<span className="pull-right">:</span></h6>
+                                    </div>
+                                    <div className="col-9">
+                                        <span>3045</span>
+                                    </div>
+                                </div>
                             </div>
                             <div className="profile-about-me">
                                 <div className="pt-4 border-bottom-1 pb-3">
-                                    <h4 className="text-primary">Informations Génerale  </h4>
+                                    <h4 className="text-primary">Informations Génerales  </h4>
                                     <br></br>
                                     <br></br>
  
                                     <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Code Sécurité Sociale ( CSS)*<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Identifiant RPPS<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
                                         <span>********
@@ -178,10 +186,18 @@ setPasswordEye(!passwordEye);
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Type et Spécialité<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Type <span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
-                                        <span>+216        </span>
+                                        <span>chirigien      </span>
+                                    </div>
+                                </div>
+                                <div className="row mb-2">
+                                    <div className="col-3">
+                                        <h6 className="f-w-500">Spécialité <span className="pull-right">:</span></h6>
+                                    </div>
+                                    <div className="col-9">
+                                        <span>Dermatologie    </span>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
@@ -202,7 +218,7 @@ setPasswordEye(!passwordEye);
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-3">
-                                        <h6 className="f-w-500">Expérience Professionelle<span className="pull-right">:</span></h6>
+                                        <h6 className="f-w-500">Expérience professionnelle<span className="pull-right">:</span></h6>
                                     </div>
                                     <div className="col-9">
                                         <span>ans d'experience  ..</span>

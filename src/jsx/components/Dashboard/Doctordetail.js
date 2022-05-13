@@ -62,8 +62,13 @@ const docDetailss = () => {
 
    return (
       <>
-
+   
+   <div class="input-group">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary">Trouver un docteur</button>
+</div>
          <div className="row">
+
             <div className="col-xl-3 col-lg-4 col-xxl-4">
                <div className="card">
 
@@ -82,13 +87,10 @@ const docDetailss = () => {
                            <h3 className="fs-22 text-black font-w600">
                               Dr. Maroua BEN SALEM
                            </h3><br></br>
-                           <p className="text-primary">Psychologue</p>
+                       
                            <div className="social-media mb-sm-0 mb-3 justify-content-sm-start justify-content-center">
                              
                             
-                              <Link to="/patient-details">
-                                 <i className="lab la-linkedin" />
-                              </Link>
                            </div>
                         </div>
                       
@@ -272,7 +274,7 @@ const docDetailss = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography><strong>Langues parlées :</strong></Typography>
+          <Typography><strong>Langues parlées </strong></Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -281,8 +283,6 @@ const docDetailss = () => {
         </AccordionDetails>
       </Accordion>
     </div>
-
-
 
            
            
