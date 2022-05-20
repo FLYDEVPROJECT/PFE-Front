@@ -31,7 +31,7 @@ function App (props) {
            <Route exact path="/patient-professionnel" component={Wizard}/>
           
             <Route path='/login' component={Login} />
-²            <Route path='/page-forgot-password' component={ForgotPassword} />
+²           <Route path='/page-forgot-password' component={ForgotPassword} />
         </Switch>
     );
     if (props.isAuthenticated) {

@@ -1,6 +1,4 @@
-import React,{ useMemo , Fragment , useEffect, useState } from 'react';
-import { useTable, useGlobalFilter, useFilters, usePagination } from 'react-table';
-import MOCK_DATA from './MOCK_DATA_2.json';
+import React,{ Fragment , useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -13,8 +11,6 @@ import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
 import tele from '../../../images/big/tele.png'
 import { Link } from "react-router-dom";
-import * as Yup from 'yup';
-import { COLUMNS } from './Columns';
 import './filtering.css';
 import './tabela.css'
 import {
@@ -31,59 +27,6 @@ import Collapsible from "./Collapsible";
 
 
 export const FilteringTable = () => {
-	const columns = useMemo( () => COLUMNS, [] )
-	const data = useMemo( () => MOCK_DATA, [] )
-	const tableInstance = useTable({
-		columns,
-		data,	
-		initialState : {pageIndex : 0}
-	}, useFilters, useGlobalFilter, usePagination)
-	
-	const { 
-		getTableProps, 
-		getTableBodyProps, 
-		headerGroups, 
-		prepareRow,
-		state,
-		page,
-		gotoPage,
-		pageCount,
-		pageOptions,
-		nextPage,
-		previousPage,
-		canNextPage,
-		canPreviousPage,
-		setGlobalFilter,
-	} = tableInstance
-	
-	
-	const {globalFilter, pageIndex} = state
-	const [open, setOpen] = React.useState(false);
-
-	const handleClickOpen = () => {
-	  setOpen(true);
-	};
-  
-	const handleClose = () => {
-	  setOpen(false);
-	};
-	const validate = Yup.object({
-	  Motif: Yup.string()
-		.max(15, 'Doit contenir 15 caractères ou moins')
-		.required('Obligatoire'),
-	  lastName: Yup.string()
-		.max(20, 'Must be 20 characters or less')
-		.required('Required'),
-	  email: Yup.string()
-		.email('Email is invalid')
-		.required('Email is required'),
-	  password: Yup.string()
-		.min(6, 'Password must be at least 6 charaters')
-		.required('Password is required'),
-	  confirmPassword: Yup.string()
-		.oneOf([Yup.ref('password'), null], 'Password must match')
-		.required('Confirm password is required'),
-	})
 	const [clientes, setClientes] = useState([]);
 
 	useEffect(() => {

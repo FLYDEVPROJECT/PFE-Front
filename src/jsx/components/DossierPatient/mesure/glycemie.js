@@ -149,13 +149,7 @@ const Glycemie = () => {
     
 	//For Image upload in ListBlog
 	const [ setFile] = React.useState(null)
-    const fileHandler = (e) => {
-        setFile(e.target.files[0]);
-		setTimeout(function(){
-			var src = document.getElementById("saveImageFile").getAttribute("src");
-			addFormData.image = src; 
-		}, 200);
-    }
+   
    return (
     <Box
     sx={{

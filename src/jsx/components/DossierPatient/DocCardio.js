@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Row, Card, Col } from "react-bootstrap";
+import { Row, Card} from "react-bootstrap";
 
 const DocCardio = () => {
  

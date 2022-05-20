@@ -59,8 +59,7 @@ import FilteringTable from "./components/ListeMedPatient/FilteringTable";
 import jQueryValidation from './components/Forms/jQueryValidation/MedContact'
 
 /// Pages
-import Registration from './pages/Registration'
-
+import ForgotPassword from './pages/ForgotPassword' ;
 
 //Scroll To Top
 import ScrollToTop from './layouts/ScrollToTop';
@@ -93,12 +92,10 @@ import MedContact from './components/Forms/jQueryValidation/MedContact'
 
 
 //Rendez vous Patient
-import Todo from './components/RendezVousPatient/Booking';
 import Doctordetail from "./components/RendezVousPatient/RendezVous";
 import TimeRendezVous  from './components/RendezVousPatient/TimeRendezVous'
 import DocSexo from './components/DossierPatient/DocSexo'
 import DocPneumo from './components/DossierPatient/DocPneumo'
-import DossierComplet from './components/DossierPatient/DossierComplet'
 
 
 
@@ -111,7 +108,7 @@ const Markup = () => {
 
   const routes = [
     /// Dashboard
-    { url: "", component: Home },
+    { url: "dashboard", component: Home },
 	{ url: "Reponse", component: Reponse },
     { url: "doctor-list", component: DoctorList },
     { url: "patient/nv/rendez-vous/form", component: Doctordetail },
@@ -141,7 +138,6 @@ const Markup = () => {
     { url: 'Med-Urologie', component: Urologie },
     { url: 'patient/acces/pneumologie', component: Pneumologie },
     { url: 'patient/nv/rendez-vous/form/affichage', component: TimeRendezVous },
-    { url: 'patient/dossier-medical/complet', component: DossierComplet },
     { url: 'med-contact', component: MedContact },
 
 
@@ -200,9 +196,8 @@ const Markup = () => {
     { url: 'table-Medecin', component: FilteringTable },
 
     /// pages
-    { url: 'page-register', component: Registration },
-   
-    { url: 'patient/nv/rendez-vous', component: Todo },
+    { url: 'Oubliermotdepasse', component: ForgotPassword },
+
     { url: 'patient/details', component: docDetails },
 
   ]

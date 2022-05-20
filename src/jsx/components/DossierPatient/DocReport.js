@@ -1,4 +1,4 @@
-import React, { Fragment , useState} from 'react'
+import React, { Fragment , useState , useEffect,} from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
@@ -21,6 +21,17 @@ import { TextArea } from './TextArea';
 import * as Yup from 'yup';
 import './validation.css';
 import { Modal } from "react-bootstrap";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Container
+} from "@mui/material";
+import fakedata from "./fakedata";
+import Collapsible from "./Collapsible";
 
 
 
@@ -36,6 +47,12 @@ const DocReport = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const [clientes, setClientes] = useState([]);
+
+	useEffect(() => {
+	  setClientes(fakedata);
+	}, []);
+  
   const validate = Yup.object({
     Nomdutraitement: Yup.string()
       .max(20, 'Doit contenir 15 caractères ou moins')
@@ -207,7 +224,7 @@ const DocReport = () => {
                            className="mb-2 mr-2"
                            onClick={() => setLargeModal(true)}
                         >
-                           Large modal
+                           Voir l'historique de votre traitement 
                         </Button>
                         <Modal
                            className="fade bd-example-modal-lg"
@@ -215,7 +232,7 @@ const DocReport = () => {
                            size="lg"
                         >
                            <Modal.Header>
-                              <Modal.Title>Modal title</Modal.Title>
+                              <Modal.Title>Historique traitement </Modal.Title>
                               <Button
                                  variant=""
                                  className="close"
@@ -224,7 +241,161 @@ const DocReport = () => {
                                  <span>&times;</span>
                               </Button>
                            </Modal.Header>
-                           <Modal.Body>Modal body text goes here.</Modal.Body>
+                           <Modal.Body>
+                           <div className='form-group pt-3'>
+                <div class="d-flex justify-content-center">   
+                     
+                    
+                               </div>
+                               <br></br>
+                               <div class="d-flex justify-content-center">
+								   	<div className="card">
+									   <Container>
+    
+      
+    <TableContainer className="container border mt-5 p-2">
+      <Table striped bordered hover>
+        <TableHead >
+          <TableRow >
+            <TableCell className="tableHeader">Nom du Traitement  </TableCell>
+            <TableCell className="tableHeader">Posologie  </TableCell>
+            <TableCell className="tableHeader">Date d'admession  </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <>
+            {clientes.length > 0 ? (
+              clientes.map((cliente, index) => (
+                <>
+                  <Collapsible
+                    header={
+                      <>
+                        <TableCell className="clientRow">{cliente.nom}</TableCell>
+                        <TableCell className="clientRow">{cliente.specialite}<TableRow> 
+                                       </TableRow></TableCell>
+                        <TableCell className="clientRow">{cliente.date} <TableRow>{"\u00A0"}</TableRow></TableCell>
+                        
+                      </>
+                    }
+                  >
+                    <>
+                      {
+                        <TableRow>
+                          <TableCell></TableCell>
+                          <TableCell>
+                            {cliente.endereco ? (
+                              cliente.endereco.map((data, indexB) => (
+                                <>
+                                  <TableRow>
+                                    {data.principal ? (
+                                      <>
+                                        <strong>
+                                          <TableRow>
+                                            Commentaire 
+                                          </TableRow>
+                                        </strong>
+                                        <TableRow>
+                                          {data.diagnostic} - {data.cidade} -{" "}
+                                          {data.estado}
+                                        </TableRow>
+                                        <TableRow>
+                                       
+                                        </TableRow>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {`\u00A0`}
+                                        <strong>
+                                       
+                                        </strong>
+                                        <TableRow>
+                                          {data.diagnostic} -{data.cidade} -
+                                          {data.estado}
+                                        </TableRow>
+
+                                        <TableRow>
+                                         
+                                        </TableRow>
+                                      </>
+                                    )}
+                                  </TableRow>
+
+                                  <hr />
+                                </>
+                              ))
+                            ) : (
+                              <>
+                                {" "}
+                                <TableRow> Nenhum Endereço </TableRow>
+                                <hr />
+                              </>
+                            )}
+                          
+                          </TableCell>
+
+                          <TableCell>
+                            {cliente.medicament ? (
+                              cliente.medicament.map((data, indexC) => (
+                                <>
+                                 
+                                  <TableRow>
+                                         
+                                        </TableRow>
+
+                                </>
+                              ))
+                            ) : (
+                              <>
+                                {" "}
+                                <TableRow><strong> médicament </strong></TableRow>
+                                <hr />
+                              </>
+                            )}
+
+                      
+                          </TableCell>
+                        </TableRow>
+                      }
+                    </>
+                  </Collapsible>
+                </>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+              </TableRow>
+            )}
+          </>
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </Container>
+
+
+
+
+
+
+
+
+                           
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+</div>
+                               
+                               
+                                </div>
+                           </Modal.Body>
                            <Modal.Footer>
                               <Button
                                  variant="danger light"

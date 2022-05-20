@@ -48,6 +48,19 @@ const StepTwo = () => {
           <h6 ><strong>Code Sécurité Sociale ( CSS)*</strong></h6>
           <TextField name="password" type="password" />
           <br></br>
+          <h6 ><strong>statut social</strong></h6>
+                                    <select
+                                      className="form-control"
+                                      id="inputState"
+                                      defaultValue="option-1"
+                                    >
+                                      <option value="option-1">célibataire </option>
+                                      <option value="option-2">Marié(e)  </option>
+                                      <option value="option-3">veuf(ve)</option>
+                                      <option value="option-3">divorcé(e) </option>
+                                     
+                        </select>
+                        <br></br>
           <h6 ><strong>Nombre d'enfants</strong></h6>
 
                   <input

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CategoriesDoc from './CategoriesDoc'
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 /// Bootstrap
 import {
    Row,
@@ -29,20 +29,15 @@ const ContactAll = () => {
 
    }
 
-   const [open, setOpen] = React.useState(false);
+   const [ setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const [age, setAge] = React.useState('');
+ 
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+ 
    return (
       <Fragment>
 

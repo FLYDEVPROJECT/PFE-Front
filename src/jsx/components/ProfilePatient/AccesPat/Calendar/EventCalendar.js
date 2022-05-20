@@ -20,12 +20,6 @@ function EventCalendar({ placeholder, data }) {
       setFilteredData(newFilter);
     }
   };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
   return (
    <Fragment>
  
@@ -92,7 +86,7 @@ function EventCalendar({ placeholder, data }) {
           onChange={handleFilter}
         />
     
-      {filteredData.length != 0 && (
+      {filteredData.length !== 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
@@ -124,7 +118,34 @@ Recherche                </Button>
     
     
    </div></div>
-            
+
+             <div class="card">
+        <div className="row">
+            <div className="col-lg-12">
+                           <div class=" d-block card-header">
+
+                           <div class="row">
+  <div class="col-8">   
+                         
+                           </div></div></div></div></div>
+<div class="container">
+  <div class="row">
+  
+
+
+  
+            <div class="w-40"></div>
+
+
+    <div class="col">  <div class="row justify-content-md-center">
+  
+      </div>
+</div>
+    <div class="col"></div>
+  </div>
+</div>
+     </div>
+             
     </Fragment>
   );
 }

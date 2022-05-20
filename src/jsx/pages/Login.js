@@ -1,41 +1,57 @@
 import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box';
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom'
+
+
+
+
 
 import { loadingToggleAction,loginAction,
 } from '../../store/actions/AuthActions';
  
 //
 import logo from '../../images/logopatient.png'
- 
+
  
 function Login (props) {
-    const [RPPS, setRPPS] = useState('Boudaouaraomayma@gmail.com');
-    let errorsObj = { RPPS: '', password: '' };
+    let errorsObj = { username: '', password: '' };
+    let navigate = useHistory();
     const [errors, setErrors] = useState(errorsObj);
-    const [password, setPassword] = useState('123456');
+    const [state, setState] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
     const dispatch = useDispatch();
+    
  
-    function onLogin(e) {
-        e.preventDefault();
-        let error = false;
-        const errorObj = { ...errorsObj };
-        if (RPPS === '') {
-            errorObj.RPPS = 'RPPS est requis';
-            error = true;
-        }
-        if (password === '') {
-            errorObj.password = 'Mot de passe est requis ';
-            error = true;
-        }
-        setErrors(errorObj);
-        if (error) {
-            return ;
-        }
-        dispatch(loadingToggleAction(true));    
-        dispatch(loginAction(RPPS, password, props.history));
-    }
+    const onLogin = () => {
+        let errorsObj = { username: username.username, password: password.password };
+        console.log(errorsObj);
+        axios
+        .post('http://127.0.0.1:8000/api/login_check', errorsObj)
+        .then((res) => {
+          console.log(res);  
+          localStorage.setItem('token' ,res.data.token); 
+          return <Link to="/dashboard" className="login-logo"/>
+        })
+        .catch((error) => console.log(error));
+    };
+    const list = () => {
+        let config = {
+            headers: { 
+              'Authorization': 'Bearer '+ localStorage.getItem('token')
+              }
+           };
+        axios
+        .get('http://127.0.0.1:8000/api/list', config)
+        .then((res) => {
+          console.log(res.data); 
+        })
+        .catch((error) => console.log(error));
+    };
+
     const preventDefault = (event) => event.preventDefault();
 
   return (
@@ -59,26 +75,22 @@ function Login (props) {
                                 {props.errorMessage}
                             </div>
                        
- 
- 
- 
                             )}
                             {props.successMessage && (
                                 <div className='bg-green-300 text-green-900 border border-green-900 p-1 my-2'>
                                     {props.successMessage}
                                 </div>
                             )}
-                            <form onSubmit={onLogin}>
                             <div className="form-group">
                                     <label className="mb-2 ">
                                         <strong className="">Code Sécurité Sociale ( CSS)*</strong>
                                     </label>
-                                    <input type="RPPS" className="form-control" placeholder='********' />
+                                    <input type="text" onChange={(event) =>{ setUsername({username:event.target.value})}} className="form-control" placeholder='********' />
                                 </div>
                              
                                 <div className="form-group">
                                     <label className="mb-2 "><strong className="">Mot de passe</strong></label>
-                                    <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                    <input type="password" onChange={(event) =>{ setPassword({password:event.target.value})}} className="form-control"/>
                                     {errors.password && <div className="text-danger fs-12">{errors.password}</div>}
                                 </div>
                                 <div className="form-row d-flex justify-content-between mt-4 mb-2">
@@ -90,13 +102,10 @@ function Login (props) {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <button type="submit" className="btn btn-primary btn-block">s'identifier</button>
+                                    <button type="submit" onClick={onLogin} className="btn btn-primary btn-block">s'identifier</button>
                                 </div>
-                            </form>
                             <div className="new-account mt-2">
-                                <p className="mb-0">Vous n'avez pas de compte ?{" "}
-                                    <Link className="text-black" to="/patient-professionnel">s'inscrire</Link>
-                                </p>
+
                             </div>
                             <div className="new-account mt-2">
                             <Box
@@ -108,26 +117,12 @@ function Login (props) {
       }}
       onClick={preventDefault}
     >
-      <Link href="#">Mot de passe oublier !</Link>
      
     </Box>                           
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-5 d-flex box-skew1">
-                        {/* <div className="inner-content align-self-center">
-                            <Link to="/dashboard" className="login-logo">
-                                <img src={logo} alt="" className="logo-icon mr-2"/>
-                                <img src={logotext} alt="" className="logo-text ml-1"/>
-                            </Link>
-                            <h2 className="m-b10 text-white">Login To You Now</h2>
-                            <p className="m-b40 text-white">User Experience & Interface Design Strategy SaaS Solutions</p>
-                            <ul className="social-icons mt-4">
-                                <li><Link to={"#"}><i className="fa fa-facebook"></i></Link></li>
-                                <li><Link to={"#"}><i className="fa fa-twitter"></i></Link></li>
-                                <li><Link to={"#"}><i className="fa fa-linkedin"></i></Link></li>
-                            </ul>
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -144,4 +139,5 @@ const mapStateToProps = (state) => {
     };
 };
 export default connect(mapStateToProps)(Login);
+
 

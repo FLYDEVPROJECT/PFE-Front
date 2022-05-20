@@ -33,24 +33,7 @@ const docDetailss = () => {
       );
    }
 
-   const settings = {
-      focusOnSelect: true,
-      infinite: true,
-      slidesToShow: 2,
-      slidesToScroll: 1,
-      speed: 500,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-      responsive: [
-         {
-            breakpoint: 990,
-            settings: {
-               slidesToShow: 1,
-               slidesToScroll: 1,
-            },
-         },
-      ],
-   };
+  
 
    return (
       <>

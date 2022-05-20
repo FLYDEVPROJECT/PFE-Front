@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment , useState , useEffect,} from 'react'
 import img2 from '../../../images/big/img2.jpg'
 import { Link } from "react-router-dom";
 import img3 from '../../../images/big/img3.jpg'
@@ -16,12 +16,24 @@ import { Row, Col, Card } from 'react-bootstrap'
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import Button from '@mui/material/Button';
+import { Modal } from "react-bootstrap";
+import {Table } from "@mui/material";
+ import fakedata from "./fakedata";
+ import Collapsible from "./Collapsible";
+ import {
+   Badge,
+   Dropdown,
+   ProgressBar,
+ } from "react-bootstrap";
+ import avatar3 from "../../../images/avatar/1.jpg";
 
 /// Scroll
 const Home = () => {
    const carousel1 = [img2, img3, img4]
 
    const [open, setOpen] = React.useState(false);
+     const [largeModal, setLargeModal] = useState(false);
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,6 +42,11 @@ const Home = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const [clientes, setClientes] = useState([]);
+
+	useEffect(() => {
+	  setClientes(fakedata);
+	}, []);
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -219,6 +236,206 @@ const Home = () => {
     </div>
       </Fab>
       </Box>
+      <Button
+                           variant="primary"
+                           className="mb-2 mr-2"
+                           onClick={() => setLargeModal(true)}
+                        >
+                           Voir les medecins 
+                        </Button>
+                        <Modal
+                           className="fade bd-example-modal-lg"
+                           show={largeModal}
+                           size="lg"
+                        >
+                           <Modal.Header>
+                              <Modal.Title>Demande D'accés </Modal.Title>
+                              <Button
+                                 variant=""
+                                 className="close"
+                                 onClick={() => setLargeModal(false)}
+                              >
+                                 <span>&times;</span>
+                              </Button>
+                           </Modal.Header>
+                           <Modal.Body>
+                           <Fragment>
+     
+     <Row>
+       <Col lg={12}>
+         <Card>
+           <Card.Header>
+           </Card.Header>
+           <Card.Body>
+             <Table responsive>
+               <thead>
+                 <tr>
+                   <th className="width80">
+                     <strong>#</strong>
+                   </th>
+                   <th>
+                     <strong>Prénom du médecin</strong>
+                   </th>
+                   <th>
+                     <strong>Nom du Médecin </strong>
+                   </th>
+                   <th>
+                     <strong>DATE</strong>
+                   </th>
+                   <th>
+                     <strong>Spécialité</strong>
+                   </th>
+                
+                   <th></th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>
+                     <strong>01</strong>
+                   </td>
+                   <td>
+                     <div className="d-flex align-items-center">
+                       <img
+                         src={avatar3}
+                         className="rounded-lg mr-2"
+                         width="24"
+                         alt=""
+                       />{" "}
+                       <span className="w-space-no">Jackson</span>
+                     </div>
+                   </td>
+                   <td>Jackson</td>
+                   <td>01 August 2020</td>
+                   <td>
+                   Pneumologue 
+                   </td>
+                   
+                   <td>
+                     <Dropdown>
+                     
+                           <Link
+                           href="#"
+                           className="btn btn-danger shadow btn-xs sharp"
+                         >
+                           <i className="fa fa-check"></i>
+                         </Link>
+                       
+                      
+                    
+                     </Dropdown>
+                     <br></br>
+
+                   </td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <strong>02</strong>
+                   </td>
+                   <td>
+                     <div className="d-flex align-items-center">
+                       <img
+                         src={avatar3}
+                         className="rounded-lg mr-2"
+                         width="24"
+                         alt=""
+                       />{" "}
+                       <span className="w-space-no"> Jackson</span>
+                     </div>
+                   </td>
+                   <td> Jackson</td>
+                   <td>01 August 2020</td>
+                   <td>
+                     Cardiologue 
+                   </td>
+                   <td>
+                     <Dropdown>
+                     <Link
+                           href="#"
+                           className="btn btn-danger shadow btn-xs sharp"
+                         >
+                           <i className="fa fa-check"></i>
+                         </Link>
+                     
+                     </Dropdown>
+                     <br></br>
+
+                   </td>
+                 
+                   
+                 </tr>
+                 <tr>
+                   <td>
+                     <strong>03</strong>
+                   </td>
+                   <td>
+                     <div className="d-flex align-items-center">
+                       <img
+                         src={avatar3}
+                         className="rounded-lg mr-2"
+                         width="24"
+                         alt=""
+                       />{" "}
+                       <span className="w-space-no"> Jackson</span>
+                     </div>
+                   </td>
+                   <td>Jackson</td>
+                   <td>01 August 2020</td>
+                   <td>
+                     génycologue 
+                   </td>
+                
+                   <td>
+                     <Dropdown>
+                      
+                     <Link
+                         href="#"
+                         className="btn btn-danger shadow btn-xs sharp"
+                       >
+                         <i className="fa fa-check"></i>
+                       </Link>
+                       
+                     
+                     </Dropdown>
+                   </td>
+                 </tr>
+               </tbody>
+             </Table>
+           </Card.Body>
+         </Card>
+       </Col>
+       
+       
+        
+       
+       
+       
+       
+       
+      
+       
+       
+       
+       
+     </Row>
+   </Fragment>
+                           </Modal.Body>
+                           <Modal.Footer>
+                              <Button
+                                 variant="danger light"
+                                 onClick={() => setLargeModal(false)}
+                              >
+                                 Close
+                              </Button>
+                              <Button
+                                 variant=""
+                                 type="button"
+                                 className="btn btn-primary"
+                              >
+                                 Save changes
+                              </Button>
+                           </Modal.Footer>
+                        </Modal>
                   </Card.Header>
                   <Card.Body>
                   <Stack direction="row" spacing={2}>

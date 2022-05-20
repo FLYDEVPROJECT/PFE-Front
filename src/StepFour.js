@@ -68,13 +68,13 @@ const StepFour = ({ history }) => {
                               }
                               className="btn btn-success btn sweet-success"
                            >
-                              Sweet Success
+                              valider
                            </button>
                               </form>
                         </div>
                      </div>
                </div>
-            </div>
+            </div> 
          </div>
       </section>
    );
