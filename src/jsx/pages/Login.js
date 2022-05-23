@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom'
-import { Redirect } from 'react-router-dom';
 
 
 
@@ -97,6 +96,10 @@ function Login (props) {
                                 <div className="text-center">
                                     <button type="submit" onClick={onLogin} className="btn btn-primary btn-block">s'identifier</button>
                                 </div>
+                                <Link to="/patient-professionnel" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                        S'inscrire
+										</Link>
                             <div className="new-account mt-2">
 
                             </div>

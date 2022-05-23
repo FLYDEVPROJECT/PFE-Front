@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik , Form } from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
@@ -6,16 +6,17 @@ import './validation.css';
 import Checkbox from '@mui/material/Checkbox';
 
 const StepTwo = () => {
+  const url=""
+  const [data , setData] =useState ({
+    code_securite_sociale: '',
+    statut_sociale: '',
+    nbr_enfant: '',
+    profession : '',
+  })
    const validate = Yup.object({
-      firstName: Yup.string()
-        .max(15, 'Must be 15 characters or less')
-        .required('Required'),
-      lastName: Yup.string()
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
-      email: Yup.string()
-        .email('Email is invalid')
-        .required('Email is required'),
+     
+     
+    
       password: Yup.string()
         .min(6, 'Le code doit contenir 6 caractéres')
         .max(6, 'Le code doit contenir 6 caractéres')
@@ -26,14 +27,20 @@ const StepTwo = () => {
         .required('Confirm password is required'),
     })
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
+    function handle (e) {
+      const newdata={...data}
+      newdata[e.target.id] =e.target.value
+      setData(newdata)
+      console.log(newdata)
+  
+    }  
    return (
       <section>
           <Formik
       initialValues={{
-        firstName: '',
-        lastName: '',
-        email: '',
+        code_securite_sociale: '',
+        statut_sociale: '',
+        nbr_enfant: '',
         password: '',
         confirmPassword: ''
       }}
@@ -45,62 +52,71 @@ const StepTwo = () => {
       {formik => (
         <div>
           <Form>
-          <h6 ><strong>Code Sécurité Sociale ( CSS)*</strong></h6>
-          <TextField name="password" type="password" />
-          <br></br>
-          <h6 ><strong>statut social</strong></h6>
-                                    <select
-                                      className="form-control"
-                                      id="inputState"
-                                      defaultValue="option-1"
-                                    >
-                                      <option value="option-1">célibataire </option>
-                                      <option value="option-2">Marié(e)  </option>
-                                      <option value="option-3">veuf(ve)</option>
-                                      <option value="option-3">divorcé(e) </option>
-                                     
-                        </select>
-                        <br></br>
-          <h6 ><strong>Nombre d'enfants</strong></h6>
-
-                  <input
-                     type="Number"
+          <div className="col-lg-12 mb-3">
+            <div className="form-group">
+               <label className="text-label">Code sécurité sociale*</label>
+               <input
+                    type="password"
+                    onChange={(e) => handle(e)}
+                    id="code_securite_sociale" value={data.code_securite_sociale}
+                     name="code_securite_sociale"
                      className="form-control"
-                     id="emial1"
-                     placeholder="0"
                      required
-                  />
-                  <br>
-                  </br>
-                  <h6 ><strong>Profession / Scolarité</strong></h6>
-                                    <select
+                  /> 
+            </div>
+         </div>
+         <div className="col-lg-12 mb-3">
+            <div className="form-group">
+               <label className="text-label">Statut social</label>
+               <select
                                       className="form-control"
-                                      id="inputState"
-                                      defaultValue="option-1"
+                                      defaultValue="célibataire" 
+                                      onChange={(e) => handle(e)}
+                                      id="statut_sociale" value={data.statut_sociale}
+                                       name="statut_sociale"
                                     >
-                                      <option value="option-1">Profession</option>
-                                      <option value="option-2">Education  </option>
-                                      <option value="option-3">Autre</option>
+                                      <option value="célibataire">célibataire </option>
+                                      <option value="marié(e)">Marié(e)  </option>
+                                      <option value="veuf(ve)">veuf(ve)</option>
+                                      <option value="divorcé(e)">divorcé(e) </option>
                                      
                         </select>
-                        <br></br>
-                        <h6 ><strong>Retreté(e)*</strong></h6>
-                        <Checkbox {...label} defaultChecked />
-                        <br></br>
-                        <h6 ><strong>Type d'âge *</strong></h6>
-                        <select
+            </div>
+         </div>
+         
+         <div className="col-lg-12 mb-3">
+            <div className="form-group">
+               <label className="text-label">Nombre d'enfants*</label>
+               <input
+                    type="number"
+                    onChange={(e) => handle(e)}
+                    id="nbr_enfant" value={data.nbr_enfant}
+                     name="nbr_enfant"
+                     className="form-control"
+                     required
+                  /> 
+            </div>
+         </div>
+         <div className="col-lg-12 mb-3">
+            <div className="form-group">
+               <label className="text-label">Profession / Scolarité</label>
+               <select
                                       className="form-control"
-                                      id="inputState"
-                                      defaultValue="option-1"
+                                      defaultValue="profession" 
+                                      onChange={(e) => handle(e)}
+                                      id="profession " value={data.profession }
+                                       name="profession "
                                     >
-                                      <option value="option-1">Enfants (entre 00 à 14 ans )</option>
-                                      <option value="option-2"> Adolescents (entre 15 à 24 ans ) </option>
-                                      <option value="option-3">Adultes ( entre 25 à 64 ans)</option>
-                                      <option value="option-3">Aînés (entre 65 ans et plus)</option>
- 
+                                     <option value="profession">Profession</option>
+                                      <option value="Education">Education  </option>
+                                      <option value="autre">Autre</option>
                                      
-                                    </select>
-
+                        </select>
+            </div>
+         </div>
+                        <br></br>
+                        
+                      
 
           
            

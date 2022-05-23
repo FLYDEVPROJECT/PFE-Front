@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -6,19 +6,33 @@ import { Formik} from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
 import './validation.css';
+import Axios from 'axios' ;
 
 const StepOne = () => {
+  const url=""
+  const [data , setData] =useState ({
+    nom: '',
+    num_tel: '',
+    prenom: '',
+    adresse: '',
+    code_postal: '',
+    email: '',
+    ville:'',
+    date_naissance:'',
+    sexe:'',
+
+  })
    const validate = Yup.object({
-      firstName: Yup.string()
+      nom: Yup.string()
         .max(15, 'Doit contenir 15 caractères ou moins')
         .required('Champ obligatoire *'),
-        code: Yup.string()
+        code_postal: Yup.string()
         .max(4, 'Doit contenir 4 caractères ou moins')
         .required('Champ obligatoire *'),
-        telephone: Yup.string()
+        num_tel: Yup.string()
         .max(8, 'Doit contenir 8 nombres ou moins')
         .required('Numero de télephone est  obligatoire *'),
-      lastName: Yup.string()
+        prenom: Yup.string()
         .max(20, 'Doit contenir 15 caractères ou moins')
         .required('Champ obligatoire *'),
         adresse: Yup.string()
@@ -29,136 +43,175 @@ const StepOne = () => {
         .required('Email est obligatoire *'),
      
     })
-   return (
+    function handle (e) {
+      const newdata={...data}
+      newdata[e.target.id] =e.target.value
+      setData(newdata)
+      console.log(newdata)
+  
+    }  
+    return (
       <section>
-          <Formik
+           <Formik
       initialValues={{
-        firstName: '',
-        telephone: '',
-        lastName: '',
+        nom: '',
+        num_tel: '',
+        prenom: '',
         adresse: '',
-        code: '',
+        code_postal: '',
         email: '',
+        ville:'',
+        date_naissance:'',
+        sexe:'',
+        photo:'',
       
       }}
       validationSchema={validate}
       onSubmit={values => {
         console.log(values)
       }}
-    >
-      
-        <div>
-          <div className="row">
-
-          <div className="col-6 ">
-          <h6 ><strong>Nom *</strong></h6>
-            <TextField  name="firstName" type="text" /></div>
-
-<div className="col-lg-6 mb-1">
-            <h6><strong>Prénom *</strong></h6>
-            <TextField  name="lastName" type="text" /></div></div>
-
+    > 
+      <div className="row">
+         <div className="col-lg-6 mb-2">
             <div className="form-group">
-
-                   
-            <h6><strong>Joindrez votre photo</strong></h6>
-            <br></br>
-<input type="file"
-id="avatar" name="avatar"
-accept="image/png, image/jpeg"  className="form-control"/>
-</div>   
-<h6><strong>Sexe</strong></h6>
-<RadioGroup
+               <label className="text-label">Nom*</label>
+               <input
+                  type="text"
+                  name="nom"
+                  className="form-control"
+                  placeholder="Parsley"
+                  onChange={(e) => handle(e)}
+                  id="nom" value={data.nom}
+                  required
+               />
+            </div>
+         </div>
+         <div className="col-lg-6 mb-2">
+            <div className="form-group">
+               <label className="text-label">Prénom*</label>
+               <input
+                   type="text"
+                   name="prenom"
+                   className="form-control"
+                   placeholder="Parsley"
+                   onChange={(e) => handle(e)}
+                   id="prenom" value={data.prenom}
+                   required
+               />
+            </div>
+         </div>
+         <div className="col-lg-12 mb-2">
+            <div className="form-group">
+               <label className="text-label">Joindrez votre photo</label>
+               <input 
+                onChange={(e) => handle(e)}
+                id="photo" value={data.photo}
+                 name="photo"
+                 className="form-control"
+                 required      
+               type="file"
+accept="image/png, image/jpeg"  />
+            </div>
+         </div>
+         <div className="col-lg-12 mb-2">
+            <div className="form-group">
+               <label className="text-label">Sexe*</label>
+               <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
-      >
+        className="form-control"
+        onChange={(e) => handle(e)}
+        id="sexe" value={data.sexe}
+         name="sexe">
         <FormControlLabel value="female"  control={<Radio />} label="Female" defaultChecked />
         <FormControlLabel value="male" control={<Radio />} label="Male" />
        
       </RadioGroup>
-      <br></br>
-      <div className="form-group">
-      <h6><strong>Date de naissance *</strong></h6>
-      <br></br>
-      <input
-                      type="Date"
-                      className="form-control"
-                      id="inputGroupPrepend2"
-                      aria-describedby="inputGroupPrepend2"
-                      required
+            </div>
+         </div>
+
+         <div className="col-lg-12 mb-2">
+            <div className="form-group">
+               <label className="text-label">Date de naissance*</label>
+               <input
+                      type="date"
+                      onChange={(e) => handle(e)}
+                      id="date_naissance" value={data.date_naissance}
+                       name="num_tel"
+                       className="form-control"
+                       required
                    />  
-                   </div>
-                   <br></br>
-
-                   <div className="row">
-<div className="col-6 ">
-<h6 ><strong>Numero de télephone*</strong></h6>
-  <TextField  name="telephone" type="phone" /></div>
-
-<div className="col-lg-6 mb-1">
-  <h6><strong>Adresse Email *</strong></h6>
-  <TextField  name="email" type="text" /></div></div>
-
-
-  <div className="row">
-
-<div className="col-6 ">
-   <br></br>
-<h6 ><strong>Ville *</strong></h6>
-<br></br>
-<select
-                                                   className="form-control"
-                                                   id="inputState"
-                                                   defaultValue="option-23"
-                                                 >
-                                       <option value="option-1">Ariana</option>
-                                    <option value="option-2">Beja </option>
-                                    <option value="option-3">Ben Arous</option>
-                                  <option value="option-4">Bizerte</option>
-                                       <option value="option-5">Gabes</option>
-                                       <option value="option-6">Gafsa</option>
-                                       <option value="option-7">Jendouba</option>
-                                       <option value="option-8">Kairouan</option>
-                                       <option value="option-9">Kasserine</option>
-                                       <option value="option-10">kebili</option>
-                                       <option value="option-11">La Manouba</option>
-                                       <option value="option-12">Kef</option>
-                                       <option value="option-13">Mahdia</option>
-                                       <option value="option-14">Médenine</option>
-                                       <option value="option-15">Monastir</option>
-                                       <option value="option-16">Nabeul</option>
-                                       <option value="option-17">Sfax</option>
-                                       <option value="option-18">Sidi Bouzid</option>
-                                       <option value="option-19">Siliana</option>
-                                       <option value="option-20">Sousse</option>
-                                       <option value="option-21">Tataouine</option>
-                                       <option value="option-22">Tozeur</option>
-                                       <option value="option-23">Tunis</option>
-                                       <option value="option-24">zaghouan</option>
-                                                 </select></div>
-<br></br>
-<div className="col-lg-6 mb-1">
-<br></br>
-  <h6><strong>Adresse *</strong></h6>
-  <TextField  name="adresse" type="text" /></div></div>
-   <br></br>
-  <div className="row">
-
-<div className="col-6 ">
-<h6 ><strong>Code postal </strong></h6>
-  <TextField  name="code" type="text" /></div>
-
-</div>
-  
-  
-  
-   </div>
-    </Formik>
-    <br></br>
-    <br></br>
-
-      </section>
+            </div>
+         </div>
+         <div className="col-lg-12 mb-3">
+            <div className="form-group">
+               <label className="text-label">Numéro de telephone*</label>
+               <input
+                    type="text"
+                    onChange={(e) => handle(e)}
+                    id="num_tel" value={data.num_tel}
+                     name="num_tel"
+                     className="form-control"
+                     placeholder="(+1)408-657-9007"
+                     required
+                  /> 
+            </div>
+         </div>
+         <div className="col-lg-12 mb-2">
+               <div className="form-group">
+                  <label className="text-label"> Adresse Email*</label>
+                  <input
+                     type="email"
+                     className="form-control"
+                     placeholder="example@example.com.com"
+                     required
+                     name="email"
+                     onChange={(e) => handle(e)}
+                     id="email" value={data.email}
+                  />
+               </div>
+            </div>
+            <div className="col-lg-6 mb-2">
+               <div className="form-group">
+                  <label className="text-label">Ville*</label>
+                  <input
+                     type="text"
+                     className="form-control"
+                     required
+                     name="ville"
+                     onChange={(e) => handle(e)}
+                     id="ville" value={data.ville}
+                  />
+               </div>
+            </div>
+            <div className="col-lg-6 mb-2">
+               <div className="form-group">
+                  <label className="text-label">Adresse *</label>
+                  <input
+                    type="text"
+                     name="adresse"
+                     required
+                     className="form-control"
+                     onChange={(e) => handle(e)}
+                     id="adresse" value={data.adresse}
+                  />
+               </div>
+            </div>
+            <div className="col-lg-6 mb-2">
+               <div className="form-group">
+                  <label className="text-label">Code postal*</label>
+                  <input
+                       placeholder="3000"
+                       required
+                       name="code_postal"
+                       onChange={(e) => handle(e)}
+                       id="code_postal" value={data.code_postal}
+                     className="form-control"/>
+               </div>
+            </div>
+      </div>
+      </Formik>
+   </section>
    );
 };
 

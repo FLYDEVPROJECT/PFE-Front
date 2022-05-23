@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import { Formik , Form} from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
@@ -7,6 +7,10 @@ import swal from "sweetalert";
 
 
 const StepFour = ({ history }) => {
+   const url=""
+   const [data , setData] =useState ({
+     password: '',
+   })
   const submitHandler = (e) => {
      e.preventDefault();
      history.push("/");
@@ -19,6 +23,13 @@ const StepFour = ({ history }) => {
      .oneOf([Yup.ref('password'), null], 'Password must match')
      .required('Confirmer mot de passe est obligatoire '),
  })
+ function handle (e) {
+   const newdata={...data}
+   newdata[e.target.id] =e.target.value
+   setData(newdata)
+   console.log(newdata)
+
+ }  
    return (
       <section>    
             <div className="row justify-content-center h-100 align-items-center">
