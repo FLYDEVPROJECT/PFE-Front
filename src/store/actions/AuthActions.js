@@ -42,16 +42,21 @@ export function logout(history) {
 }
 
 export function loginAction(email, password, history) {
+    console.log('im here 02')
     return (dispatch) => {
         login(email, password)
             .then((response) => {
+                console.log('im here 04')
+                console.log(response)
                 saveTokenInLocalStorage(response.data);
+                /*
                 runLogoutTimer(
                     dispatch,
                     response.data.expiresIn * 1000,
                     history,
-                );
+                ); */
                 dispatch(loginConfirmedAction(response.data));
+                history.isAuthenticated = true
 				history.push('/');
 				//window.location.reload();
                 

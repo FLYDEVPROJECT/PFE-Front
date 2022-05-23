@@ -1,10 +1,11 @@
-import { lazy, Suspense} from 'react';
+import { lazy, Suspense, useEffect} from 'react';
 /// Components
 import Index from './jsx/index';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import {  Route, Switch, withRouter } from 'react-router-dom';
 // action
 import { isAuthenticated } from './store/selectors/AuthSelectors';
+import { checkAutoLogin } from './services/AuthService';
 /// Style
 import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import "./css/style.css";
@@ -19,10 +20,14 @@ const Login = lazy(() => {
 	});
 });
 function App (props) {
+    console.log(props)
+    let isAuthenticated = false;
+    if(window.localStorage.getItem('userDetails')) isAuthenticated = true
   
-   /* useEffect(() => {
+    const dispatch = useDispatch();
+    useEffect(() => {
         checkAutoLogin(dispatch, props.history);
-    }, [dispatch, props.history]);*/
+    }, [dispatch, props.history]);
     
     let routes = (  
         <Switch>
@@ -34,7 +39,7 @@ function App (props) {
 ²           <Route path='/page-forgot-password' component={ForgotPassword} />
         </Switch>
     );
-    if (props.isAuthenticated) {
+    if (isAuthenticated) {
 		return (
 			<>
                 <Suspense fallback={

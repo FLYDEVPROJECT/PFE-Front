@@ -105,10 +105,12 @@ const Markup = () => {
   path = path[path.length - 1]
   let pagePath = path.split('-').includes('page')
   const [activeEvent, setActiveEvent] = useState(!path)
+  console.log(pagePath)
+  console.log(path)
 
   const routes = [
     /// Dashboard
-    { url: "dashboard", component: Home },
+    { url: "", component: Home },
 	{ url: "Reponse", component: Reponse },
     { url: "doctor-list", component: DoctorList },
     { url: "patient/nv/rendez-vous/form", component: Doctordetail },

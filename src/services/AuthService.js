@@ -22,13 +22,15 @@ export function signUp(email, password) {
 
 export function login(email, password) {
     const postData = {
-        email,
-        password,
-        returnSecureToken: true,
-    };
+        "username": email,
+        "password": password
+    }
+
+    console.log('im here 03')
+    console.log(postData)
 
     return axios.post(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD3RPAp3nuETDn9OQimqn_YF6zdzqWITII`,
+        `http://127.0.0.1:8000/api/login_check`,
         postData,
     );
 }
@@ -54,12 +56,20 @@ export function formatError(errorResponse) {
             return '';
     }
 }
-
+//@todo
 export function saveTokenInLocalStorage(tokenDetails) {
+    const today = new Date()
+const tomorrow = new Date(today)
+tomorrow.setDate(tomorrow.getDate() + 1)
+
     tokenDetails.expireDate = new Date(
-        new Date().getTime() + tokenDetails.expiresIn * 1000,
+        tomorrow.getTime() * 1000,
     );
-    localStorage.setItem('userDetails', JSON.stringify(tokenDetails));
+    console.log('im here 05')
+    console.log(tokenDetails.expireDate)
+    console.log(JSON.stringify(tokenDetails))
+
+    window.localStorage.setItem('userDetails', JSON.stringify(tokenDetails));
 }
 
 export function runLogoutTimer(dispatch, timer, history) {

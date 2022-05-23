@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -27,20 +28,12 @@ function Login (props) {
     
  
     const onLogin = () => {
-        let errorsObj = { username: username.username, password: password.password };
-        console.log(errorsObj);
-        axios
-        .post('http://127.0.0.1:8000/api/login_check', errorsObj)
-        .then((res) => {
-          console.log(res);  
-          localStorage.setItem('token' ,res.data.token); 
-          return <Link to="/dashboard" className="login-logo"/>
-        })
-        .catch((error) => console.log(error));
+        dispatch(loadingToggleAction(true));	
+        dispatch(loginAction(username.username, password.password, props.history));
     };
     const list = () => {
         let config = {
-            headers: { 
+            headers: {
               'Authorization': 'Bearer '+ localStorage.getItem('token')
               }
            };
