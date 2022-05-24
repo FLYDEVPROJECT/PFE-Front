@@ -9,18 +9,14 @@ import { isAuthenticated } from './store/selectors/AuthSelectors';
 /// Style
 import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import "./css/style.css";
-import Wizard from "./Wizard" ; 
 
-//import Test from './test'
+///templatee njarab 
+import About from './jsx/components/template/About'
 import Checkout from './jsx/components/Dashboard/Checkout'
 import CustomeSelete from './jsx/components/PluginsMenu/Select2/CustomeSelete'
-
-import professionnel from './professionnel'
-
-
 import PatientDetails from './jsx/components/Dashboard/PatientDetails';
 import Search from './jsx/components/Dashboard/Search';
-
+import Motdepasseoublie from './jsx/pages/Motdepasseoublie'; 
 
 
 const SignUp = lazy(() => import('./jsx/pages/Registration'));
@@ -32,24 +28,23 @@ const Login = lazy(() => {
 });
 function App (props) {
     const dispatch = useDispatch();
-   /* useEffect(() => {
+    useEffect(() => {
         checkAutoLogin(dispatch, props.history);
-    }, [dispatch, props.history]);*/
+    }, [dispatch, props.history]);
     
     let routes = (  
         <Switch>
-
-       
-           <Route exact path="/" component={Login}/>
+   
+         
            <Route  path="/search" component={Search}/>
-          <Route path ="/Authentif" component={Wizard}/>
+         
            <Route path ="/verification" component={CustomeSelete}/>
-         <Route  path ="/contact" component={professionnel}/>
-           <Route exact path="/patient" component={Checkout}/>
+       
+           <Route  path="/patient" component={Checkout}/>
           <Route path="/Saisiedesdonnees" component={PatientDetails}/>
             <Route path='/login' component={Login} />
-          
-            <Route path='/page-forgot-password' component={ForgotPassword} />
+            <Route path='/motdepasseoublie' component={Motdepasseoublie} />
+
            
         </Switch>
     );

@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import {Dropdown, Modal} from 'react-bootstrap';
 import swal from "sweetalert";
 import {nanoid} from 'nanoid';
+import TextareaAutosize from '@mui/base/TextareaAutosize';
 //Images
 import card1 from './../../../images/task/img1.jpg';
 import card2 from './../../../images/task/img2.jpg';
@@ -94,7 +95,7 @@ const PostPage = () => {
         }
         else if(addFormData.Location === ""){
             error = true;
-			errorMsg = 'Ajouter un hopital';
+			errorMsg = 'Ajouter un hopital';z
         }
         if(!error){
             const newContact = {
@@ -221,13 +222,9 @@ const PostPage = () => {
 												</div>
 											</div> 
 											 <div className="form-group mb-3">
-												<label className="text-black font-w500">Identifiant du patient</label>
+												
 												<div className="contact-name">
-													<input type="text"  className="form-control"  autocomplete="off"
-														name="Cust_Id" required="required"
-                                                        onChange={handleAddFormChange}
-														placeholder=""
-													/>
+													
 													<span className="validation-text"></span>
 												</div>
 											</div>
@@ -243,9 +240,9 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Etude de cas du patient</label>
+												<label className="text-black font-w500">Description</label>
 												<div className="contact-occupation">
-													<input type="text"   autocomplete="off"
+												<TextareaAutosize   autocomplete="off"
                                                         onChange={handleAddFormChange}
 														name="Cust_Name" required="required"
 														className="form-control" placeholder="" 
@@ -311,7 +308,7 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Etude de cas du patient</label>
+												<label className="text-black font-w500">Description</label>
 												<div className="contact-occupation">
 													<input type="text"   autocomplete="off"
                                                         value={editFormData.Cust_Name}
@@ -389,7 +386,7 @@ const PostPage = () => {
                                         <span className="text-black ml-2">{contact.Date_Join}</span>
                                     </li>
                                     <li className="list-group-item">
-                                        <span className="mb-0 title">Etude sur le patient</span> :
+                                        <span className="mb-0 title">Description</span> :
                                          <span className="text-black ml-2">{contact.Cust_Name}</span> 
                                     </li>
                                     <li className="list-group-item">

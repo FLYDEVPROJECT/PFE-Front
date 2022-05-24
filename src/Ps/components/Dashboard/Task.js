@@ -243,7 +243,7 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Etude de cas du patient</label>
+												<label className="text-black font-w500">Description</label>
 												<div className="contact-occupation">
 													<input type="text"   autocomplete="off"
                                                         onChange={handleAddFormChange}
@@ -311,7 +311,7 @@ const PostPage = () => {
 												</div>
 											</div>
                                             <div className="form-group mb-3">
-												<label className="text-black font-w500">Etude de cas du patient</label>
+												<label className="text-black font-w500">Description</label>
 												<div className="contact-occupation">
 													<input type="text"   autocomplete="off"
                                                         value={editFormData.Cust_Name}

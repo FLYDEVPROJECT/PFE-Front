@@ -138,12 +138,7 @@ const Allergies = () => {
         <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >Mesures</button>
  
                </Link>
-               <Link  
-                  to="/dossier-medical/ProfessionnelsDeSante"    
-                  >
-        <button type="button" class="btn btn-light tp-btn"  style={{ width: 240 }} >professionnels de santé</button>
- 
-               </Link>
+              
                <Link  
                   to="/dossier-medical/volontaire"    
                   >

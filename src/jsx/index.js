@@ -19,65 +19,28 @@ import Doctordetail from "./components/Dashboard/Doctordetail";
 import PageReview from "./components/Dashboard/PageReview";
 import Task from './components/Dashboard/Task';
 import patientenattente from './components/Dashboard/patientenattente'; 
-import dentiste from './components/Dashboard/dentiste';
-/*
-import hospitalisation from './components/Dashboard/hospitalisation'
-import allergie from './components/Dashboard/allergie'
-import antecedent from './components/Dashboard/antecedent'
- */
 import Med from './components/Dashboard/Med';
-
-
 
 /// App
 import AppProfile from './components/AppsMenu/AppProfile/AppProfile'
 import PostDetails from './components/AppsMenu/AppProfile/PostDetails'
-import Compose from './components/AppsMenu/Email/Compose/Compose'
-import Composee from './components/AppsMenu/Email/Compose/Compose'
-import Inbox from './components/AppsMenu/Email/Inbox/Inbox'
-import Read from './components/AppsMenu/Email/Read/Read'
 
 
-/// Product List
-import ProductGrid from './components/AppsMenu/Shop/ProductGrid/ProductGrid'
-import ProductList from './components/AppsMenu/Shop/ProductList/ProductList'
-import ProductDetail from './components/AppsMenu/Shop/ProductGrid/ProductDetail'
+
+
 import Checkout from './components/Dashboard/Checkout'
 
-import ProductOrder from './components/AppsMenu/Shop/ProductOrder'
-import EcomCustomers from './components/AppsMenu/Shop/Customers/Customers'
-
-/// Charts
-import RechartJs from './components/charts/rechart'
-import ChartJs from './components/charts/Chartjs'
-import Chartist from './components/charts/chartist'
-import SparklineChart from './components/charts/Sparkline'
-import ApexChart from './components/charts/apexcharts'
-
-/// Bootstrap
 
 
-/// Plugins
-import Select2 from './components/PluginsMenu/Select2/Select2'
-import Nestable from './components/PluginsMenu/Nestable/Nestable'
-import MainNouiSlider from './components/PluginsMenu/Noui Slider/MainNouiSlider'
-import MainSweetAlert from './components/PluginsMenu/Sweet Alert/SweetAlert'
-import Toastr from './components/PluginsMenu/Toastr/Toastr'
-import JqvMap from './components/PluginsMenu/Jqv Map/JqvMap'
-import Lightgallery from './components/PluginsMenu/Lightgallery/Lightgallery'
 
 
-/// Widget
-import Widget from './pages/Widget'
 
-/// Table
 import DataTable from './components/table/DataTable'
 import BootstrapTable from './components/table/BootstrapTable'
 
 import FilteringTable from "./components/table/FilteringTable/FilteringTable";
 
 
-/// Form
 
 import WizardForm from "./components/Forms/ReduxWizard/Index";
 import Element from './components/Forms/Element/Element'
@@ -86,10 +49,9 @@ import SummerNote from './components/Forms/Summernote/SummerNote'
 
 import jQueryValidation from './components/Forms/jQueryValidation/jQueryValidation'
 
-/// Pages
 import Registration from './pages/Registration'
 import Login from './pages/Login'
-import LockScreen from './pages/LockScreen'
+
 import FilteringNewTab from './components/NewTab/filteringnewtab'
 
 import Todo from './pages/Todo';
@@ -97,6 +59,36 @@ import Todo from './pages/Todo';
 //Scroll To Top
 import ScrollToTop from './layouts/ScrollToTop';
 import Reponse from '../layouts/Reponse'
+/// Dossier Patient 
+import DocReport from './components/DossierPatient/DocReport'
+import Hospitalisations from './components/DossierPatient/hospitalisations'
+import Maladies from './components/DossierPatient/maladies'
+import Antecedents from './components/DossierPatient/antecedents'
+import habitudes from './components/DossierPatient/habitudes'
+import Vaccinations from './components/DossierPatient/vaccinations'
+import Mesures from './components/DossierPatient/Mesures'
+import Poid from './components/DossierPatient/mesure/poid'
+import Coeur from './components/DossierPatient/mesure/coeur'
+import Temperature from './components/DossierPatient/mesure/temperature'
+import Taille from './components/DossierPatient/mesure/taille'
+import Glycemie from './components/DossierPatient/mesure/glycemie'
+import Tension  from './components/DossierPatient/mesure/tension'
+
+
+
+
+
+import Volontaire from './components/DossierPatient/volontaire'
+import Historique from './components/DossierPatient/historique'
+
+
+import Allergies from './components/DossierPatient/allergies'
+
+import DocMD from './components/DossierPatient/DocMD'
+import DocCardio from './components/DossierPatient/DocCardio'
+import DocGen from './components/DossierPatient/DocGen'
+///template 
+import doctors from './components/template/doctors'
 
 
 const Markup = () => {
@@ -105,77 +97,74 @@ const Markup = () => {
   path = path[path.length - 1]
   let pagePath = path.split('-').includes('page')
   const [activeEvent, setActiveEvent] = useState(!path)
+  console.log(pagePath)
+  console.log(path)
 
   const routes = [
     /// Dashboard
-    
-    { url: "", component: Home },
+   { url : "",component:Home}, 
+
+    {url: "/doctors", component: doctors },
    	{ url: "/listedespatients", component: PatientList },
     { url: "patient-details", component: PatientDetails },
     { url: "/liste", component: DoctorList },
     { url: "/details", component: Doctordetail },
     { url: "/opthalmo", component: PageReview },
-    /*
     {url:"patientenattente",component:patientenattente},
-    {url:"hospitalisation",component:hospitalisation},
-    {url:"allergie",component:allergie},
-    {url:"antecedent",component:antecedent},
-    */
-    {url : "acces",component: dentiste },
     
-  
     {url:"Reponse",component:Reponse},
-{url:"ordonnance-medicale",component: Med } ,
+    {url:"ordonnance-medicale",component: Med } ,
+    {url:"experience",component:Task},
 
 
    
-{url:"experience",component:Task},
+    { url: 'dossier-medical/hospitalisations', component: Hospitalisations },
+    { url: 'dossier-medical/maladies', component: Maladies },
+    { url: 'dossier-medical/Antecedents', component: Antecedents },
+    { url: 'dossier-medical/habitudes', component: habitudes },
+    { url: 'dossier-medical/Allergies', component: Allergies },
+    { url: 'dossier-medical/Vaccinations', component: Vaccinations },
+    { url: 'dossier-medical/Mesures', component: Mesures },
+    { url: 'dossier-medical/Mesures/poid', component: Poid },
+    { url: 'dossier-medical/volontaire', component: Volontaire },
+    { url: 'dossier-medical/historique', component: Historique },
+    { url: 'dossier-medical/Mesures/taille', component: Taille },
+    { url: 'dossier-medical/Mesures/coeur', component: Coeur },
+    { url: 'dossier-medical/Mesures/temperature', component: Temperature },
+  
+    { url: 'dossier-medical/Mesures/glycemie', component: Glycemie },
+    { url: 'dossier-medical/Mesures/tension ', component: Tension },
+  
+
+ 
+
+    { url: 'dossier-medical/traitement', component: DocReport },
+    { url: 'patient/dossier-medical/medecine-dentaire', component: DocMD },
+    { url: 'patient/dossier-medical/generaliste', component: DocGen },
+    { url: 'patient/dossier-medical/cardiologie', component: DocCardio },
+
+    
 
 
 
 
-    /// Apps
+
+  
     { url: 'profile', component: AppProfile },
     { url: 'tous-les-professionnels', component: PostDetails },
-    { url: 'contact', component: Compose },
-    { url: 'email-inbox', component: Inbox },
-    { url: 'email-read', component: Read },
+    
+
+
  
-    
-
-    /// Chart
-    { url: 'chart-sparkline', component: SparklineChart },
-    { url: 'chart-chartjs', component: ChartJs },
-    { url: 'chart-chartist', component: Chartist },
-    { url: 'chart-apexchart', component: ApexChart },
-    { url: 'chart-rechart', component: RechartJs },
-
-    /// Bootstrap
-    
-    /// Plugin
-    { url: 'uc-select2', component: Select2 },
-    { url: 'uc-nestable', component: Nestable },
-    { url: 'uc-noui-slider', component: MainNouiSlider },
-    { url: 'uc-sweetalert', component: MainSweetAlert },
-    { url: 'uc-toastr', component: Toastr },
-    { url: 'map-jqvmap', component: JqvMap },
-    { url: 'uc-lightgallery', component: Lightgallery },
-
-
-    /// Widget
-    { url: 'widget-basic', component: Widget },
 
     /// Shop
-    { url: 'ecom-product-grid', component: ProductGrid },
-    { url: 'ecom-product-list', component: ProductList },
-    { url: 'creationcompte', component: Checkout },
-    { url: 'ecom-product-order', component: ProductOrder },
-    { url: 'ecom-checkout', component: Checkout },
     
-    { url: 'ecom-product-detail', component: ProductDetail },
-    { url: 'ecom-customers', component: EcomCustomers },
+    { url: 'creationcompte', component: Checkout },
+ 
+ 
+  
 
-    /// Form
+    /// FormS
     
 
     { url: 'form-redux-wizard', component: WizardForm },
@@ -196,7 +185,7 @@ const Markup = () => {
 
     /// pages
     { url: 'page-register', component: Registration },
-    { url: 'page-lock-screen', component: LockScreen },
+ 
     { url: 'page-login', component: Login },
     
     

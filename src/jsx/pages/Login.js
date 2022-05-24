@@ -47,7 +47,7 @@ function Login (props) {
                                
                             </Link>
                             <div className="mb-4">
-                                <h3 className="mb-1 font-w600">Welcome to HC
+                                <h3 className="mb-1 font-w600">Bienvenue 
                                      </h3>
                                 <p className="">Connectez-vous en saisissant les informations ci-dessous</p>
                             </div>
@@ -92,9 +92,16 @@ function Login (props) {
                                 </div>
                             </form>
                             <div className="new-account mt-2">
-                                <p className="mb-0">Vous n'avez pas de compte ?{" "}
-                                    <Link className="text-black" to="./Authentif">s'inscrire</Link>
-                                    <div> <Link to="/about">Mot de passe oublié</Link></div>
+                                <p >
+                                    
+                                    <div> Mot de passe oublié ?  <strong><Link to="motdepasseoublie">Réinitialiser</Link></strong></div>
+                                    <div>
+          
+                  
+       
+        
+
+</div>
                                    
 
                                 </p>

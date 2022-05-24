@@ -75,12 +75,12 @@ const Alerts = ({ toggleTab, PerfectScrollbar, toggleChatBox }) => {
                id="DZ_W_Contacts_Body1"
             >
                <ul className="contacts">
-                  <li className="name-first-letter">SEVER STATUS</li>
+                  <li className="name-first-letter"></li>
                   <li className="active">
                      <div className="d-flex bd-highlight">
-                        <div className="img_cont primary">KK</div>
+                        <div className="img_cont primary"></div>
                         <div className="user_info">
-                           <span>David Nester Birthday</span>
+                          
                            <p className="text-primary">Today</p>
                         </div>
                      </div>

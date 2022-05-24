@@ -1,5 +1,5 @@
 {
-  "name": "Eres",
+  "name": "DMP",
   "homepage": "https://pfe.flydev.fr/docteur/",
   "version": "0.1.0",
   "private": true,
@@ -21,6 +21,7 @@
     "@material-ui/pickers": "^3.2.10",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.2",
+    "@react-pdf/renderer": "^2.1.1",
     "@svg-maps/usa": "^1.1.1",
     "@svg-maps/world": "^1.0.1",
     "@sweetalert/with-react": "^0.1.1",

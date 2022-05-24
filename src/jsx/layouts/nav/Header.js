@@ -1,9 +1,9 @@
 import React from "react";
 import Avatar from '@mui/material/Avatar';
 import { Link } from "react-router-dom";
-import LogoutLink from './Logout';
+import LogoutLink from './Logout'; 
 import Stack from '@mui/material/Stack';
- 
+
 const Header = ({ onNote, toggle, onProfile }) => {
    var path = window.location.pathname.split("/");
    var name = path[path.length - 1].split("-");
@@ -45,10 +45,10 @@ const Header = ({ onNote, toggle, onProfile }) => {
                      </div>
                   </div>
                   <ul className="navbar-nav header-right">
-                   
-                   
-                 
-                 
+                    
+                    
+                  
+                  
                        
                      <li
                         className="nav-item dropdown header-profile"
@@ -60,7 +60,7 @@ const Header = ({ onNote, toggle, onProfile }) => {
                            role="button"
                            data-toggle="dropdown"
                         >
-                         
+                          
                            <div className="header-info">
                            <Stack direction="row" spacing={2}>
       <Avatar>H</Avatar>
@@ -68,7 +68,7 @@ const Header = ({ onNote, toggle, onProfile }) => {
     </Stack>
                            </div>
                         </Link>
- 
+
                         <div
                            className={`dropdown-menu dropdown-menu-right ${
                               toggle === "profile" ? "show" : ""
@@ -101,12 +101,12 @@ const Header = ({ onNote, toggle, onProfile }) => {
                         </div>
                      </li>
                   </ul>
-               
+                
                </div>
             </nav>
          </div>
       </div>
    );
 };
- 
+
 export default Header;

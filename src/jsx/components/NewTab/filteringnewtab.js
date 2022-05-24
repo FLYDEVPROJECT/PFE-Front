@@ -43,13 +43,6 @@ export const FilteringNewTab = () => {
 				<div className="card-header">
 					<div></div>
 
-
-
-
-					<Link to ="/patient-details"><button type="button" class="btn btn-outline-info"> Ajouter un patient 
-				</button></Link>
-				
-				
 				
                 </div>
 				<div className="card-body">

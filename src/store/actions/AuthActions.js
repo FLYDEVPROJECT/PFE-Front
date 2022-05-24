@@ -1,3 +1,4 @@
+
 import {
     formatError,
     login,
@@ -17,7 +18,7 @@ export function signupAction(email, password, history) {
     return (dispatch) => {
         signUp(email, password)
         .then((response) => {
-            saveTokenInLocalStorage(response.data);X
+            saveTokenInLocalStorage(response.data);
             runLogoutTimer(
                 dispatch,
                 response.data.expiresIn * 1000,
@@ -42,26 +43,28 @@ export function logout(history) {
 }
 
 export function loginAction(email, password, history) {
+    console.log('im here 02')
     return (dispatch) => {
         login(email, password)
             .then((response) => {
+                console.log('im here 04')
+                console.log(response)
                 saveTokenInLocalStorage(response.data);
+                /*
                 runLogoutTimer(
                     dispatch,
                     response.data.expiresIn * 1000,
                     history,
-                );
+                ); */
                 dispatch(loginConfirmedAction(response.data));
-				history.push('/');
-				//window.location.reload();
+                history.isAuthenticated = true
+                history.push('/');
+                //window.location.reload();
                 
-				//history.pushState('/index');
+                //history.pushState('/index');
                 
             })
-            .catch((error) => {
-                const errorMessage = formatError(error.response.data);
-                dispatch(loginFailedAction(errorMessage));
-            });
+         
     };
 }
 

@@ -1,12 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import TextField from '@mui/material/TextField';
-
 import Checkbox from '@mui/material/Checkbox';
-import { Row, Col, Card} from 'react-bootstrap'
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import { TextareaAutosize } from '@mui/base';
+
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -167,6 +165,7 @@ export default class FormInputs extends Component {
     </div>
     </div>
     <br></br> <br></br>
+  
                             <button className="btn btn-primary btn-block">Créez votre Fiche !</button>
                         </form>
  

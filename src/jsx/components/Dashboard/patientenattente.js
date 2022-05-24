@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import PageTitle from "../../layouts/PageTitle";
 import { useState, useEffect } from "react";
 import {
