@@ -95,7 +95,7 @@ const PostPage = () => {
         }
         else if(addFormData.Location === ""){
             error = true;
-			errorMsg = 'Ajouter un hopital';z
+			errorMsg = 'Ajouter un hopital';
         }
         if(!error){
             const newContact = {

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import LogoutLink from './Logout'; 
 
 
+
 class MM extends Component {
   componentDidMount() {
     this.$el = this.el;
@@ -105,10 +106,31 @@ class SideBar extends Component {
                 </li>
 
                 <li>
-					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/acces">Accés</Link>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/experience">Expérience</Link>
                 </li>
                </ul>
                </li> 
+
+
+               <li className={`${plugins.includes(path) ? "mm-active" : ""}`}>
+              <Link className="has-arrow ai-icon" to="#" >
+                <i className="flaticon-381-network"></i>
+                <span className="nav-text">Liste</span>
+              </Link>
+			
+
+              <ul >
+                <li>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()} to="/liste-patient">Liste des patients</Link>
+                </li>
+
+                <li>
+					<Link className={`${path === "app-profile" ? "mm-active" : ""}`} onClick={() => this.props.onClick()}  to="/liste-professionnels">Liste des professionnels</Link>
+                </li>
+               </ul>
+               </li> 
+
+
             <li className={`${plugins.includes(path) ? "mm-active" : ""}`}>
               <Link className="has-arrow ai-icon" to="#" >
                 <i className="flaticon-381-heart"></i>

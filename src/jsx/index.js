@@ -80,7 +80,7 @@ import Tension  from './components/DossierPatient/mesure/tension'
 
 import Volontaire from './components/DossierPatient/volontaire'
 import Historique from './components/DossierPatient/historique'
-
+import compose from './components/DossierPatient/compose'
 
 import Allergies from './components/DossierPatient/allergies'
 
@@ -177,9 +177,10 @@ const Markup = () => {
     /// table
     { url: 'table-datatable-basic', component: DataTable },
     { url: 'table-bootstrap-basic', component: BootstrapTable },
+    /// nv tableau docteur
     { url: 'liste-professionnels', component: FilteringTable },
     
-
+    {url:'contact', component:compose},
       /// nv tableau patient 
       { url: 'liste-patient', component: FilteringNewTab },
 
