@@ -22,7 +22,7 @@ const Login = lazy(() => {
 function App (props) {
     console.log(props)
     let isAuthenticated = false;
-    if(window.localStorage.getItem('userDetails')) isAuthenticated = true
+    if(window.localStorage.getItem('token')) isAuthenticated = true
   
     const dispatch = useDispatch();
     useEffect(() => {

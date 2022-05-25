@@ -3,10 +3,8 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Formik} from 'formik';
-import { TextField } from './TextField';
 import * as Yup from 'yup';
 import './validation.css';
-import Axios from 'axios' ;
 
 const StepOne = () => {
   const url=""

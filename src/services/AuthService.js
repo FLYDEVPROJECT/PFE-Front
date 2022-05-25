@@ -5,30 +5,11 @@ import {
     logout,
 } from '../store/actions/AuthActions';
 
-export function signUp(email, password) {
-    //axios call
-
+export function signUp(username, password) {
     const postData = {
-        email,
+        username,
         password,
-        returnSecureToken: true,
     };
-
-    return axios.post(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD3RPAp3nuETDn9OQimqn_YF6zdzqWITII`,
-        postData,
-    );
-}
-
-export function login(email, password) {
-    const postData = {
-        "username": email,
-        "password": password
-    }
-
-    console.log('im here 03')
-    console.log(postData)
-
     return axios.post(
         `http://127.0.0.1:8000/api/login_check`,
         postData,
@@ -58,18 +39,17 @@ export function formatError(errorResponse) {
 }
 //@todo
 export function saveTokenInLocalStorage(tokenDetails) {
-    const today = new Date()
+const today = new Date()
 const tomorrow = new Date(today)
 tomorrow.setDate(tomorrow.getDate() + 1)
 
     tokenDetails.expireDate = new Date(
         tomorrow.getTime() * 1000,
     );
-    console.log('im here 05')
-    console.log(tokenDetails.expireDate)
-    console.log(JSON.stringify(tokenDetails))
 
     window.localStorage.setItem('userDetails', JSON.stringify(tokenDetails));
+    window.localStorage.setItem('token', tokenDetails.token);
+
 }
 
 export function runLogoutTimer(dispatch, timer, history) {

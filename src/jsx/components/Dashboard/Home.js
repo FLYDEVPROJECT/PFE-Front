@@ -19,11 +19,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';import B
 import { Modal } from "react-bootstrap";
 import {Table } from "@mui/material";
  import fakedata from "./fakedata";
- import Collapsible from "./Collapsible";
  import {
-   Badge,
    Dropdown,
-   ProgressBar,
  } from "react-bootstrap";
  import avatar3 from "../../../images/avatar/1.jpg";
 

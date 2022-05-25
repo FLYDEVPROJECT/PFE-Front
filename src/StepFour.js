@@ -29,7 +29,15 @@ const StepFour = ({ history }) => {
    setData(newdata)
    console.log(newdata)
 
- }  
+ } 
+ const onValidate = (e) => {
+   const newdata={...data}
+   newdata[e.target.id] =e.target.value
+   setData(newdata)
+   console.log(newdata)
+
+};
+
    return (
       <section>    
             <div className="row justify-content-center h-100 align-items-center">
@@ -55,6 +63,7 @@ const StepFour = ({ history }) => {
       validationSchema={validate}
       onSubmit={values => {
         console.log(values)
+        history.push('/');
       }}
     >
       {formik => (
@@ -70,13 +79,7 @@ const StepFour = ({ history }) => {
 
 
                                 <button
-                              onClick={() =>
-                                 swal(
-                                    "Félicitations!",
-                                    "Votre demande a éte envoyez avec succés!",
-                                    "success"
-                                 )
-                              }
+                              onClick={onValidate}
                               className="btn btn-success btn sweet-success"
                            >
                               valider
