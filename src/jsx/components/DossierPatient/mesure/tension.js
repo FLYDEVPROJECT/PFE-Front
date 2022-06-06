@@ -181,26 +181,7 @@ const Tension = () => {
         <div className='mail-list mt-4'>
         
 
-        <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      height="150"
-      src={tele}
-      alt="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h7" component="div">
-      Synthèse de mon profil
-              </Typography>
-      <Typography variant="body2" color="text.secondary">
-      Je souhaite visualiser et partager la synthèse PDF 
-      de mon profil médical avec mes professionnels de santé.
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Continuer</Button>
-    </CardActions>
-  </Card>
+     
 
 
 

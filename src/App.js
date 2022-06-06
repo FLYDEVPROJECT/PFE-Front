@@ -9,10 +9,11 @@ import { checkAutoLogin } from './services/AuthService';
 /// Style
 import "./vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import "./css/style.css";
-
+import Motdepasseoublier from './jsx/components/Dashboard/Motdepasseoublier'; 
 //import Test from './test'
 
 import Wizard from './Wizard';
+
 const ForgotPassword = lazy(() => import('./jsx/pages/ForgotPassword'));
 const Login = lazy(() => {
     return new Promise(resolve => {
@@ -32,7 +33,7 @@ function App (props) {
     let routes = (  
         <Switch>
            <Route exact path="/" component={Login}/>
-          
+           <Route exact path="/Motdepasseoublier" component={Motdepasseoublier}/>
            <Route exact path="/patient-professionnel" component={Wizard}/>
           
             <Route path='/login' component={Login} />

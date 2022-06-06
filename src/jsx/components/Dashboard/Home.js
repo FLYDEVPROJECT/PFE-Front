@@ -62,7 +62,7 @@ const Home = () => {
    />
  </Stack>
             <div className="mr-auto d-none d-lg-block">
-               <h3 className="text-black font-w600"> Mr X  ! </h3>
+               <h3 className="text-black font-w600"> Mr User  ! </h3>
                <h6><strong>Bienvenue </strong> HC vous permet de conserver et partager vos données et documents de santé en toute confidentialité.</h6>
             </div>
          </div>

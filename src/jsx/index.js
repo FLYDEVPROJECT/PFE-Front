@@ -59,7 +59,8 @@ import FilteringTable from "./components/ListeMedPatient/FilteringTable";
 import jQueryValidation from './components/Forms/jQueryValidation/MedContact'
 
 /// Pages
-import ForgotPassword from './pages/ForgotPassword' ;
+import Motdepasseoublier from './components/Dashboard/Motdepasseoublier' ;
+
 
 //Scroll To Top
 import ScrollToTop from './layouts/ScrollToTop';
@@ -124,7 +125,8 @@ const Markup = () => {
 
 
     ///teb3inn l acces
-  
+    { url: 'Motdepasseoublier', component: Motdepasseoublier },
+
     { url: 'patient/acces/medecine-interne', component: interne },
     { url: 'patient/acces/dermatologie', component: Dermatologie },
     { url: 'patient/acces/medecine-dentaire', component: Calendar },
@@ -198,7 +200,6 @@ const Markup = () => {
     { url: 'table-Medecin', component: FilteringTable },
 
     /// pages
-    { url: 'Oubliermotdepasse', component: ForgotPassword },
 
     { url: 'patient/details', component: docDetails },
 

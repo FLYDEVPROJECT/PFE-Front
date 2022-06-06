@@ -1,9 +1,101 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from 'react'
+import * as Yup from 'yup';
 import { Link } from "react-router-dom";
-import DropFile from "./DropFile";
 import { Dropdown } from "react-bootstrap";
+import jwt_decode from 'jwt-decode';
+import axios from 'axios' ; 
 
    const MedContact = () => {
+      const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const [largeModal, setLargeModal] = useState(false);
+  const [addFormData, setAddFormData] = useState({
+    titre:'',
+    question: '',
+});
+
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleAddFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute('name');
+    const fieldValue = event.target.value;
+    const newFormData = { ...addFormData };
+    newFormData[fieldName] = fieldValue;
+    setAddFormData(newFormData);
+    console.log(newFormData)
+};     
+
+
+
+  const submit = () => {
+    const newAddFormData = { ...addFormData }
+    const fd = new FormData();
+    fd.append('titre', addFormData.titre);
+    fd.append('question', addFormData.question);
+
+
+            var data = jwt_decode(localStorage.getItem('token'));
+            fd.append('username', data.username);
+
+ 
+           
+           
+            let config = {
+                headers: {
+                'Authorization': 'Bearer '+ localStorage.getItem('token')
+                }
+            };
+       
+        axios
+        .post('http://127.0.0.1:8000/api/ajout/question', fd, config)
+        .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => console.log(error));
+    
+
+    setOpen(false);
+  };
+  const [clientes, setClientes] = useState([]);
+
+
+  
+  const clickhistorique = ()=>{
+    let config = {
+      headers: {
+      'Authorization': 'Bearer '+ localStorage.getItem('token')
+      }
+    };
+
+   
+    setLargeModal(true)
+  }
+  const validate = Yup.object({
+    Nomdutraitement: Yup.string()
+      .max(20, 'Doit contenir 15 caractères ou moins')
+      .required(' champ obligatoire'),
+
+    email: Yup.string()
+      .email('Email est invalide')
+      .required('Email est obligatoire'),
+    password: Yup.string()
+      .min(6, 'Mot de passe doit contenir au mois 6 caractéres')
+      .required('Mot de passe est obligatoire'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+    dates: Yup.string()
+      .oneOf([Yup.ref('dates'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+  })
+
+  
    return (
       <Fragment>
 
@@ -116,54 +208,36 @@ import { Dropdown } from "react-bootstrap";
                         </div>
                         <div className="compose-content">
                            <form action="#">
-                           <select
-                                      className="form-control"
-                                      id="inputState"
-                                      defaultValue="option-1"
-                                    >
-                                      <option value="option-1">Dermatologie</option>
-                                      <option value="option-2">Pédiatrie  </option>
-                                      <option value="option-3">Psychiatrie</option>
-                                      <option value="option-3">Pédopsychiatrie</option>
-                                      <option value="option-3">Cardiologie</option>
-                                      <option value="option-3">Néphrologie</option>
-                                      <option value="option-3">Neurologie</option>
-                                      <option value="option-3">Pneumologie</option>
-                                      <option value="option-3">Rhumatologie</option>
-                                      <option value="option-3">Gastro-entérologie</option>
-                                      <option value="option-3"> généraliste</option>
-                                      <option value="option-3"> Ophtalmologie</option>
-                                      <option value="option-3"> généraliste</option>
-                                      <option value="option-3"> Gynécologie</option>
-                                      <option value="option-3"> O.R.L</option>
-                                      <option value="option-3"> Anesthésie</option>
-                                     
-                        </select>
+                          
                               <div className="form-group">
-                                 <input
-                                    type="text"
-                                    className="form-control bg-transparent"
-                                    placeholder=" Sujet:"
-                                 />
+                              <input type="text" 
+                    className="form-control" 
+                                                   required="required"
+                                                  onChange={handleAddFormChange}
+                                                  name="titre"
+                                                  id="titre"
+                                                  value={addFormData.titre}
+placeholder="sujet" 
+                                                />
                               </div>
                               <div className="form-group">
                                  <textarea
-                                    id="email-compose-editor"
+                                     onChange={handleAddFormChange}
+                                     value={addFormData.question}
+                                     name="question"
                                     className="textarea_editor form-control bg-transparent"
                                     rows="15"
                                     placeholder="Enter text ..."
                                  ></textarea>
                               </div>
                            </form>
-                           <h5 className="mb-4">
-                              <i className="fa fa-paperclip"></i> Ajouter une photo
-                           </h5>
-                           <DropFile />
+                          
                         </div>
                         <div className="text-left mt-4 mb-5">
                            <button
                               className="btn btn-primary btn-sl-sm mr-2"
                               type="button"
+                              onClick={submit}
                            >
                               <span className="mr-2">
                                  <i className="fa fa-paper-plane"></i>
@@ -173,6 +247,7 @@ import { Dropdown } from "react-bootstrap";
                            <button
                               className="btn btn-danger light btn-sl-sm"
                               type="button"
+                              onClick={handleClose}
                            >
                               <span className="mr-2">
                                  <i

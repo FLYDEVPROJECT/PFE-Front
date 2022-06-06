@@ -58,6 +58,8 @@ export function runLogoutTimer(dispatch, timer, history) {
     }, timer);
 }
 
+
+
 export function checkAutoLogin(dispatch, history) {
     const tokenDetailsString = localStorage.getItem('userDetails');
     let tokenDetails = '';

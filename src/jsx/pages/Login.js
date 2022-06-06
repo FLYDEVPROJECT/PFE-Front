@@ -1,20 +1,13 @@
 import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
-import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom'
-
-
-
-
-
 import { loadingToggleAction,loginAction,
 } from '../../store/actions/AuthActions';
  
 //
 import logo from '../../images/logopatient.png'
-
  
 function Login (props) {
     let errorsObj = { username: '', password: '' };
@@ -27,21 +20,8 @@ function Login (props) {
     
  
     const onLogin = () => {
-        dispatch(loadingToggleAction(true));	
+        dispatch(loadingToggleAction(true));                                          
         dispatch(loginAction(username.username, password.password, props.history));
-    };
-    const list = () => {
-        let config = {
-            headers: {
-              'Authorization': 'Bearer '+ localStorage.getItem('token')
-              }
-           };
-        axios
-        .get('http://127.0.0.1:8000/api/list', config)
-        .then((res) => {
-          console.log(res.data); 
-        })
-        .catch((error) => console.log(error));
     };
 
     const preventDefault = (event) => event.preventDefault();
@@ -58,7 +38,7 @@ function Login (props) {
                                
                             </div>
                             <div className="mb-4">
-                                <h3 className="mb-1 font-w600">Bienvenue
+                                <h3 className="mb-1 font-w600">Bienvenue au ENS
                                      </h3>
                                 <p className="">Connectez-vous en saisissant les informations ci-dessous</p>
                             </div>
@@ -75,7 +55,7 @@ function Login (props) {
                             )}
                             <div className="form-group">
                                     <label className="mb-2 ">
-                                        <strong className="">Code Sécurité Sociale ( CSS)*</strong>
+                                        <strong className="">Adresse Email</strong>
                                     </label>
                                     <input type="text" onChange={(event) =>{ setUsername({username:event.target.value})}} className="form-control" placeholder='********' />
                                 </div>
@@ -98,7 +78,11 @@ function Login (props) {
                                 </div>
                                 <Link to="/patient-professionnel" className="text-black">
                       <i className="fa fa-users text-primary mr-2" />
-                        S'inscrire
+                        Inscrire !
+										</Link>
+                                        <Link to="/Motdepasseoublier" className="text-black">
+                      <i className="fa fa-users text-primary mr-2" />
+                        Mot de passe oublier !
 										</Link>
                             <div className="new-account mt-2">
 

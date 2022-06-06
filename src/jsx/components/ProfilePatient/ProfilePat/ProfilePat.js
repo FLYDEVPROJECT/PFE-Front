@@ -1,10 +1,9 @@
 import React, { useEffect, Fragment, useState } from "react";
 import { Tab, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 import { Row, Col, Card } from 'react-bootstrap';
 
 
@@ -30,8 +29,10 @@ function ProfilePat() {
 
   //tebda mennna
   useEffect(async () => {
+    var token = localStorage.getItem('token');
+    var decoded = jwt_decode(token);
     const fd = new FormData();
-    fd.append('patient_id', 11);
+    fd.append('username',decoded.username)
     let config = {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -100,6 +101,152 @@ function ProfilePat() {
   };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [editModal, setEditModal] = useState(false);
+  const [contacts, setContacts] = useState([]);
+ 
+  // Edit function editable page loop
+  const [editContactId, setEditContactId] = useState(null);
+ 
+  // Edit function button click to edit
+ 
+ 
+ 
+  const handleEditClick = (event, contact) => {
+    event.preventDefault();
+    setEditContactId(contact.id);
+ 
+    const formValues = {
+ 
+      nom: contact.nom,
+      //  password: contact.password,
+      num_tel: contact.num_tel,
+      statut_sociale:contact.statut_sociale,
+      code_postal: contact.code_postal,
+      adresse: contact.adresse,
+      email: contact.email,
+      ville: contact.ville,
+      nbr_enfant: contact.nbr_enfant,
+
+    }
+    setEditFormData(formValues);
+    setEditModal(true);
+  };
+ 
+ 
+ 
+ 
+ 
+ 
+  // edit  data  
+  const [editFormData, setEditFormData] = useState({
+ 
+    //password: '',
+    num_tel: '',
+    statut_sociale: '',
+    code_postal: '',
+    nbr_enfant:'',
+    adresse:'',
+    ville:'',
+    email:'',
+
+ 
+  })
+ 
+  //update data function
+  const handleEditFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute('name');
+    const fieldValue = event.target.value;
+    const newFormData = { ...editFormData };
+    newFormData[fieldName] = fieldValue;
+    setEditFormData(newFormData);
+  };
+ 
+  // edit form data submit
+  const handleEditFormSubmit = (event) => {
+    //event.preventDefault();
+ 
+    //recuperer data
+    console.log(editFormData);
+    var token = localStorage.getItem('token');
+    var decoded = jwt_decode(token);
+    const fd = new FormData();
+    fd.append('username', decoded.username)
+    // fd.append('password', editFormData.password);
+    fd.append('num_tel', editFormData.num_tel);
+    fd.append('statut_sociale', editFormData.statut_sociale);
+    fd.append('adresse', editFormData.adresse);
+    fd.append('nbr_enfant', editFormData.nbr_enfant);
+    fd.append('code_postal', editFormData.code_postal);
+    fd.append('email', editFormData.email);
+    fd.append('ville', editFormData.ville);
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    };
+    const editedContact = {
+ 
+      //password: editFormData.password,
+      num_tel: editFormData.num_tel,
+      statut_sociale: editFormData.statut_sociale,
+      nbr_enfant: editFormData.nbr_enfant,
+      email: editFormData.email,
+      code_postal: editFormData.code_postal,
+      adresse: editFormData.adresse,
+      ville: editFormData.ville,
+
+     
+ 
+     
+    }
+ 
+ 
+    axios
+      .post('http://127.0.0.1:8000/api/update/patient', fd, config)
+      .then((res) => {
+        const newContacts = [...contacts];
+        const index = contacts.findIndex((contact) => contact.id === editContactId);
+        newContacts[index] = editedContact;
+        console.log(editedContact);
+        setContacts(newContacts);
+        setEditContactId(null);
+        setEditModal(false);
+      })
+    return false;
+  }
+ 
+  //For Image upload in ListBlog
+ 
+
+
   return (
     <Fragment>
 
@@ -116,7 +263,7 @@ function ProfilePat() {
                 </div>
                 <div className="profile-details">
                   <div className="profile-name px-3 pt-2">
-                    <h4 className="text-primary mb-0">mr/mme </h4>
+                    <h4 className="text-primary mb-0">Profile de mr/mme  {nom} {prenom} </h4>
                   </div>
 
 
@@ -147,7 +294,7 @@ function ProfilePat() {
                     <div id="my-posts" className={`tab-pane fade ${activeToggle === "posts" ? "active show" : ""}`} >
                       <div className="profile-about-me">
                         <div className="pt-4 border-bottom-1 pb-3">
-                          <h4 className="text-primary">Etat civil de monsieur {prenom}</h4>
+                          <h4 className="text-primary">Etat civil de Mr/Mme {prenom}</h4>
                           <br></br>
                           <br></br>
 
@@ -285,10 +432,10 @@ function ProfilePat() {
                                   <Col lg="6" xl="4">
                                     <ListGroup className="mb-4" id="list-tab">
                                       <ListGroup.Item action href="#home">
-                                        Gérer votre mot de passe
+                                        Changer votre mot de passe
                                       </ListGroup.Item>
                                       <ListGroup.Item action href="#profile">
-                                        Gérer informations
+                                        Changer vos informations
                                       </ListGroup.Item>
 
                                     </ListGroup>
@@ -310,7 +457,7 @@ function ProfilePat() {
 
                                                 {/* body */}
                                                 <div className='form-group row'>
-                                                  <label className='col-sm-3 col-form-label'>Actuel	</label>
+                                                  <label >  <strong> Actuel  </strong>	</label>
 
                                                   <div className='col-sm-12'>
                                                     <input
@@ -323,98 +470,46 @@ function ProfilePat() {
                                                 </div>
 
 
+
+                                                <div className='form-group row'>
+                                                  <label ><strong> Nouveau mot de passe </strong>	</label>
+
+                                                  <div className='col-sm-12'>
+                                                    <input
+                                                      type='password'
+                                                      className='form-control'
+                                                    />
+
+                                                  </div>
+                                                </div>   <div className='form-group row'>
+                                                  <label ><strong> Confirmer mot de passe </strong>	</label>
+
+                                                  <div className='col-sm-12'>
+                                                    <input
+                                                      type='password'
+                                                      className='form-control'
+                                                    />
+
+                                                  </div>
+                                                </div>
+
+
                                                 <div>
                                                   <div className="mx-8">
                                                     {/* password section */}
-                                                    <div className='form-group row'>
-                                                      <label className='col-sm-3 col-form-label'>Nouveau Mot de passe </label>
+                                                   
 
-                                                      <div className="mt-10 relative">
-                                                        <div className='col-sm-9'>
-                                                          <input
-                                                            type={passwordEye === false ? "password" : "text"}
-                                                            placeholder="Mot de passe "
-
-                                                            className={`w-full h-14 rounded-lg ${errors.password &&
-                                                              "form-control"} `}
-                                                            {...register("password", {
-                                                              required: 'le mot de passe est obligatoire ',
-                                                              pattern: {
-                                                                value: /^(\S)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{10,16}$/,
-                                                                message: 'Le mot de passe doit inclure au moins une majuscule, une valeur numérique et un caractère spécial'
-                                                              },
-                                                              minLength: {
-                                                                value: 8,
-                                                                message: ' la longueur minimale exigée est 8'
-                                                              },
-                                                              maxLength: {
-                                                                value: 20,
-                                                                message: "la longueur maximale  exigée est 20",
-
-                                                              },
-                                                            })}
-                                                          />
-                                                          {errors.password &&
-                                                            <span className="text-sm text-red-500">{errors.password.message}</span>}
-                                                        </div></div>
-                                                      {/* eye section */}
-                                                      <div className="text-3xl absolute top-4 right-5">
-                                                        {passwordEye === false ? (
-                                                          <AiFillEyeInvisible onClick={handlePasswordClick} />
-                                                        ) : (
-                                                          <AiFillEye onClick={handlePasswordClick} />
-                                                        )}
-                                                      </div>
-                                                    </div>
-                                                    <div>
-
-                                                      {/* confirm password section */}
-                                                      <div className="mx-8">
-
-                                                        <div className='form-group row'>
-
-                                                          <label className='col-sm-4 col-form-label'>confirmer le mot de passe 	</label>
-
-                                                          <div className="mt-10 relative">
-                                                            <div className='col-sm-9'>
-
-                                                              <input
-                                                                type={confirmPasswordEye === false ? "password" : "text"}
-                                                                placeholder="Confirmer le mot de passe "
-                                                                onPaste={(e) => {
-                                                                  e.preventDefault()
-                                                                  return false;
-                                                                }}
-                                                                className={`w-full h-14 rounded-lg ${errors.confirmPassword &&
-                                                                  "form-control"} `}
-                                                                {...register("confirmPassword", {
-                                                                  required: 'Confirmer le mot de passe est obligatoire',
-                                                                  validate: (value) =>
-                                                                    value === password || "le mot de passe n'est pas identique ",
-                                                                })}
-                                                              />
-                                                              {errors.confirmPassword && <span className="text-sm text-red-500">{errors.confirmPassword.message}</span>}
-                                                            </div></div>
-                                                          {/* eye section */}
-                                                          <div className="text-2xl absolute top-4 right-5">
-                                                            {passwordEye === false ? (
-                                                              <AiFillEyeInvisible onClick={handleConfirmPasswordClick} />
-                                                            ) : (
-                                                              <AiFillEye onClick={handleConfirmPasswordClick} />
-                                                            )}
-                                                          </div>
-                                                        </div></div></div>
+                                                     
 
 
                                                     {/* button section */}
                                                     <div className="flex items-center justify-center mt-12">
-                                                      <Link to="/login">
+                                              
                                                         <input
                                                           type='Button'
-                                                          value='Submit'
+                                                          value='Valider'
                                                           className="btn btn-primary mb-1 ml-1"
                                                         />
-                                                      </Link>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -425,17 +520,21 @@ function ProfilePat() {
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="#profile">
                                         <h4 className="mb-4">
-                                          Gérer les informations                                        </h4>
+                                          changer vos informations                                        </h4>
                                         <div className='form-group row'>
-
                                         </div>
                                         <div className='form-group row'>
                                           <label className='col-sm-3 col-form-label'>Adresse Email</label>
                                           <div className='col-sm-9'>
                                             <input
-                                              type='Email'
-                                              className='form-control'
-                                              placeholder='maissaba@aiesec.net'
+                                               type='email'
+                                               className='form-control'
+                                               name="email"
+                                                onChange={handleEditFormChange}
+                                                value={editFormData.email}
+
+
+
                                             />
                                           </div>
                                         </div>  <div className='form-group row'>
@@ -443,6 +542,9 @@ function ProfilePat() {
                                           <div className='col-sm-9'>
                                             <input
                                               type="text"
+                                              name="num_tel"
+                                              onChange={handleEditFormChange}
+
                                               className={`form-control ${errors.phone && "invalid"}`}
                                               {...register("phone", {
                                                 required: "Numero de télephone est obligatoire ",
@@ -459,49 +561,126 @@ function ProfilePat() {
                                               <small className="text-danger">{errors.phone.message}</small>
                                             )}
                                           </div>
-                                        </div>  <div className='form-group row'>
+&                                        </div>  <div className='form-group row'>
                                           <label className='col-sm-3 col-form-label'>Nombre d'enfants</label>
+                                          <div className='col-sm-9'>
+                                            <input
+                                              type='number'
+                                              name="nbr_enfant"
+                                              className='form-control'
+                                              placeholder='0'
+                                              onChange={handleEditFormChange}
+                                              value={editFormData.nbr_enfant}
+                                           />
+                                          </div>
+                                        </div>
+                                        <div className='form-group row'>
+                                          <label className='col-sm-3 col-form-label'>Ville</label>
+                                          <div className='col-sm-9'>
+                                            <input
+                                              type='text'
+                                              name="ville"
+                                              className='form-control'
+                                              onChange={handleEditFormChange}
+                                              value={editFormData.ville}
+
+                                            />
+                                          </div>
+                                        </div>  
+                                        <div className='form-group row'>
+                                          <label className='col-sm-3 col-form-label'>Adresse</label>
+                                          <div className='col-sm-9'>
+                                            <input
+                                              type='text'
+                                              name="adresse"
+                                              className='form-control'
+                                              placeholder='Route sidi mansour Km 4'
+                                              onChange={handleEditFormChange}
+                                              value={editFormData.adresse}
+
+                                            />
+                                          </div>
+                                        </div>  
+                                        <div className='form-group row'>
+                                          <label className='col-sm-3 col-form-label'>Code Postal</label>
                                           <div className='col-sm-9'>
                                             <input
                                               type='text'
                                               className='form-control'
-                                              placeholder='2'
-                                            />
-                                          </div>
-                                        </div>  <div className='form-group row'>
-                                          <label className='col-sm-3 col-form-label'>Retreté</label>
-                                          <div className='col-sm-9'>
-
-                                          </div>
-                                        </div>  <div className='form-group row'>
-                                          <label className='col-sm-3 col-form-label'>Ville</label>
-                                          <div className='col-sm-9'>
-                                            <input
-                                              type='password'
-                                              className='form-control'
-                                              placeholder='Sfax'
-                                            />
-                                          </div>
-                                        </div>  <div className='form-group row'>
-                                          <label className='col-sm-3 col-form-label'>Adresse</label>
-                                          <div className='col-sm-9'>
-                                            <input
-                                              type='password'
-                                              className='form-control'
-                                              placeholder='Route sidi mansour Km 4'
-                                            />
-                                          </div>
-                                        </div>  <div className='form-group row'>
-                                          <label className='col-sm-3 col-form-label'>Code Postal</label>
-                                          <div className='col-sm-9'>
-                                            <input
-                                              type='password'
-                                              className='form-control'
                                               placeholder='3000'
+                                              name="code_postal"
+                                              onChange={handleEditFormChange}
+                                              value={editFormData.code_postal}
+
                                             />
                                           </div>
 
                                         </div>
+
+
+                                        <div className='form-group row'>
+                                          <label className='col-sm-3 col-form-label'>Statut social </label>
+                                          <div className='col-sm-9'>
+                                          <select
+                                                         className="form-control"
+                                                         defaultValue="célibataire"
+                                                         name="statut_sociale"
+                                                         onChange={handleEditFormChange}
+                                                         value={editFormData.statut_sociale}
+
+                                                         >
+
+                                                         <option value="célibataire">célibataire </option>
+                                                         <option value="marié(e)">Marié(e)  </option>
+                                                         <option value="veuf(ve)">veuf(ve)</option>
+                                                         <option value="divorcé(e)">divorcé(e) </option>
+
+                                                      </select>
+                                          </div>
+                                        </div>  
+
+
+                                        <div className='form-group row'>
+                                          <label className='col-sm-3 col-form-label'>profession / scolarité </label>
+                                          <div className='col-sm-9'>
+                                          <select
+                                                         className="form-control"
+                                                         defaultValue="profession-1"
+                                                        
+                                                      >
+                                                         <option value="profession-1">Profession</option>
+                                                         <option value="option-2">Education  </option>
+                                                         <option value="option-3">Autre</option>
+                                                      </select>
+                                          </div>
+
+                                        </div>
+
+                                        <div className='form-group row'>
+                                          <label className='col-sm-3 col-form-label'>photo de profil  </label>
+                                          <div className='col-sm-9'>
+                                          <input
+                                                      name="photo"
+                                                      className="form-control"
+                                                      required
+                                                      type="file"
+                                                      accept="image/png, image/jpeg" />
+                                          </div>
+
+                                        </div>
+
+                                        
+                                        <div className="flex items-center justify-center mt-12">
+                                                      
+                                                        <input
+                                                          type='Button'
+                                                          value='Enregistrer les modification '
+                                                          className="btn btn-primary mb-1 ml-1"
+                                                          onClick={(event) => handleEditFormSubmit(event)}
+
+                                                        />
+                                                    
+                                                    </div>
                                       </Tab.Pane>
 
 
@@ -512,6 +691,7 @@ function ProfilePat() {
 
 
                             </div>
+                            
                           </Card.Body>
                         </Card>                            </div>
                     </div>

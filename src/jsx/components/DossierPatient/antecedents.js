@@ -1,14 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useState , useEffect} from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import { Modal } from "react-bootstrap";
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
-import tele from '../../../images/big/tele.png'
 import MedicalReport from '../../../images/big/MedicalReport.png'
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
@@ -19,6 +14,21 @@ import { Formik, Form } from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
 import './validation.css';
+import jwt_decode from 'jwt-decode';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Container
+} from "@mui/material"
+import Collapsible from "./Collapsible";
+import axios from "axios" ; 
+
+
+
 
 const Antecedents = () => {
   const [open, setOpen] = React.useState(false);
@@ -26,28 +36,116 @@ const Antecedents = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const [largeModal, setLargeModal] = useState(false);
+  const [addFormData, setAddFormData] = useState({
+    nom:'',
+    postologie_trait: '',
+    date_trait: '',
+    commentaire: '',
+});
+
 
   const handleClose = () => {
     setOpen(false);
   };
-  const validate = Yup.object({
-    Nomdelamaladie: Yup.string()
-      .max(15, 'Doit contenir 15 caractères ou moins')
-      .required('Champ obligatoire'),
-    lastName: Yup.string()
-      .max(20, 'Must be 20 characters or less')
-      .required('Required'),
-    email: Yup.string()
-      .email('Email is invalid')
-      .required('Email is required'),
-    password: Yup.string()
-      .min(6, 'Password must be at least 6 charaters')
-      .required('Password is required'),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Password must match')
-      .required('Confirm password is required'),
-  })
+  const handleAddFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute('name');
+    const fieldValue = event.target.value;
+    const newFormData = { ...addFormData };
+    newFormData[fieldName] = fieldValue;
+    setAddFormData(newFormData);
+    console.log(newFormData)
+};     
 
+
+
+  const submit = () => {
+    const fd = new FormData();
+    fd.append('nom', addFormData.nom);
+    fd.append('postologie_trait', addFormData.postologie_trait);
+    fd.append('date_trait', addFormData.date_trait);
+    fd.append('commentaire', addFormData.commentaire);
+
+            var data = jwt_decode(localStorage.getItem('token'));
+            fd.append('username', data.username);
+
+ 
+           
+           
+            let config = {
+                headers: {
+                'Authorization': 'Bearer '+ localStorage.getItem('token')
+                }
+            };
+       
+        axios
+        .post('http://127.0.0.1:8000/api/ajout/traitement', fd, config)
+        .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => console.log(error));
+    
+
+    setOpen(false);
+  };
+  const [clientes, setClientes] = useState([]);
+
+
+  
+  const clickhistorique = ()=>{
+    let config = {
+      headers: {
+      'Authorization': 'Bearer '+ localStorage.getItem('token')
+      }
+    };
+
+    const fd = new FormData();
+    var decoded = jwt_decode(localStorage.getItem('token'));
+    fd.append('username', decoded.username);
+    axios
+    .post('http://127.0.0.1:8000/api/list/traitements', fd, config)
+    .then((res) => {
+      var data = [];
+      res.data.map((cliente, index) => {
+        console.log(cliente);
+        data.push({
+          specialite:cliente.posologie_trait,
+          nom:cliente.nom ,
+          date: cliente.date_trait,
+      
+          endereco: [
+            {
+              diagnostic: cliente.commentaire,
+              principal: true,
+            },
+      
+          ]
+        })
+    });
+      setClientes(data);
+    }).catch((error) => console.log(error));
+    
+    setLargeModal(true)
+  }
+  const validate = Yup.object({
+    Nomdutraitement: Yup.string()
+      .max(20, 'Doit contenir 15 caractères ou moins')
+      .required(' champ obligatoire'),
+
+    email: Yup.string()
+      .email('Email est invalide')
+      .required('Email est obligatoire'),
+    password: Yup.string()
+      .min(6, 'Mot de passe doit contenir au mois 6 caractéres')
+      .required('Mot de passe est obligatoire'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+    dates: Yup.string()
+      .oneOf([Yup.ref('dates'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+  })
    return (
     <Box
     sx={{
@@ -80,26 +178,7 @@ const Antecedents = () => {
         <div className='mail-list mt-4'>
         
 
-        <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      height="150"
-      src={tele}
-      alt="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h7" component="div">
-      Synthèse de mon profil
-              </Typography>
-      <Typography variant="body2" color="text.secondary">
-      Je souhaite visualiser et partager la synthèse PDF 
-      de mon profil médical avec mes professionnels de santé.
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Continuer</Button>
-    </CardActions>
-  </Card>
+       
 
 
 
@@ -197,8 +276,198 @@ const Antecedents = () => {
                   </div>
                 
                 </div>
-                <hr />
-               
+  {/* <!-- Large modal --> */}
+  <Button
+                              variant="primary"
+                              className="mb-2 mr-2"
+                              onClick={() => setLargeModal(true)}
+                            >
+                              Voir l'historique des antécedents
+                            </Button>
+                            <Modal
+                              className="fade bd-example-modal-lg"
+                              show={largeModal}
+                              size="lg"
+                            >
+                              <Modal.Header>
+                                <Modal.Title>Historique des antécedents </Modal.Title>
+                                <Button
+                                  variant=""
+                                  className="close"
+                                  onClick={() => setLargeModal(false)}
+                                >
+                                  <span>&times;</span>
+                                </Button>
+                              </Modal.Header>
+                              <Modal.Body>
+                                <div className='form-group pt-3'>
+                                  <div class="d-flex justify-content-center">
+
+
+                                  </div>
+                                  <br></br>
+                                  <div class="d-flex justify-content-center">
+                                    <div className="card">
+                                      <Container>
+
+
+                                        <TableContainer className="container border mt-5 p-2">
+                                          <Table striped bordered hover>
+                                            <TableHead >
+                                              <TableRow >
+                                                <TableCell className="tableHeader">Nom de la maladie  </TableCell>
+                                                <TableCell className="tableHeader">Lien familial </TableCell>
+                                              </TableRow>
+                                            </TableHead>
+                                            <TableBody>
+                                              <>
+                                                {clientes.length > 0 ? (
+                                                  clientes.map((cliente, index) => (
+                                                    <>
+                                                      <Collapsible
+                                                        header={
+                                                          <>
+                                                            <TableCell className="clientRow">{cliente.Nommaladie}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.lienfam}</TableCell>
+                              
+
+                                                          </>
+                                                        }
+                                                      >
+                                                        <>
+                                                          {
+                                                            <TableRow>
+                                                              <TableCell></TableCell>
+                                                              <TableCell>
+                                                                {cliente.endereco ? (
+                                                                  cliente.endereco.map((data, indexB) => (
+                                                                    <>
+                                                                      <TableRow>
+                                                                        {data.principal ? (
+                                                                          <>
+                                                                            <strong>
+                                                                              <TableRow>
+                                                                                Commentaire
+                                                                              </TableRow>
+                                                                            </strong>
+                                                                            <TableRow>
+                                                                              {data.diagnostic} - {data.cidade} -{" "}
+                                                                              {data.estado}
+                                                                            </TableRow>
+                                                                            <TableRow>
+
+                                                                            </TableRow>
+                                                                          </>
+                                                                        ) : (
+                                                                          <>
+                                                                            {`\u00A0`}
+                                                                            <strong>
+
+                                                                            </strong>
+                                                                            <TableRow>
+                                                                              {data.diagnostic} -{data.cidade} -
+                                                                              {data.estado}
+                                                                            </TableRow>
+
+                                                                            <TableRow>
+
+                                                                            </TableRow>
+                                                                          </>
+                                                                        )}
+                                                                      </TableRow>
+
+                                                                      <hr />
+                                                                    </>
+                                                                  ))
+                                                                ) : (
+                                                                  <>
+                                                                    {" "}
+                                                                    <TableRow> Nenhum Endereço </TableRow>
+                                                                    <hr />
+                                                                  </>
+                                                                )}
+
+                                                              </TableCell>
+
+                                                              <TableCell>
+                                                                {cliente.medicament ? (
+                                                                  cliente.medicament.map((data, indexC) => (
+                                                                    <>
+
+                                                                      <TableRow>
+
+                                                                      </TableRow>
+
+                                                                    </>
+                                                                  ))
+                                                                ) : (
+                                                                  <>
+                                                                    {" "}
+                                                                    <TableRow><strong> médicament </strong></TableRow>
+                                                                    <hr />
+                                                                  </>
+                                                                )}
+
+
+                                                              </TableCell>
+                                                            </TableRow>
+                                                          }
+                                                        </>
+                                                      </Collapsible>
+                                                    </>
+                                                  ))
+                                                ) : (
+                                                  <TableRow>
+                                                    <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+                                                  </TableRow>
+                                                )}
+                                              </>
+                                            </TableBody>
+                                          </Table>
+                                        </TableContainer>
+                                      </Container>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                  </div>
+
+
+                                </div>
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button
+                                  variant="danger light"
+                                  onClick={() => setLargeModal(false)}
+                                >
+                                  Close
+                                </Button>
+                                <Button
+                                  variant=""
+                                  type="button"
+                                  className="btn btn-primary"
+                                >
+                                  Save changes
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>               
                
               
                 <div className='form-group pt-3'>
@@ -261,6 +530,7 @@ const Antecedents = () => {
             label="Nom de la maladie" 
             name="Nomdelamaladie" 
             type="text"
+            onChange={handleAddFormChange}
             placeholder='Ex : Diabéte type 1'
             style={{ width: 500 }} />
 
@@ -270,6 +540,7 @@ const Antecedents = () => {
                                                    className="form-control"
                                                    id="inputState"
                                                    defaultValue="option-2"
+                                                   onChange={handleAddFormChange}
                                                  >
                                        <option value="option-5">Mére</option>
                                        <option value="option-6">Pére</option>
@@ -281,8 +552,11 @@ const Antecedents = () => {
                                                  <br></br>
                                                  <div >
                 <label className='form-label'>Commentaire (facultatif)</label>
-                <textarea rows={3} className="form-control" name="comment" 
+                <textarea rows={3} 
+                className="form-control" 
+                name="comment" 
                 placeholder="Informations complémentaires (Diagnostic , sévérité , dates , traitement ...)" defaultValue={""}/>
+                  onChange={handleAddFormChange}
                 </div>    
 
 
@@ -298,7 +572,7 @@ const Antecedents = () => {
         </DialogContent>
         <DialogActions>
         <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
-          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
+          <button onClick={submit} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

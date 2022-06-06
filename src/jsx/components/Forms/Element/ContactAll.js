@@ -29,11 +29,7 @@ const ContactAll = () => {
 
    }
 
-   const [ setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
  
 
@@ -55,7 +51,7 @@ const ContactAll = () => {
         <Link   
                   to="/med-contact"     
                   >
-        <AddCircleOutlineIcon variant="outlined" onClick={handleClickOpen} />
+        <AddCircleOutlineIcon variant="outlined"  />
      
      </Link>
     </div>
@@ -107,23 +103,7 @@ const ContactAll = () => {
            
         </Col>
         <Col xl='3'>
-        <Card>
-        <Card.Header className=" d-block">
-                     <Card.Title>Categories fréquentes</Card.Title>
-                     
-                  </Card.Header>
-                  <Card.Body>
-                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Pneumologie')}>Pneumologie</button>
-                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Gynécologie')}>Gynécologie</button>
-                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Cardiologie')}>Cardiologie</button>
-                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Géneraliste')}>Géneraliste</button>
-                  <button class="btn btn-warning w-100 mb-3" onClick={() =>filterResult('Radiologie')}>radiologie</button>
-                  <button class="btn btn-warning w-100 mb-3">Pédiatrie</button>
-                  <button class="btn btn-warning w-100 mb-3">Pharmacologie</button>
-                  <button class="btn btn-warning w-100 mb-3"onClick={()=>setData(CategoriesDoc)}>Tous </button>
-
-                  </Card.Body>
-               </Card>
+       
         </Col>
         </Row>
           

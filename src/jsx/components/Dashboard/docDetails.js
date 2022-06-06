@@ -55,14 +55,8 @@ const docDetailss = () => {
                            <h3 className="fs-22 text-black font-w600">
                               Dr. Maroua BEN SALEM
                            </h3><br></br>
-                           <p className="text-primary">Psychologue</p>
+                           <p className="text-primary">Médecin Esthétique</p>
                            <div className="social-media mb-sm-0 mb-3 justify-content-sm-start justify-content-center">
-                              <Link to="/patient-details">
-                                 <i className="lab la-instagram ml-0" />
-                              </Link>
-                              <Link to="https://www.facebook.com/">
-                                 <i className="lab la-facebook-f" />
-                              </Link>
                               <Link to="/patient-details">
                                  <i className="lab la-twitter" />
                               </Link>
@@ -97,7 +91,7 @@ const docDetailss = () => {
                            >
                               Demande Accés
                            </button>
-                  <button type="button" class="mr-10 btn btn-outline-light">Ecrire un message</button>
+                  <button type="button" class="mr-10 btn btn-outline-light">Bloquer </button>
                </div>
                
             </div>

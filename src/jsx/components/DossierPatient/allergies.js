@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useState , useEffect} from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
@@ -17,9 +17,19 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Formik, Form } from 'formik';
 import { TextField } from './TextField';
-import { TextArea } from './TextArea';
 import * as Yup from 'yup';
 import './validation.css';
+import fakedataallergie from "./fakedataallergie";
+import { Modal } from "react-bootstrap";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Container} from "@mui/material" ; 
+import Collapsible from "./Collapsible";
 
 
 
@@ -29,18 +39,37 @@ const Allergies = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const [largeModal, setLargeModal] = useState(false);
+
 
   const handleClose = () => {
     setOpen(false);
   };
+  const [clientes, setClientes] = useState([]);
+
+  useEffect(() => {
+    setClientes(fakedataallergie);
+  }, []);
+
   const validate = Yup.object({
-    allergieName: Yup.string()
-      .max(15, 'Doit contenir 15 caractères ou moins')
-      .required('Champ obligatoire'),
-    lastName: Yup.string()
-      .max(20, 'Must be 20 characters or less')
-      .required('Required'),
-     })
+    Nomdutraitement: Yup.string()
+      .max(20, 'Doit contenir 15 caractères ou moins')
+      .required(' champ obligatoire'),
+
+    email: Yup.string()
+      .email('Email est invalide')
+      .required('Email est obligatoire'),
+    password: Yup.string()
+      .min(6, 'Mot de passe doit contenir au mois 6 caractéres')
+      .required('Mot de passe est obligatoire'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+    dates: Yup.string()
+      .oneOf([Yup.ref('dates'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+  })
+  
  
    return (
     <Box
@@ -74,27 +103,7 @@ const Allergies = () => {
         <div className='mail-list mt-4'>
         
 
-        <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      height="150"
-      src={tele}
-      alt="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h7" component="div">
-      Synthèse de mon profil
-              </Typography>
-      <Typography variant="body2" color="text.secondary">
-      Je souhaite visualiser et partager la synthèse PDF 
-      de mon profil médical avec mes professionnels de santé.
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Continuer</Button>
-    </CardActions>
-  </Card>
-
+       
 
 
 
@@ -192,8 +201,196 @@ const Allergies = () => {
                   </div>
                 
                 </div>
-                <hr />
-               
+ {/* <!-- Large modal --> */}
+ <Button
+                              variant="primary"
+                              className="mb-2 mr-2"
+                              onClick={() => setLargeModal(true)}
+                            >
+                              Voir l'historique des allergie
+                            </Button>
+                            <Modal
+                              className="fade bd-example-modal-lg"
+                              show={largeModal}
+                              size="lg"
+                            >
+                              <Modal.Header>
+                                <Modal.Title>Historique des allergie </Modal.Title>
+                                <Button
+                                  variant=""
+                                  className="close"
+                                  onClick={() => setLargeModal(false)}
+                                >
+                                  <span>&times;</span>
+                                </Button>
+                              </Modal.Header>
+                              <Modal.Body>
+                                <div className='form-group pt-3'>
+                                  <div class="d-flex justify-content-center">
+
+
+                                  </div>
+                                  <br></br>
+                                  <div class="d-flex justify-content-center">
+                                    <div className="card">
+                                      <Container>
+
+
+                                        <TableContainer className="container border mt-5 p-2">
+                                          <Table striped bordered hover>
+                                            <TableHead >
+                                              <TableRow >
+                                                <TableCell className="tableHeader">Nom de l'allergie  </TableCell>
+                                              </TableRow>
+                                            </TableHead>
+                                            <TableBody>
+                                              <>
+                                                {clientes.length > 0 ? (
+                                                  clientes.map((cliente, index) => (
+                                                    <>
+                                                      <Collapsible
+                                                        header={
+                                                          <>
+                                                            <TableCell className="clientRow">{cliente.Nomallergie}</TableCell>
+                              
+
+                                                          </>
+                                                        }
+                                                      >
+                                                        <>
+                                                          {
+                                                            <TableRow>
+                                                              <TableCell></TableCell>
+                                                              <TableCell>
+                                                                {cliente.endereco ? (
+                                                                  cliente.endereco.map((data, indexB) => (
+                                                                    <>
+                                                                      <TableRow>
+                                                                        {data.principal ? (
+                                                                          <>
+                                                                            <strong>
+                                                                              <TableRow>
+                                                                                Commentaire
+                                                                              </TableRow>
+                                                                            </strong>
+                                                                            <TableRow>
+                                                                              {data.diagnostic} - {data.cidade} -{" "}
+                                                                              {data.estado}
+                                                                            </TableRow>
+                                                                            <TableRow>
+
+                                                                            </TableRow>
+                                                                          </>
+                                                                        ) : (
+                                                                          <>
+                                                                            {`\u00A0`}
+                                                                            <strong>
+
+                                                                            </strong>
+                                                                            <TableRow>
+                                                                              {data.diagnostic} -{data.cidade} -
+                                                                              {data.estado}
+                                                                            </TableRow>
+
+                                                                            <TableRow>
+
+                                                                            </TableRow>
+                                                                          </>
+                                                                        )}
+                                                                      </TableRow>
+
+                                                                      <hr />
+                                                                    </>
+                                                                  ))
+                                                                ) : (
+                                                                  <>
+                                                                    {" "}
+                                                                    <TableRow> Nenhum Endereço </TableRow>
+                                                                    <hr />
+                                                                  </>
+                                                                )}
+
+                                                              </TableCell>
+
+                                                              <TableCell>
+                                                                {cliente.medicament ? (
+                                                                  cliente.medicament.map((data, indexC) => (
+                                                                    <>
+
+                                                                      <TableRow>
+
+                                                                      </TableRow>
+
+                                                                    </>
+                                                                  ))
+                                                                ) : (
+                                                                  <>
+                                                                    {" "}
+                                                                    <TableRow><strong> médicament </strong></TableRow>
+                                                                    <hr />
+                                                                  </>
+                                                                )}
+
+
+                                                              </TableCell>
+                                                            </TableRow>
+                                                          }
+                                                        </>
+                                                      </Collapsible>
+                                                    </>
+                                                  ))
+                                                ) : (
+                                                  <TableRow>
+                                                    <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+                                                  </TableRow>
+                                                )}
+                                              </>
+                                            </TableBody>
+                                          </Table>
+                                        </TableContainer>
+                                      </Container>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                  </div>
+
+
+                                </div>
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button
+                                  variant="danger light"
+                                  onClick={() => setLargeModal(false)}
+                                >
+                                  Close
+                                </Button>
+                                <Button
+                                  variant=""
+                                  type="button"
+                                  className="btn btn-primary"
+                                >
+                                  Save changes
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>                
                
               
                 <div className='form-group pt-3'>

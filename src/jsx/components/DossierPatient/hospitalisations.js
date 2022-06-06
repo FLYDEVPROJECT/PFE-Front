@@ -1,15 +1,21 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useState , useEffect} from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import MetarialDate from "./MetarialDate";
-import Typography from '@mui/material/Typography';
 import AddD from '../../../images/big/AddD.png'
-import tele from '../../../images/big/tele.png'
+import { Modal } from "react-bootstrap";
+
+import jwt_decode from 'jwt-decode';
+import axios from "axios" ; 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Container
+} from "@mui/material"
 import MedicalReport from '../../../images/big/MedicalReport.png'
 import { Link } from "react-router-dom";
 import Dialog from '@mui/material/Dialog';
@@ -21,34 +27,132 @@ import { TextField } from './TextField';
 import { TextArea } from './TextArea';
 import * as Yup from 'yup';
 import './validation.css';
+import Collapsible from "./Collapsible";
+
 
 
 const Hospitalisations = () => {
+  
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
+  const [largeModal, setLargeModal] = useState(false);
+  const [addFormData, setAddFormData] = useState({
+    motif:'',
+    duree: '',
+    heure: '',
+    commentaire: '',
+    date_debut:'',
+});
+
 
   const handleClose = () => {
     setOpen(false);
   };
+  const handleAddFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute('name');
+    const fieldValue = event.target.value;
+    const newFormData = { ...addFormData };
+    newFormData[fieldName] = fieldValue;
+    setAddFormData(newFormData);
+    console.log(newFormData)
+};     
+
+
+
+  const submit = () => {
+    const newAddFormData = { ...addFormData }
+    const fd = new FormData();
+    fd.append('motif', addFormData.motif);
+    fd.append('duree', addFormData.duree);
+    fd.append('heure', addFormData.heure);
+    fd.append('commentaire', addFormData.commentaire);
+    fd.append('date_debut', addFormData.date_debut);
+
+
+            var data = jwt_decode(localStorage.getItem('token'));
+            fd.append('username', data.username);
+
+ 
+           
+           
+            let config = {
+                headers: {
+                'Authorization': 'Bearer '+ localStorage.getItem('token')
+                }
+            };
+       
+        axios
+        .post('http://127.0.0.1:8000/api/ajout/hospitalisation', fd, config)
+        .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => console.log(error));
+    
+
+    setOpen(false);
+  };
+  const [clientes, setClientes] = useState([]);
+
+
+  
+  const clickhistorique = ()=>{
+    let config = {
+      headers: {
+      'Authorization': 'Bearer '+ localStorage.getItem('token')
+      }
+    };
+
+    const fd = new FormData();
+    var decoded = jwt_decode(localStorage.getItem('token'));
+    fd.append('username', decoded.username);
+    axios
+    .post('http://127.0.0.1:8000/api/list/hospitalisation', fd, config)
+    .then((res) => {
+      var data = [];
+      res.data.map((cliente, index) => {
+        console.log(cliente);
+        data.push({
+          specialite:cliente.motif,
+          nom:cliente.date_debut ,
+          date: cliente.duree,
+          heure: cliente.heure,
+
+      
+          endereco: [
+            {
+              diagnostic: cliente.commentaire,
+              principal: true,
+            },
+      
+          ]
+        })
+    });
+      setClientes(data);
+    }).catch((error) => console.log(error));
+    
+    setLargeModal(true)
+  }
   const validate = Yup.object({
-    Motif: Yup.string()
-      .max(15, 'Doit contenir 15 caractères ou moins')
-      .required('Obligatoire'),
-    lastName: Yup.string()
-      .max(20, 'Must be 20 characters or less')
-      .required('Required'),
+    Nomdutraitement: Yup.string()
+      .max(20, 'Doit contenir 15 caractères ou moins')
+      .required(' champ obligatoire'),
+
     email: Yup.string()
-      .email('Email is invalid')
-      .required('Email is required'),
+      .email('Email est invalide')
+      .required('Email est obligatoire'),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 charaters')
-      .required('Password is required'),
+      .min(6, 'Mot de passe doit contenir au mois 6 caractéres')
+      .required('Mot de passe est obligatoire'),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Password must match')
-      .required('Confirm password is required'),
+      .oneOf([Yup.ref('password'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
+    dates: Yup.string()
+      .oneOf([Yup.ref('dates'), null], 'Le mot de passe doit correspondre')
+      .required('confirmer mot de passe est obligatoire '),
   })
    return (
     <Box
@@ -82,26 +186,7 @@ const Hospitalisations = () => {
         <div className='mail-list mt-4'>
         
 
-        <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      height="150"
-      src={tele}
-      alt="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h7" component="div">
-      Synthèse de mon profil
-              </Typography>
-      <Typography variant="body2" color="text.secondary">
-      Je souhaite visualiser et partager la synthèse PDF 
-      de mon profil médical avec mes professionnels de santé.
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Continuer</Button>
-    </CardActions>
-  </Card>
+      
 
 
 
@@ -198,6 +283,178 @@ const Hospitalisations = () => {
                 
                 </div>
                 <hr />
+                   {/* <!-- Large modal --> */}
+                   <Button
+                              variant="primary"
+                              className="mb-2 mr-2"
+                              onClick={() => clickhistorique(true)}
+                            >
+                              Voir l'historique de votre d'une Hospitalisation Ou un acte Chirurgical
+                            </Button>
+                            <Modal
+                              className="fade bd-example-modal-lg"
+                              show={largeModal}
+                              size="lg"
+                            >
+                              <Modal.Header>
+                                <Modal.Title>Historique d'une Hospitalisation Ou un acte Chirurgical </Modal.Title>
+                                <Button
+                                  variant=""
+                                  className="close"
+                                  onClick={() => setLargeModal(false)}
+                                >
+                                  <span>&times;</span>
+                                </Button>
+                              </Modal.Header>
+                              <Modal.Body>
+                                <div className='form-group pt-3'>
+                                  <div class="d-flex justify-content-center">
+
+
+                                  </div>
+                                  <br></br>
+                                  <div class="d-flex justify-content-center">
+                                    <div className="card">
+                                      <Container>
+
+
+                                        <TableContainer className="container border mt-5 p-2">
+                                          <Table striped bordered hover>
+                                            <TableHead >
+                                              <TableRow >
+                                                <TableCell className="tableHeader">Date de début  </TableCell>
+                                                <TableCell className="tableHeader">Motif </TableCell>
+                                                <TableCell className="tableHeader">durée du séjour </TableCell>
+
+                                              </TableRow>
+                                            </TableHead>
+                                            <TableBody>
+                                              <>
+                                                {clientes.length > 0 ? (
+                                                  clientes.map((cliente, index) => (
+                                                    <>
+                                                      <Collapsible
+                                                        header={
+                                                          <>
+                                                            <TableCell className="clientRow">{cliente.nom}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.specialite}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.date} <TableRow>{"\u00A0"}</TableRow></TableCell>
+ <TableCell className="clientRow">{cliente.heure} <TableRow>{"\u00A0"}</TableRow></TableCell>
+
+                                                          </>
+                                                        }
+                                                      >
+                                                        <>
+                                                          {
+                                                            <TableRow>
+                                                              <TableCell></TableCell>
+                                                              <TableCell>
+                                                                {cliente.endereco ? (
+                                                                  cliente.endereco.map((data, indexB) => (
+                                                                    <>
+                                                                      <TableRow>
+                                                                        {data.principal ? (
+                                                                          <>
+                                                                            <strong>
+                                                                              <TableRow>
+                                                                                Commentaire
+                                                                              </TableRow>
+                                                                            </strong>
+                                                                            <TableRow>
+                                                                             {data.diagnostic}
+                                                                            </TableRow>
+                                                                            <TableRow>
+
+                                                                            </TableRow>
+                                                                          </>
+                                                                        ) : (
+                                                                          <>
+                                                                            {`\u00A0`}
+                                                                            <strong>
+
+                                                                            </strong>
+                                                                          
+
+                                                                            <TableRow>
+
+                                                                            </TableRow>
+                                                                          </>
+                                                                        )}
+                                                                      </TableRow>
+
+                                                                      <hr />
+                                                                    </>
+                                                                  ))
+                                                                ) : (
+                                                                  <>
+                                                                    {" "}
+                                                                    <TableRow> Nenhum Endereço </TableRow>
+                                                                    <hr />
+                                                                  </>
+                                                                )}
+
+                                                              </TableCell>
+
+                                                            
+                                                            </TableRow>
+                                                          }
+                                                        </>
+                                                      </Collapsible>
+                                                    </>
+                                                  ))
+                                                ) : (
+                                                  <TableRow>
+                                                    <TableCell colSpan={3}>Vide!</TableCell>
+                                                  </TableRow>
+                                                )}
+                                              </>
+                                            </TableBody>
+                                          </Table>
+                                        </TableContainer>
+                                      </Container>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                  </div>
+
+
+                                </div>
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button
+                                  variant="danger light"
+                                  onClick={() => setLargeModal(false)}
+                                >
+                                  Close
+                                </Button>
+                                <Button
+                                  variant=""
+                                  type="button"
+                                  className="btn btn-primary"
+                                >
+                                  Save changes
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
+
                
                
               
@@ -242,11 +499,9 @@ const Hospitalisations = () => {
         <DialogContent>
         <Formik
       initialValues={{
-        Motif: '',
-        lastName: '',
-        email: '',
+        motif: '',
         password: '',
-        confirmPassword: ''
+        date_debut:''
       }}
       validationSchema={validate}
       onSubmit={values => {
@@ -259,19 +514,27 @@ const Hospitalisations = () => {
             <br></br>
             <TextField 
             label="Motif" 
-            name="Motif" 
+            name="motif" 
             type="text" 
+            id=""
             style={{ width: 490 }}
+            onChange={handleAddFormChange}
+            value={addFormData.motif}  
             placeholder='Ex : Appendicite'
             />
 
 <br></br>
 
-<div >
-                 <label className='form-label'>Date de début (année obligatoire)</label>
-                 <MetarialDate style={{ width: 500 }}
-/>
-               </div>
+  <div >
+                                                <label className='form-label'>Date d'admission (année obligatoire)</label>
+                                                    <input type="datetime-local" className="form-control" autocomplete="off"
+                                                        name="date_debut" required="required"
+                                                        onChange={handleAddFormChange}
+                                                        placeholder=""
+                                                         value={addFormData.date_debut}  
+ 
+                                                    />                                               
+                                              </div>
                <br></br>
                <div >
                 <label className='form-label'>Durée du séjour ( facultatif )  </label>
@@ -280,6 +543,10 @@ const Hospitalisations = () => {
 
                <input
                         type='Number'
+                        onChange={handleAddFormChange}
+                        name="duree"
+                        id="duree"
+                         value={addFormData.duree}  
                         className='form-control'
                         placeholder='0'
                         style={{ width: 150 }}
@@ -288,20 +555,27 @@ const Hospitalisations = () => {
                       </div> 
                       <div className='col-sm-5'>
                       <select
-                                                   className="form-control"
-                                                   id="inputState"
-                                                   defaultValue="option-2"
+                                                  className="form-control"
+                                                  onChange={handleAddFormChange}
+                                                  id="heure" 
+                                                  name="heure" 
+                                                  value={addFormData.heure}
                                                  >
-                                       <option value="option-5">Heure(s)</option>
-                                       <option value="option-6">Jour(s)</option>
-                                       <option value="option-23">Semaine(s)</option>
-                                       <option value="option-24">Mois</option>
-                                                 </select></div>
+                                       <option value="1">Heure(s)</option>
+                                       <option value="2">Jour(s)</option>
+                                       <option value="3">Semaine(s)</option>
+                                       <option value="4">Mois</option>
+                                                 </select>
+                                                 </div>
                 </div> </div>
                 <br></br>
                 <TextArea
             label="Commentaire (facultatif)" 
-            name="Commentaire" 
+            name="commentaire" 
+            onChange={handleAddFormChange}
+                        
+            id="commentaire"
+             value={addFormData.commentaire}  
             type="text" 
             style={{ width: 500 }}
             placeholder="ex : 2 sachets de 1mg par jour , matin et soir aprés le repas" rows={4} />
@@ -320,7 +594,7 @@ const Hospitalisations = () => {
         </DialogContent>
         <DialogActions>
           <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
-          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
+          <button onClick={submit} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

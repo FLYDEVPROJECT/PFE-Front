@@ -2,6 +2,8 @@ import React, { Component, Fragment, useState } from "react";
 import swal from "sweetalert";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import * as Yup from 'yup';
+import { Formik} from 'formik';
 
 
 
@@ -154,8 +156,47 @@ const Wizard = () => {
       display: "none",
       overflow: "hidden"
    };
-
+   const validate = Yup.object({
+      nom: Yup.string()
+        .max(15, 'Doit contenir 15 caractères ou moins')
+        .required('Champ obligatoire *'),
+        code_postal: Yup.string()
+        .max(4, 'Doit contenir 4 caractères ou moins')
+        .required('Champ obligatoire *'),
+        num_tel: Yup.string()
+        .max(8, 'Doit contenir 8 nombres ou moins')
+        .required('Numero de télephone est  obligatoire *'),
+        prenom: Yup.string()
+        .max(20, 'Doit contenir 15 caractères ou moins')
+        .required('Champ obligatoire *'),
+        adresse: Yup.string()
+        .max(20, 'Doit contenir 15 caractères ou moins')
+        .required('Champ obligatoire *'),
+      email: Yup.string()
+        .email('Email is invalid')
+        .required('Email est obligatoire *'),
+     
+    })
    return (
+      <Formik
+      initialValues={{
+        nom: '',
+        num_tel: '',
+        prenom: '',
+        adresse: '',
+        code_postal: '',
+        email: '',
+        ville:'',
+        date_naissance:'',
+        sexe:'',
+        photo:'',
+      
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    > 
       <div>
          <div style={state.p1}>
             <div className="row">
@@ -205,25 +246,14 @@ const Wizard = () => {
                                                    />
                                                 </div>
 
-                                                <div className="col-lg-12 mb-3">
-                                                   <div className="form-group">
-                                                      <label className="text-label"><strong>Joindrez votre photo</strong></label></div>
-                                                   <input
-                                                      onChange={(e) => handle(e)}
-                                                      id="photo" value={data.photo}
-                                                      name="photo"
-                                                      className="form-control"
-                                                      required
-                                                      type="file"
-                                                      accept="image/png, image/jpeg" />
-                                                </div>
+                                                
 
                                                 <div className="col-lg-12 mb-3">
                                                    <div className="form-group">
                                                       <label className="text-label"><strong>Sexe *</strong></label>
                                                       <br></br>
                                                       <input type="radio" value="Male" onChange={(e) => handle(e)}
-                                                         id="sexe" /> Homme
+                                                         id="sexe"  /> Homme
                                                       <input type="radio" value="Female" onChange={(e) => handle(e)}
                                                          id="sexe" /> Femme
                                                    </div>
@@ -321,9 +351,9 @@ const Wizard = () => {
                                                 <div className="col-lg-12 mb-3">
                                                    <div className="form-group">
                                                       <label className="text-label"><strong>Code Postal *</strong></label>
-                                                      <input
+                                                      <input 
+                                                         type="text"
                                                          placeholder="3000"
-                                                         required
                                                          name="code_postal"
                                                          onChange={(e) => handle(e)}
                                                          id="code_postal" value={data.code_postal}
@@ -527,6 +557,7 @@ const Wizard = () => {
          </div>
 
       </div>
+      </Formik>
 
    );
 };
