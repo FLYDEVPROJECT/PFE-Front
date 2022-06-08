@@ -338,7 +338,6 @@ const DocReport = () => {
                                                         <>
                                                           {
                                                             <TableRow>
-                                                              <TableCell></TableCell>
                                                               <TableCell>
                                                                 {cliente.endereco ? (
                                                                   cliente.endereco.map((data, indexB) => (
@@ -398,7 +397,7 @@ const DocReport = () => {
                                                   ))
                                                 ) : (
                                                   <TableRow>
-                                                    <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+                                                    <TableCell colSpan={3}>Vide !</TableCell>
                                                   </TableRow>
                                                 )}
                                               </>
@@ -437,15 +436,9 @@ const DocReport = () => {
                                   variant="danger light"
                                   onClick={() => setLargeModal(false)}
                                 >
-                                  Close
+                                  Fermer
                                 </Button>
-                                <Button
-                                  variant=""
-                                  type="button"
-                                  className="btn btn-primary"
-                                >
-                                  Save changes
-                                </Button>
+                               
                               </Modal.Footer>
                             </Modal>
 

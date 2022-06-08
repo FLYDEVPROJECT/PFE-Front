@@ -201,7 +201,7 @@ const Markup = () => {
 
     /// pages
 
-    { url: 'patient/details', component: docDetails },
+    { url: 'patient/details/:id', component: docDetails },
 
   ]
 

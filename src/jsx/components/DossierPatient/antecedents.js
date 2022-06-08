@@ -39,8 +39,7 @@ const Antecedents = () => {
   const [largeModal, setLargeModal] = useState(false);
   const [addFormData, setAddFormData] = useState({
     nom:'',
-    postologie_trait: '',
-    date_trait: '',
+    lien_familial: '',
     commentaire: '',
 });
 
@@ -63,8 +62,7 @@ const Antecedents = () => {
   const submit = () => {
     const fd = new FormData();
     fd.append('nom', addFormData.nom);
-    fd.append('postologie_trait', addFormData.postologie_trait);
-    fd.append('date_trait', addFormData.date_trait);
+    fd.append('lien_familial', addFormData.lien_familial);
     fd.append('commentaire', addFormData.commentaire);
 
             var data = jwt_decode(localStorage.getItem('token'));
@@ -80,7 +78,7 @@ const Antecedents = () => {
             };
        
         axios
-        .post('http://127.0.0.1:8000/api/ajout/traitement', fd, config)
+        .post('http://127.0.0.1:8000/api/ajout/antecedent', fd, config)
         .then((res) => {
             console.log(res.data);
           })
@@ -104,15 +102,14 @@ const Antecedents = () => {
     var decoded = jwt_decode(localStorage.getItem('token'));
     fd.append('username', decoded.username);
     axios
-    .post('http://127.0.0.1:8000/api/list/traitements', fd, config)
+    .post('http://127.0.0.1:8000/api/list/antecedents', fd, config)
     .then((res) => {
       var data = [];
       res.data.map((cliente, index) => {
         console.log(cliente);
         data.push({
-          specialite:cliente.posologie_trait,
-          nom:cliente.nom ,
-          date: cliente.date_trait,
+          specialite:cliente.nom,
+          famille:cliente.lien_familial ,
       
           endereco: [
             {
@@ -280,7 +277,7 @@ const Antecedents = () => {
   <Button
                               variant="primary"
                               className="mb-2 mr-2"
-                              onClick={() => setLargeModal(true)}
+                              onClick={() => clickhistorique(true)}
                             >
                               Voir l'historique des antécedents
                             </Button>
@@ -327,8 +324,8 @@ const Antecedents = () => {
                                                       <Collapsible
                                                         header={
                                                           <>
-                                                            <TableCell className="clientRow">{cliente.Nommaladie}</TableCell>
-                                                            <TableCell className="clientRow">{cliente.lienfam}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.specialite}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.famille}</TableCell>
                               
 
                                                           </>
@@ -403,7 +400,7 @@ const Antecedents = () => {
                                                                 ) : (
                                                                   <>
                                                                     {" "}
-                                                                    <TableRow><strong> médicament </strong></TableRow>
+                                                               
                                                                     <hr />
                                                                   </>
                                                                 )}
@@ -418,7 +415,7 @@ const Antecedents = () => {
                                                   ))
                                                 ) : (
                                                   <TableRow>
-                                                    <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+                                                    <TableCell colSpan={3}>Vide!</TableCell>
                                                   </TableRow>
                                                 )}
                                               </>
@@ -528,25 +525,28 @@ const Antecedents = () => {
 
             <TextField 
             label="Nom de la maladie" 
-            name="Nomdelamaladie" 
+            name="nom" 
             type="text"
             onChange={handleAddFormChange}
             placeholder='Ex : Diabéte type 1'
+            value={addFormData.nom}  
             style={{ width: 500 }} />
 
 <br></br> 
                 <label className='form-label'> Lien familial  </label>
                 <select
                                                    className="form-control"
-                                                   id="inputState"
-                                                   defaultValue="option-2"
+                                                   id="lien_familial"
+                                                   defaultValue="mére"
                                                    onChange={handleAddFormChange}
+                                                   name="lien_familial"
+                                                   value={addFormData.lien_familial}
                                                  >
-                                       <option value="option-5">Mére</option>
-                                       <option value="option-6">Pére</option>
-                                       <option value="option-23">Enfant</option>
-                                       <option value="option-24">Partenaire</option>
-                                       <option value="option-24">Autre</option>
+                                       <option value="mére">Mére</option>
+                                       <option value="pere">Pére</option>
+                                       <option value="enfant">Enfant</option>
+                                       <option value="partenaire">Partenaire</option>
+                                       <option value="autre">Autre</option>
 
                                                  </select>
                                                  <br></br>
@@ -554,9 +554,10 @@ const Antecedents = () => {
                 <label className='form-label'>Commentaire (facultatif)</label>
                 <textarea rows={3} 
                 className="form-control" 
-                name="comment" 
-                placeholder="Informations complémentaires (Diagnostic , sévérité , dates , traitement ...)" defaultValue={""}/>
-                  onChange={handleAddFormChange}
+                name="commentaire" 
+                placeholder="Informations complémentaires (Diagnostic , sévérité , dates , traitement ...)" defaultValue={""}
+                onChange={handleAddFormChange}
+                value={addFormData.commentaire}   />
                 </div>    
 
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import * as Yup from 'yup';
 import { Formik} from 'formik';
+import { change } from "redux-form";
 
 
 
@@ -110,8 +111,17 @@ const Wizard = () => {
       const newdata = { ...data }
       newdata[e.target.id] = e.target.value
       setData(newdata)
+      console.log(newdata)
+
    }
 
+   const changefile =(e)=>{
+      const newdata = { ...data }
+      newdata["photo"] = e.target.files[0];
+      setData(newdata)
+      console.log(e.target.files[0])
+      console.log(newdata)
+   }
    const registre = (e) => {
       const newdata = { ...data }
       const fd = new FormData();
@@ -129,7 +139,8 @@ const Wizard = () => {
       fd.append('statut_sociale', newdata.statut_sociale);
       fd.append('code_securite_sociale', newdata.code_securite_sociale);
       fd.append('profession', newdata.profession);
-      
+      fd.append('photo', newdata.photo);
+
 
      axios
      .post('http://127.0.0.1:8000/api/registre/patient', fd)
@@ -245,7 +256,10 @@ const Wizard = () => {
                                                       required
                                                    />
                                                 </div>
-
+                                                <div> 
+                <input type="file" name="photo" onChange={changefile} /> 
+               
+            </div> 
                                                 
 
                                                 <div className="col-lg-12 mb-3">

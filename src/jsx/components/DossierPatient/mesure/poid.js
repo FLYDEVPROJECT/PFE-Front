@@ -147,7 +147,6 @@ const Poid = () => {
         setEditModal(false);    
     }
     
-	//For Image upload in ListBlog
    
    return (
     <Box
@@ -312,10 +311,13 @@ const Poid = () => {
                                             <div className="form-group mb-3">
 												<label className="text-black font-w500">Valeur </label>
 												<div className="contact-name">
-													<input type="text"  className="form-control"  autocomplete="off"
-														name="Date_Join" required="required"
-                                                        onChange={handleAddFormChange}
-														placeholder="KG"
+													<input type="text"  
+                                                    className="form-control"  
+                                                    autocomplete="off"
+												    name="Date_Join" 
+                                                    required="required"
+                                                    onChange={handleAddFormChange}
+													placeholder="KG"
 													/>
 													<span className="validation-text"></span>
 												</div>
@@ -323,7 +325,8 @@ const Poid = () => {
                                             <div className="form-group mb-3">
 												<label className="text-black font-w500">Date et heure </label>
 												<div className="contact-occupation">
-													<input type="datetime-local"   autocomplete="off"
+													<input type="datetime-local"   
+                                                    autocomplete="off"
                                                         onChange={handleAddFormChange}
 														name="Cust_Name" required="required"
 														className="form-control"  

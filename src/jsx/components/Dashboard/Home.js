@@ -22,6 +22,8 @@ import {Table } from "@mui/material";
  import {
    Dropdown,
  } from "react-bootstrap";
+ import axios from 'axios';
+import jwt_decode from "jwt-decode";
  import avatar3 from "../../../images/avatar/1.jpg";
 
 /// Scroll
@@ -30,7 +32,30 @@ const Home = () => {
 
    const [open, setOpen] = React.useState(false);
      const [largeModal, setLargeModal] = useState(false);
-
+     const [nom, setNom] = useState('');
+     const [prenom, setPrenom] = useState('');
+     const [photo, setphoto] = useState('');
+     useEffect(async () => {
+      var token = localStorage.getItem('token');
+      var decoded = jwt_decode(token);
+      const fd = new FormData();
+      fd.append('username',decoded.username)
+      let config = {
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        };
+      await axios.post('http://127.0.0.1:8000/api/profile/patient', fd, config)
+          .then((res) => {
+            console.log(res.data);
+           
+   
+            setphoto(res.data.user.photo)
+            setNom(res.data.user.nom)
+            setPrenom(res.data.user.prenom)
+   
+          })
+      });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -55,15 +80,15 @@ const Home = () => {
          <div className="form-head d-flex mb-3 mb-md-4 align-items-start">
          <Stack direction="row" spacing={2}>
    
-   <Avatar
-     alt="Remy Sharp"
-     src={doctors10}
+         <Avatar
+    src={'http://localhost:8000/uploads/images/'+ photo}
      sx={{ width: 56, height: 56 }}
    />
+
  </Stack>
             <div className="mr-auto d-none d-lg-block">
-               <h3 className="text-black font-w600"> Mr User  ! </h3>
-               <h6><strong>Bienvenue </strong> HC vous permet de conserver et partager vos données et documents de santé en toute confidentialité.</h6>
+               <h3 className="text-black font-w600"><strong>Bienvenue</strong>    {nom}  {prenom} ! </h3>
+               <h6>HC vous permet de conserver et partager vos données et documents de santé en toute confidentialité.</h6>
             </div>
          </div>
         <br></br>

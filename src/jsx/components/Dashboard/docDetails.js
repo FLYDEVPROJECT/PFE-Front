@@ -1,16 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import swal from "sweetalert" ;
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import swal from "sweetalert";
 import avater02 from "../../../images/avatar/2.jpg";
-
+import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
 import map from "../../../images/svg/map.svg";
+import jwt_decode from 'jwt-decode';
 
+const DocDetailss = () => {
+   let { id } = useParams();
+   const [profile, setProfile] = React.useState();
+   useEffect(() => {
+      let config = {
+         headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+         }
+      };
+      const fd = new FormData();
+      fd.append('id', id);
 
-const docDetailss = () => {
+      axios
+         .post('http://127.0.0.1:8000/api/profile/docteur', fd, config)
+         .then((res) => {
+            console.log(res.data);
+            setProfile(res.data);
+         }).catch((error) => console.log(error));
+
+   }, []);
+
    function SampleNextArrow(props) {
       const { onClick } = props;
       return (
@@ -33,7 +51,7 @@ const docDetailss = () => {
       );
    }
 
-  
+
 
    return (
       <>
@@ -41,9 +59,9 @@ const docDetailss = () => {
          <div className="row">
             <div className="col-xl-3 col-lg-4 col-xxl-4">
                <div className="card">
-                
+
                   <div className="card-body pt-4">
-                  <div className="media d-sm-flex text-sm-left d-block text-center">
+                     <div className="media d-sm-flex text-sm-left d-block text-center">
 
                         <img
                            alt=""
@@ -53,53 +71,73 @@ const docDetailss = () => {
                         />
                         <div className="media-body">
                            <h3 className="fs-22 text-black font-w600">
-                              Dr. Maroua BEN SALEM
+                              Dr    {profile ? profile.user.nom : <></>} {profile ? profile.user.prenom : <></>}
                            </h3><br></br>
-                           <p className="text-primary">Médecin Esthétique</p>
+                           <p className="text-primary"> {profile ? profile.sepicialite : <></>}</p>
                            <div className="social-media mb-sm-0 mb-3 justify-content-sm-start justify-content-center">
                               <Link to="/patient-details">
                                  <i className="lab la-twitter" />
                               </Link>
                            </div>
                         </div>
-                      
+
                      </div>
                   </div>
                   <button
-                              onClick={() =>
-                                 swal({
-                                    title: "Vous étes sur !",
-                                    text:
-                                       "que Dr X avoir l'accés de consulter votre dossier medical ?",
-                                    icon: "warning",
-                                    buttons: true,
-                                    dangerMode: true,
-                                 }).then((willDelete) => {
-                                    if (willDelete) {
-                                       swal(
-                                          "Félicitations Dr X est ajouté a votre liste avec succés",
-                                          {
-                                             icon: "success",
-                                          }
-                                       );
-                                    } else {
-                                       swal("Dr X ne peut pas consulter votre compte");
-                                    }
+                     onClick={() =>
+                        swal({
+                           title: "Vous étes sur !",
+                           text:
+                              "que ce docteur avoir l'accés de consulter votre dossier medical ?",
+                           icon: "warning",
+                           buttons: true,
+                           dangerMode: true,
+                        }).then((willDelete) => {
+                           if (willDelete) {
+                              const fd = new FormData();
+                              var data = jwt_decode(localStorage.getItem('token'));
+                              fd.append('username', data.username);
+                              fd.append('id_docteur', id);
+
+
+
+                              let config = {
+                                 headers: {
+                                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                                 }
+                              };
+
+                              axios
+                                 .post('http://127.0.0.1:8000/api/new/access?docteur_id=' + id + '&username=' + data.username, fd, config)
+                                 .then((res) => {
+                                    console.log(res.data);
                                  })
-                              }
-                              className="btn btn-warning btn sweet-confirm"
-                           >
-                              Demande Accés
-                           </button>
+                                 .catch((error) => console.log(error));
+
+                              swal(
+                                 "Félicitations la demande d'accés est envoyé avec succée",
+                                 {
+                                    icon: "success",
+                                 }
+                              );
+                           } else {
+                              swal("Dr X ne peut pas consulter votre compte");
+                           }
+                        })
+                     }
+                     className="btn btn-warning btn sweet-confirm"
+                  >
+                     Demande Accés
+                  </button>
                   <button type="button" class="mr-10 btn btn-outline-light">Bloquer </button>
                </div>
-               
+
             </div>
             <div className="col-xl-6 col-xxl-8 col-lg-8">
                <div className="card">
                   <div className="card-body">
-                   
-                  <div className="row">
+
+                     <div className="row">
                         <div className="col-lg-6 mb-3">
                            <div className="media">
                               <span className="p-3 border border-primary-light rounded-circle mr-3">
@@ -140,11 +178,11 @@ const docDetailss = () => {
                               </span>
                               <div className="media-body">
                                  <span className="d-block text-light mb-2">
-                                    Addresse
+                                    Addresse de l'etablissement
                                  </span>
                                  <p className="fs-18 text-dark">
-                                    Avenue habib borguiba 47 salema478,{" "}
-                                    <strong>TUNIS 94107</strong>
+                                    {profile ? profile.adresse_etab : <></>}{" "}
+                                    <strong>TUNISIE</strong>
                                  </p>
                               </div>
                            </div>
@@ -153,9 +191,9 @@ const docDetailss = () => {
                            <div className="map-bx mb-3">
                               <img src={map} alt="" />
                               <a class="btn btn-primary light px-3 mr-1" data-toggle="modal" data-target="#cameraModal" href="https://www.google.tn/maps/dir/A%C3%A9roport+Tunis-Carthage,+Tunis/M%C3%A9hari+Hammamet,+Yasmine+Hammamet/@36.606756,10.0988658,10z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x12e2cad2e1d7f1bb:0x902488d100b5819b!2m2!1d10.2175601!2d36.8475562!1m5!1m1!1s0x12fd6392f2b26221:0xe9cf290510e9a7c3!2m2!1d10.5346542!2d36.3632716!3e0?hl=fr">voir<i class="bi bi-geo-alt-fill"></i>
- </a>
+                              </a>
 
-                            
+
                            </div>
                         </div>
                         <div className="col-lg-6 mb-lg-0 mb-3">
@@ -179,10 +217,10 @@ const docDetailss = () => {
                               </span>
                               <div className="media-body">
                                  <span className="d-block text-light mb-2">
-                                    télephone
+                                    télephone de l'établissement
                                  </span>
                                  <p className="fs-18 text-dark font-w600 mb-0">
-                                    +216 53 478 952
+                                    {profile ? profile.nom_etab : <></>}
                                  </p>
                               </div>
                            </div>
@@ -215,10 +253,10 @@ const docDetailss = () => {
                               </span>
                               <div className="media-body">
                                  <span className="d-block text-light mb-2">
-                                    Email
+                                    Email de l'établissement
                                  </span>
                                  <p className="fs-18 text-dark font-w600 mb-0">
-                                    Maroua.bensalem@<p>gmail.com</p>
+                                    {profile ? profile.email_etab : <></>}
                                  </p>
                               </div>
                            </div>
@@ -226,68 +264,17 @@ const docDetailss = () => {
                      </div>
                   </div>
                </div></div></div>
-               <div className="col-xl-3 col-xxl-12">
-               <div className="card abilities-chart">
-                  <div className="card-header border-1 pb-0">
-                     <h4 className="fs-20 font-w600">Présentation</h4>
-                  </div>
-                  <div className="card-header border-0 pb-0">
-                     <h6 >Spécialités</h6>
-                  </div>
-                  <div class="container">
-    <div class="col">  <button type="button" class="btn btn-outline-primary btn-xs">
-Médecin Esthétique</button>  </div>
-
-  </div>
-  <div className="card-header border-0 pb-0" >
-                     <h6 style={{color: "black"}}>Qualification professionnelle</h6>
-                     
-                  </div>
-                  <div class="container">
-    <div class="col">Diplômée de l'Université de Versailles Saint-Quentin en Dermatologie et Laser Esthétique</div>
-
-  </div>
-  <div className="card-header border-0 pb-0">
-                     <h6 >Langues parlées</h6>
-                     
-                  </div>
-                  <div class="container">
-    <div class="col">  <button type="button" class="btn btn-outline-primary btn-xs">
-Médecin Esthétique</button>  </div>
-
-  </div>
-
-                  <div className="card-body">
-                     <div className="d-flex justify-content-center">
-                     
-                     </div>
-                     <div className="chart-point">
-                        <div>
-                           <span className="a" />
-                           <span className="text-ov px-1 fs-15">Operation</span>
-                        </div>
-                        <div>
-                           <span className="b" />
-                           <span className="text-ov px-1 fs-15">Theraphy</span>
-                        </div>
-                        <div>
-                           <span className="c" />
-                           <span className="text-ov px-1 fs-15">Mediation</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
 
 
 
 
-          
 
-           
-           
+
+
+
+
       </>
    );
 };
 
-export default docDetailss;
+export default DocDetailss;

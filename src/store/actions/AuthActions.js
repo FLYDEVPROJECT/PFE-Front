@@ -4,7 +4,6 @@ import {
     saveTokenInLocalStorage,
     signUp,
 } from '../../services/AuthService';
-
 export const SIGNUP_CONFIRMED_ACTION = '[signup action] confirmed signup';
 export const SIGNUP_FAILED_ACTION = '[signup action] failed signup';
 export const LOGIN_CONFIRMED_ACTION = '[login action] confirmed login';
@@ -31,7 +30,6 @@ export function signupAction(email, password, history) {
         });
     };
 }
-
 export function logout(history) {
     localStorage.removeItem('userDetails');
     localStorage.removeItem('token');

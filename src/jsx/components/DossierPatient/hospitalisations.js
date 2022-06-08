@@ -443,15 +443,9 @@ const Hospitalisations = () => {
                                   variant="danger light"
                                   onClick={() => setLargeModal(false)}
                                 >
-                                  Close
+                                  Fermer
                                 </Button>
-                                <Button
-                                  variant=""
-                                  type="button"
-                                  className="btn btn-primary"
-                                >
-                                  Save changes
-                                </Button>
+                               
                               </Modal.Footer>
                             </Modal>
 

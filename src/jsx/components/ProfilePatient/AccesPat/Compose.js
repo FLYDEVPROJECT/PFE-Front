@@ -153,8 +153,8 @@ const Compose = () => {
             </div>
             <div className="col-lg-6 mb-2">
                <div className="form-group">
-                  <Link to="/Med-test" className="col-mail col-mail-8">
-                         <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Test
+                  <Link to="/patient/acces/medecine-famille" className="col-mail col-mail-8">
+                         <button type="button" class="mr-2 btn btn-facebook"style={{'width': "100%"}}> Médecine de famille
                          </button>
                          </Link>
                </div>

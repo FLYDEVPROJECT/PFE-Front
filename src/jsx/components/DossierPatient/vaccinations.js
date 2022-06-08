@@ -342,7 +342,7 @@ const Vaccinations = () => {
                                                       <Collapsible
                                                         header={
                                                           <>
-                                                            <TableCell className="clientRow">{cliente.nom}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.specialite}</TableCell>
                                                             <TableCell className="clientRow">{cliente.type} </TableCell>
                                                             <TableCell className="clientRow">{cliente.lot_vaccination} </TableCell>
                                                             <TableCell className="clientRow">{cliente.nom_vaccinateur} </TableCell>
@@ -415,7 +415,7 @@ const Vaccinations = () => {
                                                   ))
                                                 ) : (
                                                   <TableRow>
-                                                    <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+                                                    <TableCell colSpan={3}>vide !</TableCell>
                                                   </TableRow>
                                                 )}
                                               </>
@@ -454,15 +454,9 @@ const Vaccinations = () => {
                                   variant="danger light"
                                   onClick={() => setLargeModal(false)}
                                 >
-                                  Close
+                                  Fermer
                                 </Button>
-                                <Button
-                                  variant=""
-                                  type="button"
-                                  className="btn btn-primary"
-                                >
-                                  Save changes
-                                </Button>
+                               
                               </Modal.Footer>
                             </Modal>
                

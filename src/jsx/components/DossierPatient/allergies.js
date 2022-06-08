@@ -19,8 +19,8 @@ import { Formik, Form } from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
 import './validation.css';
-import fakedataallergie from "./fakedataallergie";
 import { Modal } from "react-bootstrap";
+import jwt_decode from 'jwt-decode';
 import {
   Table,
   TableBody,
@@ -30,6 +30,7 @@ import {
   TableRow,
   Container} from "@mui/material" ; 
 import Collapsible from "./Collapsible";
+import axios from "axios" ; 
 
 
 
@@ -40,17 +41,92 @@ const Allergies = () => {
     setOpen(true);
   };
   const [largeModal, setLargeModal] = useState(false);
+  const [addFormData, setAddFormData] = useState({
+    nom:'',
+    commentaire: '',
+});
 
 
   const handleClose = () => {
     setOpen(false);
   };
+  const handleAddFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute('name');
+    const fieldValue = event.target.value;
+    const newFormData = { ...addFormData };
+    newFormData[fieldName] = fieldValue;
+    setAddFormData(newFormData);
+    console.log(newFormData)
+};     
+
+
+
+  const submit = () => {
+    const fd = new FormData();
+    fd.append('nom', addFormData.nom);
+    fd.append('commentaire', addFormData.commentaire);
+
+            var data = jwt_decode(localStorage.getItem('token'));
+            fd.append('username', data.username);
+
+ 
+           
+           
+            let config = {
+                headers: {
+                'Authorization': 'Bearer '+ localStorage.getItem('token')
+                }
+            };
+       
+        axios
+        .post('http://127.0.0.1:8000/api/ajout/allergie', fd, config)
+        .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => console.log(error));
+    
+
+    setOpen(false);
+  };
   const [clientes, setClientes] = useState([]);
 
-  useEffect(() => {
-    setClientes(fakedataallergie);
-  }, []);
 
+  
+  const clickhistorique = ()=>{
+    let config = {
+      headers: {
+      'Authorization': 'Bearer '+ localStorage.getItem('token')
+      }
+    };
+
+    const fd = new FormData();
+    var decoded = jwt_decode(localStorage.getItem('token'));
+    fd.append('username', decoded.username);
+
+    axios
+    .post('http://127.0.0.1:8000/api/list/allergies', fd, config)
+    .then((res) => {
+      var data = [];
+      res.data.map((cliente, index) => {
+        console.log(cliente);
+        data.push({
+          specialite:cliente.nom ,
+      
+          endereco: [
+            {
+              diagnostic: cliente.commentaire,
+              principal: true,
+            },
+      
+          ]
+        })
+    });
+      setClientes(data);
+    }).catch((error) => console.log(error));
+    
+    setLargeModal(true)
+  }
   const validate = Yup.object({
     Nomdutraitement: Yup.string()
       .max(20, 'Doit contenir 15 caractères ou moins')
@@ -100,15 +176,7 @@ const Allergies = () => {
                     />
                                       <hr />
 
-        <div className='mail-list mt-4'>
-        
-
        
-
-
-
-
-        </div>
         <br></br>
         <Link
                 to="/dossier-medical/traitement"
@@ -205,7 +273,7 @@ const Allergies = () => {
  <Button
                               variant="primary"
                               className="mb-2 mr-2"
-                              onClick={() => setLargeModal(true)}
+                              onClick={() => clickhistorique()}
                             >
                               Voir l'historique des allergie
                             </Button>
@@ -251,7 +319,7 @@ const Allergies = () => {
                                                       <Collapsible
                                                         header={
                                                           <>
-                                                            <TableCell className="clientRow">{cliente.Nomallergie}</TableCell>
+                                                            <TableCell className="clientRow">{cliente.specialite}</TableCell>
                               
 
                                                           </>
@@ -260,7 +328,6 @@ const Allergies = () => {
                                                         <>
                                                           {
                                                             <TableRow>
-                                                              <TableCell></TableCell>
                                                               <TableCell>
                                                                 {cliente.endereco ? (
                                                                   cliente.endereco.map((data, indexB) => (
@@ -273,10 +340,7 @@ const Allergies = () => {
                                                                                 Commentaire
                                                                               </TableRow>
                                                                             </strong>
-                                                                            <TableRow>
-                                                                              {data.diagnostic} - {data.cidade} -{" "}
-                                                                              {data.estado}
-                                                                            </TableRow>
+                                                                           
                                                                             <TableRow>
 
                                                                             </TableRow>
@@ -312,27 +376,7 @@ const Allergies = () => {
 
                                                               </TableCell>
 
-                                                              <TableCell>
-                                                                {cliente.medicament ? (
-                                                                  cliente.medicament.map((data, indexC) => (
-                                                                    <>
-
-                                                                      <TableRow>
-
-                                                                      </TableRow>
-
-                                                                    </>
-                                                                  ))
-                                                                ) : (
-                                                                  <>
-                                                                    {" "}
-                                                                    <TableRow><strong> médicament </strong></TableRow>
-                                                                    <hr />
-                                                                  </>
-                                                                )}
-
-
-                                                              </TableCell>
+                                                            
                                                             </TableRow>
                                                           }
                                                         </>
@@ -341,7 +385,7 @@ const Allergies = () => {
                                                   ))
                                                 ) : (
                                                   <TableRow>
-                                                    <TableCell colSpan={3}>Nenhum usuário cadastrado!</TableCell>
+                                                    <TableCell colSpan={3}>Vide   !</TableCell>
                                                   </TableRow>
                                                 )}
                                               </>
@@ -380,15 +424,9 @@ const Allergies = () => {
                                   variant="danger light"
                                   onClick={() => setLargeModal(false)}
                                 >
-                                  Close
+                                  Fermer
                                 </Button>
-                                <Button
-                                  variant=""
-                                  type="button"
-                                  className="btn btn-primary"
-                                >
-                                  Save changes
-                                </Button>
+                              
                               </Modal.Footer>
                             </Modal>                
                
@@ -435,9 +473,6 @@ const Allergies = () => {
       initialValues={{
         allergieName: '',
         lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
       }}
       validationSchema={validate}
       onSubmit={values => {
@@ -448,12 +483,20 @@ const Allergies = () => {
         <div>
           <Form>
             <br></br>
-            <TextField label="Nom de l'allergéne" name="allergieName" type="text"   placeholder='Ex : Pénicilline '
-                        style={{ width: 500 }} />
+            <TextField label="Nom de l'allergéne" 
+            name="nom" 
+            type="text"   
+            placeholder='Ex : Pénicilline '
+            onChange={handleAddFormChange}
+            style={{ width: 500 }}
+              />
 
             <div >
                 <label className='form-label'>Commentaire (facultatif)</label>
-                <textarea rows={3} className="form-control" name="comment" 
+                <textarea rows={3} 
+                className="form-control" 
+                name="commentaire" 
+                onChange={handleAddFormChange}
                 placeholder="Informations complémentaires ( Ex : date de début de l'allergie , épisode allergique , réactions , intolérance  ..)" defaultValue={""}/>
                 </div>    
 
@@ -467,7 +510,7 @@ const Allergies = () => {
         </DialogContent>
         <DialogActions>
         <button onClick={handleClose} className="btn btn-danger mt-3 ml-3" >annuler</button>
-          <button onClick={handleClose} className="btn btn-dark mt-3">Valider</button>
+          <button onClick={submit} className="btn btn-dark mt-3">Valider</button>
         </DialogActions>
       </Dialog>
       </div>

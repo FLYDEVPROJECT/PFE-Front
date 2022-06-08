@@ -207,6 +207,8 @@ function ProfilePat() {
     fd.append('code_postal', editFormData.code_postal);
     fd.append('email', editFormData.email);
     fd.append('ville', editFormData.ville);
+    fd.append('photo', editFormData.photo);
+
     let config = {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -222,6 +224,7 @@ function ProfilePat() {
       code_postal: editFormData.code_postal,
       adresse: editFormData.adresse,
       ville: editFormData.ville,
+      photo: editFormData.photo,
 
      
  
@@ -263,10 +266,8 @@ function ProfilePat() {
                 </div>
                 <div className="profile-details">
                   <div className="profile-name px-3 pt-2">
-                    <h4 className="text-primary mb-0">Profile de mr/mme  {nom} {prenom} </h4>
+                    <h4 className="text-primary mb-0">Profile de  {nom} {prenom} </h4>
                   </div>
-
-
                 </div>
               </div>
             </div>
