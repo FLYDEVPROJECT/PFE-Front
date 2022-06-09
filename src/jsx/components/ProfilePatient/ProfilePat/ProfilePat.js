@@ -53,6 +53,7 @@ function ProfilePat() {
         setTel(res.data.user.num_tel)
         setPrenom(res.data.user.prenom)
         setEmail(res.data.email)
+        
 
       })
   });
@@ -531,6 +532,7 @@ function ProfilePat() {
                                                type='email'
                                                className='form-control'
                                                name="email"
+                                               
                                                 onChange={handleEditFormChange}
                                                 value={editFormData.email}
 
@@ -542,6 +544,7 @@ function ProfilePat() {
                                           <label className='col-sm-3 col-form-label'>Numéro de telephone</label>
                                           <div className='col-sm-9'>
                                             <input
+                                              value={editFormData.num_tel}
                                               type="text"
                                               name="num_tel"
                                               onChange={handleEditFormChange}
@@ -562,9 +565,10 @@ function ProfilePat() {
                                               <small className="text-danger">{errors.phone.message}</small>
                                             )}
                                           </div>
-&                                        </div>  <div className='form-group row'>
+                                         </div>  <div className='form-group row'>
                                           <label className='col-sm-3 col-form-label'>Nombre d'enfants</label>
                                           <div className='col-sm-9'>
+                          
                                             <input
                                               type='number'
                                               name="nbr_enfant"
