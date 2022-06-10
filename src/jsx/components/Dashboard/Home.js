@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
-import doctors10 from "../../../images/doctors/10.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Row, Col, Card } from 'react-bootstrap'
 import Box from '@mui/material/Box';
@@ -35,7 +34,6 @@ const Home = () => {
      const [nom, setNom] = useState('');
      const [prenom, setPrenom] = useState('');
      const [photo, setphoto] = useState('');
-     const [doctor, setdoctor] = useState('');
      useEffect(async () => {
       var token = localStorage.getItem('token');
       var decoded = jwt_decode(token);
@@ -57,43 +55,7 @@ const Home = () => {
    
           })
       });
-      const clickhistorique = ()=>{
-         let config = {
-           headers: {
-           'Authorization': 'Bearer '+ localStorage.getItem('token')
-           }
-         };
-     
-         const fd = new FormData();
-         var decoded = jwt_decode(localStorage.getItem('token'));
-         fd.append('username', decoded.username);
-         axios
-         .post('http://127.0.0.1:8000/api/list/docteurs-k',fd, config)
-         .then((res) => {
-           var data = [];
-           res.data.map((cliente, index) => {
-             console.log(cliente);
-             data.push({
-               specialite:cliente.motif,
-               nom:cliente.date_debut ,
-               date: cliente.duree,
-               heure: cliente.heure,
-     
-           
-               endereco: [
-                 {
-                   diagnostic: cliente.commentaire,
-                   principal: true,
-                 },
-           
-               ]
-             })
-         });
-           setClientes(data);
-         }).catch((error) => console.log(error));
-         
-         setLargeModal(true)
-       }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -298,7 +260,7 @@ const Home = () => {
       <Button
                            variant="primary"
                            className="mb-2 mr-2"
-                           onClick={() => clickhistorique(true)}
+                           onClick={() => setLargeModal(true)}
                         >
                            Voir les medecins 
                         </Button>
@@ -349,7 +311,80 @@ const Home = () => {
                  </tr>
                </thead>
                <tbody>
-             
+                 <tr>
+                   <td>
+                     <strong>01</strong>
+                   </td>
+                   <td>
+                     <div className="d-flex align-items-center">
+                       <img
+                         src={avatar3}
+                         className="rounded-lg mr-2"
+                         width="24"
+                         alt=""
+                       />{" "}
+                       <span className="w-space-no">Jackson</span>
+                     </div>
+                   </td>
+                   <td>Jackson</td>
+                   <td>01 August 2020</td>
+                   <td>
+                   Pneumologue 
+                   </td>
+                   
+                   <td>
+                     <Dropdown>
+                     
+                           <Link
+                           href="#"
+                           className="btn btn-danger shadow btn-xs sharp"
+                         >
+                           <i className="fa fa-check"></i>
+                         </Link>
+                       
+                      
+                    
+                     </Dropdown>
+                     <br></br>
+
+                   </td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <strong>02</strong>
+                   </td>
+                   <td>
+                     <div className="d-flex align-items-center">
+                       <img
+                         src={avatar3}
+                         className="rounded-lg mr-2"
+                         width="24"
+                         alt=""
+                       />{" "}
+                       <span className="w-space-no"> Jackson</span>
+                     </div>
+                   </td>
+                   <td> Jackson</td>
+                   <td>01 August 2020</td>
+                   <td>
+                     Cardiologue 
+                   </td>
+                   <td>
+                     <Dropdown>
+                     <Link
+                           href="#"
+                           className="btn btn-danger shadow btn-xs sharp"
+                         >
+                           <i className="fa fa-check"></i>
+                         </Link>
+                     
+                     </Dropdown>
+                     <br></br>
+
+                   </td>
+                 
+                   
+                 </tr>
                  <tr>
                    <td>
                      <strong>03</strong>
