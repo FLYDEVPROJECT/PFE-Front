@@ -87,7 +87,7 @@
     "react-toggle-button": "^2.2.0",
     "react-toggles": "^0.1.4",
     "reactstrap": "^8.9.0",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.14",
     "redux-form": "^8.3.7",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
